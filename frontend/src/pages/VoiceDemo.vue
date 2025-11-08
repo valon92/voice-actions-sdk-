@@ -229,18 +229,12 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 
-// Import SDK - try different paths
-let VoiceActionsSDK
-try {
-  // Try importing from SDK source
-  VoiceActionsSDK = (await import('../../../sdk/src/index.js')).default
-} catch (e) {
-  try {
-    // Try from window if loaded via script tag
-    VoiceActionsSDK = window.VoiceActionsSDK
-  } catch (e2) {
-    console.error('SDK not found', e, e2)
-  }
+// Import SDK - use static import if possible, or load from window
+let VoiceActionsSDK = null
+
+// Try to get SDK from window first (if loaded via script tag)
+if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
+  VoiceActionsSDK = window.VoiceActionsSDK
 }
 
 const isListening = ref(false)
