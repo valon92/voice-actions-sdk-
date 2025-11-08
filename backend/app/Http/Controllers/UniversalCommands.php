@@ -2548,6 +2548,228 @@ class UniversalCommands
                 'description' => 'Optimize system',
                 'category' => 'tech-common'
             ],
+
+            // ============================================
+            // EDUCATION: STUDENT ACTIONS
+            // ============================================
+            [
+                'id' => 'watch-lecture',
+                'phrases' => $getPhrases('watch-lecture'),
+                'action' => 'watch-lecture',
+                'description' => 'Watch lecture video',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'download-materials',
+                'phrases' => $getPhrases('download-materials'),
+                'action' => 'download-materials',
+                'description' => 'Download course materials',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'read-chapter',
+                'phrases' => $getPhrases('read-chapter'),
+                'action' => 'read-chapter',
+                'description' => 'Read chapter or module',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'enroll-course',
+                'phrases' => $getPhrases('enroll-course'),
+                'action' => 'enroll-course',
+                'description' => 'Enroll in course',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'resume-course',
+                'phrases' => $getPhrases('resume-course'),
+                'action' => 'resume-course',
+                'description' => 'Resume course',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'view-course-info',
+                'phrases' => $getPhrases('view-course-info'),
+                'action' => 'view-course-info',
+                'description' => 'View course information',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'take-quiz',
+                'phrases' => $getPhrases('take-quiz'),
+                'action' => 'take-quiz',
+                'description' => 'Take quiz or test',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'submit-assignment',
+                'phrases' => $getPhrases('submit-assignment'),
+                'action' => 'submit-assignment',
+                'description' => 'Submit assignment',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'view-grades',
+                'phrases' => $getPhrases('view-grades'),
+                'action' => 'view-grades',
+                'description' => 'View grades and progress',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'contact-instructor',
+                'phrases' => $getPhrases('contact-instructor'),
+                'action' => 'contact-instructor',
+                'description' => 'Contact instructor',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'ask-question',
+                'phrases' => $getPhrases('ask-question'),
+                'action' => 'ask-question',
+                'description' => 'Ask question in forum',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'join-discussion',
+                'phrases' => $getPhrases('join-discussion'),
+                'action' => 'join-discussion',
+                'description' => 'Join discussion board',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'download-certificate',
+                'phrases' => $getPhrases('download-certificate'),
+                'action' => 'download-certificate',
+                'description' => 'Download certificate',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'view-portfolio',
+                'phrases' => $getPhrases('view-portfolio'),
+                'action' => 'view-portfolio',
+                'description' => 'View learning portfolio',
+                'category' => 'education-student'
+            ],
+            [
+                'id' => 'view-progress',
+                'phrases' => $getPhrases('view-progress'),
+                'action' => 'view-progress',
+                'description' => 'View learning progress',
+                'category' => 'education-student'
+            ],
+
+            // ============================================
+            // EDUCATION: INSTRUCTOR ACTIONS
+            // ============================================
+            [
+                'id' => 'create-course',
+                'phrases' => $getPhrases('create-course'),
+                'action' => 'create-course',
+                'description' => 'Create new course',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'upload-content',
+                'phrases' => $getPhrases('upload-content'),
+                'action' => 'upload-content',
+                'description' => 'Upload course content',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'set-course-price',
+                'phrases' => $getPhrases('set-course-price'),
+                'action' => 'set-course-price',
+                'description' => 'Set course price',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'invite-students',
+                'phrases' => $getPhrases('invite-students'),
+                'action' => 'invite-students',
+                'description' => 'Invite students to course',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'view-student-progress',
+                'phrases' => $getPhrases('view-student-progress'),
+                'action' => 'view-student-progress',
+                'description' => 'View student progress',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'grade-assignment',
+                'phrases' => $getPhrases('grade-assignment'),
+                'action' => 'grade-assignment',
+                'description' => 'Grade assignment',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'post-announcement',
+                'phrases' => $getPhrases('post-announcement'),
+                'action' => 'post-announcement',
+                'description' => 'Post announcement',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'view-analytics',
+                'phrases' => $getPhrases('view-analytics'),
+                'action' => 'view-analytics',
+                'description' => 'View course analytics',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'start-live-class',
+                'phrases' => $getPhrases('start-live-class'),
+                'action' => 'start-live-class',
+                'description' => 'Start live class',
+                'category' => 'education-instructor'
+            ],
+            [
+                'id' => 'answer-question',
+                'phrases' => $getPhrases('answer-question'),
+                'action' => 'answer-question',
+                'description' => 'Answer student question',
+                'category' => 'education-instructor'
+            ],
+
+            // ============================================
+            // EDUCATION: COMMON FEATURES
+            // ============================================
+            [
+                'id' => 'search-courses',
+                'phrases' => $getPhrases('search-courses'),
+                'action' => 'search-courses',
+                'description' => 'Search for courses',
+                'category' => 'education-common'
+            ],
+            [
+                'id' => 'view-recommendations',
+                'phrases' => $getPhrases('view-recommendations'),
+                'action' => 'view-recommendations',
+                'description' => 'View course recommendations',
+                'category' => 'education-common'
+            ],
+            [
+                'id' => 'view-course-history',
+                'phrases' => $getPhrases('view-course-history'),
+                'action' => 'view-course-history',
+                'description' => 'View course history',
+                'category' => 'education-common'
+            ],
+            [
+                'id' => 'enable-notifications',
+                'phrases' => $getPhrases('enable-notifications'),
+                'action' => 'enable-notifications',
+                'description' => 'Enable course notifications',
+                'category' => 'education-common'
+            ],
+            [
+                'id' => 'contact-support',
+                'phrases' => $getPhrases('contact-support'),
+                'action' => 'contact-support',
+                'description' => 'Contact support',
+                'category' => 'education-common'
+            ],
         ];
     }
 
@@ -2969,6 +3191,42 @@ class UniversalCommands
                 'enable-auto-update' => ['enable auto update', 'auto update', 'automatic updates'],
                 'connect-external-device' => ['connect external device', 'external device', 'usb', 'printer'],
                 'optimize-system' => ['optimize system', 'optimize', 'system optimization'],
+
+                // Education: Student Actions
+                'watch-lecture' => ['watch lecture', 'play lecture', 'view lecture', 'lecture video'],
+                'download-materials' => ['download materials', 'download course materials', 'get materials', 'download pdf'],
+                'read-chapter' => ['read chapter', 'open chapter', 'view module', 'read module'],
+                'enroll-course' => ['enroll course', 'join course', 'register course', 'enroll'],
+                'resume-course' => ['resume course', 'continue course', 'resume learning', 'continue learning'],
+                'view-course-info' => ['view course info', 'course information', 'course details', 'course description'],
+                'take-quiz' => ['take quiz', 'start quiz', 'begin test', 'take test'],
+                'submit-assignment' => ['submit assignment', 'upload assignment', 'hand in assignment', 'submit work'],
+                'view-grades' => ['view grades', 'check grades', 'my grades', 'view scores'],
+                'contact-instructor' => ['contact instructor', 'message instructor', 'email instructor', 'talk to teacher'],
+                'ask-question' => ['ask question', 'post question', 'ask in forum', 'ask'],
+                'join-discussion' => ['join discussion', 'discussion board', 'forum', 'join forum'],
+                'download-certificate' => ['download certificate', 'get certificate', 'certificate', 'course certificate'],
+                'view-portfolio' => ['view portfolio', 'my portfolio', 'learning portfolio', 'course portfolio'],
+                'view-progress' => ['view progress', 'my progress', 'learning progress', 'course progress'],
+
+                // Education: Instructor Actions
+                'create-course' => ['create course', 'new course', 'make course', 'build course'],
+                'upload-content' => ['upload content', 'add content', 'upload materials', 'add materials'],
+                'set-course-price' => ['set course price', 'course price', 'set price', 'pricing'],
+                'invite-students' => ['invite students', 'add students', 'invite to course', 'enroll students'],
+                'view-student-progress' => ['view student progress', 'student progress', 'check progress', 'student performance'],
+                'grade-assignment' => ['grade assignment', 'review assignment', 'mark assignment', 'evaluate assignment'],
+                'post-announcement' => ['post announcement', 'announcement', 'class announcement', 'post message'],
+                'view-analytics' => ['view analytics', 'course analytics', 'statistics', 'course stats'],
+                'start-live-class' => ['start live class', 'live class', 'begin live class', 'start live session'],
+                'answer-question' => ['answer question', 'reply to question', 'respond', 'answer'],
+
+                // Education: Common Features
+                'search-courses' => ['search courses', 'find courses', 'browse courses', 'look for courses'],
+                'view-recommendations' => ['view recommendations', 'recommended courses', 'suggestions', 'course recommendations'],
+                'view-course-history' => ['view course history', 'my courses', 'course history', 'completed courses'],
+                'enable-notifications' => ['enable notifications', 'notifications', 'course notifications', 'turn on notifications'],
+                'contact-support' => ['contact support', 'help', 'support', 'get help'],
             ],
             'sq' => [
                 // Navigation
@@ -3382,6 +3640,42 @@ class UniversalCommands
                 'enable-auto-update' => ['aktivizo auto update', 'auto update', 'përditësime automatike'],
                 'connect-external-device' => ['lidh pajisje të jashtme', 'pajisje e jashtme', 'usb', 'printer'],
                 'optimize-system' => ['optimizo sistem', 'optimizo', 'optimizim sistem'],
+
+                // Education: Student Actions
+                'watch-lecture' => ['shiko leksion', 'luaj leksion', 'leksion video', 'video leksion'],
+                'download-materials' => ['shkarko materiale', 'shkarko materiale kursi', 'merr materiale', 'shkarko pdf'],
+                'read-chapter' => ['lexo kapitull', 'hape kapitull', 'shiko modul', 'lexo modul'],
+                'enroll-course' => ['regjistrohu në kurs', 'hyr në kurs', 'regjistro kurs', 'enroll'],
+                'resume-course' => ['vazhdo kurs', 'rifillo kurs', 'vazhdo mësim', 'rifillo mësim'],
+                'view-course-info' => ['shiko info kurs', 'informacion kurs', 'detaje kurs', 'përshkrim kurs'],
+                'take-quiz' => ['bëj kuiz', 'fillo kuiz', 'bëj test', 'fillo test'],
+                'submit-assignment' => ['dërgo detyrë', 'ngarko detyrë', 'dorëzo detyrë', 'dërgo punë'],
+                'view-grades' => ['shiko nota', 'kontrollo nota', 'notat e mia', 'shiko pikët'],
+                'contact-instructor' => ['kontakto instruktor', 'mesazh instruktor', 'email instruktor', 'fol me mësues'],
+                'ask-question' => ['bëj pyetje', 'posto pyetje', 'pyetje në forum', 'pyetje'],
+                'join-discussion' => ['hyr në diskutim', 'diskutim', 'forum', 'hyr në forum'],
+                'download-certificate' => ['shkarko certifikatë', 'merr certifikatë', 'certifikatë', 'certifikatë kursi'],
+                'view-portfolio' => ['shiko portofol', 'portofoli im', 'portofol mësimi', 'portofol kursi'],
+                'view-progress' => ['shiko progres', 'progresi im', 'progres mësimi', 'progres kursi'],
+
+                // Education: Instructor Actions
+                'create-course' => ['krijo kurs', 'kurs i ri', 'bëj kurs', 'ndërto kurs'],
+                'upload-content' => ['ngarko përmbajtje', 'shto përmbajtje', 'ngarko materiale', 'shto materiale'],
+                'set-course-price' => ['vendos çmim kurs', 'çmim kurs', 'vendos çmim', 'pricing'],
+                'invite-students' => ['fto studentë', 'shto studentë', 'fto në kurs', 'regjistro studentë'],
+                'view-student-progress' => ['shiko progres student', 'progres student', 'kontrollo progres', 'performancë student'],
+                'grade-assignment' => ['vlerëso detyrë', 'shiko detyrë', 'shënim detyrë', 'evaluo detyrë'],
+                'post-announcement' => ['posto njoftim', 'njoftim', 'njoftim klasë', 'posto mesazh'],
+                'view-analytics' => ['shiko analitika', 'analitika kurs', 'statistika', 'statistika kurs'],
+                'start-live-class' => ['fillo klasë live', 'klasë live', 'fillo klasë', 'fillo sesion live'],
+                'answer-question' => ['përgjigju pyetjes', 'përgjigje pyetje', 'përgjigje', 'përgjigju'],
+
+                // Education: Common Features
+                'search-courses' => ['kërko kurse', 'gjej kurse', 'shfleto kurse', 'kërko për kurse'],
+                'view-recommendations' => ['shiko rekomandime', 'kurse të rekomanduara', 'sugjerime', 'rekomandime kurse'],
+                'view-course-history' => ['shiko historik kurse', 'kurse e mia', 'historik kurse', 'kurse të përfunduara'],
+                'enable-notifications' => ['aktivizo njoftime', 'njoftime', 'njoftime kurse', 'ndiz njoftime'],
+                'contact-support' => ['kontakto mbështetje', 'ndihmë', 'support', 'merr ndihmë'],
             ],
             'es' => [
                 // Navigation
@@ -3795,6 +4089,42 @@ class UniversalCommands
                 'enable-auto-update' => ['activar actualización automática', 'auto actualización', 'actualizaciones automáticas'],
                 'connect-external-device' => ['conectar dispositivo externo', 'dispositivo externo', 'usb', 'impresora'],
                 'optimize-system' => ['optimizar sistema', 'optimizar', 'optimización del sistema'],
+
+                // Education: Student Actions
+                'watch-lecture' => ['ver lección', 'reproducir lección', 'ver video lección', 'lección video'],
+                'download-materials' => ['descargar materiales', 'descargar materiales del curso', 'obtener materiales', 'descargar pdf'],
+                'read-chapter' => ['leer capítulo', 'abrir capítulo', 'ver módulo', 'leer módulo'],
+                'enroll-course' => ['inscribirse en curso', 'unirse al curso', 'registrar curso', 'inscribirse'],
+                'resume-course' => ['reanudar curso', 'continuar curso', 'reanudar aprendizaje', 'continuar aprendizaje'],
+                'view-course-info' => ['ver información del curso', 'información del curso', 'detalles del curso', 'descripción del curso'],
+                'take-quiz' => ['hacer quiz', 'empezar quiz', 'hacer examen', 'empezar examen'],
+                'submit-assignment' => ['entregar tarea', 'subir tarea', 'enviar tarea', 'entregar trabajo'],
+                'view-grades' => ['ver calificaciones', 'revisar calificaciones', 'mis calificaciones', 'ver notas'],
+                'contact-instructor' => ['contactar instructor', 'mensaje instructor', 'email instructor', 'hablar con profesor'],
+                'ask-question' => ['hacer pregunta', 'publicar pregunta', 'pregunta en foro', 'preguntar'],
+                'join-discussion' => ['unirse a discusión', 'tablón de discusión', 'foro', 'unirse al foro'],
+                'download-certificate' => ['descargar certificado', 'obtener certificado', 'certificado', 'certificado del curso'],
+                'view-portfolio' => ['ver portafolio', 'mi portafolio', 'portafolio de aprendizaje', 'portafolio del curso'],
+                'view-progress' => ['ver progreso', 'mi progreso', 'progreso de aprendizaje', 'progreso del curso'],
+
+                // Education: Instructor Actions
+                'create-course' => ['crear curso', 'nuevo curso', 'hacer curso', 'construir curso'],
+                'upload-content' => ['subir contenido', 'agregar contenido', 'subir materiales', 'agregar materiales'],
+                'set-course-price' => ['establecer precio del curso', 'precio del curso', 'establecer precio', 'precios'],
+                'invite-students' => ['invitar estudiantes', 'agregar estudiantes', 'invitar al curso', 'inscribir estudiantes'],
+                'view-student-progress' => ['ver progreso del estudiante', 'progreso del estudiante', 'revisar progreso', 'rendimiento del estudiante'],
+                'grade-assignment' => ['calificar tarea', 'revisar tarea', 'evaluar tarea', 'marcar tarea'],
+                'post-announcement' => ['publicar anuncio', 'anuncio', 'anuncio de clase', 'publicar mensaje'],
+                'view-analytics' => ['ver analíticas', 'analíticas del curso', 'estadísticas', 'estadísticas del curso'],
+                'start-live-class' => ['iniciar clase en vivo', 'clase en vivo', 'empezar clase en vivo', 'iniciar sesión en vivo'],
+                'answer-question' => ['responder pregunta', 'contestar pregunta', 'responder', 'contestar'],
+
+                // Education: Common Features
+                'search-courses' => ['buscar cursos', 'encontrar cursos', 'explorar cursos', 'buscar cursos'],
+                'view-recommendations' => ['ver recomendaciones', 'cursos recomendados', 'sugerencias', 'recomendaciones de cursos'],
+                'view-course-history' => ['ver historial de cursos', 'mis cursos', 'historial de cursos', 'cursos completados'],
+                'enable-notifications' => ['activar notificaciones', 'notificaciones', 'notificaciones del curso', 'activar notificaciones'],
+                'contact-support' => ['contactar soporte', 'ayuda', 'soporte', 'obtener ayuda'],
             ],
             'fr' => [
                 // Navigation
@@ -4208,6 +4538,42 @@ class UniversalCommands
                 'enable-auto-update' => ['activer mise à jour automatique', 'auto mise à jour', 'mises à jour automatiques'],
                 'connect-external-device' => ['connecter appareil externe', 'appareil externe', 'usb', 'imprimante'],
                 'optimize-system' => ['optimiser système', 'optimiser', 'optimisation système'],
+
+                // Education: Student Actions
+                'watch-lecture' => ['regarder leçon', 'lire leçon', 'voir vidéo leçon', 'leçon vidéo'],
+                'download-materials' => ['télécharger matériaux', 'télécharger matériaux du cours', 'obtenir matériaux', 'télécharger pdf'],
+                'read-chapter' => ['lire chapitre', 'ouvrir chapitre', 'voir module', 'lire module'],
+                'enroll-course' => ['s\'inscrire au cours', 'rejoindre cours', 'enregistrer cours', 's\'inscrire'],
+                'resume-course' => ['reprendre cours', 'continuer cours', 'reprendre apprentissage', 'continuer apprentissage'],
+                'view-course-info' => ['voir informations cours', 'informations cours', 'détails cours', 'description cours'],
+                'take-quiz' => ['faire quiz', 'commencer quiz', 'faire test', 'commencer test'],
+                'submit-assignment' => ['soumettre devoir', 'télécharger devoir', 'remettre devoir', 'soumettre travail'],
+                'view-grades' => ['voir notes', 'vérifier notes', 'mes notes', 'voir scores'],
+                'contact-instructor' => ['contacter instructeur', 'message instructeur', 'email instructeur', 'parler à professeur'],
+                'ask-question' => ['poser question', 'publier question', 'question dans forum', 'demander'],
+                'join-discussion' => ['rejoindre discussion', 'tableau discussion', 'forum', 'rejoindre forum'],
+                'download-certificate' => ['télécharger certificat', 'obtenir certificat', 'certificat', 'certificat du cours'],
+                'view-portfolio' => ['voir portefeuille', 'mon portefeuille', 'portefeuille apprentissage', 'portefeuille cours'],
+                'view-progress' => ['voir progrès', 'mon progrès', 'progrès apprentissage', 'progrès cours'],
+
+                // Education: Instructor Actions
+                'create-course' => ['créer cours', 'nouveau cours', 'faire cours', 'construire cours'],
+                'upload-content' => ['télécharger contenu', 'ajouter contenu', 'télécharger matériaux', 'ajouter matériaux'],
+                'set-course-price' => ['définir prix cours', 'prix cours', 'définir prix', 'tarification'],
+                'invite-students' => ['inviter étudiants', 'ajouter étudiants', 'inviter au cours', 'inscrire étudiants'],
+                'view-student-progress' => ['voir progrès étudiant', 'progrès étudiant', 'vérifier progrès', 'performance étudiant'],
+                'grade-assignment' => ['noter devoir', 'réviser devoir', 'évaluer devoir', 'marquer devoir'],
+                'post-announcement' => ['publier annonce', 'annonce', 'annonce classe', 'publier message'],
+                'view-analytics' => ['voir analytiques', 'analytiques cours', 'statistiques', 'statistiques cours'],
+                'start-live-class' => ['démarrer classe en direct', 'classe en direct', 'commencer classe en direct', 'démarrer session en direct'],
+                'answer-question' => ['répondre question', 'répondre à question', 'répondre', 'contester'],
+
+                // Education: Common Features
+                'search-courses' => ['rechercher cours', 'trouver cours', 'explorer cours', 'chercher cours'],
+                'view-recommendations' => ['voir recommandations', 'cours recommandés', 'suggestions', 'recommandations cours'],
+                'view-course-history' => ['voir historique cours', 'mes cours', 'historique cours', 'cours terminés'],
+                'enable-notifications' => ['activer notifications', 'notifications', 'notifications cours', 'activer notifications'],
+                'contact-support' => ['contacter support', 'aide', 'support', 'obtenir aide'],
             ],
         ];
 
