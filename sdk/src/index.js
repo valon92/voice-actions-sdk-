@@ -1,0 +1,384 @@
+/**
+ * Voice Actions SDK
+ * Multi-language voice control library for web applications
+ * 
+ * Usage:
+ * import VoiceActionsSDK from '@voice-actions/sdk'
+ * 
+ * const sdk = new VoiceActionsSDK({
+ *   apiKey: 'your-api-key',
+ *   platform: 'youtube', // or 'instagram', 'custom', etc.
+ *   locale: 'en-US',
+ *   onCommand: (command) => { // handle command }
+ * })
+ */
+
+class VoiceActionsSDK {
+  constructor(options = {}) {
+    this.apiKey = options.apiKey;
+    // Default to localhost for development, production URL for production
+    this.apiUrl = options.apiUrl || (typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+      ? 'http://localhost:8000/api' 
+      : 'https://api.voiceactions.io');
+    this.platform = options.platform || 'custom';
+    this.locale = options.locale || 'en-US';
+    this.debug = options.debug || false;
+    this.onCommand = options.onCommand || null;
+    this.onError = options.onError || null;
+    
+    this.commands = [];
+    this.isListening = false;
+    this.recognition = null;
+    this.usageCount = 0;
+    this.sessionId = null;
+    
+    this.init();
+  }
+
+  /**
+   * Initialize the SDK
+   */
+  async init() {
+    if (!this.isSupported()) {
+      this.handleError(new Error('Web Speech API not supported'));
+      return;
+    }
+
+    // Initialize speech recognition
+    this.initRecognition();
+    
+    // Load commands from API
+    await this.loadCommands();
+    
+    // Start usage tracking
+    this.startSession();
+    
+    if (this.debug) {
+      console.log('✅ Voice Actions SDK initialized', {
+        platform: this.platform,
+        locale: this.locale,
+        commands: this.commands.length
+      });
+    }
+  }
+
+  /**
+   * Check if Web Speech API is supported
+   */
+  isSupported() {
+    return 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+  }
+
+  /**
+   * Initialize speech recognition
+   */
+  initRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    this.recognition = new SpeechRecognition();
+    this.recognition.continuous = true;
+    this.recognition.interimResults = true;
+    this.recognition.lang = this.locale;
+
+    this.recognition.onresult = (event) => {
+      const transcript = Array.from(event.results)
+        .map(result => result[0].transcript)
+        .join('')
+        .toLowerCase()
+        .trim();
+
+      if (this.debug) {
+        console.log('🎤 Transcript:', transcript);
+      }
+
+      // Check for command matches
+      const matched = this.matchCommand(transcript);
+      if (matched) {
+        this.executeCommand(matched);
+      }
+    };
+
+    this.recognition.onerror = (event) => {
+      this.handleError(new Error(`Speech recognition error: ${event.error}`));
+    };
+
+    this.recognition.onend = () => {
+      if (this.isListening) {
+        // Auto-restart if still listening
+        this.recognition.start();
+      }
+    };
+  }
+
+  /**
+   * Load commands from API
+   */
+  async loadCommands() {
+    if (!this.apiKey) {
+      if (this.debug) {
+        console.warn('⚠️ No API key provided, using default commands');
+      }
+      this.commands = this.getDefaultCommands();
+      return;
+    }
+
+    try {
+      const response = await fetch(`${this.apiUrl}/usage/track`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'X-API-Key': this.apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          event: 'sdk_initialized',
+          platform_name: this.platform,
+          session_id: this.sessionId
+        })
+      });
+
+      // For now, use default commands
+      // In future, load from API endpoint
+      this.commands = this.getDefaultCommands();
+    } catch (error) {
+      this.handleError(error);
+      // Fallback to default commands
+      this.commands = this.getDefaultCommands();
+    }
+  }
+
+  /**
+   * Get default commands (fallback)
+   */
+  getDefaultCommands() {
+    return [
+      { id: 'scroll-down', phrases: ['scroll down', 'scroll down page'], action: 'scroll-down' },
+      { id: 'scroll-up', phrases: ['scroll up', 'scroll up page'], action: 'scroll-up' },
+      { id: 'click', phrases: ['click', 'tap'], action: 'click' }
+    ];
+  }
+
+  /**
+   * Match transcript to command
+   */
+  matchCommand(transcript) {
+    for (const command of this.commands) {
+      for (const phrase of command.phrases || []) {
+        if (transcript.includes(phrase.toLowerCase())) {
+          return command;
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Execute a command
+   */
+  async executeCommand(command) {
+    if (this.debug) {
+      console.log('✅ Executing command:', command);
+    }
+
+    // Track usage
+    this.usageCount++;
+    await this.trackUsage('command_executed', {
+      command_id: command.id,
+      command_action: command.action
+    });
+
+    // Call user's handler
+    if (this.onCommand) {
+      this.onCommand(command);
+    }
+
+    // Execute platform-specific action
+    this.executeAction(command.action);
+  }
+
+  /**
+   * Execute platform-specific action
+   */
+  executeAction(action) {
+    switch (action) {
+      case 'scroll-down':
+        window.scrollBy({ top: 300, behavior: 'smooth' });
+        break;
+      case 'scroll-up':
+        window.scrollBy({ top: -300, behavior: 'smooth' });
+        break;
+      case 'click':
+        // Platform-specific click handler
+        break;
+      default:
+        if (this.debug) {
+          console.warn('⚠️ Unknown action:', action);
+        }
+    }
+  }
+
+  /**
+   * Start listening
+   */
+  start() {
+    if (!this.recognition) {
+      this.handleError(new Error('Recognition not initialized'));
+      return;
+    }
+
+    if (this.isListening) {
+      if (this.debug) {
+        console.warn('⚠️ Already listening');
+      }
+      return;
+    }
+
+    try {
+      this.recognition.start();
+      this.isListening = true;
+      this.trackUsage('listening_started');
+      
+      if (this.debug) {
+        console.log('🎤 Started listening');
+      }
+    } catch (error) {
+      this.handleError(error);
+    }
+  }
+
+  /**
+   * Stop listening
+   */
+  stop() {
+    if (!this.isListening) {
+      if (this.debug) {
+        console.log('Not currently listening');
+      }
+      return;
+    }
+
+    if (this.recognition) {
+      this.recognition.stop();
+    }
+    
+    this.isListening = false;
+    this.trackUsage('listening_stopped');
+    
+    if (this.debug) {
+      console.log('🛑 Stopped listening');
+    }
+  }
+
+  /**
+   * Set locale
+   */
+  setLocale(locale) {
+    this.locale = locale;
+    if (this.recognition) {
+      this.recognition.lang = locale;
+    }
+    this.loadCommands(); // Reload commands for new locale
+    
+    if (this.debug) {
+      console.log(`🌍 Locale changed to: ${locale}`);
+    }
+  }
+
+  /**
+   * Add custom command
+   */
+  addCommand(command) {
+    this.commands.push(command);
+    if (this.debug) {
+      console.log(`➕ Command added: ${command.id} (${this.locale})`);
+    }
+  }
+
+  /**
+   * Remove command
+   */
+  removeCommand(commandId) {
+    this.commands = this.commands.filter(cmd => cmd.id !== commandId);
+  }
+
+  /**
+   * Start usage tracking session
+   */
+  startSession() {
+    this.sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    
+    if (this.apiKey) {
+      this.trackUsage('session_started');
+    }
+  }
+
+  /**
+   * Track API usage
+   */
+  async trackUsage(event, data = {}) {
+    if (!this.apiKey) {
+      return;
+    }
+
+    try {
+      await fetch(`${this.apiUrl}/usage/track`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'X-API-Key': this.apiKey,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          session_id: this.sessionId,
+          platform_name: this.platform,
+          event: event,
+          data: data,
+          timestamp: new Date().toISOString()
+        })
+      });
+    } catch (error) {
+      // Silent fail for usage tracking
+      if (this.debug) {
+        console.warn('⚠️ Failed to track usage:', error);
+      }
+    }
+  }
+
+  /**
+   * Handle errors
+   */
+  handleError(error) {
+    if (this.onError) {
+      this.onError(error);
+    } else if (this.debug) {
+      console.error('❌ Voice Actions SDK Error:', error);
+    }
+  }
+
+  /**
+   * Destroy SDK instance
+   */
+  destroy() {
+    this.stop();
+    this.recognition = null;
+    this.commands = [];
+    this.isListening = false;
+    
+    if (this.apiKey) {
+      this.trackUsage('session_ended', {
+        usage_count: this.usageCount
+      });
+    }
+    
+    if (this.debug) {
+      console.log('💥 SDK destroyed');
+    }
+  }
+}
+
+// Export for different module systems
+export default VoiceActionsSDK;
+
+if (typeof window !== 'undefined') {
+  window.VoiceActionsSDK = VoiceActionsSDK;
+}
+

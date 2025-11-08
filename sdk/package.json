@@ -1,0 +1,37 @@
+{
+  "name": "@voice-actions/sdk",
+  "version": "1.0.0",
+  "description": "Global Voice Control SDK for Web Applications - Multi-language voice recognition and command processing",
+  "type": "module",
+  "main": "dist/voice-actions-sdk.js",
+  "module": "dist/voice-actions-sdk.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "voice",
+    "speech",
+    "recognition",
+    "sdk",
+    "voice-control",
+    "accessibility",
+    "multilingual"
+  ],
+  "author": "Voice Actions SDK Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voice-actions/sdk.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^2.0.0",
+    "rollup": "^4.0.0"
+  }
+}
+

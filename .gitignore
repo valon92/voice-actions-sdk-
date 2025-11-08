@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+**/node_modules/
+vendor/
+**/vendor/
+# Note: package-lock.json and composer.lock SHOULD be committed
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Laravel
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*
+.phpunit.result.cache
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/bootstrap/cache/*
+
+# Docker
+.docker/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS
+Thumbs.db
+.DS_Store
+**/.DS_Store
+
+# Frontend build artifacts
+frontend/dist/
+frontend/build/
+frontend/node_modules/
+
+# Backend build artifacts
+backend/vendor/
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+
+# SDK build artifacts
+sdk/dist/
+sdk/node_modules/
+
+# Database
+*.sqlite
+*.sqlite-journal
+backend/database/*.sqlite
+**/*.sqlite
+
+# Documentation builds
+docs/_build/
+
+# Legacy (deprecated)
+browser-extension/
+extension/
+
