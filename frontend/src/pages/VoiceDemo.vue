@@ -41,7 +41,7 @@
             <div class="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌐</div>
               <h3 class="text-xl font-bold text-white mb-2">Universal Commands</h3>
-              <p class="text-blue-200 text-sm">100+ commands that work across all platforms - Facebook, Instagram, TikTok, X, Snapchat, LinkedIn, and more!</p>
+              <p class="text-blue-200 text-sm">200+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X) AND E-Commerce (Amazon, eBay, Shopify)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌍</div>
@@ -56,7 +56,7 @@
             <div class="p-6 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🎯</div>
               <h3 class="text-xl font-bold text-white mb-2">Comprehensive Coverage</h3>
-              <p class="text-orange-200 text-sm">Covers all features: Profile Management, Content Posting, Interactions, Messaging, Privacy, Analytics, Monetization, Live & Stories, and more!</p>
+              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging) AND E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller Features)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🔒</div>
