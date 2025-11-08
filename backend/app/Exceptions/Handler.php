@@ -7,6 +7,8 @@ use Throwable;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -25,9 +27,10 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
-        if ($request->is('api/*')) {
+        // Always return JSON for API routes
+        if ($request->is('api/*') || $request->expectsJson()) {
             if ($e instanceof ValidationException) {
-                return response()->json([
+                return new JsonResponse([
                     'success' => false,
                     'error' => 'Validation failed',
                     'errors' => $e->errors()
@@ -35,14 +38,14 @@ class Handler extends ExceptionHandler
             }
 
             if ($e instanceof AuthenticationException) {
-                return response()->json([
+                return new JsonResponse([
                     'success' => false,
                     'error' => 'Unauthenticated'
                 ], 401);
             }
 
             if ($e instanceof ModelNotFoundException) {
-                return response()->json([
+                return new JsonResponse([
                     'success' => false,
                     'error' => 'Resource not found'
                 ], 404);
@@ -50,8 +53,19 @@ class Handler extends ExceptionHandler
 
             $statusCode = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
             $message = config('app.debug') ? $e->getMessage() : 'An error occurred';
+            
+            // Log error for debugging
+            if (config('app.debug')) {
+                \Log::error('API Error', [
+                    'message' => $e->getMessage(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'trace' => $e->getTraceAsString()
+                ]);
+            }
 
-            return response()->json([
+            // Return JSON response directly without using response() helper
+            return new JsonResponse([
                 'success' => false,
                 'error' => $message,
                 'code' => $e->getCode()
