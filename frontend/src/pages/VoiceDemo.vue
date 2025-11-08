@@ -1,224 +1,293 @@
 <template>
-  <div class="min-h-screen py-8 sm:py-12 px-4 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-    <div class="max-w-7xl mx-auto">
-      <!-- Header -->
-      <div class="text-center mb-8 sm:mb-12">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          🎤 Voice Actions SDK Demo
-        </h1>
-        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-          Provoni librarinë tonë me komanda zanore në shumë gjuhë. Të gjitha komandat janë universale dhe funksionojnë për çdo platformë!
-        </p>
-      </div>
+  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
 
-      <!-- Voice Control Panel -->
-      <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-          <div class="flex items-center gap-4">
-            <button
-              @click="toggleListening"
-              :class="[
-                'px-6 py-3 rounded-lg font-semibold text-white transition-all shadow-lg',
-                isListening 
-                  ? 'bg-red-600 hover:bg-red-700 animate-pulse' 
-                  : 'bg-green-600 hover:bg-green-700'
-              ]"
-            >
-              <span v-if="isListening">🛑 Stop Listening</span>
-              <span v-else>🎤 Start Listening</span>
-            </button>
-            <div v-if="isListening" class="flex items-center gap-2 text-green-600">
-              <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-              <span class="text-sm font-medium">Listening...</span>
+    <div class="relative z-10 py-8 sm:py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-12 sm:mb-16">
+          <div class="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-2xl shadow-purple-500/50 animate-pulse-slow">
+            <span class="text-4xl sm:text-5xl">🎤</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-pink-200">
+            Voice Actions SDK Demo
+          </h1>
+          <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed">
+            Provoni librarinë tonë me komanda zanore në shumë gjuhë. Të gjitha komandat janë universale dhe funksionojnë për çdo platformë!
+          </p>
+        </div>
+
+        <!-- Voice Control Card -->
+        <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8 backdrop-saturate-150">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6">
+            <div class="flex items-center gap-4 flex-wrap justify-center">
+              <button
+                @click="toggleListening"
+                :class="[
+                  'group relative px-8 py-4 rounded-2xl font-bold text-white transition-all duration-300 shadow-2xl transform hover:scale-105 active:scale-95',
+                  isListening 
+                    ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 animate-pulse' 
+                    : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
+                ]"
+              >
+                <span class="relative z-10 flex items-center gap-2 text-lg">
+                  <span v-if="isListening" class="animate-spin">🛑</span>
+                  <span v-else>🎤</span>
+                  <span v-if="isListening">Stop Listening</span>
+                  <span v-else>Start Listening</span>
+                </span>
+                <div v-if="isListening" class="absolute inset-0 rounded-2xl bg-red-400 opacity-50 blur-xl"></div>
+              </button>
+              
+              <div v-if="isListening" class="flex items-center gap-3 px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-full border border-green-400/30">
+                <div class="relative flex items-center justify-center">
+                  <div class="absolute w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                  <div class="relative w-2 h-2 bg-green-400 rounded-full"></div>
+                </div>
+                <span class="text-green-300 font-semibold text-sm">Listening...</span>
+              </div>
+            </div>
+            
+            <!-- Language Selector -->
+            <div class="relative">
+              <select
+                v-model="selectedLocale"
+                @change="changeLocale"
+                class="appearance-none px-6 py-3 pr-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all cursor-pointer hover:bg-white/20"
+              >
+                <option value="en-US" class="bg-slate-900">🇺🇸 English</option>
+                <option value="sq-AL" class="bg-slate-900">🇦🇱 Shqip</option>
+                <option value="es-ES" class="bg-slate-900">🇪🇸 Español</option>
+                <option value="fr-FR" class="bg-slate-900">🇫🇷 Français</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
           </div>
+
+          <!-- Transcript Display -->
+          <Transition name="slide-up">
+            <div v-if="lastTranscript" class="mb-4 p-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-white/10">
+              <p class="text-sm text-purple-200 mb-2 font-medium">Last command:</p>
+              <p class="text-2xl font-bold text-white">{{ lastTranscript }}</p>
+            </div>
+          </Transition>
+
+          <!-- Status Messages -->
+          <Transition name="fade">
+            <div v-if="statusMessage" :class="[
+              'p-4 rounded-2xl mb-4 backdrop-blur-sm border',
+              statusMessageType === 'success' ? 'bg-green-500/20 text-green-200 border-green-400/30' : 
+              statusMessageType === 'error' ? 'bg-red-500/20 text-red-200 border-red-400/30' : 
+              'bg-blue-500/20 text-blue-200 border-blue-400/30'
+            ]">
+              <div class="flex items-center gap-2">
+                <span v-if="statusMessageType === 'success'">✅</span>
+                <span v-else-if="statusMessageType === 'error'">❌</span>
+                <span v-else>ℹ️</span>
+                <span class="font-semibold">{{ statusMessage }}</span>
+              </div>
+            </div>
+          </Transition>
+        </div>
+
+        <!-- Commands Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Navigation Commands -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-2xl shadow-lg">
+                🏠
+              </div>
+              <h3 class="text-2xl font-bold text-white">Navigation</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in navigationCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-purple-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Social Actions -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">
+                ❤️
+              </div>
+              <h3 class="text-2xl font-bold text-white">Social Actions</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in socialCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-pink-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Media Control -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">
+                🎬
+              </div>
+              <h3 class="text-2xl font-bold text-white">Media Control</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in mediaCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-purple-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content Creation -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl shadow-lg">
+                ✍️
+              </div>
+              <h3 class="text-2xl font-bold text-white">Content Creation</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in contentCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-green-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content Navigation -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">
+                📱
+              </div>
+              <h3 class="text-2xl font-bold text-white">Content Navigation</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in contentNavCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-cyan-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Basic Actions -->
+          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/20">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">
+                🖱️
+              </div>
+              <h3 class="text-2xl font-bold text-white">Basic Actions</h3>
+            </div>
+            <div class="space-y-2">
+              <button
+                v-for="cmd in basicCommands"
+                :key="cmd.id"
+                @click="simulateCommand(cmd)"
+                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
+              >
+                <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name }}</span>
+                <span class="text-xs text-orange-300/70">{{ cmd.phrases.join(', ') }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo Area -->
+        <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8">
+          <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+            <span class="text-4xl">🎯</span>
+            <span>Demo Area</span>
+          </h2>
+          <p class="text-purple-200 mb-6">Kjo është zona demo ku mund të shihni efektet e komandave:</p>
           
-          <!-- Language Selector -->
-          <select
-            v-model="selectedLocale"
-            @change="changeLocale"
-            class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          <!-- Scrollable Demo Content -->
+          <div 
+            ref="demoContent"
+            class="border-2 border-dashed border-white/20 rounded-2xl p-8 min-h-[400px] max-h-[600px] overflow-y-auto bg-gradient-to-br from-slate-800/50 to-purple-900/50 backdrop-blur-sm custom-scrollbar"
           >
-            <option value="en-US">🇺🇸 English</option>
-            <option value="sq-AL">🇦🇱 Shqip</option>
-            <option value="es-ES">🇪🇸 Español</option>
-            <option value="fr-FR">🇫🇷 Français</option>
-          </select>
-        </div>
-
-        <!-- Transcript Display -->
-        <div v-if="lastTranscript" class="mb-4 p-4 bg-gray-50 rounded-lg">
-          <p class="text-sm text-gray-600 mb-1">Last command:</p>
-          <p class="text-lg font-medium text-gray-900">{{ lastTranscript }}</p>
-        </div>
-
-        <!-- Status Messages -->
-        <div v-if="statusMessage" :class="[
-          'p-4 rounded-lg mb-4',
-          statusMessageType === 'success' ? 'bg-green-50 text-green-800' : 
-          statusMessageType === 'error' ? 'bg-red-50 text-red-800' : 
-          'bg-blue-50 text-blue-800'
-        ]">
-          {{ statusMessage }}
-        </div>
-      </div>
-
-      <!-- Commands Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
-        <!-- Navigation Commands -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            🏠 Navigation
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in navigationCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Social Actions -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            ❤️ Social Actions
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in socialCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Media Control -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            🎬 Media Control
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in mediaCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Content Creation -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            ✍️ Content Creation
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in contentCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Content Navigation -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            📱 Content Navigation
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in contentNavCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Basic Actions -->
-        <div class="bg-white rounded-xl shadow-lg p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            🖱️ Basic Actions
-          </h3>
-          <div class="space-y-2">
-            <button
-              v-for="cmd in basicCommands"
-              :key="cmd.id"
-              @click="simulateCommand(cmd)"
-              class="w-full text-left px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-lg transition text-sm"
-            >
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-xs block mt-1">{{ cmd.phrases.join(', ') }}</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Demo Area -->
-      <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">🎯 Demo Area</h2>
-        <p class="text-gray-600 mb-6">Kjo është zona demo ku mund të shihni efektet e komandave:</p>
-        
-        <!-- Scrollable Demo Content -->
-        <div 
-          ref="demoContent"
-          class="border-2 border-dashed border-gray-300 rounded-lg p-8 min-h-[400px] max-h-[600px] overflow-y-auto bg-gradient-to-br from-blue-50 to-purple-50"
-        >
-          <div v-for="i in 10" :key="i" class="mb-6 p-4 bg-white rounded-lg shadow">
-            <h3 class="font-bold text-lg text-gray-900 mb-2">Demo Item {{ i }}</h3>
-            <p class="text-gray-600">Ky është një element demo. Provoni komandat "scroll down" ose "scroll up" për të lëvizur në këtë zonë.</p>
-            <div class="mt-4 flex gap-2">
-              <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                Like
-              </button>
-              <button class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                Share
-              </button>
-              <button class="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition">
-                Save
-              </button>
+            <div v-for="i in 10" :key="i" class="mb-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]">
+              <h3 class="font-bold text-xl text-white mb-3">Demo Item {{ i }}</h3>
+              <p class="text-purple-200 mb-4">Ky është një element demo. Provoni komandat "scroll down" ose "scroll up" për të lëvizur në këtë zonë.</p>
+              <div class="flex gap-3 flex-wrap">
+                <button class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all shadow-lg hover:shadow-blue-500/50 font-semibold">
+                  Like
+                </button>
+                <button class="px-5 py-2.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-green-500/50 font-semibold">
+                  Share
+                </button>
+                <button class="px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all shadow-lg hover:shadow-purple-500/50 font-semibold">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Command History -->
-      <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">📜 Command History</h2>
-        <div v-if="commandHistory.length === 0" class="text-gray-500 text-center py-8">
-          Asnjë komandë e ekzekutuar ende. Filloni të dëgjoni dhe provoni komandat!
-        </div>
-        <div v-else class="space-y-2 max-h-64 overflow-y-auto">
-          <div
-            v-for="(cmd, index) in commandHistory"
-            :key="index"
-            class="p-3 bg-gray-50 rounded-lg flex items-center justify-between"
-          >
-            <div>
-              <span class="font-medium text-gray-900">{{ cmd.name }}</span>
-              <span class="text-gray-500 text-sm ml-2">({{ cmd.action }})</span>
-            </div>
-            <span class="text-xs text-gray-400">{{ cmd.time }}</span>
+        <!-- Command History -->
+        <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8">
+          <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+            <span class="text-4xl">📜</span>
+            <span>Command History</span>
+          </h2>
+          <div v-if="commandHistory.length === 0" class="text-purple-300 text-center py-12">
+            <div class="text-6xl mb-4 opacity-50">🎤</div>
+            <p class="text-lg">Asnjë komandë e ekzekutuar ende. Filloni të dëgjoni dhe provoni komandat!</p>
+          </div>
+          <div v-else class="space-y-3 max-h-64 overflow-y-auto custom-scrollbar">
+            <TransitionGroup name="list">
+              <div
+                v-for="(cmd, index) in commandHistory"
+                :key="index"
+                class="p-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all hover:scale-[1.02] flex items-center justify-between"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-lg">
+                    🎯
+                  </div>
+                  <div>
+                    <span class="font-bold text-white block">{{ cmd.name }}</span>
+                    <span class="text-purple-300 text-sm">({{ cmd.action }})</span>
+                  </div>
+                </div>
+                <span class="text-xs text-purple-400 font-medium">{{ cmd.time }}</span>
+              </div>
+            </TransitionGroup>
           </div>
         </div>
       </div>
@@ -768,17 +837,110 @@ function showStatus(message, type = 'info') {
 </script>
 
 <style scoped>
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes pulse {
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #a855f7, #ec4899);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #9333ea, #db2777);
+}
+
+/* Animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes pulse-slow {
   0%, 100% {
     opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: .5;
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 }
-</style>
 
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.slide-up-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s ease;
+}
+
+.list-enter-from {
+  opacity: 0;
+  transform: translateX(-30px) scale(0.9);
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px) scale(0.9);
+}
+
+.list-move {
+  transition: transform 0.4s ease;
+}
+</style>
