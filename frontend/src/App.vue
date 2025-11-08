@@ -32,6 +32,9 @@
               <router-link to="/pricing" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 💰 Pricing
               </router-link>
+              <router-link to="/demo" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                🎤 Demo
+              </router-link>
               <router-link to="/platform/login" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 🔑 Login
               </router-link>
@@ -91,6 +94,13 @@
               class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
             >
               💰 Pricing
+            </router-link>
+            <router-link
+              to="/demo"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              🎤 Demo
             </router-link>
             <router-link
               to="/platform/login"

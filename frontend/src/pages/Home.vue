@@ -31,6 +31,12 @@
           >
             View Docs
           </router-link>
+          <router-link
+            to="/demo"
+            class="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition text-lg"
+          >
+            🎤 Try Demo
+          </router-link>
         </div>
       </div>
     </div>

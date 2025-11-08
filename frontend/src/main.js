@@ -10,6 +10,7 @@ import PlatformDashboard from './pages/PlatformDashboard.vue'
 import PlatformLogin from './pages/PlatformLogin.vue'
 import IntegrationGuide from './pages/docs/IntegrationGuide.vue'
 import Pricing from './pages/Pricing.vue'
+import VoiceDemo from './pages/VoiceDemo.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/platform/dashboard', component: PlatformDashboard },
   { path: '/docs/integration', component: IntegrationGuide },
   { path: '/pricing', component: Pricing },
+  { path: '/demo', component: VoiceDemo },
 ]
 
 const router = createRouter({
