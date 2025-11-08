@@ -259,16 +259,27 @@ class VoiceActionsSDK {
 
   /**
    * Match transcript to command
+   * Returns the most specific (longest) matching command to avoid conflicts
    */
   matchCommand(transcript) {
+    let bestMatch = null;
+    let longestMatch = 0;
+
     for (const command of this.commands) {
       for (const phrase of command.phrases || []) {
-        if (transcript.includes(phrase.toLowerCase())) {
-          return command;
+        const lowerPhrase = phrase.toLowerCase();
+        // Check if phrase is in transcript (exact match or contains)
+        if (transcript.includes(lowerPhrase)) {
+          // Prefer longer/more specific phrases to avoid matching "go" when saying "go to profile"
+          if (lowerPhrase.length > longestMatch) {
+            longestMatch = lowerPhrase.length;
+            bestMatch = command;
+          }
         }
       }
     }
-    return null;
+    
+    return bestMatch;
   }
 
   /**
