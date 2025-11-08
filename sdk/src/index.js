@@ -122,22 +122,30 @@ class VoiceActionsSDK {
     }
 
     try {
-      const response = await fetch(`${this.apiUrl}/usage/track`, {
-        method: 'POST',
+      const response = await fetch(`${this.apiUrl}/commands?locale=${this.locale}&platform_name=${this.platform}`, {
+        method: 'GET',
         headers: {
           'Authorization': `Bearer ${this.apiKey}`,
           'X-API-Key': this.apiKey,
           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          event: 'sdk_initialized',
-          platform_name: this.platform,
-          session_id: this.sessionId
-        })
+        }
       });
 
-      // For now, use default commands
-      // In future, load from API endpoint
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.commands) {
+          this.commands = data.commands;
+          if (this.debug) {
+            console.log(`✅ Loaded ${this.commands.length} commands from API`);
+          }
+          return;
+        }
+      }
+
+      // Fallback to default commands if API fails
+      if (this.debug) {
+        console.warn('⚠️ Failed to load commands from API, using default commands');
+      }
       this.commands = this.getDefaultCommands();
     } catch (error) {
       this.handleError(error);

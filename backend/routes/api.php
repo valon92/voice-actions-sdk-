@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\UsageController;
+use App\Http\Controllers\CommandController;
 
 Route::get('/platforms', function () {
     return response()->json([
@@ -12,8 +13,9 @@ Route::get('/platforms', function () {
         'available_endpoints' => [
             'POST /api/platforms/register' => 'Register new platform',
             'POST /api/platforms/login' => 'Login with API key',
-            'GET /api/usage/stats' => 'Get usage statistics',
-            'POST /api/usage/track' => 'Track SDK usage',
+            'GET /api/usage/stats' => 'Get usage statistics (requires API key)',
+            'POST /api/usage/track' => 'Track SDK usage (requires API key)',
+            'GET /api/commands' => 'Get voice commands (requires API key)',
         ]
     ]);
 });
@@ -27,5 +29,6 @@ Route::get('/platforms/{id}', [PlatformController::class, 'show'])->middleware('
 Route::middleware('api.key')->group(function () {
     Route::get('/usage/stats', [UsageController::class, 'getStats']);
     Route::post('/usage/track', [UsageController::class, 'track']);
+    Route::get('/commands', [CommandController::class, 'index']);
 });
 
