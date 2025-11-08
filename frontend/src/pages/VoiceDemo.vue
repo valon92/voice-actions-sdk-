@@ -89,11 +89,31 @@
               statusMessageType === 'error' ? 'bg-red-500/20 text-red-200 border-red-400/30' : 
               'bg-blue-500/20 text-blue-200 border-blue-400/30'
             ]">
-              <div class="flex items-center gap-2">
-                <span v-if="statusMessageType === 'success'">✅</span>
-                <span v-else-if="statusMessageType === 'error'">❌</span>
-                <span v-else>ℹ️</span>
-                <span class="font-semibold">{{ statusMessage }}</span>
+              <div class="flex items-start gap-3">
+                <span class="text-2xl flex-shrink-0">
+                  <span v-if="statusMessageType === 'success'">✅</span>
+                  <span v-else-if="statusMessageType === 'error'">⚠️</span>
+                  <span v-else>ℹ️</span>
+                </span>
+                <div class="flex-1">
+                  <p class="font-semibold mb-2">{{ statusMessage }}</p>
+                  <!-- Show permission instructions for permission errors -->
+                  <div v-if="statusMessageType === 'error' && statusMessage.includes('permission')" class="mt-3 text-sm space-y-2">
+                    <p class="font-semibold text-white mb-2">How to allow microphone access:</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-300 ml-2">
+                      <li><strong>Chrome/Edge:</strong> Click the lock icon 🔒 in the address bar → Site settings → Microphone → Allow</li>
+                      <li><strong>Firefox:</strong> Click the shield icon 🛡️ in the address bar → Permissions → Microphone → Allow</li>
+                      <li><strong>Safari:</strong> Safari → Settings → Websites → Microphone → Allow for this site</li>
+                      <li><strong>Or:</strong> Go to your browser settings and search for "microphone" or "site permissions"</li>
+                    </ul>
+                    <button 
+                      @click="requestPermissionAgain"
+                      class="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition transform hover:scale-105"
+                    >
+                      🔄 Try Again
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </Transition>
