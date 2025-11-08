@@ -531,23 +531,26 @@ function getCommandsByCategory(ids) {
 }
 
 // Initialize SDK
-onMounted(async () => {
+onMounted(() => {
   // Try to load SDK
-  try {
-    // Try importing from SDK source
-    const SDKModule = await import('../../../sdk/src/index.js')
-    VoiceActionsSDK = SDKModule.default || SDKModule
-  } catch (e) {
-    // Try from window if loaded via script tag
-    if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
-      VoiceActionsSDK = window.VoiceActionsSDK
-    } else {
-      showStatus('SDK not loaded. Please check the SDK path.', 'error')
-      console.error('SDK import error:', e)
-      return
-    }
-  }
+  import('../../../sdk/src/index.js')
+    .then((SDKModule) => {
+      VoiceActionsSDK = SDKModule.default || SDKModule
+      initializeSDK()
+    })
+    .catch((e) => {
+      // Try from window if loaded via script tag
+      if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
+        VoiceActionsSDK = window.VoiceActionsSDK
+        initializeSDK()
+      } else {
+        showStatus('SDK not loaded. Please check the SDK path.', 'error')
+        console.error('SDK import error:', e)
+      }
+    })
+})
 
+function initializeSDK() {
   // Check if SDK is available
   if (!VoiceActionsSDK) {
     showStatus('SDK not loaded. Please check the SDK path.', 'error')
@@ -568,7 +571,7 @@ onMounted(async () => {
   } catch (error) {
     showStatus(`Error initializing SDK: ${error.message}`, 'error')
   }
-})
+}
 
 onUnmounted(() => {
   if (sdk) {
