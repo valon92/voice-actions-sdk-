@@ -3160,6 +3160,421 @@ class UniversalCommands
                 'description' => 'View chat history',
                 'category' => 'communication-common'
             ],
+
+            // ============================================
+            // DEVELOPMENT: PROJECT & CODE MANAGEMENT
+            // ============================================
+            [
+                'id' => 'create-project',
+                'phrases' => $getPhrases('create-project'),
+                'action' => 'create-project',
+                'description' => 'Create new project',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'upload-code',
+                'phrases' => $getPhrases('upload-code'),
+                'action' => 'upload-code',
+                'description' => 'Upload source code',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'edit-file',
+                'phrases' => $getPhrases('edit-file'),
+                'action' => 'edit-file',
+                'description' => 'Edit file',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'view-version-history',
+                'phrases' => $getPhrases('view-version-history'),
+                'action' => 'view-version-history',
+                'description' => 'View version history',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'compare-versions',
+                'phrases' => $getPhrases('compare-versions'),
+                'action' => 'compare-versions',
+                'description' => 'Compare versions',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'create-branch',
+                'phrases' => $getPhrases('create-branch'),
+                'action' => 'create-branch',
+                'description' => 'Create branch',
+                'category' => 'development-project'
+            ],
+            [
+                'id' => 'view-commit-history',
+                'phrases' => $getPhrases('view-commit-history'),
+                'action' => 'view-commit-history',
+                'description' => 'View commit history',
+                'category' => 'development-project'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: TEAM COLLABORATION
+            // ============================================
+            [
+                'id' => 'create-pull-request',
+                'phrases' => $getPhrases('create-pull-request'),
+                'action' => 'create-pull-request',
+                'description' => 'Create pull request',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'review-code',
+                'phrases' => $getPhrases('review-code'),
+                'action' => 'review-code',
+                'description' => 'Review code',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'comment-code',
+                'phrases' => $getPhrases('comment-code'),
+                'action' => 'comment-code',
+                'description' => 'Comment on code',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'resolve-conflict',
+                'phrases' => $getPhrases('resolve-conflict'),
+                'action' => 'resolve-conflict',
+                'description' => 'Resolve merge conflict',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'view-issues',
+                'phrases' => $getPhrases('view-issues'),
+                'action' => 'view-issues',
+                'description' => 'View issues',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'create-issue',
+                'phrases' => $getPhrases('create-issue'),
+                'action' => 'create-issue',
+                'description' => 'Create issue',
+                'category' => 'development-collaboration'
+            ],
+            [
+                'id' => 'manage-team',
+                'phrases' => $getPhrases('manage-team'),
+                'action' => 'manage-team',
+                'description' => 'Manage team members',
+                'category' => 'development-collaboration'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: PUBLISHING & DEPLOY
+            // ============================================
+            [
+                'id' => 'deploy-app',
+                'phrases' => $getPhrases('deploy-app'),
+                'action' => 'deploy-app',
+                'description' => 'Deploy application',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'select-environment',
+                'phrases' => $getPhrases('select-environment'),
+                'action' => 'select-environment',
+                'description' => 'Select deployment environment',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'set-custom-domain',
+                'phrases' => $getPhrases('set-custom-domain'),
+                'action' => 'set-custom-domain',
+                'description' => 'Set custom domain',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'view-build-logs',
+                'phrases' => $getPhrases('view-build-logs'),
+                'action' => 'view-build-logs',
+                'description' => 'View build logs',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'restart-build',
+                'phrases' => $getPhrases('restart-build'),
+                'action' => 'restart-build',
+                'description' => 'Restart build',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'rollback-deployment',
+                'phrases' => $getPhrases('rollback-deployment'),
+                'action' => 'rollback-deployment',
+                'description' => 'Rollback deployment',
+                'category' => 'development-deploy'
+            ],
+            [
+                'id' => 'enable-ssl',
+                'phrases' => $getPhrases('enable-ssl'),
+                'action' => 'enable-ssl',
+                'description' => 'Enable SSL/HTTPS',
+                'category' => 'development-deploy'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: TECHNICAL INTEGRATIONS
+            // ============================================
+            [
+                'id' => 'connect-database',
+                'phrases' => $getPhrases('connect-database'),
+                'action' => 'connect-database',
+                'description' => 'Connect database',
+                'category' => 'development-integration'
+            ],
+            [
+                'id' => 'connect-api',
+                'phrases' => $getPhrases('connect-api'),
+                'action' => 'connect-api',
+                'description' => 'Connect external API',
+                'category' => 'development-integration'
+            ],
+            [
+                'id' => 'set-environment-variables',
+                'phrases' => $getPhrases('set-environment-variables'),
+                'action' => 'set-environment-variables',
+                'description' => 'Set environment variables',
+                'category' => 'development-integration'
+            ],
+            [
+                'id' => 'test-api',
+                'phrases' => $getPhrases('test-api'),
+                'action' => 'test-api',
+                'description' => 'Test API endpoint',
+                'category' => 'development-integration'
+            ],
+            [
+                'id' => 'create-automation-script',
+                'phrases' => $getPhrases('create-automation-script'),
+                'action' => 'create-automation-script',
+                'description' => 'Create automation script',
+                'category' => 'development-integration'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: VERSION CONTROL
+            // ============================================
+            [
+                'id' => 'revert-changes',
+                'phrases' => $getPhrases('revert-changes'),
+                'action' => 'revert-changes',
+                'description' => 'Revert to previous version',
+                'category' => 'development-version'
+            ],
+            [
+                'id' => 'view-contributions',
+                'phrases' => $getPhrases('view-contributions'),
+                'action' => 'view-contributions',
+                'description' => 'View user contributions',
+                'category' => 'development-version'
+            ],
+            [
+                'id' => 'merge-branch',
+                'phrases' => $getPhrases('merge-branch'),
+                'action' => 'merge-branch',
+                'description' => 'Merge branch',
+                'category' => 'development-version'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: TESTING & MONITORING
+            // ============================================
+            [
+                'id' => 'run-tests',
+                'phrases' => $getPhrases('run-tests'),
+                'action' => 'run-tests',
+                'description' => 'Run automated tests',
+                'category' => 'development-testing'
+            ],
+            [
+                'id' => 'view-test-results',
+                'phrases' => $getPhrases('view-test-results'),
+                'action' => 'view-test-results',
+                'description' => 'View test results',
+                'category' => 'development-testing'
+            ],
+            [
+                'id' => 'setup-cicd',
+                'phrases' => $getPhrases('setup-cicd'),
+                'action' => 'setup-cicd',
+                'description' => 'Setup CI/CD pipeline',
+                'category' => 'development-testing'
+            ],
+            [
+                'id' => 'monitor-performance',
+                'phrases' => $getPhrases('monitor-performance'),
+                'action' => 'monitor-performance',
+                'description' => 'Monitor application performance',
+                'category' => 'development-testing'
+            ],
+            [
+                'id' => 'view-logs',
+                'phrases' => $getPhrases('view-logs'),
+                'action' => 'view-logs',
+                'description' => 'View system logs',
+                'category' => 'development-testing'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: SECURITY & ACCESS
+            // ============================================
+            [
+                'id' => 'set-ssh-key',
+                'phrases' => $getPhrases('set-ssh-key'),
+                'action' => 'set-ssh-key',
+                'description' => 'Set SSH key',
+                'category' => 'development-security'
+            ],
+            [
+                'id' => 'manage-permissions',
+                'phrases' => $getPhrases('manage-permissions'),
+                'action' => 'manage-permissions',
+                'description' => 'Manage user permissions',
+                'category' => 'development-security'
+            ],
+            [
+                'id' => 'set-project-visibility',
+                'phrases' => $getPhrases('set-project-visibility'),
+                'action' => 'set-project-visibility',
+                'description' => 'Set project visibility',
+                'category' => 'development-security'
+            ],
+            [
+                'id' => 'enable-2fa',
+                'phrases' => $getPhrases('enable-2fa'),
+                'action' => 'enable-2fa',
+                'description' => 'Enable two-factor authentication',
+                'category' => 'development-security'
+            ],
+            [
+                'id' => 'view-audit-log',
+                'phrases' => $getPhrases('view-audit-log'),
+                'action' => 'view-audit-log',
+                'description' => 'View audit log',
+                'category' => 'development-security'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: PACKAGE MANAGEMENT
+            // ============================================
+            [
+                'id' => 'install-package',
+                'phrases' => $getPhrases('install-package'),
+                'action' => 'install-package',
+                'description' => 'Install package',
+                'category' => 'development-package'
+            ],
+            [
+                'id' => 'update-packages',
+                'phrases' => $getPhrases('update-packages'),
+                'action' => 'update-packages',
+                'description' => 'Update packages',
+                'category' => 'development-package'
+            ],
+            [
+                'id' => 'resolve-dependencies',
+                'phrases' => $getPhrases('resolve-dependencies'),
+                'action' => 'resolve-dependencies',
+                'description' => 'Resolve dependency conflicts',
+                'category' => 'development-package'
+            ],
+            [
+                'id' => 'run-build-script',
+                'phrases' => $getPhrases('run-build-script'),
+                'action' => 'run-build-script',
+                'description' => 'Run build script',
+                'category' => 'development-package'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: ENVIRONMENT CUSTOMIZATION
+            // ============================================
+            [
+                'id' => 'configure-project',
+                'phrases' => $getPhrases('configure-project'),
+                'action' => 'configure-project',
+                'description' => 'Configure project settings',
+                'category' => 'development-environment'
+            ],
+            [
+                'id' => 'setup-local-environment',
+                'phrases' => $getPhrases('setup-local-environment'),
+                'action' => 'setup-local-environment',
+                'description' => 'Setup local development environment',
+                'category' => 'development-environment'
+            ],
+            [
+                'id' => 'sync-repository',
+                'phrases' => $getPhrases('sync-repository'),
+                'action' => 'sync-repository',
+                'description' => 'Sync with cloud repository',
+                'category' => 'development-environment'
+            ],
+            [
+                'id' => 'create-documentation',
+                'phrases' => $getPhrases('create-documentation'),
+                'action' => 'create-documentation',
+                'description' => 'Create project documentation',
+                'category' => 'development-environment'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: ADMIN ACTIONS
+            // ============================================
+            [
+                'id' => 'delete-project',
+                'phrases' => $getPhrases('delete-project'),
+                'action' => 'delete-project',
+                'description' => 'Delete project',
+                'category' => 'development-admin'
+            ],
+            [
+                'id' => 'set-branch-protection',
+                'phrases' => $getPhrases('set-branch-protection'),
+                'action' => 'set-branch-protection',
+                'description' => 'Set branch protection rules',
+                'category' => 'development-admin'
+            ],
+            [
+                'id' => 'view-team-activity',
+                'phrases' => $getPhrases('view-team-activity'),
+                'action' => 'view-team-activity',
+                'description' => 'View team activity',
+                'category' => 'development-admin'
+            ],
+            [
+                'id' => 'configure-integrations',
+                'phrases' => $getPhrases('configure-integrations'),
+                'action' => 'configure-integrations',
+                'description' => 'Configure external integrations',
+                'category' => 'development-admin'
+            ],
+            [
+                'id' => 'view-statistics',
+                'phrases' => $getPhrases('view-statistics'),
+                'action' => 'view-statistics',
+                'description' => 'View project statistics',
+                'category' => 'development-admin'
+            ],
+
+            // ============================================
+            // DEVELOPMENT: COMMON FEATURES
+            // ============================================
+            [
+                'id' => 'view-project-history',
+                'phrases' => $getPhrases('view-project-history'),
+                'action' => 'view-project-history',
+                'description' => 'View project development history',
+                'category' => 'development-common'
+            ],
         ];
     }
 
@@ -3687,6 +4102,81 @@ class UniversalCommands
                 // Communication: Common Features
                 'sync-devices' => ['sync devices', 'sync', 'device sync', 'synchronize'],
                 'view-chat-history' => ['view chat history', 'chat history', 'message history', 'conversation history'],
+
+                // Development: Project & Code Management
+                'create-project' => ['create project', 'new project', 'create repository', 'new repo'],
+                'upload-code' => ['upload code', 'upload files', 'commit files', 'add files'],
+                'edit-file' => ['edit file', 'edit', 'modify file', 'change file'],
+                'view-version-history' => ['view version history', 'version history', 'file history', 'code history'],
+                'compare-versions' => ['compare versions', 'diff', 'compare files', 'view diff'],
+                'create-branch' => ['create branch', 'new branch', 'git branch', 'branch'],
+                'view-commit-history' => ['view commit history', 'commit history', 'commits', 'git log'],
+
+                // Development: Team Collaboration
+                'create-pull-request' => ['create pull request', 'pull request', 'pr', 'create pr'],
+                'review-code' => ['review code', 'code review', 'review', 'check code'],
+                'comment-code' => ['comment code', 'add comment', 'comment', 'line comment'],
+                'resolve-conflict' => ['resolve conflict', 'merge conflict', 'fix conflict', 'conflict'],
+                'view-issues' => ['view issues', 'issues', 'bug tracker', 'tickets'],
+                'create-issue' => ['create issue', 'new issue', 'report bug', 'issue'],
+                'manage-team' => ['manage team', 'team members', 'collaborators', 'add member'],
+
+                // Development: Publishing & Deploy
+                'deploy-app' => ['deploy app', 'deploy', 'publish', 'deploy application'],
+                'select-environment' => ['select environment', 'environment', 'deployment environment', 'env'],
+                'set-custom-domain' => ['set custom domain', 'custom domain', 'domain', 'set domain'],
+                'view-build-logs' => ['view build logs', 'build logs', 'logs', 'build output'],
+                'restart-build' => ['restart build', 'rebuild', 'restart', 'run build again'],
+                'rollback-deployment' => ['rollback deployment', 'rollback', 'revert deployment', 'undo deploy'],
+                'enable-ssl' => ['enable ssl', 'ssl', 'https', 'enable https'],
+
+                // Development: Technical Integrations
+                'connect-database' => ['connect database', 'database', 'link database', 'db connection'],
+                'connect-api' => ['connect api', 'external api', 'link api', 'api integration'],
+                'set-environment-variables' => ['set environment variables', 'env variables', 'environment variables', 'env vars'],
+                'test-api' => ['test api', 'api test', 'test endpoint', 'try api'],
+                'create-automation-script' => ['create automation script', 'automation', 'script', 'build script'],
+
+                // Development: Version Control
+                'revert-changes' => ['revert changes', 'revert', 'undo changes', 'rollback code'],
+                'view-contributions' => ['view contributions', 'contributions', 'contributors', 'user stats'],
+                'merge-branch' => ['merge branch', 'merge', 'git merge', 'combine branch'],
+
+                // Development: Testing & Monitoring
+                'run-tests' => ['run tests', 'tests', 'test', 'execute tests'],
+                'view-test-results' => ['view test results', 'test results', 'test report', 'test output'],
+                'setup-cicd' => ['setup cicd', 'cicd', 'ci cd', 'continuous integration'],
+                'monitor-performance' => ['monitor performance', 'performance', 'app performance', 'monitor'],
+                'view-logs' => ['view logs', 'logs', 'error logs', 'system logs'],
+
+                // Development: Security & Access
+                'set-ssh-key' => ['set ssh key', 'ssh key', 'ssh', 'add ssh key'],
+                'manage-permissions' => ['manage permissions', 'permissions', 'access control', 'user permissions'],
+                'set-project-visibility' => ['set project visibility', 'project visibility', 'public private', 'visibility'],
+                'enable-2fa' => ['enable 2fa', 'two factor authentication', '2fa', 'security'],
+                'view-audit-log' => ['view audit log', 'audit log', 'activity log', 'security log'],
+
+                // Development: Package Management
+                'install-package' => ['install package', 'install', 'npm install', 'add package'],
+                'update-packages' => ['update packages', 'update', 'upgrade packages', 'npm update'],
+                'resolve-dependencies' => ['resolve dependencies', 'dependencies', 'fix conflicts', 'dependency issues'],
+                'run-build-script' => ['run build script', 'build', 'npm run build', 'compile'],
+
+                // Development: Environment Customization
+                'configure-project' => ['configure project', 'project settings', 'settings', 'configuration'],
+                'setup-local-environment' => ['setup local environment', 'local environment', 'dev environment', 'local setup'],
+                'sync-repository' => ['sync repository', 'sync repo', 'sync', 'pull push'],
+                'create-documentation' => ['create documentation', 'documentation', 'docs', 'readme'],
+
+                // Development: Admin Actions
+                'delete-project' => ['delete project', 'remove project', 'delete repo', 'remove repo'],
+                'set-branch-protection' => ['set branch protection', 'branch protection', 'protect branch', 'branch rules'],
+                'view-team-activity' => ['view team activity', 'team activity', 'activity', 'team stats'],
+                'configure-integrations' => ['configure integrations', 'integrations', 'external integrations', 'setup integrations'],
+                'view-statistics' => ['view statistics', 'statistics', 'stats', 'project stats'],
+
+                // Development: Common Features
+                'view-project-history' => ['view project history', 'project history', 'development history', 'history'],
             ],
             'sq' => [
                 // Navigation
@@ -4206,6 +4696,81 @@ class UniversalCommands
                 // Communication: Common Features
                 'sync-devices' => ['sinkronizo pajisje', 'sync', 'sync pajisje', 'sinkronizo'],
                 'view-chat-history' => ['shiko historik chat', 'historik chat', 'historik mesazhe', 'historik bisedash'],
+
+                // Development: Project & Code Management
+                'create-project' => ['krijo projekt', 'projekt i ri', 'krijo repository', 'repo i ri'],
+                'upload-code' => ['ngarko kod', 'ngarko skedarë', 'commit skedarë', 'shto skedarë'],
+                'edit-file' => ['ndrysho skedar', 'ndrysho', 'modifiko skedar', 'ndrysho skedarin'],
+                'view-version-history' => ['shiko historik versionesh', 'historik versionesh', 'historik skedar', 'historik kod'],
+                'compare-versions' => ['krahaso versione', 'diff', 'krahaso skedarë', 'shiko diff'],
+                'create-branch' => ['krijo branch', 'branch i ri', 'git branch', 'branch'],
+                'view-commit-history' => ['shiko historik commit', 'historik commit', 'commits', 'git log'],
+
+                // Development: Team Collaboration
+                'create-pull-request' => ['krijo pull request', 'pull request', 'pr', 'krijo pr'],
+                'review-code' => ['shiko kod', 'code review', 'shiko', 'kontrollo kod'],
+                'comment-code' => ['komento kod', 'shto koment', 'koment', 'koment linjë'],
+                'resolve-conflict' => ['zgjidh konflikt', 'merge conflict', 'rregullo konflikt', 'konflikt'],
+                'view-issues' => ['shiko issues', 'issues', 'bug tracker', 'tickets'],
+                'create-issue' => ['krijo issue', 'issue i ri', 'raporto bug', 'issue'],
+                'manage-team' => ['menaxho ekip', 'anëtarë ekipi', 'bashkëpunëtorë', 'shto anëtar'],
+
+                // Development: Publishing & Deploy
+                'deploy-app' => ['deploy app', 'deploy', 'publiko', 'deploy aplikacion'],
+                'select-environment' => ['zgjedh mjedis', 'mjedis', 'mjedis deploy', 'env'],
+                'set-custom-domain' => ['vendos domain', 'custom domain', 'domain', 'vendos domain'],
+                'view-build-logs' => ['shiko build logs', 'build logs', 'logs', 'build output'],
+                'restart-build' => ['rifillo build', 'rebuild', 'rifillo', 'ekzekuto build përsëri'],
+                'rollback-deployment' => ['rollback deployment', 'rollback', 'rikthe deployment', 'undo deploy'],
+                'enable-ssl' => ['aktivizo ssl', 'ssl', 'https', 'aktivizo https'],
+
+                // Development: Technical Integrations
+                'connect-database' => ['lidh databazë', 'databazë', 'link databazë', 'lidhje db'],
+                'connect-api' => ['lidh api', 'api e jashtme', 'link api', 'integrim api'],
+                'set-environment-variables' => ['vendos environment variables', 'env variables', 'environment variables', 'env vars'],
+                'test-api' => ['testo api', 'api test', 'testo endpoint', 'provo api'],
+                'create-automation-script' => ['krijo skript automatizimi', 'automatizim', 'skript', 'build script'],
+
+                // Development: Version Control
+                'revert-changes' => ['rikthe ndryshime', 'rikthe', 'undo ndryshime', 'rollback kod'],
+                'view-contributions' => ['shiko kontribute', 'kontribute', 'kontribues', 'statistika përdoruesi'],
+                'merge-branch' => ['merge branch', 'merge', 'git merge', 'kombino branch'],
+
+                // Development: Testing & Monitoring
+                'run-tests' => ['ekzekuto teste', 'teste', 'test', 'ekzekuto teste'],
+                'view-test-results' => ['shiko rezultate teste', 'rezultate teste', 'raport test', 'output test'],
+                'setup-cicd' => ['konfiguro cicd', 'cicd', 'ci cd', 'continuous integration'],
+                'monitor-performance' => ['monitoro performancë', 'performancë', 'performancë app', 'monitoro'],
+                'view-logs' => ['shiko logs', 'logs', 'error logs', 'system logs'],
+
+                // Development: Security & Access
+                'set-ssh-key' => ['vendos ssh key', 'ssh key', 'ssh', 'shto ssh key'],
+                'manage-permissions' => ['menaxho lejet', 'permissions', 'kontroll aksesi', 'lejet përdoruesi'],
+                'set-project-visibility' => ['vendos dukshmëri projekt', 'dukshmëri projekt', 'publik privat', 'dukshmëri'],
+                'enable-2fa' => ['aktivizo 2fa', 'autentifikim dy faktorësh', '2fa', 'siguri'],
+                'view-audit-log' => ['shiko audit log', 'audit log', 'log aktiviteti', 'log sigurie'],
+
+                // Development: Package Management
+                'install-package' => ['instalo paketë', 'instalo', 'npm install', 'shto paketë'],
+                'update-packages' => ['përditëso paketa', 'përditëso', 'upgrade paketa', 'npm update'],
+                'resolve-dependencies' => ['zgjidh varësi', 'varësi', 'rregullo konflikte', 'probleme varësie'],
+                'run-build-script' => ['ekzekuto build script', 'build', 'npm run build', 'kompajlo'],
+
+                // Development: Environment Customization
+                'configure-project' => ['konfiguro projekt', 'settings projekt', 'settings', 'konfigurim'],
+                'setup-local-environment' => ['konfiguro mjedis lokal', 'mjedis lokal', 'mjedis dev', 'setup lokal'],
+                'sync-repository' => ['sinkronizo repository', 'sync repo', 'sync', 'pull push'],
+                'create-documentation' => ['krijo dokumentacion', 'dokumentacion', 'docs', 'readme'],
+
+                // Development: Admin Actions
+                'delete-project' => ['fshi projekt', 'hiq projekt', 'fshi repo', 'hiq repo'],
+                'set-branch-protection' => ['vendos mbrojtje branch', 'mbrojtje branch', 'mbro branch', 'rregulla branch'],
+                'view-team-activity' => ['shiko aktivitet ekipi', 'aktivitet ekipi', 'aktivitet', 'statistika ekipi'],
+                'configure-integrations' => ['konfiguro integrimet', 'integrimet', 'integrimet e jashtme', 'setup integrimet'],
+                'view-statistics' => ['shiko statistika', 'statistika', 'stats', 'statistika projekt'],
+
+                // Development: Common Features
+                'view-project-history' => ['shiko historik projekt', 'historik projekt', 'historik zhvillimi', 'historik'],
             ],
             'es' => [
                 // Navigation
@@ -4725,6 +5290,81 @@ class UniversalCommands
                 // Communication: Common Features
                 'sync-devices' => ['sincronizar dispositivos', 'sincronizar', 'sync dispositivos', 'sincronizar'],
                 'view-chat-history' => ['ver historial chat', 'historial chat', 'historial mensajes', 'historial conversaciones'],
+
+                // Development: Project & Code Management
+                'create-project' => ['crear proyecto', 'nuevo proyecto', 'crear repositorio', 'nuevo repo'],
+                'upload-code' => ['subir código', 'subir archivos', 'commit archivos', 'agregar archivos'],
+                'edit-file' => ['editar archivo', 'editar', 'modificar archivo', 'cambiar archivo'],
+                'view-version-history' => ['ver historial versiones', 'historial versiones', 'historial archivos', 'historial código'],
+                'compare-versions' => ['comparar versiones', 'diff', 'comparar archivos', 'ver diff'],
+                'create-branch' => ['crear rama', 'nueva rama', 'git branch', 'rama'],
+                'view-commit-history' => ['ver historial commits', 'historial commits', 'commits', 'git log'],
+
+                // Development: Team Collaboration
+                'create-pull-request' => ['crear pull request', 'pull request', 'pr', 'crear pr'],
+                'review-code' => ['revisar código', 'code review', 'revisar', 'verificar código'],
+                'comment-code' => ['comentar código', 'agregar comentario', 'comentar', 'comentario línea'],
+                'resolve-conflict' => ['resolver conflicto', 'merge conflict', 'arreglar conflicto', 'conflicto'],
+                'view-issues' => ['ver issues', 'issues', 'bug tracker', 'tickets'],
+                'create-issue' => ['crear issue', 'nuevo issue', 'reportar bug', 'issue'],
+                'manage-team' => ['gestionar equipo', 'miembros equipo', 'colaboradores', 'agregar miembro'],
+
+                // Development: Publishing & Deploy
+                'deploy-app' => ['desplegar app', 'desplegar', 'publicar', 'desplegar aplicación'],
+                'select-environment' => ['seleccionar entorno', 'entorno', 'entorno despliegue', 'env'],
+                'set-custom-domain' => ['establecer dominio personalizado', 'dominio personalizado', 'dominio', 'establecer dominio'],
+                'view-build-logs' => ['ver logs build', 'logs build', 'logs', 'salida build'],
+                'restart-build' => ['reiniciar build', 'rebuild', 'reiniciar', 'ejecutar build de nuevo'],
+                'rollback-deployment' => ['revertir despliegue', 'rollback', 'revertir despliegue', 'deshacer deploy'],
+                'enable-ssl' => ['activar ssl', 'ssl', 'https', 'activar https'],
+
+                // Development: Technical Integrations
+                'connect-database' => ['conectar base de datos', 'base de datos', 'vincular base de datos', 'conexión db'],
+                'connect-api' => ['conectar api', 'api externa', 'vincular api', 'integración api'],
+                'set-environment-variables' => ['establecer variables entorno', 'variables entorno', 'environment variables', 'env vars'],
+                'test-api' => ['probar api', 'api test', 'probar endpoint', 'probar api'],
+                'create-automation-script' => ['crear script automatización', 'automatización', 'script', 'build script'],
+
+                // Development: Version Control
+                'revert-changes' => ['revertir cambios', 'revertir', 'deshacer cambios', 'rollback código'],
+                'view-contributions' => ['ver contribuciones', 'contribuciones', 'contribuidores', 'estadísticas usuario'],
+                'merge-branch' => ['fusionar rama', 'merge', 'git merge', 'combinar rama'],
+
+                // Development: Testing & Monitoring
+                'run-tests' => ['ejecutar tests', 'tests', 'test', 'ejecutar pruebas'],
+                'view-test-results' => ['ver resultados tests', 'resultados tests', 'reporte test', 'salida test'],
+                'setup-cicd' => ['configurar cicd', 'cicd', 'ci cd', 'integración continua'],
+                'monitor-performance' => ['monitorear rendimiento', 'rendimiento', 'rendimiento app', 'monitorear'],
+                'view-logs' => ['ver logs', 'logs', 'error logs', 'system logs'],
+
+                // Development: Security & Access
+                'set-ssh-key' => ['establecer ssh key', 'ssh key', 'ssh', 'agregar ssh key'],
+                'manage-permissions' => ['gestionar permisos', 'permisos', 'control acceso', 'permisos usuario'],
+                'set-project-visibility' => ['establecer visibilidad proyecto', 'visibilidad proyecto', 'público privado', 'visibilidad'],
+                'enable-2fa' => ['activar 2fa', 'autenticación dos factores', '2fa', 'seguridad'],
+                'view-audit-log' => ['ver audit log', 'audit log', 'log actividad', 'log seguridad'],
+
+                // Development: Package Management
+                'install-package' => ['instalar paquete', 'instalar', 'npm install', 'agregar paquete'],
+                'update-packages' => ['actualizar paquetes', 'actualizar', 'upgrade paquetes', 'npm update'],
+                'resolve-dependencies' => ['resolver dependencias', 'dependencias', 'arreglar conflictos', 'problemas dependencias'],
+                'run-build-script' => ['ejecutar build script', 'build', 'npm run build', 'compilar'],
+
+                // Development: Environment Customization
+                'configure-project' => ['configurar proyecto', 'configuración proyecto', 'configuración', 'ajustes'],
+                'setup-local-environment' => ['configurar entorno local', 'entorno local', 'entorno dev', 'setup local'],
+                'sync-repository' => ['sincronizar repositorio', 'sync repo', 'sincronizar', 'pull push'],
+                'create-documentation' => ['crear documentación', 'documentación', 'docs', 'readme'],
+
+                // Development: Admin Actions
+                'delete-project' => ['eliminar proyecto', 'quitar proyecto', 'eliminar repo', 'quitar repo'],
+                'set-branch-protection' => ['establecer protección rama', 'protección rama', 'proteger rama', 'reglas rama'],
+                'view-team-activity' => ['ver actividad equipo', 'actividad equipo', 'actividad', 'estadísticas equipo'],
+                'configure-integrations' => ['configurar integraciones', 'integraciones', 'integraciones externas', 'setup integraciones'],
+                'view-statistics' => ['ver estadísticas', 'estadísticas', 'stats', 'estadísticas proyecto'],
+
+                // Development: Common Features
+                'view-project-history' => ['ver historial proyecto', 'historial proyecto', 'historial desarrollo', 'historial'],
             ],
             'fr' => [
                 // Navigation
@@ -5244,6 +5884,81 @@ class UniversalCommands
                 // Communication: Common Features
                 'sync-devices' => ['synchroniser appareils', 'synchroniser', 'sync appareils', 'synchroniser'],
                 'view-chat-history' => ['voir historique chat', 'historique chat', 'historique messages', 'historique conversations'],
+
+                // Development: Project & Code Management
+                'create-project' => ['créer projet', 'nouveau projet', 'créer dépôt', 'nouveau repo'],
+                'upload-code' => ['télécharger code', 'télécharger fichiers', 'commit fichiers', 'ajouter fichiers'],
+                'edit-file' => ['modifier fichier', 'modifier', 'changer fichier', 'éditer fichier'],
+                'view-version-history' => ['voir historique versions', 'historique versions', 'historique fichiers', 'historique code'],
+                'compare-versions' => ['comparer versions', 'diff', 'comparer fichiers', 'voir diff'],
+                'create-branch' => ['créer branche', 'nouvelle branche', 'git branch', 'branche'],
+                'view-commit-history' => ['voir historique commits', 'historique commits', 'commits', 'git log'],
+
+                // Development: Team Collaboration
+                'create-pull-request' => ['créer pull request', 'pull request', 'pr', 'créer pr'],
+                'review-code' => ['réviser code', 'code review', 'réviser', 'vérifier code'],
+                'comment-code' => ['commenter code', 'ajouter commentaire', 'commenter', 'commentaire ligne'],
+                'resolve-conflict' => ['résoudre conflit', 'merge conflict', 'corriger conflit', 'conflit'],
+                'view-issues' => ['voir issues', 'issues', 'bug tracker', 'tickets'],
+                'create-issue' => ['créer issue', 'nouvel issue', 'signaler bug', 'issue'],
+                'manage-team' => ['gérer équipe', 'membres équipe', 'collaborateurs', 'ajouter membre'],
+
+                // Development: Publishing & Deploy
+                'deploy-app' => ['déployer app', 'déployer', 'publier', 'déployer application'],
+                'select-environment' => ['sélectionner environnement', 'environnement', 'environnement déploiement', 'env'],
+                'set-custom-domain' => ['définir domaine personnalisé', 'domaine personnalisé', 'domaine', 'définir domaine'],
+                'view-build-logs' => ['voir logs build', 'logs build', 'logs', 'sortie build'],
+                'restart-build' => ['redémarrer build', 'rebuild', 'redémarrer', 'exécuter build de nouveau'],
+                'rollback-deployment' => ['annuler déploiement', 'rollback', 'revenir déploiement', 'annuler deploy'],
+                'enable-ssl' => ['activer ssl', 'ssl', 'https', 'activer https'],
+
+                // Development: Technical Integrations
+                'connect-database' => ['connecter base de données', 'base de données', 'lier base de données', 'connexion db'],
+                'connect-api' => ['connecter api', 'api externe', 'lier api', 'intégration api'],
+                'set-environment-variables' => ['définir variables environnement', 'variables environnement', 'environment variables', 'env vars'],
+                'test-api' => ['tester api', 'api test', 'tester endpoint', 'essayer api'],
+                'create-automation-script' => ['créer script automatisation', 'automatisation', 'script', 'build script'],
+
+                // Development: Version Control
+                'revert-changes' => ['annuler modifications', 'annuler', 'défaire modifications', 'rollback code'],
+                'view-contributions' => ['voir contributions', 'contributions', 'contributeurs', 'statistiques utilisateur'],
+                'merge-branch' => ['fusionner branche', 'merge', 'git merge', 'combiner branche'],
+
+                // Development: Testing & Monitoring
+                'run-tests' => ['exécuter tests', 'tests', 'test', 'exécuter tests'],
+                'view-test-results' => ['voir résultats tests', 'résultats tests', 'rapport test', 'sortie test'],
+                'setup-cicd' => ['configurer cicd', 'cicd', 'ci cd', 'intégration continue'],
+                'monitor-performance' => ['surveiller performance', 'performance', 'performance app', 'surveiller'],
+                'view-logs' => ['voir logs', 'logs', 'error logs', 'system logs'],
+
+                // Development: Security & Access
+                'set-ssh-key' => ['définir ssh key', 'ssh key', 'ssh', 'ajouter ssh key'],
+                'manage-permissions' => ['gérer permissions', 'permissions', 'contrôle accès', 'permissions utilisateur'],
+                'set-project-visibility' => ['définir visibilité projet', 'visibilité projet', 'public privé', 'visibilité'],
+                'enable-2fa' => ['activer 2fa', 'authentification deux facteurs', '2fa', 'sécurité'],
+                'view-audit-log' => ['voir audit log', 'audit log', 'log activité', 'log sécurité'],
+
+                // Development: Package Management
+                'install-package' => ['installer paquet', 'installer', 'npm install', 'ajouter paquet'],
+                'update-packages' => ['mettre à jour paquets', 'mettre à jour', 'upgrade paquets', 'npm update'],
+                'resolve-dependencies' => ['résoudre dépendances', 'dépendances', 'corriger conflits', 'problèmes dépendances'],
+                'run-build-script' => ['exécuter build script', 'build', 'npm run build', 'compiler'],
+
+                // Development: Environment Customization
+                'configure-project' => ['configurer projet', 'configuration projet', 'configuration', 'paramètres'],
+                'setup-local-environment' => ['configurer environnement local', 'environnement local', 'environnement dev', 'setup local'],
+                'sync-repository' => ['synchroniser dépôt', 'sync repo', 'synchroniser', 'pull push'],
+                'create-documentation' => ['créer documentation', 'documentation', 'docs', 'readme'],
+
+                // Development: Admin Actions
+                'delete-project' => ['supprimer projet', 'retirer projet', 'supprimer repo', 'retirer repo'],
+                'set-branch-protection' => ['définir protection branche', 'protection branche', 'protéger branche', 'règles branche'],
+                'view-team-activity' => ['voir activité équipe', 'activité équipe', 'activité', 'statistiques équipe'],
+                'configure-integrations' => ['configurer intégrations', 'intégrations', 'intégrations externes', 'setup intégrations'],
+                'view-statistics' => ['voir statistiques', 'statistiques', 'stats', 'statistiques projet'],
+
+                // Development: Common Features
+                'view-project-history' => ['voir historique projet', 'historique projet', 'historique développement', 'historique'],
             ],
         ];
 
