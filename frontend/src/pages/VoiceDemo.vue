@@ -532,22 +532,31 @@ function getCommandsByCategory(ids) {
 
 // Initialize SDK
 onMounted(() => {
-  // Try to load SDK
-  import('../../../sdk/src/index.js')
-    .then((SDKModule) => {
-      VoiceActionsSDK = SDKModule.default || SDKModule
-      initializeSDK()
-    })
-    .catch((e) => {
-      // Try from window if loaded via script tag
-      if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
-        VoiceActionsSDK = window.VoiceActionsSDK
+  // If SDK is already available from window, use it
+  if (VoiceActionsSDK) {
+    initializeSDK()
+    return
+  }
+
+  // Otherwise, try to load SDK dynamically
+  // Use setTimeout to ensure this runs after component is mounted
+  setTimeout(() => {
+    import('../../../sdk/src/index.js')
+      .then((SDKModule) => {
+        VoiceActionsSDK = SDKModule.default || SDKModule
         initializeSDK()
-      } else {
-        showStatus('SDK not loaded. Please check the SDK path.', 'error')
-        console.error('SDK import error:', e)
-      }
-    })
+      })
+      .catch((e) => {
+        // Try from window if loaded via script tag
+        if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
+          VoiceActionsSDK = window.VoiceActionsSDK
+          initializeSDK()
+        } else {
+          showStatus('SDK not loaded. Please check the SDK path.', 'error')
+          console.error('SDK import error:', e)
+        }
+      })
+  }, 0)
 })
 
 function initializeSDK() {
