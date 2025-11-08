@@ -775,6 +775,550 @@ class UniversalCommands
             ],
 
             // ============================================
+            // E-COMMERCE: ACCOUNT MANAGEMENT
+            // ============================================
+            [
+                'id' => 'create-account',
+                'phrases' => $getPhrases('create-account'),
+                'action' => 'create-account',
+                'description' => 'Create account',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'update-personal-info',
+                'phrases' => $getPhrases('update-personal-info'),
+                'action' => 'update-personal-info',
+                'description' => 'Update personal information',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'save-shipping-address',
+                'phrases' => $getPhrases('save-shipping-address'),
+                'action' => 'save-shipping-address',
+                'description' => 'Save shipping address',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'save-payment-method',
+                'phrases' => $getPhrases('save-payment-method'),
+                'action' => 'save-payment-method',
+                'description' => 'Save payment method',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'view-order-history',
+                'phrases' => $getPhrases('view-order-history'),
+                'action' => 'view-order-history',
+                'description' => 'View order history',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'change-password',
+                'phrases' => $getPhrases('change-password'),
+                'action' => 'change-password',
+                'description' => 'Change password',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'manage-subscriptions',
+                'phrases' => $getPhrases('manage-subscriptions'),
+                'action' => 'manage-subscriptions',
+                'description' => 'Manage subscriptions',
+                'category' => 'ecommerce-account'
+            ],
+            [
+                'id' => 'manage-notifications',
+                'phrases' => $getPhrases('manage-notifications'),
+                'action' => 'manage-notifications',
+                'description' => 'Manage notifications',
+                'category' => 'ecommerce-account'
+            ],
+
+            // ============================================
+            // E-COMMERCE: PRODUCT SEARCH & DISCOVERY
+            // ============================================
+            [
+                'id' => 'search-products',
+                'phrases' => $getPhrases('search-products'),
+                'action' => 'search-products',
+                'description' => 'Search for products',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'filter-products',
+                'phrases' => $getPhrases('filter-products'),
+                'action' => 'filter-products',
+                'description' => 'Filter products',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'browse-categories',
+                'phrases' => $getPhrases('browse-categories'),
+                'action' => 'browse-categories',
+                'description' => 'Browse categories',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'voice-search',
+                'phrases' => $getPhrases('voice-search'),
+                'action' => 'voice-search',
+                'description' => 'Voice search',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'image-search',
+                'phrases' => $getPhrases('image-search'),
+                'action' => 'image-search',
+                'description' => 'Image search',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'compare-products',
+                'phrases' => $getPhrases('compare-products'),
+                'action' => 'compare-products',
+                'description' => 'Compare products',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'view-recommendations',
+                'phrases' => $getPhrases('view-recommendations'),
+                'action' => 'view-recommendations',
+                'description' => 'View recommendations',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'view-related-products',
+                'phrases' => $getPhrases('view-related-products'),
+                'action' => 'view-related-products',
+                'description' => 'View related products',
+                'category' => 'ecommerce-search'
+            ],
+            [
+                'id' => 'add-to-wishlist',
+                'phrases' => $getPhrases('add-to-wishlist'),
+                'action' => 'add-to-wishlist',
+                'description' => 'Add to wishlist',
+                'category' => 'ecommerce-search'
+            ],
+
+            // ============================================
+            // E-COMMERCE: ORDER MANAGEMENT
+            // ============================================
+            [
+                'id' => 'add-to-cart',
+                'phrases' => $getPhrases('add-to-cart'),
+                'action' => 'add-to-cart',
+                'description' => 'Add product to cart',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'view-cart',
+                'phrases' => $getPhrases('view-cart'),
+                'action' => 'view-cart',
+                'description' => 'View shopping cart',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'update-quantity',
+                'phrases' => $getPhrases('update-quantity'),
+                'action' => 'update-quantity',
+                'description' => 'Update product quantity',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'remove-from-cart',
+                'phrases' => $getPhrases('remove-from-cart'),
+                'action' => 'remove-from-cart',
+                'description' => 'Remove from cart',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'apply-coupon',
+                'phrases' => $getPhrases('apply-coupon'),
+                'action' => 'apply-coupon',
+                'description' => 'Apply coupon code',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'select-shipping',
+                'phrases' => $getPhrases('select-shipping'),
+                'action' => 'select-shipping',
+                'description' => 'Select shipping method',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'checkout',
+                'phrases' => $getPhrases('checkout'),
+                'action' => 'checkout',
+                'description' => 'Proceed to checkout',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'save-billing-info',
+                'phrases' => $getPhrases('save-billing-info'),
+                'action' => 'save-billing-info',
+                'description' => 'Save billing information',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'track-order',
+                'phrases' => $getPhrases('track-order'),
+                'action' => 'track-order',
+                'description' => 'Track order status',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'cancel-order',
+                'phrases' => $getPhrases('cancel-order'),
+                'action' => 'cancel-order',
+                'description' => 'Cancel order',
+                'category' => 'ecommerce-order'
+            ],
+            [
+                'id' => 'print-invoice',
+                'phrases' => $getPhrases('print-invoice'),
+                'action' => 'print-invoice',
+                'description' => 'Print invoice',
+                'category' => 'ecommerce-order'
+            ],
+
+            // ============================================
+            // E-COMMERCE: PAYMENTS & TRANSACTIONS
+            // ============================================
+            [
+                'id' => 'select-payment-method',
+                'phrases' => $getPhrases('select-payment-method'),
+                'action' => 'select-payment-method',
+                'description' => 'Select payment method',
+                'category' => 'ecommerce-payment'
+            ],
+            [
+                'id' => 'use-loyalty-points',
+                'phrases' => $getPhrases('use-loyalty-points'),
+                'action' => 'use-loyalty-points',
+                'description' => 'Use loyalty points',
+                'category' => 'ecommerce-payment'
+            ],
+            [
+                'id' => 'view-transaction-history',
+                'phrases' => $getPhrases('view-transaction-history'),
+                'action' => 'view-transaction-history',
+                'description' => 'View transaction history',
+                'category' => 'ecommerce-payment'
+            ],
+            [
+                'id' => 'request-refund',
+                'phrases' => $getPhrases('request-refund'),
+                'action' => 'request-refund',
+                'description' => 'Request refund',
+                'category' => 'ecommerce-payment'
+            ],
+            [
+                'id' => 'apply-promo-code',
+                'phrases' => $getPhrases('apply-promo-code'),
+                'action' => 'apply-promo-code',
+                'description' => 'Apply promo code',
+                'category' => 'ecommerce-payment'
+            ],
+            [
+                'id' => 'view-payment-methods',
+                'phrases' => $getPhrases('view-payment-methods'),
+                'action' => 'view-payment-methods',
+                'description' => 'View saved payment methods',
+                'category' => 'ecommerce-payment'
+            ],
+
+            // ============================================
+            // E-COMMERCE: SHIPPING & DELIVERY
+            // ============================================
+            [
+                'id' => 'select-shipping-company',
+                'phrases' => $getPhrases('select-shipping-company'),
+                'action' => 'select-shipping-company',
+                'description' => 'Select shipping company',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'set-delivery-address',
+                'phrases' => $getPhrases('set-delivery-address'),
+                'action' => 'set-delivery-address',
+                'description' => 'Set delivery address',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'select-pickup-point',
+                'phrases' => $getPhrases('select-pickup-point'),
+                'action' => 'select-pickup-point',
+                'description' => 'Select pickup point',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'track-shipment',
+                'phrases' => $getPhrases('track-shipment'),
+                'action' => 'track-shipment',
+                'description' => 'Track shipment',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'change-delivery-address',
+                'phrases' => $getPhrases('change-delivery-address'),
+                'action' => 'change-delivery-address',
+                'description' => 'Change delivery address',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'confirm-delivery',
+                'phrases' => $getPhrases('confirm-delivery'),
+                'action' => 'confirm-delivery',
+                'description' => 'Confirm delivery',
+                'category' => 'ecommerce-shipping'
+            ],
+            [
+                'id' => 'view-shipping-notifications',
+                'phrases' => $getPhrases('view-shipping-notifications'),
+                'action' => 'view-shipping-notifications',
+                'description' => 'View shipping notifications',
+                'category' => 'ecommerce-shipping'
+            ],
+
+            // ============================================
+            // E-COMMERCE: COMMUNICATION & SUPPORT
+            // ============================================
+            [
+                'id' => 'contact-seller',
+                'phrases' => $getPhrases('contact-seller'),
+                'action' => 'contact-seller',
+                'description' => 'Contact seller',
+                'category' => 'ecommerce-support'
+            ],
+            [
+                'id' => 'open-chat',
+                'phrases' => $getPhrases('open-chat'),
+                'action' => 'open-chat',
+                'description' => 'Open chat',
+                'category' => 'ecommerce-support'
+            ],
+            [
+                'id' => 'contact-support',
+                'phrases' => $getPhrases('contact-support'),
+                'action' => 'contact-support',
+                'description' => 'Contact customer support',
+                'category' => 'ecommerce-support'
+            ],
+            [
+                'id' => 'report-product',
+                'phrases' => $getPhrases('report-product'),
+                'action' => 'report-product',
+                'description' => 'Report product',
+                'category' => 'ecommerce-support'
+            ],
+            [
+                'id' => 'open-dispute',
+                'phrases' => $getPhrases('open-dispute'),
+                'action' => 'open-dispute',
+                'description' => 'Open dispute',
+                'category' => 'ecommerce-support'
+            ],
+            [
+                'id' => 'rate-seller',
+                'phrases' => $getPhrases('rate-seller'),
+                'action' => 'rate-seller',
+                'description' => 'Rate seller',
+                'category' => 'ecommerce-support'
+            ],
+
+            // ============================================
+            // E-COMMERCE: REVIEWS & RATINGS
+            // ============================================
+            [
+                'id' => 'rate-product',
+                'phrases' => $getPhrases('rate-product'),
+                'action' => 'rate-product',
+                'description' => 'Rate product',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'write-review',
+                'phrases' => $getPhrases('write-review'),
+                'action' => 'write-review',
+                'description' => 'Write product review',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'upload-product-photo',
+                'phrases' => $getPhrases('upload-product-photo'),
+                'action' => 'upload-product-photo',
+                'description' => 'Upload product photo',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'view-reviews',
+                'phrases' => $getPhrases('view-reviews'),
+                'action' => 'view-reviews',
+                'description' => 'View product reviews',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'filter-reviews',
+                'phrases' => $getPhrases('filter-reviews'),
+                'action' => 'filter-reviews',
+                'description' => 'Filter reviews',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'report-review',
+                'phrases' => $getPhrases('report-review'),
+                'action' => 'report-review',
+                'description' => 'Report review',
+                'category' => 'ecommerce-review'
+            ],
+            [
+                'id' => 'upload-review-video',
+                'phrases' => $getPhrases('upload-review-video'),
+                'action' => 'upload-review-video',
+                'description' => 'Upload review video',
+                'category' => 'ecommerce-review'
+            ],
+
+            // ============================================
+            // E-COMMERCE: LOYALTY & REWARDS
+            // ============================================
+            [
+                'id' => 'view-loyalty-points',
+                'phrases' => $getPhrases('view-loyalty-points'),
+                'action' => 'view-loyalty-points',
+                'description' => 'View loyalty points',
+                'category' => 'ecommerce-loyalty'
+            ],
+            [
+                'id' => 'redeem-points',
+                'phrases' => $getPhrases('redeem-points'),
+                'action' => 'redeem-points',
+                'description' => 'Redeem loyalty points',
+                'category' => 'ecommerce-loyalty'
+            ],
+            [
+                'id' => 'activate-membership',
+                'phrases' => $getPhrases('activate-membership'),
+                'action' => 'activate-membership',
+                'description' => 'Activate membership',
+                'category' => 'ecommerce-loyalty'
+            ],
+            [
+                'id' => 'view-exclusive-offers',
+                'phrases' => $getPhrases('view-exclusive-offers'),
+                'action' => 'view-exclusive-offers',
+                'description' => 'View exclusive offers',
+                'category' => 'ecommerce-loyalty'
+            ],
+            [
+                'id' => 'refer-friend',
+                'phrases' => $getPhrases('refer-friend'),
+                'action' => 'refer-friend',
+                'description' => 'Refer a friend',
+                'category' => 'ecommerce-loyalty'
+            ],
+
+            // ============================================
+            // E-COMMERCE: RETURNS & REFUNDS
+            // ============================================
+            [
+                'id' => 'request-return',
+                'phrases' => $getPhrases('request-return'),
+                'action' => 'request-return',
+                'description' => 'Request return',
+                'category' => 'ecommerce-return'
+            ],
+            [
+                'id' => 'track-refund',
+                'phrases' => $getPhrases('track-refund'),
+                'action' => 'track-refund',
+                'description' => 'Track refund status',
+                'category' => 'ecommerce-return'
+            ],
+            [
+                'id' => 'upload-return-evidence',
+                'phrases' => $getPhrases('upload-return-evidence'),
+                'action' => 'upload-return-evidence',
+                'description' => 'Upload return evidence',
+                'category' => 'ecommerce-return'
+            ],
+            [
+                'id' => 'choose-replacement',
+                'phrases' => $getPhrases('choose-replacement'),
+                'action' => 'choose-replacement',
+                'description' => 'Choose replacement or refund',
+                'category' => 'ecommerce-return'
+            ],
+            [
+                'id' => 'view-return-history',
+                'phrases' => $getPhrases('view-return-history'),
+                'action' => 'view-return-history',
+                'description' => 'View return history',
+                'category' => 'ecommerce-return'
+            ],
+
+            // ============================================
+            // E-COMMERCE: SELLER FEATURES
+            // ============================================
+            [
+                'id' => 'create-store',
+                'phrases' => $getPhrases('create-store'),
+                'action' => 'create-store',
+                'description' => 'Create store',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'add-product',
+                'phrases' => $getPhrases('add-product'),
+                'action' => 'add-product',
+                'description' => 'Add product',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'manage-orders',
+                'phrases' => $getPhrases('manage-orders'),
+                'action' => 'manage-orders',
+                'description' => 'Manage orders',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'view-sales-stats',
+                'phrases' => $getPhrases('view-sales-stats'),
+                'action' => 'view-sales-stats',
+                'description' => 'View sales statistics',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'create-promotion',
+                'phrases' => $getPhrases('create-promotion'),
+                'action' => 'create-promotion',
+                'description' => 'Create promotion',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'create-ad',
+                'phrases' => $getPhrases('create-ad'),
+                'action' => 'create-ad',
+                'description' => 'Create sponsored ad',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'manage-reviews',
+                'phrases' => $getPhrases('manage-reviews'),
+                'action' => 'manage-reviews',
+                'description' => 'Manage customer reviews',
+                'category' => 'ecommerce-seller'
+            ],
+            [
+                'id' => 'view-earnings',
+                'phrases' => $getPhrases('view-earnings'),
+                'action' => 'view-earnings',
+                'description' => 'View earnings',
+                'category' => 'ecommerce-seller'
+            ],
+
+            // ============================================
             // BASIC ACTIONS
             // ============================================
             [
@@ -938,6 +1482,97 @@ class UniversalCommands
                 'next' => ['next', 'next post', 'next video', 'skip', 'next item'],
                 'previous' => ['previous', 'previous post', 'go back', 'back', 'previous item'],
 
+                // E-Commerce: Account Management
+                'create-account' => ['create account', 'sign up', 'register', 'new account'],
+                'update-personal-info' => ['update personal info', 'edit personal information', 'change personal info', 'update profile'],
+                'save-shipping-address' => ['save shipping address', 'save address', 'add shipping address', 'save delivery address'],
+                'save-payment-method' => ['save payment method', 'save card', 'add payment method', 'save credit card'],
+                'view-order-history' => ['view order history', 'order history', 'my orders', 'past orders'],
+                'change-password' => ['change password', 'update password', 'reset password', 'new password'],
+                'manage-subscriptions' => ['manage subscriptions', 'subscriptions', 'my subscriptions'],
+                'manage-notifications' => ['manage notifications', 'notification settings', 'email notifications', 'sms notifications'],
+
+                // E-Commerce: Product Search & Discovery
+                'search-products' => ['search products', 'find products', 'search', 'look for products'],
+                'filter-products' => ['filter products', 'filter', 'apply filter', 'filter by price'],
+                'browse-categories' => ['browse categories', 'categories', 'view categories', 'shop by category'],
+                'voice-search' => ['voice search', 'search by voice', 'speak to search'],
+                'image-search' => ['image search', 'search by image', 'photo search', 'visual search'],
+                'compare-products' => ['compare products', 'compare', 'product comparison'],
+                'view-recommendations' => ['view recommendations', 'recommendations', 'suggested products', 'products you may like'],
+                'view-related-products' => ['view related products', 'related products', 'similar products', 'you may also like'],
+                'add-to-wishlist' => ['add to wishlist', 'save for later', 'wishlist', 'add to favorites'],
+
+                // E-Commerce: Order Management
+                'add-to-cart' => ['add to cart', 'add to bag', 'buy now', 'add product'],
+                'view-cart' => ['view cart', 'shopping cart', 'my cart', 'cart'],
+                'update-quantity' => ['update quantity', 'change quantity', 'quantity', 'update amount'],
+                'remove-from-cart' => ['remove from cart', 'delete from cart', 'remove item', 'remove product'],
+                'apply-coupon' => ['apply coupon', 'use coupon', 'enter coupon code', 'discount code'],
+                'select-shipping' => ['select shipping', 'choose shipping', 'shipping method', 'delivery method'],
+                'checkout' => ['checkout', 'proceed to checkout', 'place order', 'buy'],
+                'save-billing-info' => ['save billing info', 'save billing information', 'billing address'],
+                'track-order' => ['track order', 'order tracking', 'track my order', 'where is my order'],
+                'cancel-order' => ['cancel order', 'cancel', 'cancel purchase'],
+                'print-invoice' => ['print invoice', 'download invoice', 'invoice', 'receipt'],
+
+                // E-Commerce: Payments & Transactions
+                'select-payment-method' => ['select payment method', 'choose payment', 'payment method', 'how to pay'],
+                'use-loyalty-points' => ['use loyalty points', 'redeem points', 'apply points', 'use points'],
+                'view-transaction-history' => ['view transaction history', 'transaction history', 'payment history', 'purchase history'],
+                'request-refund' => ['request refund', 'refund', 'get refund', 'return money'],
+                'apply-promo-code' => ['apply promo code', 'promo code', 'promotion code', 'discount'],
+                'view-payment-methods' => ['view payment methods', 'payment methods', 'saved cards', 'my payment methods'],
+
+                // E-Commerce: Shipping & Delivery
+                'select-shipping-company' => ['select shipping company', 'choose shipping company', 'carrier', 'delivery company'],
+                'set-delivery-address' => ['set delivery address', 'delivery address', 'shipping address', 'where to deliver'],
+                'select-pickup-point' => ['select pickup point', 'pickup point', 'pickup location', 'collect from'],
+                'track-shipment' => ['track shipment', 'track package', 'track delivery', 'where is my package'],
+                'change-delivery-address' => ['change delivery address', 'update address', 'change address', 'new address'],
+                'confirm-delivery' => ['confirm delivery', 'received', 'delivery confirmed', 'package received'],
+                'view-shipping-notifications' => ['view shipping notifications', 'delivery updates', 'shipping updates'],
+
+                // E-Commerce: Communication & Support
+                'contact-seller' => ['contact seller', 'message seller', 'talk to seller', 'seller'],
+                'open-chat' => ['open chat', 'chat', 'start chat', 'customer chat'],
+                'contact-support' => ['contact support', 'customer support', 'help', 'support'],
+                'report-product' => ['report product', 'report', 'flag product', 'report fake product'],
+                'open-dispute' => ['open dispute', 'dispute', 'file dispute', 'complaint'],
+                'rate-seller' => ['rate seller', 'review seller', 'seller rating', 'rate store'],
+
+                // E-Commerce: Reviews & Ratings
+                'rate-product' => ['rate product', 'rate', 'give rating', 'star rating'],
+                'write-review' => ['write review', 'review', 'write a review', 'product review'],
+                'upload-product-photo' => ['upload product photo', 'add photo', 'product photo', 'upload image'],
+                'view-reviews' => ['view reviews', 'reviews', 'customer reviews', 'read reviews'],
+                'filter-reviews' => ['filter reviews', 'filter by rating', 'positive reviews', 'negative reviews'],
+                'report-review' => ['report review', 'flag review', 'report fake review'],
+                'upload-review-video' => ['upload review video', 'video review', 'add video'],
+
+                // E-Commerce: Loyalty & Rewards
+                'view-loyalty-points' => ['view loyalty points', 'loyalty points', 'my points', 'points balance'],
+                'redeem-points' => ['redeem points', 'use points', 'exchange points', 'points discount'],
+                'activate-membership' => ['activate membership', 'membership', 'prime membership', 'subscribe'],
+                'view-exclusive-offers' => ['view exclusive offers', 'exclusive offers', 'special offers', 'member deals'],
+                'refer-friend' => ['refer friend', 'referral', 'invite friend', 'referral program'],
+
+                // E-Commerce: Returns & Refunds
+                'request-return' => ['request return', 'return product', 'return item', 'send back'],
+                'track-refund' => ['track refund', 'refund status', 'where is my refund'],
+                'upload-return-evidence' => ['upload return evidence', 'upload photo', 'damage photo', 'evidence'],
+                'choose-replacement' => ['choose replacement', 'replacement or refund', 'exchange', 'replace product'],
+                'view-return-history' => ['view return history', 'return history', 'my returns'],
+
+                // E-Commerce: Seller Features
+                'create-store' => ['create store', 'open store', 'new store', 'seller account'],
+                'add-product' => ['add product', 'new product', 'list product', 'upload product'],
+                'manage-orders' => ['manage orders', 'orders', 'seller orders', 'my orders'],
+                'view-sales-stats' => ['view sales stats', 'sales statistics', 'sales report', 'revenue'],
+                'create-promotion' => ['create promotion', 'new promotion', 'sale', 'discount'],
+                'create-ad' => ['create ad', 'sponsored ad', 'advertisement', 'promote product'],
+                'manage-reviews' => ['manage reviews', 'customer reviews', 'product reviews'],
+
                 // Basic
                 'click' => ['click', 'tap', 'press', 'select'],
             ],
@@ -1071,6 +1706,97 @@ class UniversalCommands
                 // Content Navigation
                 'next' => ['tjeter', 'postimi tjeter', 'video tjeter', 'kaloj'],
                 'previous' => ['i meparshem', 'postimi i meparshem', 'kthe mbrapa'],
+
+                // E-Commerce: Account Management
+                'create-account' => ['krijo llogari', 'regjistrohu', 'llogari e re', 'sign up'],
+                'update-personal-info' => ['perditeso informacionin personal', 'ndrysho informacion', 'edito te dhenat'],
+                'save-shipping-address' => ['ruaj adresen e dergeses', 'ruaj adrese', 'shto adrese'],
+                'save-payment-method' => ['ruaj metod pagese', 'ruaj karte', 'shto karte krediti'],
+                'view-order-history' => ['shiko historine e porosive', 'porosite e mia', 'historiku i porosive'],
+                'change-password' => ['ndrysho fjalekalimin', 'perditeso fjalekalimin', 'fjalekalim i ri'],
+                'manage-subscriptions' => ['menaxho abonimet', 'abonimet', 'abonimet e mia'],
+                'manage-notifications' => ['menaxho njoftimet', 'settings njoftimesh', 'njoftime email'],
+
+                // E-Commerce: Product Search & Discovery
+                'search-products' => ['kerko produkte', 'gjej produkte', 'kerko', 'kujto produkte'],
+                'filter-products' => ['filtro produkte', 'filtro', 'filtro sipas cmimit'],
+                'browse-categories' => ['shfleto kategori', 'kategori', 'shiko kategori'],
+                'voice-search' => ['kerkim me ze', 'kerko me ze', 'fol per te kerkuar'],
+                'image-search' => ['kerkim me foto', 'kerko me foto', 'kerkim vizual'],
+                'compare-products' => ['krahaso produkte', 'krahasim', 'krahaso'],
+                'view-recommendations' => ['shiko rekomandime', 'rekomandime', 'produkte te sugjeruara'],
+                'view-related-products' => ['shiko produkte te lidhura', 'produkte te ngjashme', 'mund te te pelqejne'],
+                'add-to-wishlist' => ['shto ne wishlist', 'ruaj per me vone', 'wishlist', 'shto ne te preferuarat'],
+
+                // E-Commerce: Order Management
+                'add-to-cart' => ['shto ne shporte', 'shto ne kosh', 'blej tani', 'shto produkt'],
+                'view-cart' => ['shiko shporten', 'shporta', 'koshi im', 'shporte'],
+                'update-quantity' => ['perditeso sasine', 'ndrysho sasine', 'sasi', 'perditeso sasi'],
+                'remove-from-cart' => ['hiq nga shporta', 'fshij nga shporta', 'hiq produkt'],
+                'apply-coupon' => ['aplikoj kupon', 'perdore kupon', 'kupon', 'kode zbritje'],
+                'select-shipping' => ['zgjedh derges', 'metod dergese', 'zgjedh transport'],
+                'checkout' => ['checkout', 'porosise', 'blej', 'perfundo porosine'],
+                'save-billing-info' => ['ruaj informacion faturimi', 'adrese faturimi'],
+                'track-order' => ['ndjek porosine', 'tracking porosie', 'ku eshte porosia ime'],
+                'cancel-order' => ['anulo porosine', 'anulo', 'anulo blerjen'],
+                'print-invoice' => ['printo fature', 'shkarko fature', 'fature', 'receipt'],
+
+                // E-Commerce: Payments & Transactions
+                'select-payment-method' => ['zgjedh metod pagese', 'zgjedh pagese', 'si te paguaj'],
+                'use-loyalty-points' => ['perdore pike besnikerie', 'shkembe pike', 'aplikoj pike'],
+                'view-transaction-history' => ['shiko historine e transaksioneve', 'historiku pagesash', 'transaksionet'],
+                'request-refund' => ['kerko rimbursim', 'rimbursim', 'kthe parate'],
+                'apply-promo-code' => ['aplikoj kode promocioni', 'kode promocioni', 'zbritje'],
+                'view-payment-methods' => ['shiko metodat e pageses', 'kartat e ruajtura', 'metodat e mia'],
+
+                // E-Commerce: Shipping & Delivery
+                'select-shipping-company' => ['zgjedh kompani transporti', 'kompani dergese', 'transportues'],
+                'set-delivery-address' => ['vendos adrese dergese', 'adrese dergese', 'ku te dergohet'],
+                'select-pickup-point' => ['zgjedh pike marrje', 'pike marrje', 'merr nga'],
+                'track-shipment' => ['ndjek dergesen', 'ndjek paketen', 'ku eshte paketa'],
+                'change-delivery-address' => ['ndrysho adrese dergese', 'perditeso adrese', 'adrese e re'],
+                'confirm-delivery' => ['konfirmo dergese', 'marr', 'pakete e marre'],
+                'view-shipping-notifications' => ['shiko njoftimet e dergeses', 'perditesime dergese'],
+
+                // E-Commerce: Communication & Support
+                'contact-seller' => ['kontakto shitestin', 'mesazh shitestit', 'bisedo me shitestin'],
+                'open-chat' => ['hape chat', 'chat', 'fillo chat', 'bisede'],
+                'contact-support' => ['kontakto mbështetjen', 'mbështetje klienti', 'ndihme', 'support'],
+                'report-product' => ['raporto produkt', 'raporto', 'flag produkt'],
+                'open-dispute' => ['hape mosmarrëveshje', 'mosmarrëveshje', 'ankese'],
+                'rate-seller' => ['vlereso shitestin', 'review shitestit', 'rating shitestit'],
+
+                // E-Commerce: Reviews & Ratings
+                'rate-product' => ['vlereso produkt', 'vlereso', 'jep rating', 'yje'],
+                'write-review' => ['shkruaj review', 'review', 'shkruaj nje review', 'koment produkt'],
+                'upload-product-photo' => ['ngarko foto produkti', 'shto foto', 'foto produkti'],
+                'view-reviews' => ['shiko reviews', 'reviews', 'reviews klientesh', 'lexo reviews'],
+                'filter-reviews' => ['filtro reviews', 'filtro sipas rating', 'reviews pozitive'],
+                'report-review' => ['raporto review', 'flag review'],
+                'upload-review-video' => ['ngarko video review', 'video review', 'shto video'],
+
+                // E-Commerce: Loyalty & Rewards
+                'view-loyalty-points' => ['shiko pike besnikerie', 'pike besnikerie', 'piket e mia', 'balanca pikesh'],
+                'redeem-points' => ['shkembe pike', 'perdore pike', 'zbritje me pike'],
+                'activate-membership' => ['aktivizo abonim', 'abonim', 'prime membership', 'subscribe'],
+                'view-exclusive-offers' => ['shiko oferta ekskluzive', 'oferta ekskluzive', 'oferta speciale'],
+                'refer-friend' => ['refero mik', 'referral', 'fto mik', 'program referral'],
+
+                // E-Commerce: Returns & Refunds
+                'request-return' => ['kerko kthim', 'kthe produkt', 'kthe artikull', 'dergo mbrapa'],
+                'track-refund' => ['ndjek rimbursimin', 'status rimbursimi', 'ku eshte rimbursimi'],
+                'upload-return-evidence' => ['ngarko dëshmi kthimi', 'ngarko foto', 'foto dëmtimi'],
+                'choose-replacement' => ['zgjedh zëvendësim', 'zëvendësim ose rimbursim', 'këmbim'],
+                'view-return-history' => ['shiko historine e kthimeve', 'historiku kthimesh', 'kthimet e mia'],
+
+                // E-Commerce: Seller Features
+                'create-store' => ['krijo dyqan', 'hape dyqan', 'dyqan i ri', 'llogari shitestit'],
+                'add-product' => ['shto produkt', 'produkt i ri', 'listo produkt', 'ngarko produkt'],
+                'manage-orders' => ['menaxho porosite', 'porosite', 'porosite shitestit'],
+                'view-sales-stats' => ['shiko stats shitjesh', 'statistika shitjesh', 'raport shitjesh', 'fitime'],
+                'create-promotion' => ['krijo promocion', 'promocion i ri', 'sale', 'zbritje'],
+                'create-ad' => ['krijo reklame', 'reklame e paguar', 'reklamo produkt'],
+                'manage-reviews' => ['menaxho reviews', 'reviews klientesh', 'reviews produktesh'],
 
                 // Basic
                 'click' => ['kliko', 'prek', 'shtyp', 'zgjedh'],
@@ -1206,6 +1932,97 @@ class UniversalCommands
                 'next' => ['siguiente', 'siguiente publicación', 'saltar', 'siguiente elemento'],
                 'previous' => ['anterior', 'publicación anterior', 'atrás', 'elemento anterior'],
 
+                // E-Commerce: Account Management
+                'create-account' => ['crear cuenta', 'registrarse', 'registro', 'nueva cuenta'],
+                'update-personal-info' => ['actualizar información personal', 'editar información', 'cambiar datos'],
+                'save-shipping-address' => ['guardar dirección de envío', 'guardar dirección', 'agregar dirección'],
+                'save-payment-method' => ['guardar método de pago', 'guardar tarjeta', 'agregar tarjeta'],
+                'view-order-history' => ['ver historial de pedidos', 'mis pedidos', 'pedidos anteriores'],
+                'change-password' => ['cambiar contraseña', 'actualizar contraseña', 'nueva contraseña'],
+                'manage-subscriptions' => ['gestionar suscripciones', 'suscripciones', 'mis suscripciones'],
+                'manage-notifications' => ['gestionar notificaciones', 'configuración de notificaciones', 'notificaciones email'],
+
+                // E-Commerce: Product Search & Discovery
+                'search-products' => ['buscar productos', 'encontrar productos', 'buscar', 'buscar artículos'],
+                'filter-products' => ['filtrar productos', 'filtrar', 'aplicar filtro', 'filtrar por precio'],
+                'browse-categories' => ['explorar categorías', 'categorías', 'ver categorías', 'comprar por categoría'],
+                'voice-search' => ['búsqueda por voz', 'buscar por voz', 'hablar para buscar'],
+                'image-search' => ['búsqueda por imagen', 'buscar por imagen', 'búsqueda visual'],
+                'compare-products' => ['comparar productos', 'comparar', 'comparación de productos'],
+                'view-recommendations' => ['ver recomendaciones', 'recomendaciones', 'productos sugeridos'],
+                'view-related-products' => ['ver productos relacionados', 'productos relacionados', 'productos similares'],
+                'add-to-wishlist' => ['agregar a lista de deseos', 'guardar para después', 'lista de deseos', 'favoritos'],
+
+                // E-Commerce: Order Management
+                'add-to-cart' => ['agregar al carrito', 'agregar a la bolsa', 'comprar ahora', 'agregar producto'],
+                'view-cart' => ['ver carrito', 'carrito de compras', 'mi carrito', 'carrito'],
+                'update-quantity' => ['actualizar cantidad', 'cambiar cantidad', 'cantidad', 'actualizar cantidad'],
+                'remove-from-cart' => ['eliminar del carrito', 'quitar del carrito', 'eliminar producto'],
+                'apply-coupon' => ['aplicar cupón', 'usar cupón', 'código de descuento', 'cupón'],
+                'select-shipping' => ['seleccionar envío', 'elegir envío', 'método de envío', 'método de entrega'],
+                'checkout' => ['pagar', 'proceder al pago', 'realizar pedido', 'comprar'],
+                'save-billing-info' => ['guardar información de facturación', 'dirección de facturación'],
+                'track-order' => ['rastrear pedido', 'seguimiento de pedido', 'dónde está mi pedido'],
+                'cancel-order' => ['cancelar pedido', 'cancelar', 'anular compra'],
+                'print-invoice' => ['imprimir factura', 'descargar factura', 'factura', 'recibo'],
+
+                // E-Commerce: Payments & Transactions
+                'select-payment-method' => ['seleccionar método de pago', 'elegir pago', 'método de pago', 'cómo pagar'],
+                'use-loyalty-points' => ['usar puntos de fidelidad', 'canjear puntos', 'aplicar puntos'],
+                'view-transaction-history' => ['ver historial de transacciones', 'historial de pagos', 'historial de compras'],
+                'request-refund' => ['solicitar reembolso', 'reembolso', 'devolución de dinero'],
+                'apply-promo-code' => ['aplicar código promocional', 'código promocional', 'código de descuento'],
+                'view-payment-methods' => ['ver métodos de pago', 'métodos de pago', 'tarjetas guardadas'],
+
+                // E-Commerce: Shipping & Delivery
+                'select-shipping-company' => ['seleccionar empresa de envío', 'empresa de transporte', 'transportista'],
+                'set-delivery-address' => ['establecer dirección de entrega', 'dirección de entrega', 'dónde entregar'],
+                'select-pickup-point' => ['seleccionar punto de recogida', 'punto de recogida', 'recoger de'],
+                'track-shipment' => ['rastrear envío', 'rastrear paquete', 'dónde está mi paquete'],
+                'change-delivery-address' => ['cambiar dirección de entrega', 'actualizar dirección', 'nueva dirección'],
+                'confirm-delivery' => ['confirmar entrega', 'recibido', 'entrega confirmada', 'paquete recibido'],
+                'view-shipping-notifications' => ['ver notificaciones de envío', 'actualizaciones de entrega'],
+
+                // E-Commerce: Communication & Support
+                'contact-seller' => ['contactar vendedor', 'mensaje al vendedor', 'hablar con vendedor'],
+                'open-chat' => ['abrir chat', 'chat', 'iniciar chat', 'chat de cliente'],
+                'contact-support' => ['contactar soporte', 'soporte al cliente', 'ayuda', 'soporte'],
+                'report-product' => ['reportar producto', 'reportar', 'marcar producto', 'producto falso'],
+                'open-dispute' => ['abrir disputa', 'disputa', 'presentar disputa', 'queja'],
+                'rate-seller' => ['calificar vendedor', 'reseña vendedor', 'calificación vendedor'],
+
+                // E-Commerce: Reviews & Ratings
+                'rate-product' => ['calificar producto', 'calificar', 'dar calificación', 'estrellas'],
+                'write-review' => ['escribir reseña', 'reseña', 'escribir una reseña', 'reseña de producto'],
+                'upload-product-photo' => ['subir foto del producto', 'agregar foto', 'foto del producto'],
+                'view-reviews' => ['ver reseñas', 'reseñas', 'reseñas de clientes', 'leer reseñas'],
+                'filter-reviews' => ['filtrar reseñas', 'filtrar por calificación', 'reseñas positivas'],
+                'report-review' => ['reportar reseña', 'marcar reseña', 'reseña falsa'],
+                'upload-review-video' => ['subir video reseña', 'video reseña', 'agregar video'],
+
+                // E-Commerce: Loyalty & Rewards
+                'view-loyalty-points' => ['ver puntos de fidelidad', 'puntos de fidelidad', 'mis puntos', 'saldo de puntos'],
+                'redeem-points' => ['canjear puntos', 'usar puntos', 'intercambiar puntos', 'descuento con puntos'],
+                'activate-membership' => ['activar membresía', 'membresía', 'membresía prime', 'suscribirse'],
+                'view-exclusive-offers' => ['ver ofertas exclusivas', 'ofertas exclusivas', 'ofertas especiales'],
+                'refer-friend' => ['referir amigo', 'referido', 'invitar amigo', 'programa de referidos'],
+
+                // E-Commerce: Returns & Refunds
+                'request-return' => ['solicitar devolución', 'devolver producto', 'devolver artículo', 'enviar de vuelta'],
+                'track-refund' => ['rastrear reembolso', 'estado del reembolso', 'dónde está mi reembolso'],
+                'upload-return-evidence' => ['subir evidencia de devolución', 'subir foto', 'foto de daño'],
+                'choose-replacement' => ['elegir reemplazo', 'reemplazo o reembolso', 'intercambio'],
+                'view-return-history' => ['ver historial de devoluciones', 'historial de devoluciones', 'mis devoluciones'],
+
+                // E-Commerce: Seller Features
+                'create-store' => ['crear tienda', 'abrir tienda', 'nueva tienda', 'cuenta de vendedor'],
+                'add-product' => ['agregar producto', 'nuevo producto', 'listar producto', 'subir producto'],
+                'manage-orders' => ['gestionar pedidos', 'pedidos', 'pedidos del vendedor'],
+                'view-sales-stats' => ['ver estadísticas de ventas', 'estadísticas de ventas', 'reporte de ventas', 'ingresos'],
+                'create-promotion' => ['crear promoción', 'nueva promoción', 'oferta', 'descuento'],
+                'create-ad' => ['crear anuncio', 'anuncio patrocinado', 'publicidad', 'promocionar producto'],
+                'manage-reviews' => ['gestionar reseñas', 'reseñas de clientes', 'reseñas de productos'],
+
                 // Basic
                 'click' => ['clic', 'tocar', 'presionar', 'seleccionar'],
             ],
@@ -1339,6 +2156,97 @@ class UniversalCommands
                 // Content Navigation
                 'next' => ['suivant', 'publication suivante', 'sauter', 'élément suivant'],
                 'previous' => ['précédent', 'publication précédente', 'arrière', 'élément précédent'],
+
+                // E-Commerce: Account Management
+                'create-account' => ['créer un compte', 's\'inscrire', 'enregistrement', 'nouveau compte'],
+                'update-personal-info' => ['mettre à jour les informations personnelles', 'modifier informations', 'changer données'],
+                'save-shipping-address' => ['enregistrer adresse de livraison', 'enregistrer adresse', 'ajouter adresse'],
+                'save-payment-method' => ['enregistrer méthode de paiement', 'enregistrer carte', 'ajouter carte'],
+                'view-order-history' => ['voir historique des commandes', 'mes commandes', 'commandes précédentes'],
+                'change-password' => ['changer mot de passe', 'mettre à jour mot de passe', 'nouveau mot de passe'],
+                'manage-subscriptions' => ['gérer abonnements', 'abonnements', 'mes abonnements'],
+                'manage-notifications' => ['gérer notifications', 'paramètres notifications', 'notifications email'],
+
+                // E-Commerce: Product Search & Discovery
+                'search-products' => ['rechercher produits', 'trouver produits', 'rechercher', 'chercher articles'],
+                'filter-products' => ['filtrer produits', 'filtrer', 'appliquer filtre', 'filtrer par prix'],
+                'browse-categories' => ['parcourir catégories', 'catégories', 'voir catégories', 'acheter par catégorie'],
+                'voice-search' => ['recherche vocale', 'rechercher par voix', 'parler pour rechercher'],
+                'image-search' => ['recherche par image', 'rechercher par image', 'recherche visuelle'],
+                'compare-products' => ['comparer produits', 'comparer', 'comparaison de produits'],
+                'view-recommendations' => ['voir recommandations', 'recommandations', 'produits suggérés'],
+                'view-related-products' => ['voir produits associés', 'produits associés', 'produits similaires'],
+                'add-to-wishlist' => ['ajouter à la liste de souhaits', 'enregistrer pour plus tard', 'liste de souhaits', 'favoris'],
+
+                // E-Commerce: Order Management
+                'add-to-cart' => ['ajouter au panier', 'ajouter au sac', 'acheter maintenant', 'ajouter produit'],
+                'view-cart' => ['voir panier', 'panier', 'mon panier', 'panier d\'achat'],
+                'update-quantity' => ['mettre à jour quantité', 'changer quantité', 'quantité', 'modifier quantité'],
+                'remove-from-cart' => ['retirer du panier', 'supprimer du panier', 'retirer produit'],
+                'apply-coupon' => ['appliquer coupon', 'utiliser coupon', 'code de réduction', 'coupon'],
+                'select-shipping' => ['sélectionner livraison', 'choisir livraison', 'méthode de livraison'],
+                'checkout' => ['paiement', 'procéder au paiement', 'passer commande', 'acheter'],
+                'save-billing-info' => ['enregistrer informations de facturation', 'adresse de facturation'],
+                'track-order' => ['suivre commande', 'suivi de commande', 'où est ma commande'],
+                'cancel-order' => ['annuler commande', 'annuler', 'annuler achat'],
+                'print-invoice' => ['imprimer facture', 'télécharger facture', 'facture', 'reçu'],
+
+                // E-Commerce: Payments & Transactions
+                'select-payment-method' => ['sélectionner méthode de paiement', 'choisir paiement', 'méthode de paiement', 'comment payer'],
+                'use-loyalty-points' => ['utiliser points de fidélité', 'échanger points', 'appliquer points'],
+                'view-transaction-history' => ['voir historique transactions', 'historique paiements', 'historique achats'],
+                'request-refund' => ['demander remboursement', 'remboursement', 'retour d\'argent'],
+                'apply-promo-code' => ['appliquer code promo', 'code promotionnel', 'code de réduction'],
+                'view-payment-methods' => ['voir méthodes de paiement', 'méthodes de paiement', 'cartes enregistrées'],
+
+                // E-Commerce: Shipping & Delivery
+                'select-shipping-company' => ['sélectionner entreprise de livraison', 'transporteur', 'compagnie de livraison'],
+                'set-delivery-address' => ['définir adresse de livraison', 'adresse de livraison', 'où livrer'],
+                'select-pickup-point' => ['sélectionner point de retrait', 'point de retrait', 'retirer de'],
+                'track-shipment' => ['suivre envoi', 'suivre colis', 'où est mon colis'],
+                'change-delivery-address' => ['changer adresse de livraison', 'mettre à jour adresse', 'nouvelle adresse'],
+                'confirm-delivery' => ['confirmer livraison', 'reçu', 'livraison confirmée', 'colis reçu'],
+                'view-shipping-notifications' => ['voir notifications livraison', 'mises à jour livraison'],
+
+                // E-Commerce: Communication & Support
+                'contact-seller' => ['contacter vendeur', 'message au vendeur', 'parler au vendeur'],
+                'open-chat' => ['ouvrir chat', 'chat', 'démarrer chat', 'chat client'],
+                'contact-support' => ['contacter support', 'support client', 'aide', 'support'],
+                'report-product' => ['signaler produit', 'signaler', 'marquer produit', 'produit faux'],
+                'open-dispute' => ['ouvrir litige', 'litige', 'déposer litige', 'plainte'],
+                'rate-seller' => ['évaluer vendeur', 'avis vendeur', 'note vendeur'],
+
+                // E-Commerce: Reviews & Ratings
+                'rate-product' => ['évaluer produit', 'évaluer', 'donner note', 'étoiles'],
+                'write-review' => ['écrire avis', 'avis', 'écrire un avis', 'avis produit'],
+                'upload-product-photo' => ['télécharger photo produit', 'ajouter photo', 'photo produit'],
+                'view-reviews' => ['voir avis', 'avis', 'avis clients', 'lire avis'],
+                'filter-reviews' => ['filtrer avis', 'filtrer par note', 'avis positifs'],
+                'report-review' => ['signaler avis', 'marquer avis', 'avis faux'],
+                'upload-review-video' => ['télécharger vidéo avis', 'vidéo avis', 'ajouter vidéo'],
+
+                // E-Commerce: Loyalty & Rewards
+                'view-loyalty-points' => ['voir points fidélité', 'points fidélité', 'mes points', 'solde points'],
+                'redeem-points' => ['échanger points', 'utiliser points', 'réduction avec points'],
+                'activate-membership' => ['activer abonnement', 'abonnement', 'abonnement prime', 's\'abonner'],
+                'view-exclusive-offers' => ['voir offres exclusives', 'offres exclusives', 'offres spéciales'],
+                'refer-friend' => ['parrainer ami', 'parrainage', 'inviter ami', 'programme parrainage'],
+
+                // E-Commerce: Returns & Refunds
+                'request-return' => ['demander retour', 'retourner produit', 'retourner article', 'renvoyer'],
+                'track-refund' => ['suivre remboursement', 'état remboursement', 'où est mon remboursement'],
+                'upload-return-evidence' => ['télécharger preuve retour', 'télécharger photo', 'photo dommage'],
+                'choose-replacement' => ['choisir remplacement', 'remplacement ou remboursement', 'échange'],
+                'view-return-history' => ['voir historique retours', 'historique retours', 'mes retours'],
+
+                // E-Commerce: Seller Features
+                'create-store' => ['créer boutique', 'ouvrir boutique', 'nouvelle boutique', 'compte vendeur'],
+                'add-product' => ['ajouter produit', 'nouveau produit', 'lister produit', 'télécharger produit'],
+                'manage-orders' => ['gérer commandes', 'commandes', 'commandes vendeur'],
+                'view-sales-stats' => ['voir statistiques ventes', 'statistiques ventes', 'rapport ventes', 'revenus'],
+                'create-promotion' => ['créer promotion', 'nouvelle promotion', 'promotion', 'réduction'],
+                'create-ad' => ['créer publicité', 'publicité sponsorisée', 'publicité', 'promouvoir produit'],
+                'manage-reviews' => ['gérer avis', 'avis clients', 'avis produits'],
 
                 // Basic
                 'click' => ['cliquer', 'toucher', 'appuyer', 'sélectionner'],
