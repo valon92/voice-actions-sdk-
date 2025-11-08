@@ -1319,6 +1319,702 @@ class UniversalCommands
             ],
 
             // ============================================
+            // GAMING: ACCOUNT MANAGEMENT
+            // ============================================
+            [
+                'id' => 'create-gaming-account',
+                'phrases' => $getPhrases('create-gaming-account'),
+                'action' => 'create-gaming-account',
+                'description' => 'Create gaming account',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'set-avatar',
+                'phrases' => $getPhrases('set-avatar'),
+                'action' => 'set-avatar',
+                'description' => 'Set avatar',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'change-gamertag',
+                'phrases' => $getPhrases('change-gamertag'),
+                'action' => 'change-gamertag',
+                'description' => 'Change gamertag/username',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'link-platform',
+                'phrases' => $getPhrases('link-platform'),
+                'action' => 'link-platform',
+                'description' => 'Link gaming platform',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'view-purchase-history',
+                'phrases' => $getPhrases('view-purchase-history'),
+                'action' => 'view-purchase-history',
+                'description' => 'View purchase history',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'manage-subscription',
+                'phrases' => $getPhrases('manage-subscription'),
+                'action' => 'manage-subscription',
+                'description' => 'Manage gaming subscription',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'view-installed-games',
+                'phrases' => $getPhrases('view-installed-games'),
+                'action' => 'view-installed-games',
+                'description' => 'View installed games',
+                'category' => 'gaming-account'
+            ],
+            [
+                'id' => 'set-payment-method',
+                'phrases' => $getPhrases('set-payment-method'),
+                'action' => 'set-payment-method',
+                'description' => 'Set payment method',
+                'category' => 'gaming-account'
+            ],
+
+            // ============================================
+            // GAMING: GAME DISCOVERY & PURCHASE
+            // ============================================
+            [
+                'id' => 'search-games',
+                'phrases' => $getPhrases('search-games'),
+                'action' => 'search-games',
+                'description' => 'Search for games',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'filter-games',
+                'phrases' => $getPhrases('filter-games'),
+                'action' => 'filter-games',
+                'description' => 'Filter games',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'view-game-details',
+                'phrases' => $getPhrases('view-game-details'),
+                'action' => 'view-game-details',
+                'description' => 'View game details',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'watch-trailer',
+                'phrases' => $getPhrases('watch-trailer'),
+                'action' => 'watch-trailer',
+                'description' => 'Watch game trailer',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'add-to-wishlist',
+                'phrases' => $getPhrases('add-to-wishlist'),
+                'action' => 'add-to-wishlist',
+                'description' => 'Add game to wishlist',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'buy-game',
+                'phrases' => $getPhrases('buy-game'),
+                'action' => 'buy-game',
+                'description' => 'Buy game',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'pre-order-game',
+                'phrases' => $getPhrases('pre-order-game'),
+                'action' => 'pre-order-game',
+                'description' => 'Pre-order game',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'apply-game-coupon',
+                'phrases' => $getPhrases('apply-game-coupon'),
+                'action' => 'apply-game-coupon',
+                'description' => 'Apply game coupon',
+                'category' => 'gaming-discovery'
+            ],
+            [
+                'id' => 'view-game-reviews',
+                'phrases' => $getPhrases('view-game-reviews'),
+                'action' => 'view-game-reviews',
+                'description' => 'View game reviews',
+                'category' => 'gaming-discovery'
+            ],
+
+            // ============================================
+            // GAMING: DOWNLOAD & INSTALLATION
+            // ============================================
+            [
+                'id' => 'download-game',
+                'phrases' => $getPhrases('download-game'),
+                'action' => 'download-game',
+                'description' => 'Download game',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'install-game',
+                'phrases' => $getPhrases('install-game'),
+                'action' => 'install-game',
+                'description' => 'Install game',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'manage-storage',
+                'phrases' => $getPhrases('manage-storage'),
+                'action' => 'manage-storage',
+                'description' => 'Manage storage',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'update-game',
+                'phrases' => $getPhrases('update-game'),
+                'action' => 'update-game',
+                'description' => 'Update game',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'install-dlc',
+                'phrases' => $getPhrases('install-dlc'),
+                'action' => 'install-dlc',
+                'description' => 'Install DLC',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'download-beta',
+                'phrases' => $getPhrases('download-beta'),
+                'action' => 'download-beta',
+                'description' => 'Download beta version',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'pause-download',
+                'phrases' => $getPhrases('pause-download'),
+                'action' => 'pause-download',
+                'description' => 'Pause download',
+                'category' => 'gaming-download'
+            ],
+            [
+                'id' => 'resume-download',
+                'phrases' => $getPhrases('resume-download'),
+                'action' => 'resume-download',
+                'description' => 'Resume download',
+                'category' => 'gaming-download'
+            ],
+
+            // ============================================
+            // GAMING: GAMEPLAY & INTERACTION
+            // ============================================
+            [
+                'id' => 'launch-game',
+                'phrases' => $getPhrases('launch-game'),
+                'action' => 'launch-game',
+                'description' => 'Launch game',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'invite-friend',
+                'phrases' => $getPhrases('invite-friend'),
+                'action' => 'invite-friend',
+                'description' => 'Invite friend to game',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'create-party',
+                'phrases' => $getPhrases('create-party'),
+                'action' => 'create-party',
+                'description' => 'Create party',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'join-party',
+                'phrases' => $getPhrases('join-party'),
+                'action' => 'join-party',
+                'description' => 'Join party',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'open-voice-chat',
+                'phrases' => $getPhrases('open-voice-chat'),
+                'action' => 'open-voice-chat',
+                'description' => 'Open voice chat',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'toggle-fullscreen',
+                'phrases' => $getPhrases('toggle-fullscreen'),
+                'action' => 'toggle-fullscreen',
+                'description' => 'Toggle fullscreen mode',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'open-settings',
+                'phrases' => $getPhrases('open-settings'),
+                'action' => 'open-settings',
+                'description' => 'Open game settings',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'save-game',
+                'phrases' => $getPhrases('save-game'),
+                'action' => 'save-game',
+                'description' => 'Save game progress',
+                'category' => 'gaming-play'
+            ],
+            [
+                'id' => 'sync-cloud-save',
+                'phrases' => $getPhrases('sync-cloud-save'),
+                'action' => 'sync-cloud-save',
+                'description' => 'Sync cloud save',
+                'category' => 'gaming-play'
+            ],
+
+            // ============================================
+            // GAMING: GAME LIBRARY
+            // ============================================
+            [
+                'id' => 'view-library',
+                'phrases' => $getPhrases('view-library'),
+                'action' => 'view-library',
+                'description' => 'View game library',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'filter-library',
+                'phrases' => $getPhrases('filter-library'),
+                'action' => 'filter-library',
+                'description' => 'Filter game library',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'create-collection',
+                'phrases' => $getPhrases('create-collection'),
+                'action' => 'create-collection',
+                'description' => 'Create game collection',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'view-game-stats',
+                'phrases' => $getPhrases('view-game-stats'),
+                'action' => 'view-game-stats',
+                'description' => 'View game statistics',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'toggle-auto-update',
+                'phrases' => $getPhrases('toggle-auto-update'),
+                'action' => 'toggle-auto-update',
+                'description' => 'Toggle auto-update',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'backup-game',
+                'phrases' => $getPhrases('backup-game'),
+                'action' => 'backup-game',
+                'description' => 'Backup game',
+                'category' => 'gaming-library'
+            ],
+            [
+                'id' => 'uninstall-game',
+                'phrases' => $getPhrases('uninstall-game'),
+                'action' => 'uninstall-game',
+                'description' => 'Uninstall game',
+                'category' => 'gaming-library'
+            ],
+
+            // ============================================
+            // GAMING: COMMUNITY & SOCIAL
+            // ============================================
+            [
+                'id' => 'add-friend',
+                'phrases' => $getPhrases('add-friend'),
+                'action' => 'add-friend',
+                'description' => 'Add friend',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'view-friends-activity',
+                'phrases' => $getPhrases('view-friends-activity'),
+                'action' => 'view-friends-activity',
+                'description' => 'View friends activity',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'create-group',
+                'phrases' => $getPhrases('create-group'),
+                'action' => 'create-group',
+                'description' => 'Create gaming group',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'write-game-review',
+                'phrases' => $getPhrases('write-game-review'),
+                'action' => 'write-game-review',
+                'description' => 'Write game review',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'share-screenshot',
+                'phrases' => $getPhrases('share-screenshot'),
+                'action' => 'share-screenshot',
+                'description' => 'Share screenshot',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'share-gameplay-clip',
+                'phrases' => $getPhrases('share-gameplay-clip'),
+                'action' => 'share-gameplay-clip',
+                'description' => 'Share gameplay clip',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'view-leaderboard',
+                'phrases' => $getPhrases('view-leaderboard'),
+                'action' => 'view-leaderboard',
+                'description' => 'View leaderboard',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'view-achievements',
+                'phrases' => $getPhrases('view-achievements'),
+                'action' => 'view-achievements',
+                'description' => 'View achievements',
+                'category' => 'gaming-social'
+            ],
+            [
+                'id' => 'share-achievement',
+                'phrases' => $getPhrases('share-achievement'),
+                'action' => 'share-achievement',
+                'description' => 'Share achievement',
+                'category' => 'gaming-social'
+            ],
+
+            // ============================================
+            // GAMING: ACHIEVEMENTS & REWARDS
+            // ============================================
+            [
+                'id' => 'unlock-achievement',
+                'phrases' => $getPhrases('unlock-achievement'),
+                'action' => 'unlock-achievement',
+                'description' => 'Unlock achievement',
+                'category' => 'gaming-achievement'
+            ],
+            [
+                'id' => 'view-achievement-progress',
+                'phrases' => $getPhrases('view-achievement-progress'),
+                'action' => 'view-achievement-progress',
+                'description' => 'View achievement progress',
+                'category' => 'gaming-achievement'
+            ],
+            [
+                'id' => 'compare-achievements',
+                'phrases' => $getPhrases('compare-achievements'),
+                'action' => 'compare-achievements',
+                'description' => 'Compare achievements with friends',
+                'category' => 'gaming-achievement'
+            ],
+            [
+                'id' => 'view-rewards',
+                'phrases' => $getPhrases('view-rewards'),
+                'action' => 'view-rewards',
+                'description' => 'View rewards',
+                'category' => 'gaming-achievement'
+            ],
+            [
+                'id' => 'claim-reward',
+                'phrases' => $getPhrases('claim-reward'),
+                'action' => 'claim-reward',
+                'description' => 'Claim reward',
+                'category' => 'gaming-achievement'
+            ],
+            [
+                'id' => 'view-xp',
+                'phrases' => $getPhrases('view-xp'),
+                'action' => 'view-xp',
+                'description' => 'View XP points',
+                'category' => 'gaming-achievement'
+            ],
+
+            // ============================================
+            // GAMING: COMMUNICATION & SUPPORT
+            // ============================================
+            [
+                'id' => 'open-game-chat',
+                'phrases' => $getPhrases('open-game-chat'),
+                'action' => 'open-game-chat',
+                'description' => 'Open game chat',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'report-player',
+                'phrases' => $getPhrases('report-player'),
+                'action' => 'report-player',
+                'description' => 'Report player',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'report-cheater',
+                'phrases' => $getPhrases('report-cheater'),
+                'action' => 'report-cheater',
+                'description' => 'Report cheater',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'contact-support',
+                'phrases' => $getPhrases('contact-support'),
+                'action' => 'contact-support',
+                'description' => 'Contact gaming support',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'report-bug',
+                'phrases' => $getPhrases('report-bug'),
+                'action' => 'report-bug',
+                'description' => 'Report bug',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'block-player',
+                'phrases' => $getPhrases('block-player'),
+                'action' => 'block-player',
+                'description' => 'Block player',
+                'category' => 'gaming-support'
+            ],
+            [
+                'id' => 'mute-player',
+                'phrases' => $getPhrases('mute-player'),
+                'action' => 'mute-player',
+                'description' => 'Mute player',
+                'category' => 'gaming-support'
+            ],
+
+            // ============================================
+            // GAMING: MICROTRANSACTIONS & IN-GAME PURCHASES
+            // ============================================
+            [
+                'id' => 'open-shop',
+                'phrases' => $getPhrases('open-shop'),
+                'action' => 'open-shop',
+                'description' => 'Open in-game shop',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'buy-item',
+                'phrases' => $getPhrases('buy-item'),
+                'action' => 'buy-item',
+                'description' => 'Buy in-game item',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'buy-skin',
+                'phrases' => $getPhrases('buy-skin'),
+                'action' => 'buy-skin',
+                'description' => 'Buy skin',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'view-purchase-history',
+                'phrases' => $getPhrases('view-purchase-history'),
+                'action' => 'view-purchase-history',
+                'description' => 'View in-game purchase history',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'activate-battle-pass',
+                'phrases' => $getPhrases('activate-battle-pass'),
+                'action' => 'activate-battle-pass',
+                'description' => 'Activate battle pass',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'gift-game',
+                'phrases' => $getPhrases('gift-game'),
+                'action' => 'gift-game',
+                'description' => 'Gift game to friend',
+                'category' => 'gaming-purchase'
+            ],
+            [
+                'id' => 'view-marketplace',
+                'phrases' => $getPhrases('view-marketplace'),
+                'action' => 'view-marketplace',
+                'description' => 'View marketplace',
+                'category' => 'gaming-purchase'
+            ],
+
+            // ============================================
+            // GAMING: SECURITY & PRIVACY
+            // ============================================
+            [
+                'id' => 'set-privacy-level',
+                'phrases' => $getPhrases('set-privacy-level'),
+                'action' => 'set-privacy-level',
+                'description' => 'Set privacy level',
+                'category' => 'gaming-security'
+            ],
+            [
+                'id' => 'block-unknown',
+                'phrases' => $getPhrases('block-unknown'),
+                'action' => 'block-unknown',
+                'description' => 'Block unknown players',
+                'category' => 'gaming-security'
+            ],
+            [
+                'id' => 'enable-2fa',
+                'phrases' => $getPhrases('enable-2fa'),
+                'action' => 'enable-2fa',
+                'description' => 'Enable 2FA',
+                'category' => 'gaming-security'
+            ],
+            [
+                'id' => 'view-login-history',
+                'phrases' => $getPhrases('view-login-history'),
+                'action' => 'view-login-history',
+                'description' => 'View login history',
+                'category' => 'gaming-security'
+            ],
+            [
+                'id' => 'report-fraud',
+                'phrases' => $getPhrases('report-fraud'),
+                'action' => 'report-fraud',
+                'description' => 'Report fraud',
+                'category' => 'gaming-security'
+            ],
+            [
+                'id' => 'enable-steam-guard',
+                'phrases' => $getPhrases('enable-steam-guard'),
+                'action' => 'enable-steam-guard',
+                'description' => 'Enable Steam Guard',
+                'category' => 'gaming-security'
+            ],
+
+            // ============================================
+            // GAMING: REFUNDS & OWNERSHIP
+            // ============================================
+            [
+                'id' => 'request-game-refund',
+                'phrases' => $getPhrases('request-game-refund'),
+                'action' => 'request-game-refund',
+                'description' => 'Request game refund',
+                'category' => 'gaming-refund'
+            ],
+            [
+                'id' => 'view-refund-policy',
+                'phrases' => $getPhrases('view-refund-policy'),
+                'action' => 'view-refund-policy',
+                'description' => 'View refund policy',
+                'category' => 'gaming-refund'
+            ],
+            [
+                'id' => 'view-licenses',
+                'phrases' => $getPhrases('view-licenses'),
+                'action' => 'view-licenses',
+                'description' => 'View game licenses',
+                'category' => 'gaming-refund'
+            ],
+            [
+                'id' => 'download-invoice',
+                'phrases' => $getPhrases('download-invoice'),
+                'action' => 'download-invoice',
+                'description' => 'Download invoice',
+                'category' => 'gaming-refund'
+            ],
+            [
+                'id' => 'check-ownership',
+                'phrases' => $getPhrases('check-ownership'),
+                'action' => 'check-ownership',
+                'description' => 'Check game ownership',
+                'category' => 'gaming-refund'
+            ],
+
+            // ============================================
+            // GAMING: GAME EXPERIENCE PERSONALIZATION
+            // ============================================
+            [
+                'id' => 'change-language',
+                'phrases' => $getPhrases('change-language'),
+                'action' => 'change-language',
+                'description' => 'Change game language',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'toggle-dark-mode',
+                'phrases' => $getPhrases('toggle-dark-mode'),
+                'action' => 'toggle-dark-mode',
+                'description' => 'Toggle dark mode',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'configure-controller',
+                'phrases' => $getPhrases('configure-controller'),
+                'action' => 'configure-controller',
+                'description' => 'Configure controller',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'set-key-bindings',
+                'phrases' => $getPhrases('set-key-bindings'),
+                'action' => 'set-key-bindings',
+                'description' => 'Set key bindings',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'toggle-overlay',
+                'phrases' => $getPhrases('toggle-overlay'),
+                'action' => 'toggle-overlay',
+                'description' => 'Toggle in-game overlay',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'connect-streaming',
+                'phrases' => $getPhrases('connect-streaming'),
+                'action' => 'connect-streaming',
+                'description' => 'Connect streaming platform',
+                'category' => 'gaming-ux'
+            ],
+            [
+                'id' => 'view-events',
+                'phrases' => $getPhrases('view-events'),
+                'action' => 'view-events',
+                'description' => 'View gaming events',
+                'category' => 'gaming-ux'
+            ],
+
+            // ============================================
+            // GAMING: DEVICE & PLATFORM INTEGRATION
+            // ============================================
+            [
+                'id' => 'sync-devices',
+                'phrases' => $getPhrases('sync-devices'),
+                'action' => 'sync-devices',
+                'description' => 'Sync across devices',
+                'category' => 'gaming-device'
+            ],
+            [
+                'id' => 'connect-vr',
+                'phrases' => $getPhrases('connect-vr'),
+                'action' => 'connect-vr',
+                'description' => 'Connect VR headset',
+                'category' => 'gaming-device'
+            ],
+            [
+                'id' => 'enable-cross-platform',
+                'phrases' => $getPhrases('enable-cross-platform'),
+                'action' => 'enable-cross-platform',
+                'description' => 'Enable cross-platform play',
+                'category' => 'gaming-device'
+            ],
+            [
+                'id' => 'connect-controller',
+                'phrases' => $getPhrases('connect-controller'),
+                'action' => 'connect-controller',
+                'description' => 'Connect controller',
+                'category' => 'gaming-device'
+            ],
+
+            // ============================================
             // BASIC ACTIONS
             // ============================================
             [
@@ -1573,6 +2269,114 @@ class UniversalCommands
                 'create-ad' => ['create ad', 'sponsored ad', 'advertisement', 'promote product'],
                 'manage-reviews' => ['manage reviews', 'customer reviews', 'product reviews'],
 
+                // Gaming: Account Management
+                'create-gaming-account' => ['create gaming account', 'sign up for gaming', 'register gaming account', 'new gaming account'],
+                'set-avatar' => ['set avatar', 'change avatar', 'update avatar', 'new avatar'],
+                'change-gamertag' => ['change gamertag', 'change username', 'change gamer tag', 'update gamertag'],
+                'link-platform' => ['link platform', 'connect platform', 'link steam', 'link epic', 'link xbox'],
+                'view-purchase-history' => ['view purchase history', 'purchase history', 'game purchases', 'my purchases'],
+                'manage-subscription' => ['manage subscription', 'gaming subscription', 'playstation plus', 'xbox game pass'],
+                'view-installed-games' => ['view installed games', 'installed games', 'my games', 'games library'],
+                'set-payment-method' => ['set payment method', 'payment method', 'gaming payment', 'save card'],
+
+                // Gaming: Game Discovery & Purchase
+                'search-games' => ['search games', 'find games', 'look for games', 'game search'],
+                'filter-games' => ['filter games', 'filter by genre', 'filter by price', 'filter by platform'],
+                'view-game-details' => ['view game details', 'game details', 'game info', 'show game'],
+                'watch-trailer' => ['watch trailer', 'game trailer', 'view trailer', 'play trailer'],
+                'buy-game' => ['buy game', 'purchase game', 'get game', 'buy now'],
+                'pre-order-game' => ['pre-order game', 'preorder', 'pre order', 'reserve game'],
+                'apply-game-coupon' => ['apply game coupon', 'use coupon', 'game coupon', 'discount code'],
+                'view-game-reviews' => ['view game reviews', 'game reviews', 'read reviews', 'reviews'],
+
+                // Gaming: Download & Installation
+                'download-game' => ['download game', 'download', 'get game', 'install game'],
+                'install-game' => ['install game', 'install', 'setup game', 'install now'],
+                'manage-storage' => ['manage storage', 'storage management', 'free up space', 'check storage'],
+                'update-game' => ['update game', 'game update', 'update', 'patch game'],
+                'install-dlc' => ['install dlc', 'download dlc', 'get dlc', 'add dlc'],
+                'download-beta' => ['download beta', 'beta version', 'early access', 'beta'],
+                'pause-download' => ['pause download', 'pause', 'stop download', 'pause installation'],
+                'resume-download' => ['resume download', 'resume', 'continue download', 'resume installation'],
+
+                // Gaming: Gameplay & Interaction
+                'launch-game' => ['launch game', 'start game', 'play game', 'open game'],
+                'invite-friend' => ['invite friend', 'invite to game', 'add friend to game', 'invite player'],
+                'create-party' => ['create party', 'new party', 'make party', 'start party'],
+                'join-party' => ['join party', 'join', 'enter party', 'join game'],
+                'open-voice-chat' => ['open voice chat', 'voice chat', 'start voice chat', 'enable voice'],
+                'toggle-fullscreen' => ['toggle fullscreen', 'fullscreen', 'full screen', 'maximize'],
+                'save-game' => ['save game', 'save progress', 'save', 'save state'],
+                'sync-cloud-save' => ['sync cloud save', 'cloud save', 'sync save', 'upload save'],
+
+                // Gaming: Game Library
+                'view-library' => ['view library', 'game library', 'my library', 'library'],
+                'filter-library' => ['filter library', 'filter games', 'sort library', 'organize library'],
+                'create-collection' => ['create collection', 'new collection', 'game collection', 'make collection'],
+                'view-game-stats' => ['view game stats', 'game statistics', 'playtime', 'game stats'],
+                'toggle-auto-update' => ['toggle auto-update', 'auto-update', 'automatic updates', 'auto update'],
+                'backup-game' => ['backup game', 'backup', 'save backup', 'create backup'],
+                'uninstall-game' => ['uninstall game', 'remove game', 'delete game', 'uninstall'],
+
+                // Gaming: Community & Social
+                'add-friend' => ['add friend', 'friend request', 'add player', 'add gamer'],
+                'view-friends-activity' => ['view friends activity', 'friends activity', 'what friends playing', 'friends'],
+                'create-group' => ['create group', 'gaming group', 'clan', 'guild'],
+                'write-game-review' => ['write game review', 'review game', 'game review', 'write review'],
+                'share-screenshot' => ['share screenshot', 'screenshot', 'share image', 'post screenshot'],
+                'share-gameplay-clip' => ['share gameplay clip', 'gameplay clip', 'share video', 'clip'],
+                'view-leaderboard' => ['view leaderboard', 'leaderboard', 'rankings', 'top players'],
+                'share-achievement' => ['share achievement', 'share trophy', 'post achievement', 'show achievement'],
+
+                // Gaming: Achievements & Rewards
+                'unlock-achievement' => ['unlock achievement', 'achievement unlocked', 'get achievement', 'earn trophy'],
+                'view-achievement-progress' => ['view achievement progress', 'achievement progress', 'progress', 'achievements'],
+                'compare-achievements' => ['compare achievements', 'compare with friends', 'achievement comparison'],
+                'view-rewards' => ['view rewards', 'rewards', 'my rewards', 'prizes'],
+                'claim-reward' => ['claim reward', 'get reward', 'collect reward', 'claim'],
+                'view-xp' => ['view xp', 'experience points', 'xp', 'level'],
+
+                // Gaming: Communication & Support
+                'open-game-chat' => ['open game chat', 'game chat', 'chat', 'text chat'],
+                'report-player' => ['report player', 'report', 'report user', 'flag player'],
+                'report-cheater' => ['report cheater', 'report hacker', 'cheater', 'hacker'],
+                'report-bug' => ['report bug', 'bug report', 'report issue', 'bug'],
+                'block-player' => ['block player', 'block', 'block user', 'block gamer'],
+                'mute-player' => ['mute player', 'mute', 'silence player', 'mute user'],
+
+                // Gaming: Microtransactions & In-Game Purchases
+                'buy-item' => ['buy item', 'purchase item', 'get item', 'buy'],
+                'buy-skin' => ['buy skin', 'purchase skin', 'get skin', 'skin'],
+                'activate-battle-pass' => ['activate battle pass', 'battle pass', 'season pass', 'activate pass'],
+                'gift-game' => ['gift game', 'send game', 'gift', 'give game'],
+                'view-marketplace' => ['view marketplace', 'marketplace', 'trading', 'market'],
+
+                // Gaming: Security & Privacy
+                'set-privacy-level' => ['set privacy level', 'privacy level', 'privacy settings', 'who can see'],
+                'block-unknown' => ['block unknown', 'block strangers', 'private mode', 'friends only'],
+                'report-fraud' => ['report fraud', 'fraud', 'scam', 'report scam'],
+                'enable-steam-guard' => ['enable steam guard', 'steam guard', 'enable guard', 'two factor'],
+
+                // Gaming: Refunds & Ownership
+                'request-game-refund' => ['request game refund', 'refund game', 'get refund', 'return game'],
+                'view-refund-policy' => ['view refund policy', 'refund policy', 'return policy', 'refund terms'],
+                'view-licenses' => ['view licenses', 'game licenses', 'licenses', 'ownership'],
+                'check-ownership' => ['check ownership', 'verify ownership', 'check license', 'ownership'],
+
+                // Gaming: Game Experience Personalization
+                'change-language' => ['change language', 'game language', 'language settings', 'set language'],
+                'configure-controller' => ['configure controller', 'controller settings', 'setup controller', 'controller'],
+                'set-key-bindings' => ['set key bindings', 'key bindings', 'controls', 'keyboard settings'],
+                'toggle-overlay' => ['toggle overlay', 'overlay', 'in-game overlay', 'show overlay'],
+                'connect-streaming' => ['connect streaming', 'streaming', 'twitch', 'youtube gaming'],
+                'view-events' => ['view events', 'gaming events', 'tournaments', 'events'],
+
+                // Gaming: Device & Platform Integration
+                'sync-devices' => ['sync devices', 'sync', 'cloud sync', 'sync account'],
+                'connect-vr' => ['connect vr', 'vr headset', 'virtual reality', 'oculus'],
+                'enable-cross-platform' => ['enable cross-platform', 'cross-platform', 'cross play', 'multi-platform'],
+                'connect-controller' => ['connect controller', 'controller', 'gamepad', 'wireless controller'],
+
                 // Basic
                 'click' => ['click', 'tap', 'press', 'select'],
             ],
@@ -1797,6 +2601,114 @@ class UniversalCommands
                 'create-promotion' => ['krijo promocion', 'promocion i ri', 'sale', 'zbritje'],
                 'create-ad' => ['krijo reklame', 'reklame e paguar', 'reklamo produkt'],
                 'manage-reviews' => ['menaxho reviews', 'reviews klientesh', 'reviews produktesh'],
+
+                // Gaming: Account Management
+                'create-gaming-account' => ['krijo llogari gaming', 'regjistrohu gaming', 'llogari gaming e re'],
+                'set-avatar' => ['vendos avatar', 'ndrysho avatar', 'perditeso avatar', 'avatar i ri'],
+                'change-gamertag' => ['ndrysho gamertag', 'ndrysho username', 'ndrysho emer lojtari'],
+                'link-platform' => ['lidh platforme', 'lidh steam', 'lidh epic', 'lidh xbox'],
+                'view-purchase-history' => ['shiko historine e blerjeve', 'blerjet e mia', 'historiku blerjesh'],
+                'manage-subscription' => ['menaxho abonim', 'abonim gaming', 'playstation plus', 'xbox game pass'],
+                'view-installed-games' => ['shiko lojrat e instaluara', 'lojrat e mia', 'biblioteka lojrave'],
+                'set-payment-method' => ['vendos metod pagese', 'metod pagese', 'ruaj karte'],
+
+                // Gaming: Game Discovery & Purchase
+                'search-games' => ['kerko lojra', 'gjej lojra', 'kerko loje'],
+                'filter-games' => ['filtro lojra', 'filtro sipas zhanrit', 'filtro sipas cmimit'],
+                'view-game-details' => ['shiko detajet e lojes', 'detajet e lojes', 'info loje'],
+                'watch-trailer' => ['shiko trailer', 'trailer loje', 'video trailer'],
+                'buy-game' => ['blej loje', 'porosise loje', 'merr loje'],
+                'pre-order-game' => ['pre-order loje', 'rezervo loje', 'preorder'],
+                'apply-game-coupon' => ['aplikoj kupon loje', 'perdore kupon', 'kupon loje'],
+                'view-game-reviews' => ['shiko reviews loje', 'reviews loje', 'lexo reviews'],
+
+                // Gaming: Download & Installation
+                'download-game' => ['shkarko loje', 'shkarko', 'merr loje'],
+                'install-game' => ['instalo loje', 'instalo', 'vendos loje'],
+                'manage-storage' => ['menaxho ruajtje', 'ruajtje', 'pastro hapesire'],
+                'update-game' => ['perditeso loje', 'update loje', 'patch loje'],
+                'install-dlc' => ['instalo dlc', 'shkarko dlc', 'merr dlc'],
+                'download-beta' => ['shkarko beta', 'version beta', 'early access'],
+                'pause-download' => ['pauzo shkarkim', 'pauzo', 'ndal shkarkim'],
+                'resume-download' => ['vazhdo shkarkim', 'vazhdo', 'rifillo shkarkim'],
+
+                // Gaming: Gameplay & Interaction
+                'launch-game' => ['fillo loje', 'luaj loje', 'hape loje'],
+                'invite-friend' => ['fto mik', 'fto ne loje', 'shto mik ne loje'],
+                'create-party' => ['krijo party', 'party i ri', 'fillo party'],
+                'join-party' => ['hyr ne party', 'hyr', 'bashko ne party'],
+                'open-voice-chat' => ['hape voice chat', 'voice chat', 'fillo voice chat'],
+                'toggle-fullscreen' => ['ndrysho fullscreen', 'fullscreen', 'ekran i plote'],
+                'save-game' => ['ruaj loje', 'ruaj progres', 'ruaj'],
+                'sync-cloud-save' => ['sinkronizo cloud save', 'cloud save', 'sinkronizo ruajtje'],
+
+                // Gaming: Game Library
+                'view-library' => ['shiko biblioteken', 'biblioteka lojrave', 'biblioteka ime'],
+                'filter-library' => ['filtro biblioteken', 'filtro lojra', 'organizo biblioteken'],
+                'create-collection' => ['krijo koleksion', 'koleksion i ri', 'koleksion lojrave'],
+                'view-game-stats' => ['shiko stats loje', 'statistika loje', 'koha e luajtur'],
+                'toggle-auto-update' => ['ndrysho auto-update', 'auto-update', 'update automatik'],
+                'backup-game' => ['backup loje', 'backup', 'ruaj backup'],
+                'uninstall-game' => ['cinstalo loje', 'hiq loje', 'fshij loje'],
+
+                // Gaming: Community & Social
+                'add-friend' => ['shto mik', 'kerkes miqesie', 'shto lojtar'],
+                'view-friends-activity' => ['shiko aktivitetin e miqve', 'aktivitet miqve', 'cfare po luajne miqte'],
+                'create-group' => ['krijo grup', 'grup gaming', 'klan', 'guild'],
+                'write-game-review' => ['shkruaj review loje', 'review loje', 'shkruaj review'],
+                'share-screenshot' => ['ndaj screenshot', 'screenshot', 'ndaj foto'],
+                'share-gameplay-clip' => ['ndaj gameplay clip', 'gameplay clip', 'ndaj video'],
+                'view-leaderboard' => ['shiko leaderboard', 'leaderboard', 'renditje', 'top lojtare'],
+                'share-achievement' => ['ndaj achievement', 'ndaj trophy', 'posto achievement'],
+
+                // Gaming: Achievements & Rewards
+                'unlock-achievement' => ['hape achievement', 'achievement i hapur', 'merr achievement'],
+                'view-achievement-progress' => ['shiko progresin e achievement', 'progres achievement', 'achievements'],
+                'compare-achievements' => ['krahaso achievements', 'krahaso me miqte', 'krahasim achievements'],
+                'view-rewards' => ['shiko shperblimet', 'shperblime', 'shperblimet e mia'],
+                'claim-reward' => ['merr shperblim', 'kolekto shperblim', 'claim'],
+                'view-xp' => ['shiko xp', 'experience points', 'xp', 'nivel'],
+
+                // Gaming: Communication & Support
+                'open-game-chat' => ['hape game chat', 'game chat', 'chat', 'text chat'],
+                'report-player' => ['raporto lojtar', 'raporto', 'raporto perdorues'],
+                'report-cheater' => ['raporto cheater', 'raporto hacker', 'cheater', 'hacker'],
+                'report-bug' => ['raporto bug', 'bug report', 'raporto problem'],
+                'block-player' => ['blloko lojtar', 'blloko', 'blloko perdorues'],
+                'mute-player' => ['mute lojtar', 'mute', 'hesht lojtar'],
+
+                // Gaming: Microtransactions & In-Game Purchases
+                'buy-item' => ['blej item', 'porosise item', 'merr item'],
+                'buy-skin' => ['blej skin', 'porosise skin', 'merr skin'],
+                'activate-battle-pass' => ['aktivizo battle pass', 'battle pass', 'season pass'],
+                'gift-game' => ['dhuro loje', 'dergo loje', 'dhuro'],
+                'view-marketplace' => ['shiko marketplace', 'marketplace', 'tregtim'],
+
+                // Gaming: Security & Privacy
+                'set-privacy-level' => ['vendos nivel privatësi', 'nivel privatësi', 'settings privatësi'],
+                'block-unknown' => ['blloko te panjohur', 'blloko te huaj', 'modalitet privat'],
+                'report-fraud' => ['raporto mashtrim', 'mashtrim', 'scam'],
+                'enable-steam-guard' => ['aktivizo steam guard', 'steam guard', 'aktivizo guard'],
+
+                // Gaming: Refunds & Ownership
+                'request-game-refund' => ['kerko rimbursim loje', 'rimbursim loje', 'kthe loje'],
+                'view-refund-policy' => ['shiko politiken e rimbursimit', 'politike rimbursimi', 'kushte kthimi'],
+                'view-licenses' => ['shiko licencat', 'licenca lojrave', 'licenca'],
+                'check-ownership' => ['kontrollo pronësi', 'verifiko pronësi', 'kontrollo licencë'],
+
+                // Gaming: Game Experience Personalization
+                'change-language' => ['ndrysho gjuhen', 'gjuhe loje', 'settings gjuhe'],
+                'configure-controller' => ['konfiguro kontrollues', 'settings kontrollues', 'setup kontrollues'],
+                'set-key-bindings' => ['vendos key bindings', 'key bindings', 'kontrolla', 'settings tastiere'],
+                'toggle-overlay' => ['ndrysho overlay', 'overlay', 'in-game overlay'],
+                'connect-streaming' => ['lidh streaming', 'streaming', 'twitch', 'youtube gaming'],
+                'view-events' => ['shiko evente', 'evente gaming', 'turne', 'evente'],
+
+                // Gaming: Device & Platform Integration
+                'sync-devices' => ['sinkronizo pajisje', 'sinkronizo', 'cloud sync'],
+                'connect-vr' => ['lidh vr', 'vr headset', 'virtual reality', 'oculus'],
+                'enable-cross-platform' => ['aktivizo cross-platform', 'cross-platform', 'cross play'],
+                'connect-controller' => ['lidh kontrollues', 'kontrollues', 'gamepad'],
 
                 // Basic
                 'click' => ['kliko', 'prek', 'shtyp', 'zgjedh'],
@@ -2023,6 +2935,114 @@ class UniversalCommands
                 'create-ad' => ['crear anuncio', 'anuncio patrocinado', 'publicidad', 'promocionar producto'],
                 'manage-reviews' => ['gestionar reseñas', 'reseñas de clientes', 'reseñas de productos'],
 
+                // Gaming: Account Management
+                'create-gaming-account' => ['crear cuenta gaming', 'registrarse gaming', 'cuenta gaming nueva'],
+                'set-avatar' => ['establecer avatar', 'cambiar avatar', 'actualizar avatar', 'nuevo avatar'],
+                'change-gamertag' => ['cambiar gamertag', 'cambiar nombre de usuario', 'cambiar nombre jugador'],
+                'link-platform' => ['vincular plataforma', 'vincular steam', 'vincular epic', 'vincular xbox'],
+                'view-purchase-history' => ['ver historial de compras', 'mis compras', 'historial compras'],
+                'manage-subscription' => ['gestionar suscripción', 'suscripción gaming', 'playstation plus', 'xbox game pass'],
+                'view-installed-games' => ['ver juegos instalados', 'mis juegos', 'biblioteca juegos'],
+                'set-payment-method' => ['establecer método de pago', 'método de pago', 'guardar tarjeta'],
+
+                // Gaming: Game Discovery & Purchase
+                'search-games' => ['buscar juegos', 'encontrar juegos', 'buscar juego'],
+                'filter-games' => ['filtrar juegos', 'filtrar por género', 'filtrar por precio'],
+                'view-game-details' => ['ver detalles del juego', 'detalles del juego', 'info juego'],
+                'watch-trailer' => ['ver trailer', 'trailer del juego', 'video trailer'],
+                'buy-game' => ['comprar juego', 'adquirir juego', 'obtener juego'],
+                'pre-order-game' => ['pre-ordenar juego', 'reservar juego', 'preorder'],
+                'apply-game-coupon' => ['aplicar cupón juego', 'usar cupón', 'cupón juego'],
+                'view-game-reviews' => ['ver reseñas del juego', 'reseñas del juego', 'leer reseñas'],
+
+                // Gaming: Download & Installation
+                'download-game' => ['descargar juego', 'descargar', 'obtener juego'],
+                'install-game' => ['instalar juego', 'instalar', 'configurar juego'],
+                'manage-storage' => ['gestionar almacenamiento', 'almacenamiento', 'liberar espacio'],
+                'update-game' => ['actualizar juego', 'update juego', 'parchear juego'],
+                'install-dlc' => ['instalar dlc', 'descargar dlc', 'obtener dlc'],
+                'download-beta' => ['descargar beta', 'versión beta', 'early access'],
+                'pause-download' => ['pausar descarga', 'pausar', 'detener descarga'],
+                'resume-download' => ['reanudar descarga', 'reanudar', 'continuar descarga'],
+
+                // Gaming: Gameplay & Interaction
+                'launch-game' => ['iniciar juego', 'jugar juego', 'abrir juego'],
+                'invite-friend' => ['invitar amigo', 'invitar al juego', 'agregar amigo al juego'],
+                'create-party' => ['crear party', 'party nuevo', 'iniciar party'],
+                'join-party' => ['unirse al party', 'unirse', 'entrar al party'],
+                'open-voice-chat' => ['abrir voice chat', 'voice chat', 'iniciar voice chat'],
+                'toggle-fullscreen' => ['alternar pantalla completa', 'pantalla completa', 'maximizar'],
+                'save-game' => ['guardar juego', 'guardar progreso', 'guardar'],
+                'sync-cloud-save' => ['sincronizar cloud save', 'cloud save', 'sincronizar guardado'],
+
+                // Gaming: Game Library
+                'view-library' => ['ver biblioteca', 'biblioteca de juegos', 'mi biblioteca'],
+                'filter-library' => ['filtrar biblioteca', 'filtrar juegos', 'organizar biblioteca'],
+                'create-collection' => ['crear colección', 'colección nueva', 'colección de juegos'],
+                'view-game-stats' => ['ver estadísticas del juego', 'estadísticas del juego', 'tiempo jugado'],
+                'toggle-auto-update' => ['alternar auto-actualización', 'auto-actualización', 'actualización automática'],
+                'backup-game' => ['hacer backup del juego', 'backup', 'guardar backup'],
+                'uninstall-game' => ['desinstalar juego', 'eliminar juego', 'quitar juego'],
+
+                // Gaming: Community & Social
+                'add-friend' => ['agregar amigo', 'solicitud de amistad', 'agregar jugador'],
+                'view-friends-activity' => ['ver actividad de amigos', 'actividad amigos', 'qué juegan amigos'],
+                'create-group' => ['crear grupo', 'grupo gaming', 'clan', 'guild'],
+                'write-game-review' => ['escribir reseña del juego', 'reseña del juego', 'escribir reseña'],
+                'share-screenshot' => ['compartir screenshot', 'screenshot', 'compartir imagen'],
+                'share-gameplay-clip' => ['compartir gameplay clip', 'gameplay clip', 'compartir video'],
+                'view-leaderboard' => ['ver leaderboard', 'leaderboard', 'clasificación', 'top jugadores'],
+                'share-achievement' => ['compartir achievement', 'compartir trofeo', 'publicar achievement'],
+
+                // Gaming: Achievements & Rewards
+                'unlock-achievement' => ['desbloquear achievement', 'achievement desbloqueado', 'obtener achievement'],
+                'view-achievement-progress' => ['ver progreso de achievement', 'progreso achievement', 'achievements'],
+                'compare-achievements' => ['comparar achievements', 'comparar con amigos', 'comparación achievements'],
+                'view-rewards' => ['ver recompensas', 'recompensas', 'mis recompensas'],
+                'claim-reward' => ['reclamar recompensa', 'obtener recompensa', 'colectar recompensa'],
+                'view-xp' => ['ver xp', 'experience points', 'xp', 'nivel'],
+
+                // Gaming: Communication & Support
+                'open-game-chat' => ['abrir game chat', 'game chat', 'chat', 'text chat'],
+                'report-player' => ['reportar jugador', 'reportar', 'reportar usuario'],
+                'report-cheater' => ['reportar cheater', 'reportar hacker', 'cheater', 'hacker'],
+                'report-bug' => ['reportar bug', 'bug report', 'reportar problema'],
+                'block-player' => ['bloquear jugador', 'bloquear', 'bloquear usuario'],
+                'mute-player' => ['silenciar jugador', 'silenciar', 'mute jugador'],
+
+                // Gaming: Microtransactions & In-Game Purchases
+                'buy-item' => ['comprar item', 'adquirir item', 'obtener item'],
+                'buy-skin' => ['comprar skin', 'adquirir skin', 'obtener skin'],
+                'activate-battle-pass' => ['activar battle pass', 'battle pass', 'season pass'],
+                'gift-game' => ['regalar juego', 'enviar juego', 'regalar'],
+                'view-marketplace' => ['ver marketplace', 'marketplace', 'intercambio'],
+
+                // Gaming: Security & Privacy
+                'set-privacy-level' => ['establecer nivel de privacidad', 'nivel de privacidad', 'configuración privacidad'],
+                'block-unknown' => ['bloquear desconocidos', 'bloquear extraños', 'modo privado'],
+                'report-fraud' => ['reportar fraude', 'fraude', 'estafa'],
+                'enable-steam-guard' => ['activar steam guard', 'steam guard', 'activar guard'],
+
+                // Gaming: Refunds & Ownership
+                'request-game-refund' => ['solicitar reembolso del juego', 'reembolso del juego', 'devolver juego'],
+                'view-refund-policy' => ['ver política de reembolso', 'política reembolso', 'términos reembolso'],
+                'view-licenses' => ['ver licencias', 'licencias de juegos', 'licencias'],
+                'check-ownership' => ['verificar propiedad', 'verificar propiedad', 'verificar licencia'],
+
+                // Gaming: Game Experience Personalization
+                'change-language' => ['cambiar idioma', 'idioma del juego', 'configuración idioma'],
+                'configure-controller' => ['configurar controlador', 'configuración controlador', 'setup controlador'],
+                'set-key-bindings' => ['establecer key bindings', 'key bindings', 'controles', 'configuración teclado'],
+                'toggle-overlay' => ['alternar overlay', 'overlay', 'in-game overlay'],
+                'connect-streaming' => ['conectar streaming', 'streaming', 'twitch', 'youtube gaming'],
+                'view-events' => ['ver eventos', 'eventos gaming', 'torneos', 'eventos'],
+
+                // Gaming: Device & Platform Integration
+                'sync-devices' => ['sincronizar dispositivos', 'sincronizar', 'cloud sync'],
+                'connect-vr' => ['conectar vr', 'vr headset', 'realidad virtual', 'oculus'],
+                'enable-cross-platform' => ['activar cross-platform', 'cross-platform', 'cross play'],
+                'connect-controller' => ['conectar controlador', 'controlador', 'gamepad'],
+
                 // Basic
                 'click' => ['clic', 'tocar', 'presionar', 'seleccionar'],
             ],
@@ -2247,6 +3267,114 @@ class UniversalCommands
                 'create-promotion' => ['créer promotion', 'nouvelle promotion', 'promotion', 'réduction'],
                 'create-ad' => ['créer publicité', 'publicité sponsorisée', 'publicité', 'promouvoir produit'],
                 'manage-reviews' => ['gérer avis', 'avis clients', 'avis produits'],
+
+                // Gaming: Account Management
+                'create-gaming-account' => ['créer compte gaming', 's\'inscrire gaming', 'compte gaming nouveau'],
+                'set-avatar' => ['définir avatar', 'changer avatar', 'mettre à jour avatar', 'nouveau avatar'],
+                'change-gamertag' => ['changer gamertag', 'changer nom d\'utilisateur', 'changer nom joueur'],
+                'link-platform' => ['lier plateforme', 'lier steam', 'lier epic', 'lier xbox'],
+                'view-purchase-history' => ['voir historique achats', 'mes achats', 'historique achats'],
+                'manage-subscription' => ['gérer abonnement', 'abonnement gaming', 'playstation plus', 'xbox game pass'],
+                'view-installed-games' => ['voir jeux installés', 'mes jeux', 'bibliothèque jeux'],
+                'set-payment-method' => ['définir méthode de paiement', 'méthode de paiement', 'enregistrer carte'],
+
+                // Gaming: Game Discovery & Purchase
+                'search-games' => ['rechercher jeux', 'trouver jeux', 'chercher jeu'],
+                'filter-games' => ['filtrer jeux', 'filtrer par genre', 'filtrer par prix'],
+                'view-game-details' => ['voir détails du jeu', 'détails du jeu', 'info jeu'],
+                'watch-trailer' => ['voir trailer', 'trailer du jeu', 'vidéo trailer'],
+                'buy-game' => ['acheter jeu', 'acquérir jeu', 'obtenir jeu'],
+                'pre-order-game' => ['pré-commander jeu', 'réserver jeu', 'preorder'],
+                'apply-game-coupon' => ['appliquer coupon jeu', 'utiliser coupon', 'coupon jeu'],
+                'view-game-reviews' => ['voir avis du jeu', 'avis du jeu', 'lire avis'],
+
+                // Gaming: Download & Installation
+                'download-game' => ['télécharger jeu', 'télécharger', 'obtenir jeu'],
+                'install-game' => ['installer jeu', 'installer', 'configurer jeu'],
+                'manage-storage' => ['gérer stockage', 'stockage', 'libérer espace'],
+                'update-game' => ['mettre à jour jeu', 'update jeu', 'patcher jeu'],
+                'install-dlc' => ['installer dlc', 'télécharger dlc', 'obtenir dlc'],
+                'download-beta' => ['télécharger beta', 'version beta', 'early access'],
+                'pause-download' => ['mettre en pause téléchargement', 'pause', 'arrêter téléchargement'],
+                'resume-download' => ['reprendre téléchargement', 'reprendre', 'continuer téléchargement'],
+
+                // Gaming: Gameplay & Interaction
+                'launch-game' => ['lancer jeu', 'jouer jeu', 'ouvrir jeu'],
+                'invite-friend' => ['inviter ami', 'inviter au jeu', 'ajouter ami au jeu'],
+                'create-party' => ['créer party', 'party nouveau', 'démarrer party'],
+                'join-party' => ['rejoindre party', 'rejoindre', 'entrer dans party'],
+                'open-voice-chat' => ['ouvrir voice chat', 'voice chat', 'démarrer voice chat'],
+                'toggle-fullscreen' => ['basculer plein écran', 'plein écran', 'maximiser'],
+                'save-game' => ['sauvegarder jeu', 'sauvegarder progression', 'sauvegarder'],
+                'sync-cloud-save' => ['synchroniser cloud save', 'cloud save', 'synchroniser sauvegarde'],
+
+                // Gaming: Game Library
+                'view-library' => ['voir bibliothèque', 'bibliothèque de jeux', 'ma bibliothèque'],
+                'filter-library' => ['filtrer bibliothèque', 'filtrer jeux', 'organiser bibliothèque'],
+                'create-collection' => ['créer collection', 'collection nouvelle', 'collection de jeux'],
+                'view-game-stats' => ['voir statistiques du jeu', 'statistiques du jeu', 'temps de jeu'],
+                'toggle-auto-update' => ['basculer auto-mise à jour', 'auto-mise à jour', 'mise à jour automatique'],
+                'backup-game' => ['sauvegarder jeu', 'backup', 'créer backup'],
+                'uninstall-game' => ['désinstaller jeu', 'supprimer jeu', 'retirer jeu'],
+
+                // Gaming: Community & Social
+                'add-friend' => ['ajouter ami', 'demande d\'amitié', 'ajouter joueur'],
+                'view-friends-activity' => ['voir activité des amis', 'activité amis', 'ce que jouent amis'],
+                'create-group' => ['créer groupe', 'groupe gaming', 'clan', 'guild'],
+                'write-game-review' => ['écrire avis du jeu', 'avis du jeu', 'écrire avis'],
+                'share-screenshot' => ['partager screenshot', 'screenshot', 'partager image'],
+                'share-gameplay-clip' => ['partager gameplay clip', 'gameplay clip', 'partager vidéo'],
+                'view-leaderboard' => ['voir leaderboard', 'leaderboard', 'classement', 'top joueurs'],
+                'share-achievement' => ['partager achievement', 'partager trophée', 'publier achievement'],
+
+                // Gaming: Achievements & Rewards
+                'unlock-achievement' => ['débloquer achievement', 'achievement débloqué', 'obtenir achievement'],
+                'view-achievement-progress' => ['voir progrès achievement', 'progrès achievement', 'achievements'],
+                'compare-achievements' => ['comparer achievements', 'comparer avec amis', 'comparaison achievements'],
+                'view-rewards' => ['voir récompenses', 'récompenses', 'mes récompenses'],
+                'claim-reward' => ['réclamer récompense', 'obtenir récompense', 'collecter récompense'],
+                'view-xp' => ['voir xp', 'experience points', 'xp', 'niveau'],
+
+                // Gaming: Communication & Support
+                'open-game-chat' => ['ouvrir game chat', 'game chat', 'chat', 'text chat'],
+                'report-player' => ['signaler joueur', 'signaler', 'signaler utilisateur'],
+                'report-cheater' => ['signaler cheater', 'signaler hacker', 'cheater', 'hacker'],
+                'report-bug' => ['signaler bug', 'bug report', 'signaler problème'],
+                'block-player' => ['bloquer joueur', 'bloquer', 'bloquer utilisateur'],
+                'mute-player' => ['couper le son joueur', 'couper le son', 'mute joueur'],
+
+                // Gaming: Microtransactions & In-Game Purchases
+                'buy-item' => ['acheter item', 'acquérir item', 'obtenir item'],
+                'buy-skin' => ['acheter skin', 'acquérir skin', 'obtenir skin'],
+                'activate-battle-pass' => ['activer battle pass', 'battle pass', 'season pass'],
+                'gift-game' => ['offrir jeu', 'envoyer jeu', 'offrir'],
+                'view-marketplace' => ['voir marketplace', 'marketplace', 'échange'],
+
+                // Gaming: Security & Privacy
+                'set-privacy-level' => ['définir niveau de confidentialité', 'niveau confidentialité', 'paramètres confidentialité'],
+                'block-unknown' => ['bloquer inconnus', 'bloquer étrangers', 'mode privé'],
+                'report-fraud' => ['signaler fraude', 'fraude', 'arnaque'],
+                'enable-steam-guard' => ['activer steam guard', 'steam guard', 'activer guard'],
+
+                // Gaming: Refunds & Ownership
+                'request-game-refund' => ['demander remboursement jeu', 'remboursement jeu', 'retourner jeu'],
+                'view-refund-policy' => ['voir politique remboursement', 'politique remboursement', 'conditions remboursement'],
+                'view-licenses' => ['voir licences', 'licences de jeux', 'licences'],
+                'check-ownership' => ['vérifier propriété', 'vérifier propriété', 'vérifier licence'],
+
+                // Gaming: Game Experience Personalization
+                'change-language' => ['changer langue', 'langue du jeu', 'paramètres langue'],
+                'configure-controller' => ['configurer contrôleur', 'paramètres contrôleur', 'setup contrôleur'],
+                'set-key-bindings' => ['définir key bindings', 'key bindings', 'contrôles', 'paramètres clavier'],
+                'toggle-overlay' => ['basculer overlay', 'overlay', 'in-game overlay'],
+                'connect-streaming' => ['connecter streaming', 'streaming', 'twitch', 'youtube gaming'],
+                'view-events' => ['voir événements', 'événements gaming', 'tournois', 'événements'],
+
+                // Gaming: Device & Platform Integration
+                'sync-devices' => ['synchroniser appareils', 'synchroniser', 'cloud sync'],
+                'connect-vr' => ['connecter vr', 'vr headset', 'réalité virtuelle', 'oculus'],
+                'enable-cross-platform' => ['activer cross-platform', 'cross-platform', 'cross play'],
+                'connect-controller' => ['connecter contrôleur', 'contrôleur', 'gamepad'],
 
                 // Basic
                 'click' => ['cliquer', 'toucher', 'appuyer', 'sélectionner'],

@@ -18,12 +18,12 @@
             Voice Actions SDK Demo
           </h1>
           <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed mb-6">
-            Experience <strong class="text-white">200+ universal voice commands</strong> covering all social media AND e-commerce platform features. Works with Facebook, Instagram, TikTok, X, Snapchat, LinkedIn, Amazon, eBay, Shopify, and more!
+            Experience <strong class="text-white">300+ universal voice commands</strong> covering all social media, e-commerce, AND gaming platform features. Works with Facebook, Instagram, TikTok, X, Amazon, eBay, Steam, Epic Games, Xbox, PlayStation, and more!
           </p>
           <!-- Benefits Badge -->
           <div class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-full">
             <span class="text-2xl">✨</span>
-            <span class="text-green-200 font-semibold">200+ Universal Commands</span>
+            <span class="text-green-200 font-semibold">300+ Universal Commands</span>
             <span class="text-green-300 text-sm">|</span>
             <span class="text-green-200 font-semibold">4 Languages</span>
             <span class="text-green-300 text-sm">|</span>
@@ -41,7 +41,7 @@
             <div class="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌐</div>
               <h3 class="text-xl font-bold text-white mb-2">Universal Commands</h3>
-              <p class="text-blue-200 text-sm">200+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X) AND E-Commerce (Amazon, eBay, Shopify)!</p>
+              <p class="text-blue-200 text-sm">300+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X), E-Commerce (Amazon, eBay, Shopify), AND Gaming (Steam, Epic, Xbox, PlayStation)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌍</div>
@@ -56,7 +56,7 @@
             <div class="p-6 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🎯</div>
               <h3 class="text-xl font-bold text-white mb-2">Comprehensive Coverage</h3>
-              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging) AND E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller Features)!</p>
+              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging), E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller), AND Gaming (Account, Discovery, Download, Gameplay, Library, Social, Achievements, Purchases, Security, Refunds, UX, Devices)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🔒</div>
@@ -226,7 +226,7 @@
         <div class="mb-8">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
             <span class="text-4xl">🎯</span>
-            <span>All Voice Commands (200+)</span>
+            <span>All Voice Commands (300+)</span>
           </h2>
           <p class="text-purple-200 mb-6 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
           
@@ -590,6 +590,201 @@
                 </button>
               </div>
             </div>
+
+            <!-- Gaming: Account Management -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">🎮</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Account</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingAccountCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingAccountCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Discovery & Purchase -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">🔍</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Discovery</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingDiscoveryCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingDiscoveryCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Download & Installation -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl shadow-lg">💾</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Download</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingDownloadCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingDownloadCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-green-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Gameplay -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-red-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-2xl shadow-lg">👾</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Gameplay</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingPlayCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingPlayCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Library -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">📚</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Library</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingLibraryCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingLibraryCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-cyan-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Social -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">👥</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Social</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingSocialCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingSocialCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-pink-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Achievements -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">🏆</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Achievements</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingAchievementCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingAchievementCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-yellow-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-yellow-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Support -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-2xl shadow-lg">💬</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Support</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingSupportCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingSupportCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-orange-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Purchases -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-2xl shadow-lg">💰</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Purchases</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingPurchaseCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingPurchaseCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-emerald-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-emerald-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Security -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-red-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">🔒</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Security</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingSecurityCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingSecurityCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Refunds -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">↩️</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Refunds</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingRefundCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingRefundCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: UX -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">✨</div>
+                <h3 class="text-xl font-bold text-white">Gaming: UX</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingUxCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingUxCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Gaming: Device -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">🕹️</div>
+                <h3 class="text-xl font-bold text-white">Gaming: Device</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ gamingDeviceCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in gamingDeviceCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-cyan-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -802,6 +997,59 @@ const ecommerceReturnCommands = computed(() => {
 
 const ecommerceSellerCommands = computed(() => {
   return allCommands.value.filter(cmd => cmd.category === 'ecommerce-seller')
+})
+
+// Gaming Commands
+const gamingAccountCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-account')
+})
+
+const gamingDiscoveryCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-discovery')
+})
+
+const gamingDownloadCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-download')
+})
+
+const gamingPlayCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-play')
+})
+
+const gamingLibraryCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-library')
+})
+
+const gamingSocialCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-social')
+})
+
+const gamingAchievementCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-achievement')
+})
+
+const gamingSupportCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-support')
+})
+
+const gamingPurchaseCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-purchase')
+})
+
+const gamingSecurityCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-security')
+})
+
+const gamingRefundCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-refund')
+})
+
+const gamingUxCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-ux')
+})
+
+const gamingDeviceCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'gaming-device')
 })
 
 // Initialize SDK
