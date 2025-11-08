@@ -2038,6 +2038,516 @@ class UniversalCommands
                 'description' => 'Close current view',
                 'category' => 'basic'
             ],
+
+            // ============================================
+            // OPERATING SYSTEMS (Windows, macOS, Linux)
+            // ============================================
+            [
+                'id' => 'open-app',
+                'phrases' => $getPhrases('open-app'),
+                'action' => 'open-app',
+                'description' => 'Open application',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'close-app',
+                'phrases' => $getPhrases('close-app'),
+                'action' => 'close-app',
+                'description' => 'Close application',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'minimize-window',
+                'phrases' => $getPhrases('minimize-window'),
+                'action' => 'minimize-window',
+                'description' => 'Minimize window',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'maximize-window',
+                'phrases' => $getPhrases('maximize-window'),
+                'action' => 'maximize-window',
+                'description' => 'Maximize window',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'save-file',
+                'phrases' => $getPhrases('save-file'),
+                'action' => 'save-file',
+                'description' => 'Save file',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'open-file',
+                'phrases' => $getPhrases('open-file'),
+                'action' => 'open-file',
+                'description' => 'Open file',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'create-folder',
+                'phrases' => $getPhrases('create-folder'),
+                'action' => 'create-folder',
+                'description' => 'Create folder',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'delete-file',
+                'phrases' => $getPhrases('delete-file'),
+                'action' => 'delete-file',
+                'description' => 'Delete file',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'open-settings',
+                'phrases' => $getPhrases('open-settings'),
+                'action' => 'open-settings',
+                'description' => 'Open system settings',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'install-software',
+                'phrases' => $getPhrases('install-software'),
+                'action' => 'install-software',
+                'description' => 'Install software',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'uninstall-software',
+                'phrases' => $getPhrases('uninstall-software'),
+                'action' => 'uninstall-software',
+                'description' => 'Uninstall software',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'update-system',
+                'phrases' => $getPhrases('update-system'),
+                'action' => 'update-system',
+                'description' => 'Update system',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'connect-wifi',
+                'phrases' => $getPhrases('connect-wifi'),
+                'action' => 'connect-wifi',
+                'description' => 'Connect to Wi-Fi',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'open-terminal',
+                'phrases' => $getPhrases('open-terminal'),
+                'action' => 'open-terminal',
+                'description' => 'Open terminal/command prompt',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'change-wallpaper',
+                'phrases' => $getPhrases('change-wallpaper'),
+                'action' => 'change-wallpaper',
+                'description' => 'Change wallpaper',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'create-user',
+                'phrases' => $getPhrases('create-user'),
+                'action' => 'create-user',
+                'description' => 'Create new user account',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'backup-data',
+                'phrases' => $getPhrases('backup-data'),
+                'action' => 'backup-data',
+                'description' => 'Backup data',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'restore-data',
+                'phrases' => $getPhrases('restore-data'),
+                'action' => 'restore-data',
+                'description' => 'Restore data',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'view-system-info',
+                'phrases' => $getPhrases('view-system-info'),
+                'action' => 'view-system-info',
+                'description' => 'View system information',
+                'category' => 'os'
+            ],
+            [
+                'id' => 'monitor-performance',
+                'phrases' => $getPhrases('monitor-performance'),
+                'action' => 'monitor-performance',
+                'description' => 'Monitor system performance',
+                'category' => 'os'
+            ],
+
+            // ============================================
+            // MOBILE PLATFORMS (Android, iOS)
+            // ============================================
+            [
+                'id' => 'install-app',
+                'phrases' => $getPhrases('install-app'),
+                'action' => 'install-app',
+                'description' => 'Install mobile app',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'uninstall-app',
+                'phrases' => $getPhrases('uninstall-app'),
+                'action' => 'uninstall-app',
+                'description' => 'Uninstall mobile app',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'open-camera',
+                'phrases' => $getPhrases('open-camera'),
+                'action' => 'open-camera',
+                'description' => 'Open camera',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'take-photo',
+                'phrases' => $getPhrases('take-photo'),
+                'action' => 'take-photo',
+                'description' => 'Take photo',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'record-video',
+                'phrases' => $getPhrases('record-video'),
+                'action' => 'record-video',
+                'description' => 'Record video',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'open-contacts',
+                'phrases' => $getPhrases('open-contacts'),
+                'action' => 'open-contacts',
+                'description' => 'Open contacts',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'make-call',
+                'phrases' => $getPhrases('make-call'),
+                'action' => 'make-call',
+                'description' => 'Make phone call',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'send-sms',
+                'phrases' => $getPhrases('send-sms'),
+                'action' => 'send-sms',
+                'description' => 'Send SMS message',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'sync-cloud',
+                'phrases' => $getPhrases('sync-cloud'),
+                'action' => 'sync-cloud',
+                'description' => 'Sync with cloud',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'enable-backup',
+                'phrases' => $getPhrases('enable-backup'),
+                'action' => 'enable-backup',
+                'description' => 'Enable automatic backup',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'connect-device',
+                'phrases' => $getPhrases('connect-device'),
+                'action' => 'connect-device',
+                'description' => 'Connect to external device',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'enable-face-id',
+                'phrases' => $getPhrases('enable-face-id'),
+                'action' => 'enable-face-id',
+                'description' => 'Enable Face ID',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'enable-touch-id',
+                'phrases' => $getPhrases('enable-touch-id'),
+                'action' => 'enable-touch-id',
+                'description' => 'Enable Touch ID',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'manage-permissions',
+                'phrases' => $getPhrases('manage-permissions'),
+                'action' => 'manage-permissions',
+                'description' => 'Manage app permissions',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'find-device',
+                'phrases' => $getPhrases('find-device'),
+                'action' => 'find-device',
+                'description' => 'Find my device',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'change-ringtone',
+                'phrases' => $getPhrases('change-ringtone'),
+                'action' => 'change-ringtone',
+                'description' => 'Change ringtone',
+                'category' => 'mobile'
+            ],
+            [
+                'id' => 'enable-location',
+                'phrases' => $getPhrases('enable-location'),
+                'action' => 'enable-location',
+                'description' => 'Enable location services',
+                'category' => 'mobile'
+            ],
+
+            // ============================================
+            // CLOUD PLATFORMS (AWS, Azure, Google Cloud)
+            // ============================================
+            [
+                'id' => 'create-server',
+                'phrases' => $getPhrases('create-server'),
+                'action' => 'create-server',
+                'description' => 'Create virtual server',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'create-database',
+                'phrases' => $getPhrases('create-database'),
+                'action' => 'create-database',
+                'description' => 'Create database',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'upload-file',
+                'phrases' => $getPhrases('upload-file'),
+                'action' => 'upload-file',
+                'description' => 'Upload file to cloud',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'download-file',
+                'phrases' => $getPhrases('download-file'),
+                'action' => 'download-file',
+                'description' => 'Download file from cloud',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'deploy-app',
+                'phrases' => $getPhrases('deploy-app'),
+                'action' => 'deploy-app',
+                'description' => 'Deploy application',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'monitor-traffic',
+                'phrases' => $getPhrases('monitor-traffic'),
+                'action' => 'monitor-traffic',
+                'description' => 'Monitor traffic',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'set-permissions',
+                'phrases' => $getPhrases('set-permissions'),
+                'action' => 'set-permissions',
+                'description' => 'Set user permissions',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'enable-encryption',
+                'phrases' => $getPhrases('enable-encryption'),
+                'action' => 'enable-encryption',
+                'description' => 'Enable encryption',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'create-backup',
+                'phrases' => $getPhrases('create-backup'),
+                'action' => 'create-backup',
+                'description' => 'Create backup',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'restore-backup',
+                'phrases' => $getPhrases('restore-backup'),
+                'action' => 'restore-backup',
+                'description' => 'Restore from backup',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'scale-resources',
+                'phrases' => $getPhrases('scale-resources'),
+                'action' => 'scale-resources',
+                'description' => 'Scale resources',
+                'category' => 'cloud'
+            ],
+            [
+                'id' => 'view-logs',
+                'phrases' => $getPhrases('view-logs'),
+                'action' => 'view-logs',
+                'description' => 'View logs',
+                'category' => 'cloud'
+            ],
+
+            // ============================================
+            // DEVELOPER PLATFORMS (GitHub, GitLab, etc.)
+            // ============================================
+            [
+                'id' => 'create-repository',
+                'phrases' => $getPhrases('create-repository'),
+                'action' => 'create-repository',
+                'description' => 'Create repository',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'clone-repository',
+                'phrases' => $getPhrases('clone-repository'),
+                'action' => 'clone-repository',
+                'description' => 'Clone repository',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'commit-changes',
+                'phrases' => $getPhrases('commit-changes'),
+                'action' => 'commit-changes',
+                'description' => 'Commit changes',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'push-changes',
+                'phrases' => $getPhrases('push-changes'),
+                'action' => 'push-changes',
+                'description' => 'Push changes',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'pull-changes',
+                'phrases' => $getPhrases('pull-changes'),
+                'action' => 'pull-changes',
+                'description' => 'Pull changes',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'create-branch',
+                'phrases' => $getPhrases('create-branch'),
+                'action' => 'create-branch',
+                'description' => 'Create branch',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'merge-branch',
+                'phrases' => $getPhrases('merge-branch'),
+                'action' => 'merge-branch',
+                'description' => 'Merge branch',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'create-pull-request',
+                'phrases' => $getPhrases('create-pull-request'),
+                'action' => 'create-pull-request',
+                'description' => 'Create pull request',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'deploy-site',
+                'phrases' => $getPhrases('deploy-site'),
+                'action' => 'deploy-site',
+                'description' => 'Deploy website',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'view-commits',
+                'phrases' => $getPhrases('view-commits'),
+                'action' => 'view-commits',
+                'description' => 'View commit history',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'view-issues',
+                'phrases' => $getPhrases('view-issues'),
+                'action' => 'view-issues',
+                'description' => 'View issues',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'create-issue',
+                'phrases' => $getPhrases('create-issue'),
+                'action' => 'create-issue',
+                'description' => 'Create issue',
+                'category' => 'developer'
+            ],
+            [
+                'id' => 'invite-collaborator',
+                'phrases' => $getPhrases('invite-collaborator'),
+                'action' => 'invite-collaborator',
+                'description' => 'Invite collaborator',
+                'category' => 'developer'
+            ],
+
+            // ============================================
+            // COMMON TECHNICAL FEATURES
+            // ============================================
+            [
+                'id' => 'connect-internet',
+                'phrases' => $getPhrases('connect-internet'),
+                'action' => 'connect-internet',
+                'description' => 'Connect to internet',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'create-account',
+                'phrases' => $getPhrases('create-account'),
+                'action' => 'create-account',
+                'description' => 'Create user account',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'change-language',
+                'phrases' => $getPhrases('change-language'),
+                'action' => 'change-language',
+                'description' => 'Change language',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'open-browser',
+                'phrases' => $getPhrases('open-browser'),
+                'action' => 'open-browser',
+                'description' => 'Open web browser',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'enable-security',
+                'phrases' => $getPhrases('enable-security'),
+                'action' => 'enable-security',
+                'description' => 'Enable security features',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'enable-auto-update',
+                'phrases' => $getPhrases('enable-auto-update'),
+                'action' => 'enable-auto-update',
+                'description' => 'Enable automatic updates',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'connect-external-device',
+                'phrases' => $getPhrases('connect-external-device'),
+                'action' => 'connect-external-device',
+                'description' => 'Connect external device',
+                'category' => 'tech-common'
+            ],
+            [
+                'id' => 'optimize-system',
+                'phrases' => $getPhrases('optimize-system'),
+                'action' => 'optimize-system',
+                'description' => 'Optimize system',
+                'category' => 'tech-common'
+            ],
         ];
     }
 
@@ -2379,6 +2889,86 @@ class UniversalCommands
 
                 // Basic
                 'click' => ['click', 'tap', 'press', 'select'],
+
+                // Operating Systems
+                'open-app' => ['open app', 'open application', 'launch app', 'start app'],
+                'close-app' => ['close app', 'close application', 'exit app', 'quit app'],
+                'minimize-window' => ['minimize window', 'minimize', 'minimize app'],
+                'maximize-window' => ['maximize window', 'maximize', 'fullscreen window'],
+                'save-file' => ['save file', 'save', 'save document'],
+                'open-file' => ['open file', 'open', 'open document'],
+                'create-folder' => ['create folder', 'new folder', 'make folder'],
+                'delete-file' => ['delete file', 'delete', 'remove file'],
+                'open-settings' => ['open settings', 'settings', 'system settings'],
+                'install-software' => ['install software', 'install app', 'install program'],
+                'uninstall-software' => ['uninstall software', 'uninstall app', 'remove software'],
+                'update-system' => ['update system', 'system update', 'check for updates'],
+                'connect-wifi' => ['connect wifi', 'connect to wifi', 'wifi', 'connect network'],
+                'open-terminal' => ['open terminal', 'terminal', 'command prompt', 'cmd'],
+                'change-wallpaper' => ['change wallpaper', 'wallpaper', 'background', 'desktop background'],
+                'create-user' => ['create user', 'new user', 'add user account'],
+                'backup-data' => ['backup data', 'backup', 'create backup'],
+                'restore-data' => ['restore data', 'restore', 'restore backup'],
+                'view-system-info' => ['view system info', 'system info', 'system information'],
+                'monitor-performance' => ['monitor performance', 'system performance', 'cpu usage', 'ram usage'],
+
+                // Mobile Platforms
+                'install-app' => ['install app', 'download app', 'get app'],
+                'uninstall-app' => ['uninstall app', 'remove app', 'delete app'],
+                'open-camera' => ['open camera', 'camera', 'take photo'],
+                'take-photo' => ['take photo', 'photo', 'capture photo', 'snap photo'],
+                'record-video' => ['record video', 'video', 'record', 'start recording'],
+                'open-contacts' => ['open contacts', 'contacts', 'phonebook'],
+                'make-call' => ['make call', 'call', 'phone call', 'dial'],
+                'send-sms' => ['send sms', 'text message', 'send message', 'sms'],
+                'sync-cloud' => ['sync cloud', 'cloud sync', 'sync', 'synchronize'],
+                'enable-backup' => ['enable backup', 'automatic backup', 'backup on'],
+                'connect-device' => ['connect device', 'pair device', 'bluetooth'],
+                'enable-face-id' => ['enable face id', 'face id', 'face unlock'],
+                'enable-touch-id' => ['enable touch id', 'touch id', 'fingerprint'],
+                'manage-permissions' => ['manage permissions', 'app permissions', 'permissions'],
+                'find-device' => ['find device', 'find my device', 'locate device'],
+                'change-ringtone' => ['change ringtone', 'ringtone', 'phone ringtone'],
+                'enable-location' => ['enable location', 'location services', 'gps'],
+
+                // Cloud Platforms
+                'create-server' => ['create server', 'new server', 'virtual server', 'ec2'],
+                'create-database' => ['create database', 'new database', 'database'],
+                'upload-file' => ['upload file', 'upload', 'upload to cloud'],
+                'download-file' => ['download file', 'download', 'download from cloud'],
+                'deploy-app' => ['deploy app', 'deploy', 'deploy application'],
+                'monitor-traffic' => ['monitor traffic', 'traffic', 'network traffic'],
+                'set-permissions' => ['set permissions', 'permissions', 'user permissions'],
+                'enable-encryption' => ['enable encryption', 'encryption', 'encrypt data'],
+                'create-backup' => ['create backup', 'backup', 'cloud backup'],
+                'restore-backup' => ['restore backup', 'restore', 'restore from backup'],
+                'scale-resources' => ['scale resources', 'scale up', 'scale down', 'auto scale'],
+                'view-logs' => ['view logs', 'logs', 'application logs'],
+
+                // Developer Platforms
+                'create-repository' => ['create repository', 'new repo', 'create repo'],
+                'clone-repository' => ['clone repository', 'clone repo', 'git clone'],
+                'commit-changes' => ['commit changes', 'commit', 'git commit'],
+                'push-changes' => ['push changes', 'push', 'git push'],
+                'pull-changes' => ['pull changes', 'pull', 'git pull'],
+                'create-branch' => ['create branch', 'new branch', 'git branch'],
+                'merge-branch' => ['merge branch', 'merge', 'git merge'],
+                'create-pull-request' => ['create pull request', 'pull request', 'pr', 'create pr'],
+                'deploy-site' => ['deploy site', 'deploy', 'publish site'],
+                'view-commits' => ['view commits', 'commits', 'commit history'],
+                'view-issues' => ['view issues', 'issues', 'bug tracker'],
+                'create-issue' => ['create issue', 'new issue', 'report bug'],
+                'invite-collaborator' => ['invite collaborator', 'add collaborator', 'invite team'],
+
+                // Common Technical Features
+                'connect-internet' => ['connect internet', 'internet', 'connect network'],
+                'create-account' => ['create account', 'sign up', 'register', 'new account'],
+                'change-language' => ['change language', 'language', 'set language'],
+                'open-browser' => ['open browser', 'browser', 'web browser'],
+                'enable-security' => ['enable security', 'security', 'security features'],
+                'enable-auto-update' => ['enable auto update', 'auto update', 'automatic updates'],
+                'connect-external-device' => ['connect external device', 'external device', 'usb', 'printer'],
+                'optimize-system' => ['optimize system', 'optimize', 'system optimization'],
             ],
             'sq' => [
                 // Navigation
@@ -2712,6 +3302,86 @@ class UniversalCommands
 
                 // Basic
                 'click' => ['kliko', 'prek', 'shtyp', 'zgjedh'],
+
+                // Operating Systems
+                'open-app' => ['hape aplikacion', 'hape app', 'nis aplikacion'],
+                'close-app' => ['mbyll aplikacion', 'mbyll app', 'dil nga aplikacioni'],
+                'minimize-window' => ['minimizo dritare', 'minimizo', 'zvogelo dritare'],
+                'maximize-window' => ['maksimizo dritare', 'maksimizo', 'zmadho dritare'],
+                'save-file' => ['ruaj skedar', 'ruaj', 'ruaj dokument'],
+                'open-file' => ['hape skedar', 'hape', 'hape dokument'],
+                'create-folder' => ['krijo dosje', 'dosje e re', 'krijo folder'],
+                'delete-file' => ['fshi skedar', 'fshi', 'hiq skedar'],
+                'open-settings' => ['hape settings', 'settings', 'konfigurime sistemi'],
+                'install-software' => ['instalo software', 'instalo app', 'instalo program'],
+                'uninstall-software' => ['çinstalo software', 'hiq software', 'fshi program'],
+                'update-system' => ['përditëso sistem', 'update sistem', 'kontrollo përditësime'],
+                'connect-wifi' => ['lidhu me wifi', 'wifi', 'lidhu me rrjet'],
+                'open-terminal' => ['hape terminal', 'terminal', 'command prompt', 'cmd'],
+                'change-wallpaper' => ['ndrysho wallpaper', 'wallpaper', 'sfond', 'sfond desktop'],
+                'create-user' => ['krijo përdorues', 'përdorues i ri', 'shto llogari'],
+                'backup-data' => ['backup të dhëna', 'backup', 'krijo backup'],
+                'restore-data' => ['rikthe të dhëna', 'restore', 'rikthe nga backup'],
+                'view-system-info' => ['shiko info sistem', 'info sistem', 'informacion sistem'],
+                'monitor-performance' => ['monitoro performancë', 'performancë sistem', 'përdorim cpu', 'përdorim ram'],
+
+                // Mobile Platforms
+                'install-app' => ['instalo app', 'shkarko app', 'merr app'],
+                'uninstall-app' => ['çinstalo app', 'hiq app', 'fshi app'],
+                'open-camera' => ['hape kamere', 'kamere', 'bëj foto'],
+                'take-photo' => ['bëj foto', 'foto', 'kap foto'],
+                'record-video' => ['regjistro video', 'video', 'regjistro', 'fillo regjistrim'],
+                'open-contacts' => ['hape kontakte', 'kontakte', 'libër telefonash'],
+                'make-call' => ['bëj telefonatë', 'telefonatë', 'thirr', 'dial'],
+                'send-sms' => ['dërgo sms', 'mesazh tekst', 'dërgo mesazh', 'sms'],
+                'sync-cloud' => ['sinkronizo cloud', 'cloud sync', 'sinkronizo'],
+                'enable-backup' => ['aktivizo backup', 'backup automatik', 'backup on'],
+                'connect-device' => ['lidh pajisje', 'pair pajisje', 'bluetooth'],
+                'enable-face-id' => ['aktivizo face id', 'face id', 'face unlock'],
+                'enable-touch-id' => ['aktivizo touch id', 'touch id', 'gisht'],
+                'manage-permissions' => ['menaxho lejet', 'lejet e app', 'permissions'],
+                'find-device' => ['gjej pajisje', 'find my device', 'lokalizo pajisje'],
+                'change-ringtone' => ['ndrysho ringtone', 'ringtone', 'tingull telefon'],
+                'enable-location' => ['aktivizo lokacion', 'location services', 'gps'],
+
+                // Cloud Platforms
+                'create-server' => ['krijo server', 'server i ri', 'virtual server', 'ec2'],
+                'create-database' => ['krijo databazë', 'databazë e re', 'databazë'],
+                'upload-file' => ['ngarko skedar', 'ngarko', 'ngarko në cloud'],
+                'download-file' => ['shkarko skedar', 'shkarko', 'shkarko nga cloud'],
+                'deploy-app' => ['deploy app', 'deploy', 'publiko aplikacion'],
+                'monitor-traffic' => ['monitoro trafik', 'trafik', 'trafik rrjeti'],
+                'set-permissions' => ['vendos lejet', 'permissions', 'lejet përdoruesi'],
+                'enable-encryption' => ['aktivizo enkriptim', 'enkriptim', 'enkripto të dhëna'],
+                'create-backup' => ['krijo backup', 'backup', 'cloud backup'],
+                'restore-backup' => ['rikthe backup', 'restore', 'rikthe nga backup'],
+                'scale-resources' => ['shkallëzo burime', 'scale up', 'scale down', 'auto scale'],
+                'view-logs' => ['shiko logs', 'logs', 'logs aplikacioni'],
+
+                // Developer Platforms
+                'create-repository' => ['krijo repository', 'repo i ri', 'krijo repo'],
+                'clone-repository' => ['klono repository', 'klono repo', 'git clone'],
+                'commit-changes' => ['commit ndryshime', 'commit', 'git commit'],
+                'push-changes' => ['push ndryshime', 'push', 'git push'],
+                'pull-changes' => ['pull ndryshime', 'pull', 'git pull'],
+                'create-branch' => ['krijo branch', 'branch i ri', 'git branch'],
+                'merge-branch' => ['merge branch', 'merge', 'git merge'],
+                'create-pull-request' => ['krijo pull request', 'pull request', 'pr', 'krijo pr'],
+                'deploy-site' => ['deploy site', 'deploy', 'publiko site'],
+                'view-commits' => ['shiko commits', 'commits', 'historiku commit'],
+                'view-issues' => ['shiko issues', 'issues', 'bug tracker'],
+                'create-issue' => ['krijo issue', 'issue i ri', 'raporto bug'],
+                'invite-collaborator' => ['fto bashkëpunëtor', 'shto bashkëpunëtor', 'fto ekip'],
+
+                // Common Technical Features
+                'connect-internet' => ['lidhu me internet', 'internet', 'lidhu me rrjet'],
+                'create-account' => ['krijo llogari', 'regjistrohu', 'llogari e re'],
+                'change-language' => ['ndrysho gjuhë', 'gjuhë', 'vendos gjuhë'],
+                'open-browser' => ['hape browser', 'browser', 'web browser'],
+                'enable-security' => ['aktivizo siguri', 'siguri', 'veçori sigurie'],
+                'enable-auto-update' => ['aktivizo auto update', 'auto update', 'përditësime automatike'],
+                'connect-external-device' => ['lidh pajisje të jashtme', 'pajisje e jashtme', 'usb', 'printer'],
+                'optimize-system' => ['optimizo sistem', 'optimizo', 'optimizim sistem'],
             ],
             'es' => [
                 // Navigation
@@ -3045,6 +3715,86 @@ class UniversalCommands
 
                 // Basic
                 'click' => ['clic', 'tocar', 'presionar', 'seleccionar'],
+
+                // Operating Systems
+                'open-app' => ['abrir aplicación', 'abrir app', 'iniciar app'],
+                'close-app' => ['cerrar aplicación', 'cerrar app', 'salir de app'],
+                'minimize-window' => ['minimizar ventana', 'minimizar', 'reducir ventana'],
+                'maximize-window' => ['maximizar ventana', 'maximizar', 'pantalla completa'],
+                'save-file' => ['guardar archivo', 'guardar', 'guardar documento'],
+                'open-file' => ['abrir archivo', 'abrir', 'abrir documento'],
+                'create-folder' => ['crear carpeta', 'nueva carpeta', 'crear folder'],
+                'delete-file' => ['eliminar archivo', 'eliminar', 'borrar archivo'],
+                'open-settings' => ['abrir configuración', 'configuración', 'ajustes del sistema'],
+                'install-software' => ['instalar software', 'instalar app', 'instalar programa'],
+                'uninstall-software' => ['desinstalar software', 'desinstalar app', 'eliminar software'],
+                'update-system' => ['actualizar sistema', 'actualización del sistema', 'buscar actualizaciones'],
+                'connect-wifi' => ['conectar wifi', 'wifi', 'conectar red'],
+                'open-terminal' => ['abrir terminal', 'terminal', 'símbolo del sistema', 'cmd'],
+                'change-wallpaper' => ['cambiar fondo', 'fondo de pantalla', 'wallpaper'],
+                'create-user' => ['crear usuario', 'nuevo usuario', 'agregar cuenta'],
+                'backup-data' => ['hacer copia de seguridad', 'backup', 'crear backup'],
+                'restore-data' => ['restaurar datos', 'restaurar', 'restaurar backup'],
+                'view-system-info' => ['ver información del sistema', 'info del sistema', 'información del sistema'],
+                'monitor-performance' => ['monitorear rendimiento', 'rendimiento del sistema', 'uso de cpu', 'uso de ram'],
+
+                // Mobile Platforms
+                'install-app' => ['instalar app', 'descargar app', 'obtener app'],
+                'uninstall-app' => ['desinstalar app', 'eliminar app', 'quitar app'],
+                'open-camera' => ['abrir cámara', 'cámara', 'tomar foto'],
+                'take-photo' => ['tomar foto', 'foto', 'capturar foto'],
+                'record-video' => ['grabar video', 'video', 'grabar', 'iniciar grabación'],
+                'open-contacts' => ['abrir contactos', 'contactos', 'agenda'],
+                'make-call' => ['hacer llamada', 'llamar', 'llamada telefónica', 'marcar'],
+                'send-sms' => ['enviar sms', 'mensaje de texto', 'enviar mensaje', 'sms'],
+                'sync-cloud' => ['sincronizar cloud', 'cloud sync', 'sincronizar'],
+                'enable-backup' => ['activar backup', 'backup automático', 'backup activado'],
+                'connect-device' => ['conectar dispositivo', 'emparejar dispositivo', 'bluetooth'],
+                'enable-face-id' => ['activar face id', 'face id', 'desbloqueo facial'],
+                'enable-touch-id' => ['activar touch id', 'touch id', 'huella dactilar'],
+                'manage-permissions' => ['gestionar permisos', 'permisos de app', 'permisos'],
+                'find-device' => ['encontrar dispositivo', 'find my device', 'localizar dispositivo'],
+                'change-ringtone' => ['cambiar tono', 'tono de llamada', 'ringtone'],
+                'enable-location' => ['activar ubicación', 'servicios de ubicación', 'gps'],
+
+                // Cloud Platforms
+                'create-server' => ['crear servidor', 'nuevo servidor', 'servidor virtual', 'ec2'],
+                'create-database' => ['crear base de datos', 'nueva base de datos', 'base de datos'],
+                'upload-file' => ['subir archivo', 'subir', 'subir a cloud'],
+                'download-file' => ['descargar archivo', 'descargar', 'descargar de cloud'],
+                'deploy-app' => ['desplegar app', 'desplegar', 'publicar aplicación'],
+                'monitor-traffic' => ['monitorear tráfico', 'tráfico', 'tráfico de red'],
+                'set-permissions' => ['establecer permisos', 'permisos', 'permisos de usuario'],
+                'enable-encryption' => ['activar encriptación', 'encriptación', 'encriptar datos'],
+                'create-backup' => ['crear backup', 'backup', 'backup en cloud'],
+                'restore-backup' => ['restaurar backup', 'restaurar', 'restaurar desde backup'],
+                'scale-resources' => ['escalar recursos', 'escalar arriba', 'escalar abajo', 'auto escalar'],
+                'view-logs' => ['ver logs', 'logs', 'logs de aplicación'],
+
+                // Developer Platforms
+                'create-repository' => ['crear repositorio', 'nuevo repo', 'crear repo'],
+                'clone-repository' => ['clonar repositorio', 'clonar repo', 'git clone'],
+                'commit-changes' => ['hacer commit', 'commit', 'git commit'],
+                'push-changes' => ['hacer push', 'push', 'git push'],
+                'pull-changes' => ['hacer pull', 'pull', 'git pull'],
+                'create-branch' => ['crear rama', 'nueva rama', 'git branch'],
+                'merge-branch' => ['fusionar rama', 'merge', 'git merge'],
+                'create-pull-request' => ['crear pull request', 'pull request', 'pr', 'crear pr'],
+                'deploy-site' => ['desplegar sitio', 'desplegar', 'publicar sitio'],
+                'view-commits' => ['ver commits', 'commits', 'historial de commits'],
+                'view-issues' => ['ver issues', 'issues', 'seguimiento de bugs'],
+                'create-issue' => ['crear issue', 'nuevo issue', 'reportar bug'],
+                'invite-collaborator' => ['invitar colaborador', 'agregar colaborador', 'invitar equipo'],
+
+                // Common Technical Features
+                'connect-internet' => ['conectar internet', 'internet', 'conectar red'],
+                'create-account' => ['crear cuenta', 'registrarse', 'nueva cuenta'],
+                'change-language' => ['cambiar idioma', 'idioma', 'establecer idioma'],
+                'open-browser' => ['abrir navegador', 'navegador', 'navegador web'],
+                'enable-security' => ['activar seguridad', 'seguridad', 'características de seguridad'],
+                'enable-auto-update' => ['activar actualización automática', 'auto actualización', 'actualizaciones automáticas'],
+                'connect-external-device' => ['conectar dispositivo externo', 'dispositivo externo', 'usb', 'impresora'],
+                'optimize-system' => ['optimizar sistema', 'optimizar', 'optimización del sistema'],
             ],
             'fr' => [
                 // Navigation
@@ -3378,6 +4128,86 @@ class UniversalCommands
 
                 // Basic
                 'click' => ['cliquer', 'toucher', 'appuyer', 'sélectionner'],
+
+                // Operating Systems
+                'open-app' => ['ouvrir application', 'ouvrir app', 'lancer app'],
+                'close-app' => ['fermer application', 'fermer app', 'quitter app'],
+                'minimize-window' => ['réduire fenêtre', 'réduire', 'minimiser fenêtre'],
+                'maximize-window' => ['agrandir fenêtre', 'agrandir', 'plein écran'],
+                'save-file' => ['enregistrer fichier', 'enregistrer', 'sauvegarder document'],
+                'open-file' => ['ouvrir fichier', 'ouvrir', 'ouvrir document'],
+                'create-folder' => ['créer dossier', 'nouveau dossier', 'créer folder'],
+                'delete-file' => ['supprimer fichier', 'supprimer', 'effacer fichier'],
+                'open-settings' => ['ouvrir paramètres', 'paramètres', 'réglages système'],
+                'install-software' => ['installer logiciel', 'installer app', 'installer programme'],
+                'uninstall-software' => ['désinstaller logiciel', 'désinstaller app', 'supprimer logiciel'],
+                'update-system' => ['mettre à jour système', 'mise à jour système', 'vérifier mises à jour'],
+                'connect-wifi' => ['connecter wifi', 'wifi', 'connecter réseau'],
+                'open-terminal' => ['ouvrir terminal', 'terminal', 'invite de commande', 'cmd'],
+                'change-wallpaper' => ['changer fond d\'écran', 'fond d\'écran', 'wallpaper'],
+                'create-user' => ['créer utilisateur', 'nouvel utilisateur', 'ajouter compte'],
+                'backup-data' => ['sauvegarder données', 'backup', 'créer backup'],
+                'restore-data' => ['restaurer données', 'restaurer', 'restaurer backup'],
+                'view-system-info' => ['voir informations système', 'info système', 'informations système'],
+                'monitor-performance' => ['surveiller performance', 'performance système', 'utilisation cpu', 'utilisation ram'],
+
+                // Mobile Platforms
+                'install-app' => ['installer app', 'télécharger app', 'obtenir app'],
+                'uninstall-app' => ['désinstaller app', 'supprimer app', 'retirer app'],
+                'open-camera' => ['ouvrir caméra', 'caméra', 'prendre photo'],
+                'take-photo' => ['prendre photo', 'photo', 'capturer photo'],
+                'record-video' => ['enregistrer vidéo', 'vidéo', 'enregistrer', 'démarrer enregistrement'],
+                'open-contacts' => ['ouvrir contacts', 'contacts', 'carnet d\'adresses'],
+                'make-call' => ['passer appel', 'appeler', 'appel téléphonique', 'composer'],
+                'send-sms' => ['envoyer sms', 'message texte', 'envoyer message', 'sms'],
+                'sync-cloud' => ['synchroniser cloud', 'cloud sync', 'synchroniser'],
+                'enable-backup' => ['activer backup', 'backup automatique', 'backup activé'],
+                'connect-device' => ['connecter appareil', 'apparier appareil', 'bluetooth'],
+                'enable-face-id' => ['activer face id', 'face id', 'déverrouillage facial'],
+                'enable-touch-id' => ['activer touch id', 'touch id', 'empreinte digitale'],
+                'manage-permissions' => ['gérer permissions', 'permissions app', 'permissions'],
+                'find-device' => ['trouver appareil', 'find my device', 'localiser appareil'],
+                'change-ringtone' => ['changer sonnerie', 'sonnerie', 'sonnerie téléphone'],
+                'enable-location' => ['activer localisation', 'services de localisation', 'gps'],
+
+                // Cloud Platforms
+                'create-server' => ['créer serveur', 'nouveau serveur', 'serveur virtuel', 'ec2'],
+                'create-database' => ['créer base de données', 'nouvelle base de données', 'base de données'],
+                'upload-file' => ['télécharger fichier', 'télécharger', 'télécharger vers cloud'],
+                'download-file' => ['télécharger fichier', 'télécharger', 'télécharger depuis cloud'],
+                'deploy-app' => ['déployer app', 'déployer', 'publier application'],
+                'monitor-traffic' => ['surveiller trafic', 'trafic', 'trafic réseau'],
+                'set-permissions' => ['définir permissions', 'permissions', 'permissions utilisateur'],
+                'enable-encryption' => ['activer chiffrement', 'chiffrement', 'chiffrer données'],
+                'create-backup' => ['créer backup', 'backup', 'backup cloud'],
+                'restore-backup' => ['restaurer backup', 'restaurer', 'restaurer depuis backup'],
+                'scale-resources' => ['mettre à l\'échelle ressources', 'mettre à l\'échelle', 'auto scale'],
+                'view-logs' => ['voir logs', 'logs', 'logs application'],
+
+                // Developer Platforms
+                'create-repository' => ['créer dépôt', 'nouveau repo', 'créer repo'],
+                'clone-repository' => ['cloner dépôt', 'cloner repo', 'git clone'],
+                'commit-changes' => ['faire commit', 'commit', 'git commit'],
+                'push-changes' => ['faire push', 'push', 'git push'],
+                'pull-changes' => ['faire pull', 'pull', 'git pull'],
+                'create-branch' => ['créer branche', 'nouvelle branche', 'git branch'],
+                'merge-branch' => ['fusionner branche', 'merge', 'git merge'],
+                'create-pull-request' => ['créer pull request', 'pull request', 'pr', 'créer pr'],
+                'deploy-site' => ['déployer site', 'déployer', 'publier site'],
+                'view-commits' => ['voir commits', 'commits', 'historique commits'],
+                'view-issues' => ['voir issues', 'issues', 'suivi bugs'],
+                'create-issue' => ['créer issue', 'nouvel issue', 'signaler bug'],
+                'invite-collaborator' => ['inviter collaborateur', 'ajouter collaborateur', 'inviter équipe'],
+
+                // Common Technical Features
+                'connect-internet' => ['connecter internet', 'internet', 'connecter réseau'],
+                'create-account' => ['créer compte', 's\'inscrire', 'nouveau compte'],
+                'change-language' => ['changer langue', 'langue', 'définir langue'],
+                'open-browser' => ['ouvrir navigateur', 'navigateur', 'navigateur web'],
+                'enable-security' => ['activer sécurité', 'sécurité', 'fonctionnalités sécurité'],
+                'enable-auto-update' => ['activer mise à jour automatique', 'auto mise à jour', 'mises à jour automatiques'],
+                'connect-external-device' => ['connecter appareil externe', 'appareil externe', 'usb', 'imprimante'],
+                'optimize-system' => ['optimiser système', 'optimiser', 'optimisation système'],
             ],
         ];
 
