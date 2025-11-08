@@ -298,9 +298,40 @@ class VoiceActionsSDK {
   }
 
   /**
+   * Check microphone permission status
+   */
+  async checkMicrophonePermission() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      return { granted: false, error: 'getUserMedia not supported' };
+    }
+
+    try {
+      // Try to query permission status (if supported)
+      if (navigator.permissions && navigator.permissions.query) {
+        const result = await navigator.permissions.query({ name: 'microphone' });
+        return { granted: result.state === 'granted', state: result.state };
+      }
+      
+      // If permission query is not supported, try to access microphone
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // Stop the stream immediately - we just wanted to check permission
+      stream.getTracks().forEach(track => track.stop());
+      return { granted: true };
+    } catch (error) {
+      if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+        return { granted: false, error: 'permission_denied', message: error.message };
+      } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+        return { granted: false, error: 'no_microphone', message: error.message };
+      } else {
+        return { granted: false, error: error.name, message: error.message };
+      }
+    }
+  }
+
+  /**
    * Start listening
    */
-  start() {
+  async start() {
     if (!this.recognition) {
       this.handleError(new Error('Recognition not initialized'));
       return;
@@ -316,34 +347,53 @@ class VoiceActionsSDK {
     try {
       // Check if browser supports speech recognition
       if (!this.isSupported()) {
-        this.handleError(new Error('Web Speech API is not supported in this browser'));
+        this.handleError(new Error('Web Speech API is not supported in this browser. Please use Chrome, Edge, or Safari.'));
         return;
       }
 
       // Request microphone permission first
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ audio: true })
-          .then(() => {
-            // Permission granted, start recognition
-            this.recognition.start();
-            this.isListening = true;
-            this.trackUsage('listening_started');
-            
-            if (this.debug) {
-              console.log('🎤 Started listening');
-            }
-          })
-          .catch((error) => {
-            this.handleError(new Error('Microphone permission denied. Please allow microphone access.'));
-          });
+        try {
+          // Request permission
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          
+          // Permission granted, stop the test stream and start recognition
+          stream.getTracks().forEach(track => track.stop());
+          
+          // Start recognition
+          this.recognition.start();
+          this.isListening = true;
+          this.trackUsage('listening_started');
+          
+          if (this.debug) {
+            console.log('🎤 Started listening');
+          }
+        } catch (error) {
+          // Handle specific permission errors
+          let errorMessage = 'Microphone permission denied. ';
+          
+          if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+            errorMessage += 'Please click the microphone icon in your browser\'s address bar and allow microphone access, or go to your browser settings and allow microphone access for this site.';
+          } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+            errorMessage = 'No microphone found. Please connect a microphone and try again.';
+          } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
+            errorMessage = 'Microphone is being used by another application. Please close other applications using the microphone and try again.';
+          } else {
+            errorMessage += `Error: ${error.message || error.name}`;
+          }
+          
+          this.handleError(new Error(errorMessage));
+          this.isListening = false;
+        }
       } else {
-        // Fallback for browsers without getUserMedia
+        // Fallback for browsers without getUserMedia - try to start recognition directly
+        // This will trigger browser's permission prompt
         this.recognition.start();
         this.isListening = true;
         this.trackUsage('listening_started');
         
         if (this.debug) {
-          console.log('🎤 Started listening');
+          console.log('🎤 Started listening (fallback mode)');
         }
       }
     } catch (error) {
@@ -356,6 +406,7 @@ class VoiceActionsSDK {
         this.isListening = true;
       } else {
         this.handleError(error);
+        this.isListening = false;
       }
     }
   }

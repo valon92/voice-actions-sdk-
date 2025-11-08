@@ -682,7 +682,7 @@ onUnmounted(() => {
   }
 })
 
-function toggleListening() {
+async function toggleListening() {
   if (!sdk) {
     showStatus('SDK not initialized', 'error')
     return
@@ -693,9 +693,26 @@ function toggleListening() {
     isListening.value = false
     showStatus('Stopped listening', 'info')
   } else {
-    sdk.start()
+    // Set listening state optimistically, but it will be reset if permission is denied
     isListening.value = true
-    showStatus('Started listening. Try saying a command!', 'success')
+    showStatus('Requesting microphone permission...', 'info')
+    
+    try {
+      await sdk.start()
+      // Only show success if we actually started listening
+      if (sdk.isListening) {
+        showStatus('Started listening. Try saying a command!', 'success')
+      }
+    } catch (error) {
+      isListening.value = false
+      // Error will be handled by handleError callback
+    }
+  }
+}
+
+function requestPermissionAgain() {
+  if (sdk && !isListening.value) {
+    toggleListening()
   }
 }
 
