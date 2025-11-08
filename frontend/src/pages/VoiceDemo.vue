@@ -17,9 +17,58 @@
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-pink-200">
             Voice Actions SDK Demo
           </h1>
-          <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed">
-            Try our voice command library in multiple languages. All commands are universal and work for any platform!
+          <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed mb-6">
+            Experience <strong class="text-white">100+ universal voice commands</strong> covering all social media platform features. Works with Facebook, Instagram, TikTok, X, Snapchat, LinkedIn, and more!
           </p>
+          <!-- Benefits Badge -->
+          <div class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-full">
+            <span class="text-2xl">✨</span>
+            <span class="text-green-200 font-semibold">100+ Universal Commands</span>
+            <span class="text-green-300 text-sm">|</span>
+            <span class="text-green-200 font-semibold">4 Languages</span>
+            <span class="text-green-300 text-sm">|</span>
+            <span class="text-green-200 font-semibold">Any Platform</span>
+          </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8 backdrop-saturate-150">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center gap-3">
+            <span class="text-4xl">💎</span>
+            <span>Why Choose Voice Actions SDK?</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">🌐</div>
+              <h3 class="text-xl font-bold text-white mb-2">Universal Commands</h3>
+              <p class="text-blue-200 text-sm">100+ commands that work across all platforms - Facebook, Instagram, TikTok, X, Snapchat, LinkedIn, and more!</p>
+            </div>
+            <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">🌍</div>
+              <h3 class="text-xl font-bold text-white mb-2">Multi-Language</h3>
+              <p class="text-purple-200 text-sm">Supports English, Albanian, Spanish, French, and easily extensible to more languages.</p>
+            </div>
+            <div class="p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl border border-green-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">⚡</div>
+              <h3 class="text-xl font-bold text-white mb-2">Easy Integration</h3>
+              <p class="text-green-200 text-sm">Simple SDK integration - just add a script tag and start using voice commands in minutes!</p>
+            </div>
+            <div class="p-6 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">🎯</div>
+              <h3 class="text-xl font-bold text-white mb-2">Comprehensive Coverage</h3>
+              <p class="text-orange-200 text-sm">Covers all features: Profile Management, Content Posting, Interactions, Messaging, Privacy, Analytics, Monetization, Live & Stories, and more!</p>
+            </div>
+            <div class="p-6 bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">🔒</div>
+              <h3 class="text-xl font-bold text-white mb-2">Secure & Private</h3>
+              <p class="text-red-200 text-sm">API key authentication, usage tracking, and secure command processing. Your data stays private.</p>
+            </div>
+            <div class="p-6 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-2xl border border-indigo-400/30 backdrop-blur-sm">
+              <div class="text-4xl mb-3">📊</div>
+              <h3 class="text-xl font-bold text-white mb-2">Usage Analytics</h3>
+              <p class="text-indigo-200 text-sm">Track command usage, monitor performance, and optimize your voice control implementation.</p>
+            </div>
+          </div>
         </div>
 
         <!-- Voice Control Card -->
@@ -173,142 +222,234 @@
           </Transition>
         </div>
 
-        <!-- Commands Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <!-- Navigation Commands -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-2xl shadow-lg">
-                🏠
+        <!-- Commands Grid - All Categories -->
+        <div class="mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
+            <span class="text-4xl">🎯</span>
+            <span>All Voice Commands (100+)</span>
+          </h2>
+          <p class="text-purple-200 mb-6 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Profile Management -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-2xl shadow-lg">👤</div>
+                <h3 class="text-xl font-bold text-white">Profile</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ profileCommands.length }}</span>
               </div>
-              <h3 class="text-2xl font-bold text-white">Navigation</h3>
-            </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in navigationCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-purple-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Social Actions -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">
-                ❤️
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in profileCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
               </div>
-              <h3 class="text-2xl font-bold text-white">Social Actions</h3>
             </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in socialCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-pink-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Media Control -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">
-                🎬
+            
+            <!-- Content Posting -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">📝</div>
+                <h3 class="text-xl font-bold text-white">Content</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ contentPostingCommands.length }}</span>
               </div>
-              <h3 class="text-2xl font-bold text-white">Media Control</h3>
-            </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in mediaCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-purple-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Content Creation -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl shadow-lg">
-                ✍️
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in contentPostingCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
               </div>
-              <h3 class="text-2xl font-bold text-white">Content Creation</h3>
             </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in contentCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-green-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Content Navigation -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">
-                📱
+            
+            <!-- Interactions -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">💬</div>
+                <h3 class="text-xl font-bold text-white">Interactions</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ interactionCommands.length }}</span>
               </div>
-              <h3 class="text-2xl font-bold text-white">Content Navigation</h3>
-            </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in contentNavCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-cyan-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Basic Actions -->
-          <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/20">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">
-                🖱️
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in interactionCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-pink-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
               </div>
-              <h3 class="text-2xl font-bold text-white">Basic Actions</h3>
             </div>
-            <div class="space-y-2">
-              <button
-                v-for="cmd in basicCommands"
-                :key="cmd.id"
-                @click="simulateCommand(cmd)"
-                class="w-full text-left px-4 py-3 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 group/btn"
-              >
-                <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name }}</span>
-                <span class="text-xs text-orange-300/70">{{ cmd.phrases.join(', ') }}</span>
-              </button>
+            
+            <!-- Messaging & Calls -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl shadow-lg">📩</div>
+                <h3 class="text-xl font-bold text-white">Messaging</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ messagingCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in messagingCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-green-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Privacy & Security -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-red-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-2xl shadow-lg">🔒</div>
+                <h3 class="text-xl font-bold text-white">Privacy</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ privacyCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in privacyCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Analytics -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-indigo-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-2xl shadow-lg">📊</div>
+                <h3 class="text-xl font-bold text-white">Analytics</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ analyticsCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in analyticsCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-indigo-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-indigo-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Monetization -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">💰</div>
+                <h3 class="text-xl font-bold text-white">Monetization</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ monetizationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in monetizationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-yellow-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-yellow-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Live & Stories -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-red-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">🎥</div>
+                <h3 class="text-xl font-bold text-white">Live & Stories</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ liveCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in liveCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- User Experience -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">✨</div>
+                <h3 class="text-xl font-bold text-white">UX</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ uxCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in uxCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-cyan-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Business Features -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-slate-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-500 to-gray-600 flex items-center justify-center text-2xl shadow-lg">🏢</div>
+                <h3 class="text-xl font-bold text-white">Business</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ businessCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in businessCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-slate-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-slate-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">🧭</div>
+                <h3 class="text-xl font-bold text-white">Navigation</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ navigationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in navigationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Media Control -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">▶️</div>
+                <h3 class="text-xl font-bold text-white">Media</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ mediaCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in mediaCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Camera & Creation -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-2xl shadow-lg">📷</div>
+                <h3 class="text-xl font-bold text-white">Creation</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ creationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in creationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-green-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Basic Actions -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">👆</div>
+                <h3 class="text-xl font-bold text-white">Basic</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ basicCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in basicCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-orange-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Demo Area -->
         <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8">
-          <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-green-500 flex items-center gap-3">
             <span class="text-4xl">🎯</span>
-            <span>Demo Area</span>
+            <span>Interactive Demo Area</span>
           </h2>
-          <p class="text-purple-200 mb-6">Kjo është zona demo ku mund të shihni efektet e komandave:</p>
+          <p class="text-purple-200 mb-6">Try saying commands like "scroll down", "scroll up", "like", "unlike" to see them in action:</p>
           
           <!-- Scrollable Demo Content -->
           <div 
@@ -317,10 +458,16 @@
           >
             <div v-for="i in 10" :key="i" class="mb-6 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]">
               <h3 class="font-bold text-xl text-white mb-3">Demo Item {{ i }}</h3>
-              <p class="text-purple-200 mb-4">Ky është një element demo. Provoni komandat "scroll down" ose "scroll up" për të lëvizur në këtë zonë.</p>
+              <p class="text-purple-200 mb-4">This is a demo element. Try commands like "scroll down", "scroll up", "like", "unlike", "share", "save" to interact with this content.</p>
               <div class="flex gap-3 flex-wrap">
-                <button class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl hover:from-blue-600 hover:to-cyan-600 transition-all shadow-lg hover:shadow-blue-500/50 font-semibold">
-                  Like
+                <button 
+                  @click="toggleLike"
+                  :class="[
+                    'px-5 py-2.5 rounded-xl transition-all shadow-lg font-semibold',
+                    isLiked ? 'bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600' : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600'
+                  ]"
+                >
+                  {{ isLiked ? '❤️ Liked' : '🤍 Like' }}
                 </button>
                 <button class="px-5 py-2.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-green-500/50 font-semibold">
                   Share
@@ -335,13 +482,13 @@
 
         <!-- Command History -->
         <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8">
-          <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center gap-3">
             <span class="text-4xl">📜</span>
             <span>Command History</span>
           </h2>
           <div v-if="commandHistory.length === 0" class="text-purple-300 text-center py-12">
             <div class="text-6xl mb-4 opacity-50">🎤</div>
-            <p class="text-lg">Asnjë komandë e ekzekutuar ende. Filloni të dëgjoni dhe provoni komandat!</p>
+            <p class="text-lg">No commands executed yet. Start listening and try the commands!</p>
           </div>
           <div v-else class="space-y-3 max-h-64 overflow-y-auto custom-scrollbar">
             <TransitionGroup name="list">
@@ -387,290 +534,89 @@ const statusMessage = ref('')
 const statusMessageType = ref('info')
 const commandHistory = ref([])
 const demoContent = ref(null)
+const isLiked = ref(false)
 let sdk = null
 let isInitializing = false
 let isDestroyed = false
 
-// Command definitions with phrases for all languages
-const commands = {
-  // Navigation
-  'go-home': {
-    name: 'Go Home',
-    phrases: {
-      'en-US': ['go home', 'home', 'home feed'],
-      'sq-AL': ['shko ne shtepi', 'home', 'faqja kryesore'],
-      'es-ES': ['ir a inicio', 'inicio', 'feed principal'],
-      'fr-FR': ['aller à l\'accueil', 'accueil', 'fil principal']
+// Load commands from API
+const allCommands = ref([])
+
+// Load commands from API
+async function loadCommands() {
+  try {
+    const baseLocale = selectedLocale.value.split('-')[0]
+    const response = await fetch(`http://localhost:8000/api/commands/demo?locale=${selectedLocale.value}&platform_name=demo`)
+    if (response.ok) {
+      const data = await response.json()
+      allCommands.value = data.commands || []
     }
-  },
-  'go-profile': {
-    name: 'Go to Profile',
-    phrases: {
-      'en-US': ['go to profile', 'profile', 'my profile'],
-      'sq-AL': ['shko ne profile', 'profile', 'profili im'],
-      'es-ES': ['ir a perfil', 'perfil', 'mi perfil'],
-      'fr-FR': ['aller au profil', 'profil', 'mon profil']
-    }
-  },
-  'go-messages': {
-    name: 'Go to Messages',
-    phrases: {
-      'en-US': ['messages', 'direct messages', 'dm'],
-      'sq-AL': ['mesazhe', 'direct', 'dm'],
-      'es-ES': ['mensajes', 'mensajes directos', 'dm'],
-      'fr-FR': ['messages', 'messages directs', 'dm']
-    }
-  },
-  'go-notifications': {
-    name: 'Go to Notifications',
-    phrases: {
-      'en-US': ['notifications', 'alerts'],
-      'sq-AL': ['njoftime', 'alerts'],
-      'es-ES': ['notificaciones', 'alertas'],
-      'fr-FR': ['notifications', 'alertes']
-    }
-  },
-  'search': {
-    name: 'Search',
-    phrases: {
-      'en-US': ['search', 'find'],
-      'sq-AL': ['kerko', 'gjej'],
-      'es-ES': ['buscar', 'encontrar'],
-      'fr-FR': ['chercher', 'trouver']
-    }
-  },
-  'scroll-down': {
-    name: 'Scroll Down',
-    phrases: {
-      'en-US': ['scroll down', 'scroll down page', 'go down'],
-      'sq-AL': ['shkruaj poshtë', 'shkruaj poshtë faqen', 'shko poshtë'],
-      'es-ES': ['desplazar abajo', 'bajar', 'ir abajo'],
-      'fr-FR': ['défiler vers le bas', 'descendre', 'aller en bas']
-    }
-  },
-  'scroll-up': {
-    name: 'Scroll Up',
-    phrases: {
-      'en-US': ['scroll up', 'scroll up page', 'go up'],
-      'sq-AL': ['shkruaj lart', 'shkruaj lart faqen', 'shko lart'],
-      'es-ES': ['desplazar arriba', 'subir', 'ir arriba'],
-      'fr-FR': ['défiler vers le haut', 'monter', 'aller en haut']
-    }
-  },
-  // Social Actions
-  'like': {
-    name: 'Like',
-    phrases: {
-      'en-US': ['like', 'thumbs up', 'heart'],
-      'sq-AL': ['pelqe', 'zemer', 'thumbs up'],
-      'es-ES': ['me gusta', 'corazón', 'pulgar arriba'],
-      'fr-FR': ['aimer', 'cœur', 'pouce en haut']
-    }
-  },
-  'unlike': {
-    name: 'Unlike',
-    phrases: {
-      'en-US': ['unlike', 'remove like'],
-      'sq-AL': ['heq pelqimin', 'heq zemer'],
-      'es-ES': ['quitar me gusta', 'quitar corazón'],
-      'fr-FR': ['ne plus aimer', 'retirer le cœur']
-    }
-  },
-  'comment': {
-    name: 'Comment',
-    phrases: {
-      'en-US': ['comment', 'add comment'],
-      'sq-AL': ['komento', 'shto koment'],
-      'es-ES': ['comentar', 'agregar comentario'],
-      'fr-FR': ['commenter', 'ajouter un commentaire']
-    }
-  },
-  'share': {
-    name: 'Share',
-    phrases: {
-      'en-US': ['share', 'share post'],
-      'sq-AL': ['ndaj', 'shpernda'],
-      'es-ES': ['compartir', 'compartir publicación'],
-      'fr-FR': ['partager', 'partager la publication']
-    }
-  },
-  'save': {
-    name: 'Save',
-    phrases: {
-      'en-US': ['save', 'save post', 'bookmark'],
-      'sq-AL': ['ruaj', 'ruaj postimin'],
-      'es-ES': ['guardar', 'guardar publicación'],
-      'fr-FR': ['enregistrer', 'sauvegarder']
-    }
-  },
-  'follow': {
-    name: 'Follow',
-    phrases: {
-      'en-US': ['follow', 'follow user'],
-      'sq-AL': ['ndiq', 'ndiq perdoruesin'],
-      'es-ES': ['seguir', 'seguir usuario'],
-      'fr-FR': ['suivre', 'suivre l\'utilisateur']
-    }
-  },
-  'unfollow': {
-    name: 'Unfollow',
-    phrases: {
-      'en-US': ['unfollow', 'stop following'],
-      'sq-AL': ['mos ndiq', 'heq ndjekjen'],
-      'es-ES': ['dejar de seguir', 'dejar seguir'],
-      'fr-FR': ['ne plus suivre', 'arrêter de suivre']
-    }
-  },
-  // Media Control
-  'play': {
-    name: 'Play',
-    phrases: {
-      'en-US': ['play', 'start video'],
-      'sq-AL': ['luaj', 'fillo video'],
-      'es-ES': ['reproducir', 'iniciar video'],
-      'fr-FR': ['lire', 'démarrer vidéo']
-    }
-  },
-  'pause': {
-    name: 'Pause',
-    phrases: {
-      'en-US': ['pause', 'stop video'],
-      'sq-AL': ['pauzë', 'ndalo video'],
-      'es-ES': ['pausar', 'detener video'],
-      'fr-FR': ['pause', 'arrêter vidéo']
-    }
-  },
-  'mute': {
-    name: 'Mute',
-    phrases: {
-      'en-US': ['mute', 'silence'],
-      'sq-AL': ['mute', 'pa ze'],
-      'es-ES': ['silenciar', 'sin sonido'],
-      'fr-FR': ['couper le son', 'sourdine']
-    }
-  },
-  'unmute': {
-    name: 'Unmute',
-    phrases: {
-      'en-US': ['unmute', 'sound on'],
-      'sq-AL': ['unmute', 'me ze'],
-      'es-ES': ['activar sonido', 'con sonido'],
-      'fr-FR': ['activer le son', 'avec son']
-    }
-  },
-  'volume-up': {
-    name: 'Volume Up',
-    phrases: {
-      'en-US': ['volume up', 'increase volume'],
-      'sq-AL': ['rrit volumin', 'me ze'],
-      'es-ES': ['subir volumen', 'aumentar volumen'],
-      'fr-FR': ['augmenter le volume', 'plus fort']
-    }
-  },
-  'volume-down': {
-    name: 'Volume Down',
-    phrases: {
-      'en-US': ['volume down', 'decrease volume'],
-      'sq-AL': ['ul volumin', 'me pak ze'],
-      'es-ES': ['bajar volumen', 'disminuir volumen'],
-      'fr-FR': ['diminuer le volume', 'plus bas']
-    }
-  },
-  'fullscreen': {
-    name: 'Fullscreen',
-    phrases: {
-      'en-US': ['fullscreen', 'full screen'],
-      'sq-AL': ['ekran i plote', 'fullscreen'],
-      'es-ES': ['pantalla completa', 'pantalla completa'],
-      'fr-FR': ['plein écran', 'plein écran']
-    }
-  },
-  // Content Creation
-  'create-post': {
-    name: 'Create Post',
-    phrases: {
-      'en-US': ['create post', 'new post'],
-      'sq-AL': ['krijo postim', 'postim i ri'],
-      'es-ES': ['crear publicación', 'nueva publicación'],
-      'fr-FR': ['créer une publication', 'nouvelle publication']
-    }
-  },
-  'open-camera': {
-    name: 'Open Camera',
-    phrases: {
-      'en-US': ['camera', 'open camera'],
-      'sq-AL': ['kamera', 'hape kamere'],
-      'es-ES': ['cámara', 'abrir cámara'],
-      'fr-FR': ['caméra', 'ouvrir la caméra']
-    }
-  },
-  // Content Navigation
-  'next': {
-    name: 'Next',
-    phrases: {
-      'en-US': ['next', 'next post', 'next video'],
-      'sq-AL': ['tjeter', 'postimi tjeter', 'video tjeter'],
-      'es-ES': ['siguiente', 'siguiente publicación'],
-      'fr-FR': ['suivant', 'publication suivante']
-    }
-  },
-  'previous': {
-    name: 'Previous',
-    phrases: {
-      'en-US': ['previous', 'previous post', 'go back'],
-      'sq-AL': ['i meparshem', 'postimi i meparshem', 'kthe mbrapa'],
-      'es-ES': ['anterior', 'publicación anterior'],
-      'fr-FR': ['précédent', 'publication précédente']
-    }
-  },
-  // Basic
-  'click': {
-    name: 'Click',
-    phrases: {
-      'en-US': ['click', 'tap'],
-      'sq-AL': ['kliko', 'prek'],
-      'es-ES': ['clic', 'tocar'],
-      'fr-FR': ['cliquer', 'toucher']
-    }
+  } catch (error) {
+    console.error('Failed to load commands:', error)
   }
 }
 
 // Computed properties for command categories
-const navigationCommands = computed(() => {
-  return getCommandsByCategory(['go-home', 'go-profile', 'go-messages', 'go-notifications', 'search', 'scroll-down', 'scroll-up'])
+const profileCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'profile').slice(0, 8)
 })
 
-const socialCommands = computed(() => {
-  return getCommandsByCategory(['like', 'unlike', 'comment', 'share', 'save', 'follow', 'unfollow'])
+const contentPostingCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'content').slice(0, 12)
+})
+
+const interactionCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'interaction').slice(0, 16)
+})
+
+const messagingCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'messaging').slice(0, 9)
+})
+
+const privacyCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'privacy').slice(0, 6)
+})
+
+const analyticsCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'analytics').slice(0, 5)
+})
+
+const monetizationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'monetization').slice(0, 3)
+})
+
+const liveCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'live').slice(0, 8)
+})
+
+const uxCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ux').slice(0, 4)
+})
+
+const businessCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'business').slice(0, 3)
+})
+
+const navigationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'navigation').slice(0, 11)
 })
 
 const mediaCommands = computed(() => {
-  return getCommandsByCategory(['play', 'pause', 'mute', 'unmute', 'volume-up', 'volume-down', 'fullscreen'])
+  return allCommands.value.filter(cmd => cmd.category === 'media').slice(0, 9)
 })
 
-const contentCommands = computed(() => {
-  return getCommandsByCategory(['create-post', 'open-camera'])
-})
-
-const contentNavCommands = computed(() => {
-  return getCommandsByCategory(['next', 'previous'])
+const creationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'creation').slice(0, 3)
 })
 
 const basicCommands = computed(() => {
-  return getCommandsByCategory(['click'])
+  return allCommands.value.filter(cmd => cmd.category === 'basic').slice(0, 3)
 })
 
-function getCommandsByCategory(ids) {
-  return ids.map(id => ({
-    id,
-    name: commands[id].name,
-    action: id,
-    phrases: commands[id].phrases[selectedLocale.value] || commands[id].phrases['en-US']
-  }))
-}
-
 // Initialize SDK
-onMounted(() => {
+onMounted(async () => {
+  await loadCommands()
+  
   // If SDK is already available from window, use it
   if (VoiceActionsSDK) {
     initializeSDK()
@@ -678,7 +624,6 @@ onMounted(() => {
   }
 
   // Otherwise, try to load SDK dynamically
-  // Use setTimeout to ensure this runs after component is mounted
   setTimeout(() => {
     import('../../../sdk/src/index.js')
       .then((SDKModule) => {
@@ -686,7 +631,6 @@ onMounted(() => {
         initializeSDK()
       })
       .catch((e) => {
-        // Try from window if loaded via script tag
         if (typeof window !== 'undefined' && window.VoiceActionsSDK) {
           VoiceActionsSDK = window.VoiceActionsSDK
           initializeSDK()
@@ -699,14 +643,10 @@ onMounted(() => {
 })
 
 function initializeSDK() {
-  // Prevent multiple initializations
-  if (isInitializing || sdk || isDestroyed) {
-    if (sdk && !isDestroyed) {
-      return // SDK already initialized
-    }
+  if (isInitializing || (sdk && !isDestroyed)) {
+    return
   }
 
-  // Check if SDK is available
   if (!VoiceActionsSDK) {
     showStatus('SDK not loaded. Please check the SDK path.', 'error')
     return
@@ -715,13 +655,10 @@ function initializeSDK() {
   isInitializing = true
 
   try {
-    // Destroy existing SDK if any
     if (sdk) {
       try {
         sdk.destroy()
-      } catch (e) {
-        // Ignore destroy errors
-      }
+      } catch (e) {}
       sdk = null
     }
 
@@ -735,7 +672,7 @@ function initializeSDK() {
     })
 
     isDestroyed = false
-    showStatus('SDK initialized successfully! Click "Start Listening" to begin.', 'success')
+    showStatus('SDK initialized successfully! Click microphone to start.', 'success')
   } catch (error) {
     showStatus(`Error initializing SDK: ${error.message}`, 'error')
     sdk = null
@@ -767,19 +704,16 @@ async function toggleListening() {
     isListening.value = false
     showStatus('Stopped listening', 'info')
   } else {
-    // Set listening state optimistically, but it will be reset if permission is denied
     isListening.value = true
     showStatus('Requesting microphone permission...', 'info')
     
     try {
       await sdk.start()
-      // Only show success if we actually started listening
       if (sdk.isListening) {
         showStatus('Listening activated! Speak a command now.', 'success')
       }
     } catch (error) {
       isListening.value = false
-      // Error will be handled by handleError callback
     }
   }
 }
@@ -790,23 +724,26 @@ function requestPermissionAgain() {
   }
 }
 
-function changeLocale() {
+async function changeLocale() {
   if (sdk) {
     sdk.setLocale(selectedLocale.value)
+    await loadCommands()
     showStatus(`Locale changed to ${selectedLocale.value}`, 'info')
   }
 }
 
+function toggleLike() {
+  isLiked.value = !isLiked.value
+  showStatus(isLiked.value ? 'Liked!' : 'Unliked!', 'success')
+}
+
 function handleCommand(command) {
-  // Update transcript with the actual phrase that was spoken
   const spokenPhrase = command.phrases?.[0] || command.name || command.action
   lastTranscript.value = spokenPhrase
   
-  // Clear transcript after a delay to show new commands clearly
   setTimeout(() => {
-    // Only clear if no new command has been received
     if (lastTranscript.value === spokenPhrase) {
-      // Keep it visible for a bit longer, then fade
+      // Keep visible
     }
   }, 2000)
   
@@ -817,7 +754,6 @@ function handleCommand(command) {
 function handleError(error) {
   console.error('Voice SDK Error:', error)
   
-  // Show user-friendly error messages
   let errorMessage = error.message
   
   if (error.message.includes('not supported')) {
@@ -832,7 +768,6 @@ function handleError(error) {
   
   showStatus(errorMessage, 'error')
   
-  // Stop listening on critical errors
   if (error.message.includes('permission') || error.message.includes('not supported')) {
     isListening.value = false
   }
@@ -856,104 +791,19 @@ function executeCommand(command) {
       showStatus('Scrolled up', 'success')
       break
     
-    case 'go-home':
-      showStatus('Navigated to home', 'success')
-      break
-    
-    case 'go-profile':
-      showStatus('Navigated to profile', 'success')
-      break
-    
-    case 'go-messages':
-      showStatus('Navigated to messages', 'success')
-      break
-    
-    case 'go-notifications':
-      showStatus('Navigated to notifications', 'success')
-      break
-    
-    case 'search':
-      showStatus('Opened search', 'success')
-      break
-    
     case 'like':
+      isLiked.value = true
       showStatus('Liked content', 'success')
       break
     
     case 'unlike':
+      isLiked.value = false
       showStatus('Unliked content', 'success')
       break
     
-    case 'comment':
-      showStatus('Opened comment section', 'success')
-      break
-    
-    case 'share':
-      showStatus('Shared content', 'success')
-      break
-    
-    case 'save':
-      showStatus('Saved content', 'success')
-      break
-    
-    case 'follow':
-      showStatus('Followed user', 'success')
-      break
-    
-    case 'unfollow':
-      showStatus('Unfollowed user', 'success')
-      break
-    
-    case 'play':
-      showStatus('Playing media', 'success')
-      break
-    
-    case 'pause':
-      showStatus('Paused media', 'success')
-      break
-    
-    case 'mute':
-      showStatus('Muted audio', 'success')
-      break
-    
-    case 'unmute':
-      showStatus('Unmuted audio', 'success')
-      break
-    
-    case 'volume-up':
-      showStatus('Volume increased', 'success')
-      break
-    
-    case 'volume-down':
-      showStatus('Volume decreased', 'success')
-      break
-    
-    case 'fullscreen':
-      showStatus('Toggled fullscreen', 'success')
-      break
-    
-    case 'create-post':
-      showStatus('Opened create post', 'success')
-      break
-    
-    case 'open-camera':
-      showStatus('Opened camera', 'success')
-      break
-    
-    case 'next':
-      showStatus('Next item', 'success')
-      break
-    
-    case 'previous':
-      showStatus('Previous item', 'success')
-      break
-    
-    case 'click':
-      showStatus('Clicked element', 'success')
-      break
-    
     default:
-      showStatus(`Command executed: ${action}`, 'info')
+      // Show success for all other commands
+      showStatus(`Command executed: ${command.name || action}`, 'success')
   }
 }
 
@@ -961,19 +811,18 @@ function simulateCommand(cmd) {
   handleCommand({
     id: cmd.id,
     action: cmd.action,
-    name: cmd.name,
-    phrases: cmd.phrases
+    name: cmd.name || cmd.id,
+    phrases: cmd.phrases || []
   })
 }
 
 function addToHistory(command) {
   commandHistory.value.unshift({
-    name: commands[command.action]?.name || command.action,
+    name: command.name || command.action,
     action: command.action,
     time: new Date().toLocaleTimeString()
   })
   
-  // Keep only last 20 commands
   if (commandHistory.value.length > 20) {
     commandHistory.value = commandHistory.value.slice(0, 20)
   }
@@ -1019,6 +868,9 @@ function showStatus(message, type = 'info') {
   }
   66% {
     transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
@@ -1093,40 +945,33 @@ function showStatus(message, type = 'info') {
   opacity: 0;
 }
 
-.slide-up-enter-active {
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.slide-up-enter-active, .slide-up-leave-active {
+  transition: all 0.3s ease-out;
 }
-
-.slide-up-leave-active {
-  transition: all 0.3s ease;
-}
-
-.slide-up-enter-from {
+.slide-up-enter-from, .slide-up-leave-to {
   opacity: 0;
-  transform: translateY(20px) scale(0.9);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(10px);
 }
 
 .list-enter-active,
 .list-leave-active {
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 .list-enter-from {
   opacity: 0;
-  transform: translateX(-30px) scale(0.9);
+  transform: translateX(-30px);
 }
 
 .list-leave-to {
   opacity: 0;
-  transform: translateX(30px) scale(0.9);
+  transform: translateX(30px);
 }
 
-.list-move {
-  transition: transform 0.4s ease;
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>
