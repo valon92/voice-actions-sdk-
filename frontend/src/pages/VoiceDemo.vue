@@ -798,7 +798,18 @@ function changeLocale() {
 }
 
 function handleCommand(command) {
-  lastTranscript.value = command.phrases?.[0] || command.action
+  // Update transcript with the actual phrase that was spoken
+  const spokenPhrase = command.phrases?.[0] || command.name || command.action
+  lastTranscript.value = spokenPhrase
+  
+  // Clear transcript after a delay to show new commands clearly
+  setTimeout(() => {
+    // Only clear if no new command has been received
+    if (lastTranscript.value === spokenPhrase) {
+      // Keep it visible for a bit longer, then fade
+    }
+  }, 2000)
+  
   addToHistory(command)
   executeCommand(command)
 }

@@ -80,19 +80,43 @@ class VoiceActionsSDK {
     this.recognition.lang = this.locale;
 
     this.recognition.onresult = (event) => {
-      const transcript = Array.from(event.results)
+      // Get only final results (not interim) to avoid duplicate commands
+      const finalResults = Array.from(event.results)
+        .filter(result => result.isFinal)
         .map(result => result[0].transcript)
         .join('')
         .toLowerCase()
         .trim();
 
+      // If no final results yet, skip
+      if (!finalResults) {
+        return;
+      }
+
       if (this.debug) {
-        console.log('🎤 Transcript:', transcript);
+        console.log('🎤 Final Transcript:', finalResults);
       }
 
       // Check for command matches
-      const matched = this.matchCommand(transcript);
+      const matched = this.matchCommand(finalResults);
       if (matched) {
+        // Reset recognition to start fresh for next command
+        // This prevents transcript accumulation
+        try {
+          this.recognition.stop();
+          // Restart after a short delay
+          setTimeout(() => {
+            if (this.isListening && this.recognition) {
+              this.recognition.start();
+            }
+          }, 100);
+        } catch (error) {
+          // Ignore errors during stop/restart
+          if (this.debug) {
+            console.warn('⚠️ Error during recognition reset:', error);
+          }
+        }
+        
         this.executeCommand(matched);
       }
     };
