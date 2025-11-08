@@ -18,12 +18,12 @@
             Voice Actions SDK Demo
           </h1>
           <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed mb-6">
-            Experience <strong class="text-white">450+ universal voice commands</strong> covering all social media, e-commerce, gaming, technology, AND education platform features. Works with Facebook, Instagram, TikTok, X, Amazon, eBay, Steam, Windows, macOS, Android, iOS, AWS, GitHub, Coursera, Udemy, and more!
+            Experience <strong class="text-white">500+ universal voice commands</strong> covering all social media, e-commerce, gaming, technology, education, AND communication platform features. Works with Facebook, Instagram, TikTok, X, Amazon, eBay, Steam, Windows, macOS, Android, iOS, AWS, GitHub, Coursera, Udemy, Slack, Discord, Teams, Zoom, and more!
           </p>
           <!-- Benefits Badge -->
           <div class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-full">
             <span class="text-2xl">✨</span>
-            <span class="text-green-200 font-semibold">450+ Universal Commands</span>
+            <span class="text-green-200 font-semibold">500+ Universal Commands</span>
             <span class="text-green-300 text-sm">|</span>
             <span class="text-green-200 font-semibold">4 Languages</span>
             <span class="text-green-300 text-sm">|</span>
@@ -41,7 +41,7 @@
             <div class="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌐</div>
               <h3 class="text-xl font-bold text-white mb-2">Universal Commands</h3>
-              <p class="text-blue-200 text-sm">450+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X), E-Commerce (Amazon, eBay, Shopify), Gaming (Steam, Epic, Xbox, PlayStation), Technology (Windows, macOS, Android, iOS, AWS, GitHub), AND Education (Coursera, Udemy, Khan Academy)!</p>
+              <p class="text-blue-200 text-sm">500+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X), E-Commerce (Amazon, eBay, Shopify), Gaming (Steam, Epic, Xbox, PlayStation), Technology (Windows, macOS, Android, iOS, AWS, GitHub), Education (Coursera, Udemy, Khan Academy), AND Communication (Slack, Discord, Teams, Zoom)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌍</div>
@@ -56,7 +56,7 @@
             <div class="p-6 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🎯</div>
               <h3 class="text-xl font-bold text-white mb-2">Comprehensive Coverage</h3>
-              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging), E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller), Gaming (Account, Discovery, Download, Gameplay, Library, Social, Achievements, Purchases, Security, Refunds, UX, Devices), Technology (OS, Mobile, Cloud, Developer, Common Features), AND Education (Student Actions, Instructor Actions, Common Features)!</p>
+              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging), E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller), Gaming (Account, Discovery, Download, Gameplay, Library, Social, Achievements, Purchases, Security, Refunds, UX, Devices), Technology (OS, Mobile, Cloud, Developer, Common Features), Education (Student Actions, Instructor Actions, Common Features), AND Communication (Chat, Calls, Groups, Files, Notifications, Collaboration, Integrations, Security, Admin, Common Features)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🔒</div>
@@ -226,7 +226,7 @@
         <div class="mb-8">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
             <span class="text-4xl">🎯</span>
-            <span>All Voice Commands (450+)</span>
+            <span>All Voice Commands (500+)</span>
           </h2>
           <p class="text-purple-200 mb-6 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
           
@@ -905,6 +905,156 @@
                 </button>
               </div>
             </div>
+
+            <!-- Communication: Chat & Messaging -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg">💬</div>
+                <h3 class="text-xl font-bold text-white">Communication: Chat</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationChatCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationChatCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Calls & Video -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-2xl shadow-lg">📞</div>
+                <h3 class="text-xl font-bold text-white">Communication: Calls</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationCallCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationCallCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-green-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Groups & Channels -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl shadow-lg">👥</div>
+                <h3 class="text-xl font-bold text-white">Communication: Groups</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationGroupCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationGroupCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Files & Documents -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-orange-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">📁</div>
+                <h3 class="text-xl font-bold text-white">Communication: Files</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationFileCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationFileCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-orange-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Notifications & Settings -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-teal-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-2xl shadow-lg">🔔</div>
+                <h3 class="text-xl font-bold text-white">Communication: Notifications</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationNotificationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationNotificationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-teal-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-teal-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Collaboration & Tasks -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-red-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">🧠</div>
+                <h3 class="text-xl font-bold text-white">Communication: Collaboration</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationCollaborationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationCollaborationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Integrations -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-indigo-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-2xl shadow-lg">🔗</div>
+                <h3 class="text-xl font-bold text-white">Communication: Integrations</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationIntegrationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationIntegrationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-indigo-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-indigo-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Security & Profile -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-2xl shadow-lg">🔐</div>
+                <h3 class="text-xl font-bold text-white">Communication: Security</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationSecurityCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationSecurityCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-yellow-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-yellow-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Admin Actions -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-2xl shadow-lg">👑</div>
+                <h3 class="text-xl font-bold text-white">Communication: Admin</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationAdminCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationAdminCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-pink-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication: Common -->
+            <div class="group backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 hover:bg-white/15 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-2xl shadow-lg">⚙️</div>
+                <h3 class="text-xl font-bold text-white">Communication: Common</h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ communicationCommonCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in communicationCommonCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-cyan-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1204,6 +1354,47 @@ const educationInstructorCommands = computed(() => {
 
 const educationCommonCommands = computed(() => {
   return allCommands.value.filter(cmd => cmd.category === 'education-common')
+})
+
+// Communication Commands
+const communicationChatCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-chat')
+})
+
+const communicationCallCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-call')
+})
+
+const communicationGroupCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-group')
+})
+
+const communicationFileCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-file')
+})
+
+const communicationNotificationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-notification')
+})
+
+const communicationCollaborationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-collaboration')
+})
+
+const communicationIntegrationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-integration')
+})
+
+const communicationSecurityCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-security')
+})
+
+const communicationAdminCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-admin')
+})
+
+const communicationCommonCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'communication-common')
 })
 
 // Initialize SDK

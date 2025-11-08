@@ -2770,6 +2770,396 @@ class UniversalCommands
                 'description' => 'Contact support',
                 'category' => 'education-common'
             ],
+
+            // ============================================
+            // COMMUNICATION: CHAT & MESSAGING
+            // ============================================
+            [
+                'id' => 'send-message',
+                'phrases' => $getPhrases('send-message'),
+                'action' => 'send-message',
+                'description' => 'Send text message',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'send-file',
+                'phrases' => $getPhrases('send-file'),
+                'action' => 'send-file',
+                'description' => 'Send file or document',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'edit-message',
+                'phrases' => $getPhrases('edit-message'),
+                'action' => 'edit-message',
+                'description' => 'Edit message',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'delete-message',
+                'phrases' => $getPhrases('delete-message'),
+                'action' => 'delete-message',
+                'description' => 'Delete message',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'search-messages',
+                'phrases' => $getPhrases('search-messages'),
+                'action' => 'search-messages',
+                'description' => 'Search message history',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'mention-user',
+                'phrases' => $getPhrases('mention-user'),
+                'action' => 'mention-user',
+                'description' => 'Mention user with @',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'react-message',
+                'phrases' => $getPhrases('react-message'),
+                'action' => 'react-message',
+                'description' => 'React to message',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'pin-message',
+                'phrases' => $getPhrases('pin-message'),
+                'action' => 'pin-message',
+                'description' => 'Pin message',
+                'category' => 'communication-chat'
+            ],
+            [
+                'id' => 'create-thread',
+                'phrases' => $getPhrases('create-thread'),
+                'action' => 'create-thread',
+                'description' => 'Create thread',
+                'category' => 'communication-chat'
+            ],
+
+            // ============================================
+            // COMMUNICATION: CALLS & VIDEO
+            // ============================================
+            [
+                'id' => 'start-call',
+                'phrases' => $getPhrases('start-call'),
+                'action' => 'start-call',
+                'description' => 'Start voice or video call',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'join-meeting',
+                'phrases' => $getPhrases('join-meeting'),
+                'action' => 'join-meeting',
+                'description' => 'Join meeting',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'toggle-camera',
+                'phrases' => $getPhrases('toggle-camera'),
+                'action' => 'toggle-camera',
+                'description' => 'Toggle camera on/off',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'toggle-mic',
+                'phrases' => $getPhrases('toggle-mic'),
+                'action' => 'toggle-mic',
+                'description' => 'Toggle microphone on/off',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'change-background',
+                'phrases' => $getPhrases('change-background'),
+                'action' => 'change-background',
+                'description' => 'Change virtual background',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'record-meeting',
+                'phrases' => $getPhrases('record-meeting'),
+                'action' => 'record-meeting',
+                'description' => 'Record meeting',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'share-screen',
+                'phrases' => $getPhrases('share-screen'),
+                'action' => 'share-screen',
+                'description' => 'Share screen',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'raise-hand',
+                'phrases' => $getPhrases('raise-hand'),
+                'action' => 'raise-hand',
+                'description' => 'Raise hand',
+                'category' => 'communication-call'
+            ],
+            [
+                'id' => 'mute-participant',
+                'phrases' => $getPhrases('mute-participant'),
+                'action' => 'mute-participant',
+                'description' => 'Mute participant',
+                'category' => 'communication-call'
+            ],
+
+            // ============================================
+            // COMMUNICATION: GROUPS & CHANNELS
+            // ============================================
+            [
+                'id' => 'create-channel',
+                'phrases' => $getPhrases('create-channel'),
+                'action' => 'create-channel',
+                'description' => 'Create channel or group',
+                'category' => 'communication-group'
+            ],
+            [
+                'id' => 'invite-member',
+                'phrases' => $getPhrases('invite-member'),
+                'action' => 'invite-member',
+                'description' => 'Invite member to channel',
+                'category' => 'communication-group'
+            ],
+            [
+                'id' => 'set-channel-info',
+                'phrases' => $getPhrases('set-channel-info'),
+                'action' => 'set-channel-info',
+                'description' => 'Set channel info',
+                'category' => 'communication-group'
+            ],
+            [
+                'id' => 'set-permissions',
+                'phrases' => $getPhrases('set-permissions'),
+                'action' => 'set-permissions',
+                'description' => 'Set channel permissions',
+                'category' => 'communication-group'
+            ],
+            [
+                'id' => 'assign-role',
+                'phrases' => $getPhrases('assign-role'),
+                'action' => 'assign-role',
+                'description' => 'Assign role to user',
+                'category' => 'communication-group'
+            ],
+            [
+                'id' => 'leave-channel',
+                'phrases' => $getPhrases('leave-channel'),
+                'action' => 'leave-channel',
+                'description' => 'Leave channel',
+                'category' => 'communication-group'
+            ],
+
+            // ============================================
+            // COMMUNICATION: FILES & DOCUMENTS
+            // ============================================
+            [
+                'id' => 'upload-file',
+                'phrases' => $getPhrases('upload-file'),
+                'action' => 'upload-file',
+                'description' => 'Upload file',
+                'category' => 'communication-file'
+            ],
+            [
+                'id' => 'view-file-versions',
+                'phrases' => $getPhrases('view-file-versions'),
+                'action' => 'view-file-versions',
+                'description' => 'View file versions',
+                'category' => 'communication-file'
+            ],
+            [
+                'id' => 'comment-document',
+                'phrases' => $getPhrases('comment-document'),
+                'action' => 'comment-document',
+                'description' => 'Comment on document',
+                'category' => 'communication-file'
+            ],
+            [
+                'id' => 'search-files',
+                'phrases' => $getPhrases('search-files'),
+                'action' => 'search-files',
+                'description' => 'Search files',
+                'category' => 'communication-file'
+            ],
+
+            // ============================================
+            // COMMUNICATION: NOTIFICATIONS & SETTINGS
+            // ============================================
+            [
+                'id' => 'mute-channel',
+                'phrases' => $getPhrases('mute-channel'),
+                'action' => 'mute-channel',
+                'description' => 'Mute channel notifications',
+                'category' => 'communication-notification'
+            ],
+            [
+                'id' => 'enable-do-not-disturb',
+                'phrases' => $getPhrases('enable-do-not-disturb'),
+                'action' => 'enable-do-not-disturb',
+                'description' => 'Enable Do Not Disturb',
+                'category' => 'communication-notification'
+            ],
+            [
+                'id' => 'change-theme',
+                'phrases' => $getPhrases('change-theme'),
+                'action' => 'change-theme',
+                'description' => 'Change theme',
+                'category' => 'communication-notification'
+            ],
+            [
+                'id' => 'set-status',
+                'phrases' => $getPhrases('set-status'),
+                'action' => 'set-status',
+                'description' => 'Set status',
+                'category' => 'communication-notification'
+            ],
+
+            // ============================================
+            // COMMUNICATION: COLLABORATION & TASKS
+            // ============================================
+            [
+                'id' => 'create-task',
+                'phrases' => $getPhrases('create-task'),
+                'action' => 'create-task',
+                'description' => 'Create task',
+                'category' => 'communication-collaboration'
+            ],
+            [
+                'id' => 'sync-calendar',
+                'phrases' => $getPhrases('sync-calendar'),
+                'action' => 'sync-calendar',
+                'description' => 'Sync calendar',
+                'category' => 'communication-collaboration'
+            ],
+            [
+                'id' => 'set-deadline',
+                'phrases' => $getPhrases('set-deadline'),
+                'action' => 'set-deadline',
+                'description' => 'Set deadline',
+                'category' => 'communication-collaboration'
+            ],
+            [
+                'id' => 'open-whiteboard',
+                'phrases' => $getPhrases('open-whiteboard'),
+                'action' => 'open-whiteboard',
+                'description' => 'Open whiteboard',
+                'category' => 'communication-collaboration'
+            ],
+            [
+                'id' => 'view-project-progress',
+                'phrases' => $getPhrases('view-project-progress'),
+                'action' => 'view-project-progress',
+                'description' => 'View project progress',
+                'category' => 'communication-collaboration'
+            ],
+
+            // ============================================
+            // COMMUNICATION: INTEGRATIONS
+            // ============================================
+            [
+                'id' => 'connect-app',
+                'phrases' => $getPhrases('connect-app'),
+                'action' => 'connect-app',
+                'description' => 'Connect external app',
+                'category' => 'communication-integration'
+            ],
+            [
+                'id' => 'view-integrations',
+                'phrases' => $getPhrases('view-integrations'),
+                'action' => 'view-integrations',
+                'description' => 'View integrations',
+                'category' => 'communication-integration'
+            ],
+            [
+                'id' => 'create-automation',
+                'phrases' => $getPhrases('create-automation'),
+                'action' => 'create-automation',
+                'description' => 'Create automation',
+                'category' => 'communication-integration'
+            ],
+
+            // ============================================
+            // COMMUNICATION: SECURITY & PROFILE
+            // ============================================
+            [
+                'id' => 'update-profile',
+                'phrases' => $getPhrases('update-profile'),
+                'action' => 'update-profile',
+                'description' => 'Update profile',
+                'category' => 'communication-security'
+            ],
+            [
+                'id' => 'enable-2fa',
+                'phrases' => $getPhrases('enable-2fa'),
+                'action' => 'enable-2fa',
+                'description' => 'Enable two-factor authentication',
+                'category' => 'communication-security'
+            ],
+            [
+                'id' => 'block-user',
+                'phrases' => $getPhrases('block-user'),
+                'action' => 'block-user',
+                'description' => 'Block user',
+                'category' => 'communication-security'
+            ],
+            [
+                'id' => 'view-privacy-settings',
+                'phrases' => $getPhrases('view-privacy-settings'),
+                'action' => 'view-privacy-settings',
+                'description' => 'View privacy settings',
+                'category' => 'communication-security'
+            ],
+
+            // ============================================
+            // COMMUNICATION: ADMIN ACTIONS
+            // ============================================
+            [
+                'id' => 'delete-channel',
+                'phrases' => $getPhrases('delete-channel'),
+                'action' => 'delete-channel',
+                'description' => 'Delete channel',
+                'category' => 'communication-admin'
+            ],
+            [
+                'id' => 'set-rules',
+                'phrases' => $getPhrases('set-rules'),
+                'action' => 'set-rules',
+                'description' => 'Set channel rules',
+                'category' => 'communication-admin'
+            ],
+            [
+                'id' => 'view-activity-log',
+                'phrases' => $getPhrases('view-activity-log'),
+                'action' => 'view-activity-log',
+                'description' => 'View activity log',
+                'category' => 'communication-admin'
+            ],
+            [
+                'id' => 'view-analytics',
+                'phrases' => $getPhrases('view-analytics'),
+                'action' => 'view-analytics',
+                'description' => 'View communication analytics',
+                'category' => 'communication-admin'
+            ],
+
+            // ============================================
+            // COMMUNICATION: COMMON FEATURES
+            // ============================================
+            [
+                'id' => 'sync-devices',
+                'phrases' => $getPhrases('sync-devices'),
+                'action' => 'sync-devices',
+                'description' => 'Sync across devices',
+                'category' => 'communication-common'
+            ],
+            [
+                'id' => 'view-chat-history',
+                'phrases' => $getPhrases('view-chat-history'),
+                'action' => 'view-chat-history',
+                'description' => 'View chat history',
+                'category' => 'communication-common'
+            ],
         ];
     }
 
@@ -3227,6 +3617,76 @@ class UniversalCommands
                 'view-course-history' => ['view course history', 'my courses', 'course history', 'completed courses'],
                 'enable-notifications' => ['enable notifications', 'notifications', 'course notifications', 'turn on notifications'],
                 'contact-support' => ['contact support', 'help', 'support', 'get help'],
+
+                // Communication: Chat & Messaging
+                'send-message' => ['send message', 'message', 'text message', 'send text'],
+                'send-file' => ['send file', 'upload file', 'share file', 'send document'],
+                'edit-message' => ['edit message', 'edit', 'modify message', 'change message'],
+                'delete-message' => ['delete message', 'remove message', 'delete', 'remove'],
+                'search-messages' => ['search messages', 'find messages', 'message history', 'search chat'],
+                'mention-user' => ['mention user', 'mention', '@ mention', 'tag user'],
+                'react-message' => ['react message', 'react', 'add reaction', 'emoji reaction'],
+                'pin-message' => ['pin message', 'pin', 'pin to channel', 'important message'],
+                'create-thread' => ['create thread', 'thread', 'reply thread', 'start thread'],
+
+                // Communication: Calls & Video
+                'start-call' => ['start call', 'call', 'voice call', 'video call'],
+                'join-meeting' => ['join meeting', 'join', 'enter meeting', 'join call'],
+                'toggle-camera' => ['toggle camera', 'camera', 'turn camera on', 'turn camera off'],
+                'toggle-mic' => ['toggle mic', 'microphone', 'mute', 'unmute'],
+                'change-background' => ['change background', 'virtual background', 'background', 'blur background'],
+                'record-meeting' => ['record meeting', 'record', 'start recording', 'save meeting'],
+                'share-screen' => ['share screen', 'screen share', 'share', 'present screen'],
+                'raise-hand' => ['raise hand', 'hand up', 'raise', 'want to speak'],
+                'mute-participant' => ['mute participant', 'mute user', 'silence user', 'mute'],
+
+                // Communication: Groups & Channels
+                'create-channel' => ['create channel', 'new channel', 'create group', 'new group'],
+                'invite-member' => ['invite member', 'add member', 'invite user', 'add to channel'],
+                'set-channel-info' => ['set channel info', 'channel info', 'channel description', 'edit channel'],
+                'set-permissions' => ['set permissions', 'permissions', 'channel permissions', 'access control'],
+                'assign-role' => ['assign role', 'role', 'set role', 'user role'],
+                'leave-channel' => ['leave channel', 'leave', 'exit channel', 'leave group'],
+
+                // Communication: Files & Documents
+                'upload-file' => ['upload file', 'upload', 'add file', 'share file'],
+                'view-file-versions' => ['view file versions', 'file versions', 'version history', 'file history'],
+                'comment-document' => ['comment document', 'add comment', 'comment', 'annotate'],
+                'search-files' => ['search files', 'find files', 'file search', 'search documents'],
+
+                // Communication: Notifications & Settings
+                'mute-channel' => ['mute channel', 'mute notifications', 'silence channel', 'disable notifications'],
+                'enable-do-not-disturb' => ['enable do not disturb', 'do not disturb', 'dnd', 'quiet mode'],
+                'change-theme' => ['change theme', 'theme', 'appearance', 'dark mode'],
+                'set-status' => ['set status', 'status', 'update status', 'away status'],
+
+                // Communication: Collaboration & Tasks
+                'create-task' => ['create task', 'new task', 'add task', 'todo'],
+                'sync-calendar' => ['sync calendar', 'calendar sync', 'connect calendar', 'link calendar'],
+                'set-deadline' => ['set deadline', 'deadline', 'due date', 'set due date'],
+                'open-whiteboard' => ['open whiteboard', 'whiteboard', 'drawing board', 'collaborative board'],
+                'view-project-progress' => ['view project progress', 'project progress', 'progress', 'project status'],
+
+                // Communication: Integrations
+                'connect-app' => ['connect app', 'link app', 'integrate app', 'add integration'],
+                'view-integrations' => ['view integrations', 'integrations', 'connected apps', 'app integrations'],
+                'create-automation' => ['create automation', 'automation', 'workflow', 'bot'],
+
+                // Communication: Security & Profile
+                'update-profile' => ['update profile', 'edit profile', 'profile', 'change profile'],
+                'enable-2fa' => ['enable 2fa', 'two factor authentication', '2fa', 'security'],
+                'block-user' => ['block user', 'block', 'ban user', 'restrict user'],
+                'view-privacy-settings' => ['view privacy settings', 'privacy settings', 'privacy', 'security settings'],
+
+                // Communication: Admin Actions
+                'delete-channel' => ['delete channel', 'remove channel', 'delete group', 'remove group'],
+                'set-rules' => ['set rules', 'channel rules', 'rules', 'guidelines'],
+                'view-activity-log' => ['view activity log', 'activity log', 'user activity', 'logs'],
+                'view-analytics' => ['view analytics', 'analytics', 'statistics', 'usage stats'],
+
+                // Communication: Common Features
+                'sync-devices' => ['sync devices', 'sync', 'device sync', 'synchronize'],
+                'view-chat-history' => ['view chat history', 'chat history', 'message history', 'conversation history'],
             ],
             'sq' => [
                 // Navigation
@@ -3676,6 +4136,76 @@ class UniversalCommands
                 'view-course-history' => ['shiko historik kurse', 'kurse e mia', 'historik kurse', 'kurse të përfunduara'],
                 'enable-notifications' => ['aktivizo njoftime', 'njoftime', 'njoftime kurse', 'ndiz njoftime'],
                 'contact-support' => ['kontakto mbështetje', 'ndihmë', 'support', 'merr ndihmë'],
+
+                // Communication: Chat & Messaging
+                'send-message' => ['dërgo mesazh', 'mesazh', 'mesazh tekst', 'dërgo tekst'],
+                'send-file' => ['dërgo skedar', 'ngarko skedar', 'ndaj skedar', 'dërgo dokument'],
+                'edit-message' => ['ndrysho mesazh', 'ndrysho', 'modifiko mesazh', 'ndrysho mesazhin'],
+                'delete-message' => ['fshi mesazh', 'hiq mesazh', 'fshi', 'hiq'],
+                'search-messages' => ['kërko mesazhe', 'gjej mesazhe', 'historiku mesazheve', 'kërko chat'],
+                'mention-user' => ['përmend përdorues', 'përmend', '@ përmend', 'tag përdorues'],
+                'react-message' => ['reago mesazh', 'reago', 'shto reagim', 'reagim emoji'],
+                'pin-message' => ['pin mesazh', 'pin', 'pin në kanal', 'mesazh i rëndësishëm'],
+                'create-thread' => ['krijo thread', 'thread', 'përgjigje thread', 'fillo thread'],
+
+                // Communication: Calls & Video
+                'start-call' => ['fillo telefonatë', 'telefonatë', 'thirrje zanore', 'thirrje video'],
+                'join-meeting' => ['hyr në takim', 'hyr', 'fut në takim', 'hyr në telefonatë'],
+                'toggle-camera' => ['ndrysho kamere', 'kamere', 'ndiz kamere', 'fik kamere'],
+                'toggle-mic' => ['ndrysho mikrofon', 'mikrofon', 'mute', 'unmute'],
+                'change-background' => ['ndrysho sfond', 'sfond virtual', 'sfond', 'sfond i paqartë'],
+                'record-meeting' => ['regjistro takim', 'regjistro', 'fillo regjistrim', 'ruaj takim'],
+                'share-screen' => ['ndaj ekran', 'screen share', 'ndaj', 'prezanto ekran'],
+                'raise-hand' => ['ngrih dorë', 'dorë lart', 'ngrih', 'dua të flas'],
+                'mute-participant' => ['mute pjesëmarrës', 'mute përdorues', 'hesht përdorues', 'mute'],
+
+                // Communication: Groups & Channels
+                'create-channel' => ['krijo kanal', 'kanal i ri', 'krijo grup', 'grup i ri'],
+                'invite-member' => ['fto anëtar', 'shto anëtar', 'fto përdorues', 'shto në kanal'],
+                'set-channel-info' => ['vendos info kanal', 'info kanal', 'përshkrim kanal', 'ndrysho kanal'],
+                'set-permissions' => ['vendos lejet', 'permissions', 'lejet e kanalit', 'kontroll aksesi'],
+                'assign-role' => ['vendos rol', 'rol', 'cakto rol', 'rol përdoruesi'],
+                'leave-channel' => ['dil nga kanali', 'dil', 'dil nga kanal', 'dil nga grupi'],
+
+                // Communication: Files & Documents
+                'upload-file' => ['ngarko skedar', 'ngarko', 'shto skedar', 'ndaj skedar'],
+                'view-file-versions' => ['shiko versione skedar', 'versione skedar', 'historik versionesh', 'historik skedar'],
+                'comment-document' => ['komento dokument', 'shto koment', 'koment', 'shënim'],
+                'search-files' => ['kërko skedarë', 'gjej skedarë', 'kërkim skedarë', 'kërko dokumente'],
+
+                // Communication: Notifications & Settings
+                'mute-channel' => ['mute kanal', 'mute njoftime', 'hesht kanal', 'çaktivizo njoftime'],
+                'enable-do-not-disturb' => ['aktivizo mos shqetëso', 'mos shqetëso', 'dnd', 'modalitet i qetë'],
+                'change-theme' => ['ndrysho temë', 'temë', 'pamje', 'dark mode'],
+                'set-status' => ['vendos status', 'status', 'përditëso status', 'status larg'],
+
+                // Communication: Collaboration & Tasks
+                'create-task' => ['krijo detyrë', 'detyrë e re', 'shto detyrë', 'todo'],
+                'sync-calendar' => ['sinkronizo kalendar', 'kalendar sync', 'lidh kalendar', 'link kalendar'],
+                'set-deadline' => ['vendos afat', 'afat', 'data e afatit', 'vendos data afati'],
+                'open-whiteboard' => ['hape whiteboard', 'whiteboard', 'tavolinë vizatimi', 'tavolinë bashkëpunimi'],
+                'view-project-progress' => ['shiko progres projekti', 'progres projekti', 'progres', 'status projekti'],
+
+                // Communication: Integrations
+                'connect-app' => ['lidh app', 'link app', 'integro app', 'shto integrim'],
+                'view-integrations' => ['shiko integrimet', 'integrimet', 'app të lidhura', 'integrimet e app'],
+                'create-automation' => ['krijo automatizim', 'automatizim', 'workflow', 'bot'],
+
+                // Communication: Security & Profile
+                'update-profile' => ['përditëso profil', 'ndrysho profil', 'profil', 'ndrysho profilin'],
+                'enable-2fa' => ['aktivizo 2fa', 'autentifikim dy faktorësh', '2fa', 'siguri'],
+                'block-user' => ['blloko përdorues', 'blloko', 'ndalo përdorues', 'kufizo përdorues'],
+                'view-privacy-settings' => ['shiko settings privatësi', 'settings privatësi', 'privatësi', 'settings sigurie'],
+
+                // Communication: Admin Actions
+                'delete-channel' => ['fshi kanal', 'hiq kanal', 'fshi grup', 'hiq grup'],
+                'set-rules' => ['vendos rregulla', 'rregulla kanal', 'rregulla', 'udhëzime'],
+                'view-activity-log' => ['shiko log aktiviteti', 'log aktiviteti', 'aktivitet përdoruesi', 'logs'],
+                'view-analytics' => ['shiko analitika', 'analitika', 'statistika', 'statistika përdorimi'],
+
+                // Communication: Common Features
+                'sync-devices' => ['sinkronizo pajisje', 'sync', 'sync pajisje', 'sinkronizo'],
+                'view-chat-history' => ['shiko historik chat', 'historik chat', 'historik mesazhe', 'historik bisedash'],
             ],
             'es' => [
                 // Navigation
@@ -4125,6 +4655,76 @@ class UniversalCommands
                 'view-course-history' => ['ver historial de cursos', 'mis cursos', 'historial de cursos', 'cursos completados'],
                 'enable-notifications' => ['activar notificaciones', 'notificaciones', 'notificaciones del curso', 'activar notificaciones'],
                 'contact-support' => ['contactar soporte', 'ayuda', 'soporte', 'obtener ayuda'],
+
+                // Communication: Chat & Messaging
+                'send-message' => ['enviar mensaje', 'mensaje', 'mensaje de texto', 'enviar texto'],
+                'send-file' => ['enviar archivo', 'subir archivo', 'compartir archivo', 'enviar documento'],
+                'edit-message' => ['editar mensaje', 'editar', 'modificar mensaje', 'cambiar mensaje'],
+                'delete-message' => ['eliminar mensaje', 'borrar mensaje', 'eliminar', 'borrar'],
+                'search-messages' => ['buscar mensajes', 'encontrar mensajes', 'historial de mensajes', 'buscar chat'],
+                'mention-user' => ['mencionar usuario', 'mencionar', '@ mencionar', 'etiquetar usuario'],
+                'react-message' => ['reaccionar mensaje', 'reaccionar', 'agregar reacción', 'reacción emoji'],
+                'pin-message' => ['fijar mensaje', 'fijar', 'fijar en canal', 'mensaje importante'],
+                'create-thread' => ['crear hilo', 'hilo', 'responder hilo', 'iniciar hilo'],
+
+                // Communication: Calls & Video
+                'start-call' => ['iniciar llamada', 'llamar', 'llamada de voz', 'llamada de video'],
+                'join-meeting' => ['unirse a reunión', 'unirse', 'entrar a reunión', 'unirse a llamada'],
+                'toggle-camera' => ['alternar cámara', 'cámara', 'encender cámara', 'apagar cámara'],
+                'toggle-mic' => ['alternar micrófono', 'micrófono', 'silenciar', 'activar micrófono'],
+                'change-background' => ['cambiar fondo', 'fondo virtual', 'fondo', 'desenfocar fondo'],
+                'record-meeting' => ['grabar reunión', 'grabar', 'iniciar grabación', 'guardar reunión'],
+                'share-screen' => ['compartir pantalla', 'pantalla compartida', 'compartir', 'presentar pantalla'],
+                'raise-hand' => ['levantar mano', 'mano arriba', 'levantar', 'quiero hablar'],
+                'mute-participant' => ['silenciar participante', 'silenciar usuario', 'silenciar', 'mute'],
+
+                // Communication: Groups & Channels
+                'create-channel' => ['crear canal', 'nuevo canal', 'crear grupo', 'nuevo grupo'],
+                'invite-member' => ['invitar miembro', 'agregar miembro', 'invitar usuario', 'agregar a canal'],
+                'set-channel-info' => ['establecer info canal', 'info canal', 'descripción canal', 'editar canal'],
+                'set-permissions' => ['establecer permisos', 'permisos', 'permisos canal', 'control de acceso'],
+                'assign-role' => ['asignar rol', 'rol', 'establecer rol', 'rol usuario'],
+                'leave-channel' => ['salir de canal', 'salir', 'abandonar canal', 'salir de grupo'],
+
+                // Communication: Files & Documents
+                'upload-file' => ['subir archivo', 'subir', 'agregar archivo', 'compartir archivo'],
+                'view-file-versions' => ['ver versiones archivo', 'versiones archivo', 'historial versiones', 'historial archivo'],
+                'comment-document' => ['comentar documento', 'agregar comentario', 'comentar', 'anotar'],
+                'search-files' => ['buscar archivos', 'encontrar archivos', 'búsqueda archivos', 'buscar documentos'],
+
+                // Communication: Notifications & Settings
+                'mute-channel' => ['silenciar canal', 'silenciar notificaciones', 'desactivar notificaciones', 'canal silenciado'],
+                'enable-do-not-disturb' => ['activar no molestar', 'no molestar', 'dnd', 'modo silencioso'],
+                'change-theme' => ['cambiar tema', 'tema', 'apariencia', 'modo oscuro'],
+                'set-status' => ['establecer estado', 'estado', 'actualizar estado', 'estado ausente'],
+
+                // Communication: Collaboration & Tasks
+                'create-task' => ['crear tarea', 'nueva tarea', 'agregar tarea', 'todo'],
+                'sync-calendar' => ['sincronizar calendario', 'calendario sync', 'conectar calendario', 'vincular calendario'],
+                'set-deadline' => ['establecer fecha límite', 'fecha límite', 'fecha de vencimiento', 'establecer fecha'],
+                'open-whiteboard' => ['abrir pizarra', 'pizarra', 'tablero de dibujo', 'pizarra colaborativa'],
+                'view-project-progress' => ['ver progreso proyecto', 'progreso proyecto', 'progreso', 'estado proyecto'],
+
+                // Communication: Integrations
+                'connect-app' => ['conectar app', 'vincular app', 'integrar app', 'agregar integración'],
+                'view-integrations' => ['ver integraciones', 'integraciones', 'apps conectadas', 'integraciones app'],
+                'create-automation' => ['crear automatización', 'automatización', 'flujo de trabajo', 'bot'],
+
+                // Communication: Security & Profile
+                'update-profile' => ['actualizar perfil', 'editar perfil', 'perfil', 'cambiar perfil'],
+                'enable-2fa' => ['activar 2fa', 'autenticación de dos factores', '2fa', 'seguridad'],
+                'block-user' => ['bloquear usuario', 'bloquear', 'prohibir usuario', 'restringir usuario'],
+                'view-privacy-settings' => ['ver configuración privacidad', 'configuración privacidad', 'privacidad', 'configuración seguridad'],
+
+                // Communication: Admin Actions
+                'delete-channel' => ['eliminar canal', 'quitar canal', 'eliminar grupo', 'quitar grupo'],
+                'set-rules' => ['establecer reglas', 'reglas canal', 'reglas', 'directrices'],
+                'view-activity-log' => ['ver registro actividad', 'registro actividad', 'actividad usuario', 'logs'],
+                'view-analytics' => ['ver analíticas', 'analíticas', 'estadísticas', 'estadísticas uso'],
+
+                // Communication: Common Features
+                'sync-devices' => ['sincronizar dispositivos', 'sincronizar', 'sync dispositivos', 'sincronizar'],
+                'view-chat-history' => ['ver historial chat', 'historial chat', 'historial mensajes', 'historial conversaciones'],
             ],
             'fr' => [
                 // Navigation
@@ -4574,6 +5174,76 @@ class UniversalCommands
                 'view-course-history' => ['voir historique cours', 'mes cours', 'historique cours', 'cours terminés'],
                 'enable-notifications' => ['activer notifications', 'notifications', 'notifications cours', 'activer notifications'],
                 'contact-support' => ['contacter support', 'aide', 'support', 'obtenir aide'],
+
+                // Communication: Chat & Messaging
+                'send-message' => ['envoyer message', 'message', 'message texte', 'envoyer texte'],
+                'send-file' => ['envoyer fichier', 'télécharger fichier', 'partager fichier', 'envoyer document'],
+                'edit-message' => ['modifier message', 'modifier', 'changer message', 'éditer message'],
+                'delete-message' => ['supprimer message', 'effacer message', 'supprimer', 'effacer'],
+                'search-messages' => ['rechercher messages', 'trouver messages', 'historique messages', 'rechercher chat'],
+                'mention-user' => ['mentionner utilisateur', 'mentionner', '@ mentionner', 'étiqueter utilisateur'],
+                'react-message' => ['réagir message', 'réagir', 'ajouter réaction', 'réaction emoji'],
+                'pin-message' => ['épingler message', 'épingler', 'épingler canal', 'message important'],
+                'create-thread' => ['créer fil', 'fil', 'répondre fil', 'démarrer fil'],
+
+                // Communication: Calls & Video
+                'start-call' => ['passer appel', 'appeler', 'appel vocal', 'appel vidéo'],
+                'join-meeting' => ['rejoindre réunion', 'rejoindre', 'entrer réunion', 'rejoindre appel'],
+                'toggle-camera' => ['basculer caméra', 'caméra', 'allumer caméra', 'éteindre caméra'],
+                'toggle-mic' => ['basculer micro', 'microphone', 'couper micro', 'activer micro'],
+                'change-background' => ['changer fond', 'fond virtuel', 'fond', 'flouter fond'],
+                'record-meeting' => ['enregistrer réunion', 'enregistrer', 'démarrer enregistrement', 'sauvegarder réunion'],
+                'share-screen' => ['partager écran', 'partage écran', 'partager', 'présenter écran'],
+                'raise-hand' => ['lever main', 'main levée', 'lever', 'je veux parler'],
+                'mute-participant' => ['couper participant', 'couper utilisateur', 'silence', 'mute'],
+
+                // Communication: Groups & Channels
+                'create-channel' => ['créer canal', 'nouveau canal', 'créer groupe', 'nouveau groupe'],
+                'invite-member' => ['inviter membre', 'ajouter membre', 'inviter utilisateur', 'ajouter canal'],
+                'set-channel-info' => ['définir info canal', 'info canal', 'description canal', 'éditer canal'],
+                'set-permissions' => ['définir permissions', 'permissions', 'permissions canal', 'contrôle accès'],
+                'assign-role' => ['attribuer rôle', 'rôle', 'définir rôle', 'rôle utilisateur'],
+                'leave-channel' => ['quitter canal', 'quitter', 'abandonner canal', 'quitter groupe'],
+
+                // Communication: Files & Documents
+                'upload-file' => ['télécharger fichier', 'télécharger', 'ajouter fichier', 'partager fichier'],
+                'view-file-versions' => ['voir versions fichier', 'versions fichier', 'historique versions', 'historique fichier'],
+                'comment-document' => ['commenter document', 'ajouter commentaire', 'commenter', 'annoter'],
+                'search-files' => ['rechercher fichiers', 'trouver fichiers', 'recherche fichiers', 'rechercher documents'],
+
+                // Communication: Notifications & Settings
+                'mute-channel' => ['couper canal', 'couper notifications', 'désactiver notifications', 'canal silencieux'],
+                'enable-do-not-disturb' => ['activer ne pas déranger', 'ne pas déranger', 'dnd', 'mode silencieux'],
+                'change-theme' => ['changer thème', 'thème', 'apparence', 'mode sombre'],
+                'set-status' => ['définir statut', 'statut', 'mettre à jour statut', 'statut absent'],
+
+                // Communication: Collaboration & Tasks
+                'create-task' => ['créer tâche', 'nouvelle tâche', 'ajouter tâche', 'todo'],
+                'sync-calendar' => ['synchroniser calendrier', 'calendrier sync', 'connecter calendrier', 'lier calendrier'],
+                'set-deadline' => ['définir échéance', 'échéance', 'date limite', 'définir date'],
+                'open-whiteboard' => ['ouvrir tableau', 'tableau', 'tableau dessin', 'tableau collaboratif'],
+                'view-project-progress' => ['voir progrès projet', 'progrès projet', 'progrès', 'état projet'],
+
+                // Communication: Integrations
+                'connect-app' => ['connecter app', 'lier app', 'intégrer app', 'ajouter intégration'],
+                'view-integrations' => ['voir intégrations', 'intégrations', 'apps connectées', 'intégrations app'],
+                'create-automation' => ['créer automatisation', 'automatisation', 'flux travail', 'bot'],
+
+                // Communication: Security & Profile
+                'update-profile' => ['mettre à jour profil', 'éditer profil', 'profil', 'changer profil'],
+                'enable-2fa' => ['activer 2fa', 'authentification deux facteurs', '2fa', 'sécurité'],
+                'block-user' => ['bloquer utilisateur', 'bloquer', 'interdire utilisateur', 'restreindre utilisateur'],
+                'view-privacy-settings' => ['voir paramètres confidentialité', 'paramètres confidentialité', 'confidentialité', 'paramètres sécurité'],
+
+                // Communication: Admin Actions
+                'delete-channel' => ['supprimer canal', 'retirer canal', 'supprimer groupe', 'retirer groupe'],
+                'set-rules' => ['définir règles', 'règles canal', 'règles', 'directives'],
+                'view-activity-log' => ['voir journal activité', 'journal activité', 'activité utilisateur', 'logs'],
+                'view-analytics' => ['voir analytiques', 'analytiques', 'statistiques', 'statistiques utilisation'],
+
+                // Communication: Common Features
+                'sync-devices' => ['synchroniser appareils', 'synchroniser', 'sync appareils', 'synchroniser'],
+                'view-chat-history' => ['voir historique chat', 'historique chat', 'historique messages', 'historique conversations'],
             ],
         ];
 
