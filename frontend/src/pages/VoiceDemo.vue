@@ -18,38 +18,78 @@
             Voice Actions SDK Demo
           </h1>
           <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed">
-            Provoni librarinë tonë me komanda zanore në shumë gjuhë. Të gjitha komandat janë universale dhe funksionojnë për çdo platformë!
+            Try our voice command library in multiple languages. All commands are universal and work for any platform!
           </p>
         </div>
 
         <!-- Voice Control Card -->
         <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8 backdrop-saturate-150">
           <div class="flex flex-col lg:flex-row items-center justify-between gap-6 mb-6">
-            <div class="flex items-center gap-4 flex-wrap justify-center">
+            <!-- Modern Voice Icon with Visual Feedback -->
+            <div class="flex flex-col items-center gap-4">
               <button
                 @click="toggleListening"
                 :class="[
-                  'group relative px-8 py-4 rounded-2xl font-bold text-white transition-all duration-300 shadow-2xl transform hover:scale-105 active:scale-95',
+                  'group relative w-24 h-24 sm:w-28 sm:h-28 rounded-full font-bold text-white transition-all duration-300 shadow-2xl transform hover:scale-110 active:scale-95 flex items-center justify-center',
                   isListening 
-                    ? 'bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 animate-pulse' 
-                    : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700'
+                    ? 'bg-gradient-to-br from-red-500 via-red-600 to-red-700 hover:from-red-600 hover:via-red-700 hover:to-red-800' 
+                    : 'bg-gradient-to-br from-green-500 via-emerald-600 to-teal-700 hover:from-green-600 hover:via-emerald-700 hover:to-teal-800'
                 ]"
               >
-                <span class="relative z-10 flex items-center gap-2 text-lg">
-                  <span v-if="isListening" class="animate-spin">🛑</span>
-                  <span v-else>🎤</span>
-                  <span v-if="isListening">Stop Listening</span>
-                  <span v-else>Start Listening</span>
-                </span>
-                <div v-if="isListening" class="absolute inset-0 rounded-2xl bg-red-400 opacity-50 blur-xl"></div>
+                <!-- Animated Ripple Effect when listening -->
+                <div v-if="isListening" class="absolute inset-0 rounded-full bg-red-400 opacity-30 animate-ping"></div>
+                <div v-if="isListening" class="absolute inset-0 rounded-full bg-red-500 opacity-20 animate-pulse"></div>
+                
+                <!-- Microphone Icon -->
+                <svg 
+                  :class="[
+                    'relative z-10 w-12 h-12 sm:w-14 sm:h-14 transition-all duration-300',
+                    isListening ? 'text-white animate-pulse' : 'text-white'
+                  ]"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    v-if="!isListening"
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+                  />
+                  <path 
+                    v-else
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 11a1 1 0 11-2 0 1 1 0 012 0z"
+                  />
+                </svg>
+                
+                <!-- Voice Level Indicator (animated waves) -->
+                <div v-if="isListening" class="absolute inset-0 flex items-center justify-center">
+                  <div class="flex items-end gap-1 h-12">
+                    <div class="w-1 bg-white rounded-full animate-wave" style="animation-delay: 0s; height: 20%;"></div>
+                    <div class="w-1 bg-white rounded-full animate-wave" style="animation-delay: 0.1s; height: 40%;"></div>
+                    <div class="w-1 bg-white rounded-full animate-wave" style="animation-delay: 0.2s; height: 60%;"></div>
+                    <div class="w-1 bg-white rounded-full animate-wave" style="animation-delay: 0.3s; height: 80%;"></div>
+                    <div class="w-1 bg-white rounded-full animate-wave" style="animation-delay: 0.4s; height: 100%;"></div>
+                  </div>
+                </div>
               </button>
               
-              <div v-if="isListening" class="flex items-center gap-3 px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-full border border-green-400/30">
-                <div class="relative flex items-center justify-center">
-                  <div class="absolute w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
-                  <div class="relative w-2 h-2 bg-green-400 rounded-full"></div>
-                </div>
-                <span class="text-green-300 font-semibold text-sm">Listening...</span>
+              <!-- Status Text -->
+              <div class="text-center">
+                <p v-if="isListening" class="text-green-300 font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+                  <span class="relative flex items-center justify-center">
+                    <span class="absolute w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
+                    <span class="relative w-2 h-2 bg-green-400 rounded-full"></span>
+                  </span>
+                  Listening...
+                </p>
+                <p v-else class="text-purple-300 font-medium text-sm sm:text-base">
+                  Click to start
+                </p>
               </div>
             </div>
             
@@ -73,11 +113,25 @@
             </div>
           </div>
 
-          <!-- Transcript Display -->
+          <!-- Transcript Display with Voice Waveform -->
           <Transition name="slide-up">
-            <div v-if="lastTranscript" class="mb-4 p-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-white/10">
-              <p class="text-sm text-purple-200 mb-2 font-medium">Last command:</p>
-              <p class="text-2xl font-bold text-white">{{ lastTranscript }}</p>
+            <div v-if="lastTranscript || isListening" class="mb-4 p-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-white/10">
+              <div v-if="lastTranscript">
+                <p class="text-sm text-purple-200 mb-2 font-medium">Last command:</p>
+                <p class="text-2xl font-bold text-white animate-fade-in">{{ lastTranscript }}</p>
+              </div>
+              <div v-else-if="isListening" class="flex items-center gap-3">
+                <div class="flex items-end gap-1 h-8">
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0s; height: 30%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.1s; height: 50%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.2s; height: 70%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.3s; height: 90%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.4s; height: 100%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.5s; height: 60%;"></div>
+                  <div class="w-1.5 bg-purple-400 rounded-full animate-wave" style="animation-delay: 0.6s; height: 40%;"></div>
+                </div>
+                <p class="text-lg text-purple-200 font-medium">Waiting for voice command...</p>
+              </div>
             </div>
           </Transition>
 
@@ -721,7 +775,7 @@ async function toggleListening() {
       await sdk.start()
       // Only show success if we actually started listening
       if (sdk.isListening) {
-        showStatus('Started listening. Try saying a command!', 'success')
+        showStatus('Listening activated! Speak a command now.', 'success')
       }
     } catch (error) {
       isListening.value = false
@@ -982,6 +1036,39 @@ function showStatus(message, type = 'info') {
 
 .animate-pulse-slow {
   animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Voice Wave Animation */
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-wave {
+  animation: wave 1s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+/* Fade In Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
 }
 
 /* Transitions */
