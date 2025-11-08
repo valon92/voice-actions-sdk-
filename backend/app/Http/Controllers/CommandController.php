@@ -53,6 +53,29 @@ class CommandController extends Controller
     }
 
     /**
+     * Get commands for demo (no API key required)
+     * Returns default commands based on locale and platform name
+     */
+    public function demo(Request $request)
+    {
+        $locale = $request->input('locale', 'en-US');
+        $platformName = $request->input('platform_name', 'demo');
+
+        // Return default commands without requiring API key
+        $commands = $this->getDefaultCommands($locale, $platformName);
+
+        return response()->json([
+            'success' => true,
+            'commands' => $commands,
+            'platform' => [
+                'name' => $platformName,
+                'plan' => 'demo',
+            ],
+            'locale' => $locale,
+        ]);
+    }
+
+    /**
      * Get default commands based on locale
      * Komanda universale që funksionojnë për çdo platformë
      */

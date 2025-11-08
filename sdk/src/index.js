@@ -113,22 +113,24 @@ class VoiceActionsSDK {
    * Load commands from API
    */
   async loadCommands() {
-    if (!this.apiKey) {
-      if (this.debug) {
-        console.warn('⚠️ No API key provided, using default commands');
-      }
-      this.commands = this.getDefaultCommands();
-      return;
-    }
+    // Use demo endpoint if no API key or if platform is 'demo'
+    const isDemo = !this.apiKey || this.apiKey === 'demo-key' || this.platform === 'demo';
+    const endpoint = isDemo ? '/commands/demo' : '/commands';
 
     try {
-      const response = await fetch(`${this.apiUrl}/commands?locale=${this.locale}&platform_name=${this.platform}`, {
+      const headers = {
+        'Content-Type': 'application/json'
+      };
+
+      // Only add auth headers if not demo
+      if (!isDemo && this.apiKey) {
+        headers['Authorization'] = `Bearer ${this.apiKey}`;
+        headers['X-API-Key'] = this.apiKey;
+      }
+
+      const response = await fetch(`${this.apiUrl}${endpoint}?locale=${this.locale}&platform_name=${this.platform}`, {
         method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
-          'X-API-Key': this.apiKey,
-          'Content-Type': 'application/json'
-        }
+        headers: headers
       });
 
       if (response.ok) {
@@ -328,7 +330,8 @@ class VoiceActionsSDK {
    * Track API usage
    */
   async trackUsage(event, data = {}) {
-    if (!this.apiKey) {
+    // Skip tracking for demo mode
+    if (!this.apiKey || this.apiKey === 'demo-key' || this.platform === 'demo') {
       return;
     }
 

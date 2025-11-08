@@ -25,6 +25,9 @@ Route::post('/platforms/register', [PlatformController::class, 'register']);
 Route::post('/platforms/login', [PlatformController::class, 'login']);
 Route::get('/platforms/{id}', [PlatformController::class, 'show'])->middleware('api.key');
 
+// Demo route (no API key required)
+Route::get('/commands/demo', [CommandController::class, 'demo']);
+
 // Usage routes (require API key)
 Route::middleware('api.key')->group(function () {
     Route::get('/usage/stats', [UsageController::class, 'getStats']);
