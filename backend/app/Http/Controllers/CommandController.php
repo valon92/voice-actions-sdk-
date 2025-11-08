@@ -82,18 +82,9 @@ class CommandController extends Controller
 
         // Add platform-specific commands
         if ($platformName === 'youtube') {
-            $commands[] = [
-                'id' => 'play-video',
-                'phrases' => $this->getPhrases('play', $baseLocale),
-                'action' => 'play-video',
-                'description' => 'Play video'
-            ];
-            $commands[] = [
-                'id' => 'pause-video',
-                'phrases' => $this->getPhrases('pause', $baseLocale),
-                'action' => 'pause-video',
-                'description' => 'Pause video'
-            ];
+            $commands = array_merge($commands, $this->getYouTubeCommands($baseLocale));
+        } elseif ($platformName === 'instagram') {
+            $commands = array_merge($commands, $this->getInstagramCommands($baseLocale));
         }
 
         return $commands;
@@ -111,6 +102,18 @@ class CommandController extends Controller
                 'click' => ['click', 'tap', 'press'],
                 'play' => ['play', 'start video', 'play video'],
                 'pause' => ['pause', 'stop video', 'pause video'],
+                'next' => ['next', 'next video', 'next post', 'skip'],
+                'previous' => ['previous', 'previous video', 'previous post', 'back', 'go back'],
+                'mute' => ['mute', 'silence', 'turn off sound'],
+                'unmute' => ['unmute', 'sound on', 'turn on sound'],
+                'fullscreen' => ['fullscreen', 'full screen', 'maximize'],
+                'volume-up' => ['volume up', 'increase volume', 'louder'],
+                'volume-down' => ['volume down', 'decrease volume', 'quieter'],
+                'skip-forward' => ['skip forward', 'forward', 'fast forward'],
+                'skip-backward' => ['skip backward', 'backward', 'rewind'],
+                'like' => ['like', 'thumbs up', 'heart'],
+                'subscribe' => ['subscribe', 'follow channel'],
+                'comment' => ['comment', 'add comment', 'write comment'],
             ],
             'sq' => [
                 'scroll-down' => ['shkruaj poshtë', 'shkruaj poshtë faqen', 'shko poshtë'],
@@ -118,6 +121,18 @@ class CommandController extends Controller
                 'click' => ['kliko', 'prek', 'shtyp'],
                 'play' => ['luaj', 'fillo video', 'luaj video'],
                 'pause' => ['pauzë', 'ndalo video', 'pauzë video'],
+                'next' => ['tjeter', 'video tjeter', 'postimi tjeter', 'kaloj'],
+                'previous' => ['i meparshem', 'video e meparshme', 'postimi i meparshem', 'kthe mbrapa'],
+                'mute' => ['mute', 'pa ze', 'fike ze'],
+                'unmute' => ['unmute', 'me ze', 'hape ze'],
+                'fullscreen' => ['ekran i plote', 'fullscreen', 'maksimizo'],
+                'volume-up' => ['rrit volumin', 'me ze', 'ze me i larte'],
+                'volume-down' => ['ul volumin', 'me pak ze', 'ze me i ulet'],
+                'skip-forward' => ['kaloj para', 'para', 'shpejto para'],
+                'skip-backward' => ['kaloj mbrapa', 'mbrapa', 'shpejto mbrapa'],
+                'like' => ['pelqe', 'zemer', 'thumbs up'],
+                'subscribe' => ['abonohu', 'ndiq kanalin'],
+                'comment' => ['komento', 'shto koment', 'shkruaj koment'],
             ],
             'es' => [
                 'scroll-down' => ['desplazar abajo', 'bajar', 'ir abajo'],
@@ -125,6 +140,18 @@ class CommandController extends Controller
                 'click' => ['clic', 'tocar', 'presionar'],
                 'play' => ['reproducir', 'iniciar video', 'reproducir video'],
                 'pause' => ['pausar', 'detener video', 'pausar video'],
+                'next' => ['siguiente', 'siguiente video', 'siguiente publicación'],
+                'previous' => ['anterior', 'video anterior', 'publicación anterior'],
+                'mute' => ['silenciar', 'sin sonido', 'apagar sonido'],
+                'unmute' => ['activar sonido', 'con sonido', 'encender sonido'],
+                'fullscreen' => ['pantalla completa', 'pantalla completa', 'maximizar'],
+                'volume-up' => ['subir volumen', 'aumentar volumen', 'más fuerte'],
+                'volume-down' => ['bajar volumen', 'disminuir volumen', 'más bajo'],
+                'skip-forward' => ['adelantar', 'avanzar', 'saltar adelante'],
+                'skip-backward' => ['retroceder', 'atrás', 'saltar atrás'],
+                'like' => ['me gusta', 'corazón', 'pulgar arriba'],
+                'subscribe' => ['suscribirse', 'seguir canal'],
+                'comment' => ['comentar', 'agregar comentario', 'escribir comentario'],
             ],
             'fr' => [
                 'scroll-down' => ['défiler vers le bas', 'descendre', 'aller en bas'],
@@ -132,10 +159,142 @@ class CommandController extends Controller
                 'click' => ['cliquer', 'toucher', 'appuyer'],
                 'play' => ['lire', 'démarrer vidéo', 'lire vidéo'],
                 'pause' => ['pause', 'arrêter vidéo', 'mettre en pause'],
+                'next' => ['suivant', 'vidéo suivante', 'publication suivante'],
+                'previous' => ['précédent', 'vidéo précédente', 'publication précédente'],
+                'mute' => ['couper le son', 'sourdine', 'sans son'],
+                'unmute' => ['activer le son', 'avec son', 'allumer le son'],
+                'fullscreen' => ['plein écran', 'plein écran', 'maximiser'],
+                'volume-up' => ['augmenter le volume', 'plus fort', 'monter le volume'],
+                'volume-down' => ['diminuer le volume', 'plus bas', 'baisser le volume'],
+                'skip-forward' => ['avancer', 'sauter en avant', 'avance rapide'],
+                'skip-backward' => ['reculer', 'sauter en arrière', 'retour rapide'],
+                'like' => ['aimer', 'cœur', 'pouce en haut'],
+                'subscribe' => ['s\'abonner', 'suivre la chaîne'],
+                'comment' => ['commenter', 'ajouter un commentaire', 'écrire un commentaire'],
             ],
         ];
 
         return $phrases[$locale][$command] ?? $phrases['en'][$command] ?? [];
+    }
+
+    /**
+     * Get YouTube-specific commands
+     */
+    private function getYouTubeCommands($locale)
+    {
+        return [
+            [
+                'id' => 'play-video',
+                'phrases' => $this->getPhrases('play', $locale),
+                'action' => 'youtube-play',
+                'description' => 'Play video'
+            ],
+            [
+                'id' => 'pause-video',
+                'phrases' => $this->getPhrases('pause', $locale),
+                'action' => 'youtube-pause',
+                'description' => 'Pause video'
+            ],
+            [
+                'id' => 'next-video',
+                'phrases' => $this->getPhrases('next', $locale),
+                'action' => 'youtube-next',
+                'description' => 'Next video'
+            ],
+            [
+                'id' => 'previous-video',
+                'phrases' => $this->getPhrases('previous', $locale),
+                'action' => 'youtube-previous',
+                'description' => 'Previous video'
+            ],
+            [
+                'id' => 'mute',
+                'phrases' => $this->getPhrases('mute', $locale),
+                'action' => 'youtube-mute',
+                'description' => 'Mute video'
+            ],
+            [
+                'id' => 'unmute',
+                'phrases' => $this->getPhrases('unmute', $locale),
+                'action' => 'youtube-unmute',
+                'description' => 'Unmute video'
+            ],
+            [
+                'id' => 'fullscreen',
+                'phrases' => $this->getPhrases('fullscreen', $locale),
+                'action' => 'youtube-fullscreen',
+                'description' => 'Toggle fullscreen'
+            ],
+            [
+                'id' => 'volume-up',
+                'phrases' => $this->getPhrases('volume-up', $locale),
+                'action' => 'youtube-volume-up',
+                'description' => 'Increase volume'
+            ],
+            [
+                'id' => 'volume-down',
+                'phrases' => $this->getPhrases('volume-down', $locale),
+                'action' => 'youtube-volume-down',
+                'description' => 'Decrease volume'
+            ],
+            [
+                'id' => 'skip-forward',
+                'phrases' => $this->getPhrases('skip-forward', $locale),
+                'action' => 'youtube-skip-forward',
+                'description' => 'Skip forward 10 seconds'
+            ],
+            [
+                'id' => 'skip-backward',
+                'phrases' => $this->getPhrases('skip-backward', $locale),
+                'action' => 'youtube-skip-backward',
+                'description' => 'Skip backward 10 seconds'
+            ],
+            [
+                'id' => 'like-video',
+                'phrases' => $this->getPhrases('like', $locale),
+                'action' => 'youtube-like',
+                'description' => 'Like video'
+            ],
+            [
+                'id' => 'subscribe',
+                'phrases' => $this->getPhrases('subscribe', $locale),
+                'action' => 'youtube-subscribe',
+                'description' => 'Subscribe to channel'
+            ],
+        ];
+    }
+
+    /**
+     * Get Instagram-specific commands
+     */
+    private function getInstagramCommands($locale)
+    {
+        return [
+            [
+                'id' => 'next-post',
+                'phrases' => $this->getPhrases('next', $locale),
+                'action' => 'instagram-next',
+                'description' => 'Next post'
+            ],
+            [
+                'id' => 'previous-post',
+                'phrases' => $this->getPhrases('previous', $locale),
+                'action' => 'instagram-previous',
+                'description' => 'Previous post'
+            ],
+            [
+                'id' => 'like-post',
+                'phrases' => $this->getPhrases('like', $locale),
+                'action' => 'instagram-like',
+                'description' => 'Like post'
+            ],
+            [
+                'id' => 'comment',
+                'phrases' => $this->getPhrases('comment', $locale),
+                'action' => 'instagram-comment',
+                'description' => 'Open comment section'
+            ],
+        ];
     }
 }
 

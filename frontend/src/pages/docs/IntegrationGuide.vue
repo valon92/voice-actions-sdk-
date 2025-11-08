@@ -60,9 +60,49 @@ sdk.stop()</code></pre>
             </router-link>
           </section>
 
-          <!-- Commands -->
+          <!-- Platform-Specific Commands -->
           <section>
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">4. Custom Commands</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">4. Platform-Specific Commands</h2>
+            <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
+              SDK automatikisht ngarkon komanda specifike për platformën tuaj. Për shembull, për YouTube:
+            </p>
+            <div class="bg-gray-50 p-3 sm:p-4 rounded-lg">
+              <pre class="text-xs sm:text-sm overflow-x-auto m-0"><code>const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'youtube', // Platform identifier
+  locale: 'en-US',
+  onCommand: (command) => {
+    // YouTube-specific commands
+    switch (command.action) {
+      case 'youtube-play':
+        // Play video logic
+        document.querySelector('.ytp-play-button')?.click()
+        break
+      case 'youtube-pause':
+        // Pause video logic
+        document.querySelector('.ytp-play-button')?.click()
+        break
+      case 'youtube-next':
+        // Next video logic
+        document.querySelector('.ytp-next-button')?.click()
+        break
+      case 'youtube-mute':
+        // Mute logic
+        document.querySelector('.ytp-mute-button')?.click()
+        break
+      // ... etj.
+    }
+  }
+})</code></pre>
+            </div>
+            <p class="text-sm sm:text-base text-gray-700 mt-3 sm:mt-4">
+              <strong>Komanda të disponueshme për YouTube:</strong> play, pause, next, previous, mute, unmute, fullscreen, volume-up, volume-down, skip-forward, skip-backward, like, subscribe
+            </p>
+          </section>
+
+          <!-- Custom Commands -->
+          <section>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">5. Custom Commands</h2>
             <div class="bg-gray-50 p-3 sm:p-4 rounded-lg">
               <pre class="text-xs sm:text-sm overflow-x-auto m-0"><code>// Add custom command
 sdk.addCommand({
@@ -82,7 +122,7 @@ sdk.onCommand = (command) => {
 
           <!-- Locales -->
           <section>
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">5. Multi-language Support</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">6. Multi-language Support</h2>
             <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">Change locale dynamically:</p>
             <div class="bg-gray-50 p-3 sm:p-4 rounded-lg">
               <pre class="text-xs sm:text-sm overflow-x-auto m-0"><code>// Change to Spanish
@@ -98,7 +138,7 @@ sdk.setLocale('sq-AL')</code></pre>
 
           <!-- Best Practices -->
           <section>
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">6. Best Practices</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">7. Best Practices</h2>
             <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700">
               <li>Store your API key securely (environment variables, not in source code)</li>
               <li>Handle errors gracefully with the onError callback</li>
@@ -110,7 +150,7 @@ sdk.setLocale('sq-AL')</code></pre>
 
           <!-- Support -->
           <section>
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">7. Need Help?</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">8. Need Help?</h2>
             <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
               Check the dashboard for usage statistics or contact support.
             </p>
