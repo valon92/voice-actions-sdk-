@@ -56,15 +56,103 @@
             <label for="expected_usage" class="block text-sm font-medium text-gray-700 mb-2">
               Expected Monthly Usage
             </label>
+            
+            <!-- Quick Select Buttons -->
+            <div class="flex flex-wrap gap-2 mb-3">
+              <button
+                type="button"
+                @click="form.expected_usage = 1000"
+                :class="[
+                  'px-4 py-2 rounded-lg text-sm font-medium transition',
+                  form.expected_usage === 1000
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ]"
+              >
+                1K
+              </button>
+              <button
+                type="button"
+                @click="form.expected_usage = 10000"
+                :class="[
+                  'px-4 py-2 rounded-lg text-sm font-medium transition',
+                  form.expected_usage === 10000
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ]"
+              >
+                10K
+              </button>
+              <button
+                type="button"
+                @click="form.expected_usage = 100000"
+                :class="[
+                  'px-4 py-2 rounded-lg text-sm font-medium transition',
+                  form.expected_usage === 100000
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ]"
+              >
+                100K
+              </button>
+              <button
+                type="button"
+                @click="form.expected_usage = 1000000"
+                :class="[
+                  'px-4 py-2 rounded-lg text-sm font-medium transition',
+                  form.expected_usage >= 1000000
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ]"
+              >
+                1M+
+              </button>
+            </div>
+            
+            <!-- Input Field -->
             <input
               id="expected_usage"
               v-model.number="form.expected_usage"
               type="number"
               min="0"
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-              placeholder="10000"
+              placeholder="Enter expected monthly usage"
             />
-            <p class="mt-1 text-sm text-gray-500">Estimated number of voice commands per month</p>
+            
+            <!-- Real-time Plan Preview -->
+            <div v-if="form.expected_usage > 0" class="mt-3 p-3 rounded-lg border-2" :class="planPreviewClass">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-lg font-bold">{{ selectedPlan }}</span>
+                <span class="text-xs px-2 py-1 rounded-full" :class="planBadgeClass">
+                  {{ planBadgeText }}
+                </span>
+              </div>
+              <p class="text-sm" :class="planTextClass">{{ planDescription }}</p>
+            </div>
+            
+            <!-- Plan Limits Info -->
+            <div class="mt-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+              <p class="text-xs font-semibold text-gray-700 mb-2">Plan Limits:</p>
+              <div class="space-y-1 text-xs text-gray-600">
+                <div class="flex justify-between">
+                  <span>🆓 <strong>Free:</strong></span>
+                  <span>Up to 9,999 commands/month</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>⭐ <strong>Pro:</strong></span>
+                  <span>10,000 - 999,999 commands/month</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>👑 <strong>Enterprise:</strong></span>
+                  <span>1,000,000+ commands/month</span>
+                </div>
+              </div>
+              <router-link to="/pricing" class="text-xs text-gray-900 font-semibold hover:underline mt-2 inline-block">
+                View detailed pricing →
+              </router-link>
+            </div>
+            
+            <p class="mt-2 text-sm text-gray-500">Estimated number of voice commands per month</p>
           </div>
 
           <div v-if="error" class="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -109,7 +197,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 
@@ -126,6 +214,79 @@ const loading = ref(false)
 const error = ref(null)
 const success = ref(false)
 const apiKey = ref('')
+
+// Computed properties for plan preview
+const selectedPlan = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return 'Enterprise'
+  } else if (usage >= 10000) {
+    return 'Pro'
+  } else if (usage > 0) {
+    return 'Free'
+  }
+  return 'Not Selected'
+})
+
+const planDescription = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return 'Perfect for large-scale platforms with high traffic. Includes custom support and dedicated resources.'
+  } else if (usage >= 10000) {
+    return 'Ideal for growing platforms. Includes priority support and advanced features.'
+  } else if (usage > 0) {
+    return 'Great for small projects and testing. Includes all basic features.'
+  }
+  return 'Select your expected usage to see your plan'
+})
+
+const planBadgeClass = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return 'bg-yellow-100 text-yellow-800'
+  } else if (usage >= 10000) {
+    return 'bg-blue-100 text-blue-800'
+  } else if (usage > 0) {
+    return 'bg-green-100 text-green-800'
+  }
+  return 'bg-gray-100 text-gray-800'
+})
+
+const planBadgeText = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return '👑 Enterprise'
+  } else if (usage >= 10000) {
+    return '⭐ Pro'
+  } else if (usage > 0) {
+    return '🆓 Free'
+  }
+  return ''
+})
+
+const planPreviewClass = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return 'bg-yellow-50 border-yellow-300'
+  } else if (usage >= 10000) {
+    return 'bg-blue-50 border-blue-300'
+  } else if (usage > 0) {
+    return 'bg-green-50 border-green-300'
+  }
+  return 'bg-gray-50 border-gray-300'
+})
+
+const planTextClass = computed(() => {
+  const usage = form.value.expected_usage || 0
+  if (usage >= 1000000) {
+    return 'text-yellow-800'
+  } else if (usage >= 10000) {
+    return 'text-blue-800'
+  } else if (usage > 0) {
+    return 'text-green-800'
+  }
+  return 'text-gray-600'
+})
 
 const handleRegister = async () => {
   loading.value = true
