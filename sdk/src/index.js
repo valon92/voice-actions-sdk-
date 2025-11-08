@@ -205,8 +205,11 @@ class VoiceActionsSDK {
 
   /**
    * Execute platform-specific action
+   * SDK vetëm ekzekuton komanda bazë universale
+   * Platformat duhet të implementojnë logjikën e tyre në onCommand callback
    */
   executeAction(action) {
+    // Vetëm komanda universale bazë - të gjitha komanda të tjera duhet të trajtohen në onCommand
     switch (action) {
       case 'scroll-down':
         window.scrollBy({ top: 300, behavior: 'smooth' });
@@ -215,11 +218,13 @@ class VoiceActionsSDK {
         window.scrollBy({ top: -300, behavior: 'smooth' });
         break;
       case 'click':
-        // Platform-specific click handler
+        // Platform-specific click handler - duhet të implementohet në onCommand
         break;
       default:
+        // Të gjitha komanda të tjera duhet të trajtohen në onCommand callback
+        // SDK nuk e di çfarë të bëjë me komanda specifike të platformës
         if (this.debug) {
-          console.warn('⚠️ Unknown action:', action);
+          console.log(`ℹ️ Action '${action}' duhet të trajtohet në onCommand callback`);
         }
     }
   }

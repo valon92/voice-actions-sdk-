@@ -60,43 +60,58 @@ sdk.stop()</code></pre>
             </router-link>
           </section>
 
-          <!-- Platform-Specific Commands -->
+          <!-- Universal Platform Support -->
           <section>
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">4. Platform-Specific Commands</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">4. Universal Platform Support</h2>
             <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
-              SDK automatikisht ngarkon komanda specifike për platformën tuaj. Për shembull, për YouTube:
+              SDK është <strong>100% universale</strong> dhe funksionon për <strong>çdo platformë</strong> - YouTube, E-commerce, CRM, Social Media, Healthcare, E-learning, etj. Platforma juaj implementon logjikën specifike:
             </p>
             <div class="bg-gray-50 p-3 sm:p-4 rounded-lg">
               <pre class="text-xs sm:text-sm overflow-x-auto m-0"><code>const sdk = new VoiceActionsSDK({
   apiKey: 'your-api-key',
-  platform: 'youtube', // Platform identifier
+  platform: 'your-platform-name', // Çdo platformë
   locale: 'en-US',
   onCommand: (command) => {
-    // YouTube-specific commands
+    // Platforma juaj implementon logjikën
     switch (command.action) {
-      case 'youtube-play':
-        // Play video logic
-        document.querySelector('.ytp-play-button')?.click()
+      // E-commerce: add-to-cart, checkout, search-products
+      case 'add-to-cart':
+        addProductToCart()
         break
-      case 'youtube-pause':
-        // Pause video logic
-        document.querySelector('.ytp-play-button')?.click()
+      
+      // CRM: create-contact, schedule-meeting, send-email
+      case 'create-contact':
+        openContactForm()
         break
-      case 'youtube-next':
-        // Next video logic
-        document.querySelector('.ytp-next-button')?.click()
+      
+      // Social Media: like-post, share-post, follow-user
+      case 'like-post':
+        likeCurrentPost()
         break
-      case 'youtube-mute':
-        // Mute logic
-        document.querySelector('.ytp-mute-button')?.click()
+      
+      // Healthcare: book-appointment, view-records
+      case 'book-appointment':
+        openAppointmentBooking()
         break
-      // ... etj.
+      
+      // Çdo komandë tjetër që platforma juaj ka nevojë
+      default:
+        handleCustomAction(command)
     }
   }
-})</code></pre>
+})
+
+// Shto komanda të personalizuara
+sdk.addCommand({
+  id: 'my-custom-action',
+  phrases: ['do something', 'perform action'],
+  action: 'my-custom-action'
+})
+
+sdk.start()</code></pre>
             </div>
             <p class="text-sm sm:text-base text-gray-700 mt-3 sm:mt-4">
-              <strong>Komanda të disponueshme për YouTube:</strong> play, pause, next, previous, mute, unmute, fullscreen, volume-up, volume-down, skip-forward, skip-backward, like, subscribe
+              <strong>SDK vetëm dëgjon dhe njofton</strong> - platforma juaj kontrollon plotësisht çfarë të bëjë me çdo komandë!
             </p>
           </section>
 
