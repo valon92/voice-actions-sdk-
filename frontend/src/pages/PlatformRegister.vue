@@ -3,7 +3,13 @@
     <div class="max-w-2xl mx-auto">
       <div class="bg-white rounded-2xl shadow-xl p-8 sm:p-10">
         <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-gray-900">Register Your Platform</h1>
-        <p class="text-gray-600 mb-8">Get your API key to start integrating Voice Actions SDK</p>
+        <p class="text-gray-600 mb-4">Get your API key to start integrating Voice Actions SDK</p>
+        <p class="text-sm sm:text-base text-gray-500 mb-8">
+          Already have an account? 
+          <router-link to="/platform/login" class="text-gray-900 font-semibold hover:underline">
+            Login here
+          </router-link>
+        </p>
 
         <form @submit.prevent="handleRegister" class="space-y-6">
           <div>
@@ -65,25 +71,27 @@
             <p class="text-red-800 text-sm">{{ error }}</p>
           </div>
 
-          <div v-if="success" class="bg-green-50 border border-green-200 rounded-lg p-4">
-            <p class="text-green-800 font-semibold mb-2">✅ Registration Successful!</p>
-            <p class="text-green-700 text-sm mb-4">Your API key has been generated. Please save it securely.</p>
-            <div class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm break-all">
+          <div v-if="success" class="bg-green-50 border border-green-200 rounded-lg p-4 sm:p-6">
+            <p class="text-green-800 font-semibold mb-2 text-base sm:text-lg">✅ Registration Successful!</p>
+            <p class="text-green-700 text-sm sm:text-base mb-4">Your API key has been generated. Please save it securely. You will be redirected to your dashboard in a moment...</p>
+            <div class="bg-gray-900 text-white p-3 sm:p-4 rounded-lg font-mono text-xs sm:text-sm break-all mb-4">
               {{ apiKey }}
             </div>
-            <button
-              type="button"
-              @click="copyApiKey"
-              class="mt-4 w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
-            >
-              📋 Copy API Key
-            </button>
-            <router-link
-              to="/platform/dashboard"
-              class="mt-4 block w-full px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition text-center"
-            >
-              Go to Dashboard →
-            </router-link>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button
+                type="button"
+                @click="copyApiKey"
+                class="flex-1 px-4 py-2 sm:py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition text-sm sm:text-base font-semibold"
+              >
+                📋 Copy API Key
+              </button>
+              <router-link
+                to="/platform/dashboard"
+                class="flex-1 px-4 py-2 sm:py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition text-center text-sm sm:text-base font-semibold"
+              >
+                Go to Dashboard →
+              </router-link>
+            </div>
           </div>
 
           <button
@@ -134,6 +142,11 @@ const handleRegister = async () => {
       // Store API key and platform data
       localStorage.setItem('platform_api_key', apiKey.value)
       localStorage.setItem('platform_data', JSON.stringify(response.data.platform))
+      
+      // Auto-login: Redirect to dashboard after 2 seconds
+      setTimeout(() => {
+        router.push('/platform/dashboard')
+      }, 2000)
     }
   } catch (err) {
     error.value = err.response?.data?.error || 'Registration failed. Please try again.'

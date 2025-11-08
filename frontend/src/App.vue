@@ -14,6 +14,8 @@
               <h1 class="text-sm font-bold text-gray-900 sm:hidden">Voice SDK</h1>
             </router-link>
           </div>
+          
+          <!-- Desktop Menu -->
           <div class="hidden md:flex items-center gap-2 lg:gap-3">
             <template v-if="isAuthenticated">
               <router-link to="/platform/dashboard" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
@@ -27,11 +29,84 @@
               <router-link to="/" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 🏠 Home
               </router-link>
+              <router-link to="/pricing" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                💰 Pricing
+              </router-link>
+              <router-link to="/platform/login" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                🔑 Login
+              </router-link>
               <router-link to="/register-platform" class="px-3 lg:px-4 py-1.5 lg:py-2 bg-gray-900 text-white rounded-lg text-sm lg:text-base font-medium hover:bg-gray-800 transition-all shadow-md">
                 Get Started
               </router-link>
             </template>
           </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            class="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all z-10"
+            aria-label="Toggle menu"
+            type="button"
+          >
+            <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          v-show="mobileMenuOpen"
+          class="md:hidden border-t border-gray-200 py-3 space-y-2"
+        >
+            <template v-if="isAuthenticated">
+              <router-link
+                to="/platform/dashboard"
+                @click="mobileMenuOpen = false"
+                class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              >
+                📊 Dashboard
+              </router-link>
+              <button
+                @click="handleLogout(); mobileMenuOpen = false"
+                class="block w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-base font-medium transition-all shadow-md text-left"
+              >
+                🚪 Logout
+              </button>
+            </template>
+          <template v-else>
+            <router-link
+              to="/"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              🏠 Home
+            </router-link>
+            <router-link
+              to="/pricing"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              💰 Pricing
+            </router-link>
+            <router-link
+              to="/platform/login"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              🔑 Login
+            </router-link>
+            <router-link
+              to="/register-platform"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 bg-gray-900 text-white rounded-lg text-base font-medium hover:bg-gray-800 transition-all shadow-md text-center"
+            >
+              Get Started
+            </router-link>
+          </template>
         </div>
       </div>
     </nav>
@@ -46,9 +121,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const isAuthenticated = ref(false)
+const mobileMenuOpen = ref(false)
 
 const handleLogout = () => {
   localStorage.removeItem('platform_api_key')
@@ -62,6 +140,11 @@ const handleLogout = () => {
 onMounted(() => {
   checkAuth()
   setInterval(checkAuth, 1000)
+})
+
+// Close mobile menu when route changes
+watch(() => route.path, () => {
+  mobileMenuOpen.value = false
 })
 
 const checkAuth = () => {
@@ -78,6 +161,34 @@ const checkAuth = () => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.slide-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-down-leave-active {
+  transition: all 0.2s ease-in;
+}
+
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.slide-down-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }
 </style>
 

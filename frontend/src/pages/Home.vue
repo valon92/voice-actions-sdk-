@@ -20,6 +20,12 @@
             Get Started
           </router-link>
           <router-link
+            to="/platform/login"
+            class="inline-block px-8 py-4 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition text-lg"
+          >
+            Login
+          </router-link>
+          <router-link
             to="/docs/integration"
             class="inline-block px-8 py-4 bg-gray-800 text-white rounded-lg font-semibold hover:bg-gray-700 transition text-lg"
           >
