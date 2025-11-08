@@ -92,7 +92,7 @@
             class="w-full px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span v-if="loading">⏳ Registering...</span>
-            <span v-else">🚀 Register Platform</span>
+            <span v-else>🚀 Register Platform</span>
           </button>
         </form>
       </div>
