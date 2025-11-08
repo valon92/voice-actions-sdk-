@@ -314,6 +314,8 @@ const statusMessageType = ref('info')
 const commandHistory = ref([])
 const demoContent = ref(null)
 let sdk = null
+let isInitializing = false
+let isDestroyed = false
 
 // Command definitions with phrases for all languages
 const commands = {
@@ -623,13 +625,32 @@ onMounted(() => {
 })
 
 function initializeSDK() {
+  // Prevent multiple initializations
+  if (isInitializing || sdk || isDestroyed) {
+    if (sdk && !isDestroyed) {
+      return // SDK already initialized
+    }
+  }
+
   // Check if SDK is available
   if (!VoiceActionsSDK) {
     showStatus('SDK not loaded. Please check the SDK path.', 'error')
     return
   }
 
+  isInitializing = true
+
   try {
+    // Destroy existing SDK if any
+    if (sdk) {
+      try {
+        sdk.destroy()
+      } catch (e) {
+        // Ignore destroy errors
+      }
+      sdk = null
+    }
+
     sdk = new VoiceActionsSDK({
       apiKey: localStorage.getItem('platform_api_key') || 'demo-key',
       platform: 'demo',
@@ -639,15 +660,25 @@ function initializeSDK() {
       onError: handleError
     })
 
+    isDestroyed = false
     showStatus('SDK initialized successfully! Click "Start Listening" to begin.', 'success')
   } catch (error) {
     showStatus(`Error initializing SDK: ${error.message}`, 'error')
+    sdk = null
+  } finally {
+    isInitializing = false
   }
 }
 
 onUnmounted(() => {
-  if (sdk) {
-    sdk.destroy()
+  if (sdk && !isDestroyed) {
+    try {
+      sdk.destroy()
+      isDestroyed = true
+      sdk = null
+    } catch (error) {
+      console.error('Error destroying SDK:', error)
+    }
   }
 })
 

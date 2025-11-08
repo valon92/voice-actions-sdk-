@@ -142,22 +142,35 @@ class VoiceActionsSDK {
     };
 
     this.recognition.onend = () => {
-      if (this.isListening) {
-        // Auto-restart if still listening, but add a small delay to prevent errors
+      // Only auto-restart if still listening and recognition is still valid
+      if (this.isListening && this.recognition) {
+        // Add a small delay to prevent errors
         setTimeout(() => {
           try {
+            // Double-check state before restarting
             if (this.isListening && this.recognition) {
               this.recognition.start();
+              if (this.debug) {
+                console.log('🔄 Auto-restarted recognition');
+              }
             }
           } catch (error) {
-            // If restart fails, stop listening
-            if (this.debug) {
-              console.warn('⚠️ Failed to restart recognition:', error);
+            // If restart fails, check if it's because it's already running
+            if (error.name === 'InvalidStateError') {
+              // Recognition is already running, which is fine
+              if (this.debug) {
+                console.log('ℹ️ Recognition already running');
+              }
+            } else {
+              // Other errors - stop listening
+              if (this.debug) {
+                console.warn('⚠️ Failed to restart recognition:', error);
+              }
+              this.isListening = false;
+              this.handleError(new Error('Failed to restart speech recognition'));
             }
-            this.isListening = false;
-            this.handleError(new Error('Failed to restart speech recognition'));
           }
-        }, 100);
+        }, 200); // Increased delay to prevent rapid restarts
       }
     };
   }
