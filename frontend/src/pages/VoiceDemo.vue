@@ -682,7 +682,27 @@ function handleCommand(command) {
 }
 
 function handleError(error) {
-  showStatus(`Error: ${error.message}`, 'error')
+  console.error('Voice SDK Error:', error)
+  
+  // Show user-friendly error messages
+  let errorMessage = error.message
+  
+  if (error.message.includes('not supported')) {
+    errorMessage = 'Voice recognition is not supported in this browser. Please use Chrome, Edge, or Safari.'
+  } else if (error.message.includes('permission') || error.message.includes('denied')) {
+    errorMessage = 'Microphone permission denied. Please allow microphone access in your browser settings.'
+  } else if (error.message.includes('network')) {
+    errorMessage = 'Network error. Please check your internet connection.'
+  } else if (error.message.includes('audio-capture')) {
+    errorMessage = 'No microphone found. Please check your microphone connection.'
+  }
+  
+  showStatus(errorMessage, 'error')
+  
+  // Stop listening on critical errors
+  if (error.message.includes('permission') || error.message.includes('not supported')) {
+    isListening.value = false
+  }
 }
 
 function executeCommand(command) {

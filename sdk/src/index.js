@@ -98,13 +98,66 @@ class VoiceActionsSDK {
     };
 
     this.recognition.onerror = (event) => {
-      this.handleError(new Error(`Speech recognition error: ${event.error}`));
+      // Handle specific error types
+      let errorMessage = `Speech recognition error: ${event.error}`;
+      
+      switch (event.error) {
+        case 'no-speech':
+          // No speech detected - this is normal, don't treat as error
+          if (this.debug) {
+            console.log('ℹ️ No speech detected');
+          }
+          return;
+        case 'aborted':
+          // Recognition was aborted - this is normal when stopping
+          if (this.debug) {
+            console.log('ℹ️ Recognition aborted');
+          }
+          return;
+        case 'audio-capture':
+          errorMessage = 'No microphone found. Please check your microphone connection.';
+          break;
+        case 'network':
+          errorMessage = 'Network error. Please check your internet connection.';
+          break;
+        case 'not-allowed':
+          errorMessage = 'Microphone permission denied. Please allow microphone access in your browser settings.';
+          break;
+        case 'service-not-allowed':
+          errorMessage = 'Speech recognition service not allowed. Please check your browser settings.';
+          break;
+        default:
+          errorMessage = `Speech recognition error: ${event.error}`;
+      }
+      
+      // Only show error for critical issues
+      if (event.error !== 'no-speech' && event.error !== 'aborted') {
+        this.handleError(new Error(errorMessage));
+        
+        // If it's a permission error, stop listening
+        if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+          this.isListening = false;
+        }
+      }
     };
 
     this.recognition.onend = () => {
       if (this.isListening) {
-        // Auto-restart if still listening
-        this.recognition.start();
+        // Auto-restart if still listening, but add a small delay to prevent errors
+        setTimeout(() => {
+          try {
+            if (this.isListening && this.recognition) {
+              this.recognition.start();
+            }
+          } catch (error) {
+            // If restart fails, stop listening
+            if (this.debug) {
+              console.warn('⚠️ Failed to restart recognition:', error);
+            }
+            this.isListening = false;
+            this.handleError(new Error('Failed to restart speech recognition'));
+          }
+        }, 100);
       }
     };
   }
@@ -248,15 +301,49 @@ class VoiceActionsSDK {
     }
 
     try {
-      this.recognition.start();
-      this.isListening = true;
-      this.trackUsage('listening_started');
-      
-      if (this.debug) {
-        console.log('🎤 Started listening');
+      // Check if browser supports speech recognition
+      if (!this.isSupported()) {
+        this.handleError(new Error('Web Speech API is not supported in this browser'));
+        return;
+      }
+
+      // Request microphone permission first
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ audio: true })
+          .then(() => {
+            // Permission granted, start recognition
+            this.recognition.start();
+            this.isListening = true;
+            this.trackUsage('listening_started');
+            
+            if (this.debug) {
+              console.log('🎤 Started listening');
+            }
+          })
+          .catch((error) => {
+            this.handleError(new Error('Microphone permission denied. Please allow microphone access.'));
+          });
+      } else {
+        // Fallback for browsers without getUserMedia
+        this.recognition.start();
+        this.isListening = true;
+        this.trackUsage('listening_started');
+        
+        if (this.debug) {
+          console.log('🎤 Started listening');
+        }
       }
     } catch (error) {
-      this.handleError(error);
+      // Handle specific errors
+      if (error.name === 'InvalidStateError') {
+        // Recognition is already running
+        if (this.debug) {
+          console.warn('⚠️ Recognition already running');
+        }
+        this.isListening = true;
+      } else {
+        this.handleError(error);
+      }
     }
   }
 
