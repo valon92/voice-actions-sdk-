@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UniversalCommands;
 
 class CommandController extends Controller
 {
@@ -78,10 +79,25 @@ class CommandController extends Controller
     /**
      * Get default commands based on locale
      * Komanda universale që funksionojnë për çdo platformë
+     * Includes all commands for social media platforms (Facebook, Instagram, TikTok, X, etc.)
      */
     private function getDefaultCommands($locale, $platformName)
     {
         $baseLocale = explode('-', $locale)[0]; // Extract base locale (e.g., 'en' from 'en-US')
+
+        // Get all universal commands from UniversalCommands helper
+        $commands = UniversalCommands::getAllCommands($baseLocale);
+
+        return $commands;
+    }
+
+    /**
+     * Get default commands (old method - kept for reference)
+     * @deprecated Use UniversalCommands::getAllCommands() instead
+     */
+    private function getDefaultCommandsOld($locale, $platformName)
+    {
+        $baseLocale = explode('-', $locale)[0];
 
         // Komanda universale bazë për çdo platformë
         $commands = [
@@ -286,8 +302,19 @@ class CommandController extends Controller
 
     /**
      * Get phrases for a command based on locale
+     * @deprecated Use UniversalCommands::getPhrases() instead
      */
     private function getPhrases($command, $locale)
+    {
+        // Use UniversalCommands helper
+        return UniversalCommands::getPhrases($command, $locale);
+    }
+
+    /**
+     * Get phrases (old method - kept for reference)
+     * @deprecated Use UniversalCommands::getPhrases() instead
+     */
+    private function getPhrasesOld($command, $locale)
     {
         $phrases = [
             'en' => [
