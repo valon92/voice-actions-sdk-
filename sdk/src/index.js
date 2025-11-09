@@ -145,10 +145,15 @@ class VoiceActionsSDK {
           errorMessage = 'Network error. Please check your internet connection.';
           break;
         case 'not-allowed':
-          errorMessage = 'Microphone permission denied. Please allow microphone access in your browser settings.';
+          errorMessage = 'Microphone permission denied.\n\n' +
+            'To enable microphone access:\n' +
+            '1. Click the lock (🔒) or microphone (🎤) icon in your browser\'s address bar\n' +
+            '2. Select "Allow" for microphone access\n' +
+            '3. Refresh the page and try again';
           break;
         case 'service-not-allowed':
-          errorMessage = 'Speech recognition service not allowed. Please check your browser settings.';
+          errorMessage = 'Speech recognition service not allowed.\n\n' +
+            'Please check your browser settings and enable speech recognition services.';
           break;
         default:
           errorMessage = `Speech recognition error: ${event.error}`;
@@ -312,13 +317,28 @@ class VoiceActionsSDK {
    * Platformat duhet të implementojnë logjikën e tyre në onCommand callback
    */
   executeAction(action) {
-    // Vetëm komanda universale bazë - të gjitha komanda të tjera duhet të trajtohen në onCommand
+    // Komanda universale bazë - të gjitha komanda të tjera duhet të trajtohen në onCommand
     switch (action) {
       case 'scroll-down':
         window.scrollBy({ top: 300, behavior: 'smooth' });
         break;
       case 'scroll-up':
         window.scrollBy({ top: -300, behavior: 'smooth' });
+        break;
+      case 'scroll-to-top':
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        break;
+      case 'scroll-to-bottom':
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        break;
+      case 'go-back':
+        window.history.back();
+        break;
+      case 'go-forward':
+        window.history.forward();
+        break;
+      case 'refresh-page':
+        window.location.reload();
         break;
       case 'click':
         // Platform-specific click handler - duhet të implementohet në onCommand
@@ -344,22 +364,84 @@ class VoiceActionsSDK {
       // Try to query permission status (if supported)
       if (navigator.permissions && navigator.permissions.query) {
         const result = await navigator.permissions.query({ name: 'microphone' });
-        return { granted: result.state === 'granted', state: result.state };
+        return { 
+          granted: result.state === 'granted', 
+          state: result.state,
+          canPrompt: result.state === 'prompt'
+        };
       }
       
       // If permission query is not supported, try to access microphone
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       // Stop the stream immediately - we just wanted to check permission
       stream.getTracks().forEach(track => track.stop());
-      return { granted: true };
+      return { granted: true, state: 'granted' };
     } catch (error) {
       if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
-        return { granted: false, error: 'permission_denied', message: error.message };
+        return { 
+          granted: false, 
+          error: 'permission_denied', 
+          state: 'denied',
+          message: error.message,
+          canRetry: false // User must manually enable in browser settings
+        };
       } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
-        return { granted: false, error: 'no_microphone', message: error.message };
+        return { 
+          granted: false, 
+          error: 'no_microphone', 
+          message: error.message,
+          canRetry: true
+        };
       } else {
-        return { granted: false, error: error.name, message: error.message };
+        return { 
+          granted: false, 
+          error: error.name, 
+          message: error.message,
+          canRetry: true
+        };
       }
+    }
+  }
+
+  /**
+   * Request microphone permission explicitly
+   * Returns a promise that resolves when permission is granted
+   */
+  async requestMicrophonePermission() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      throw new Error('Microphone access is not supported in this browser. Please use Chrome, Edge, or Safari.');
+    }
+
+    try {
+      // Request permission
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // Stop the stream immediately - we just wanted to get permission
+      stream.getTracks().forEach(track => track.stop());
+      return { granted: true, stream: null };
+    } catch (error) {
+      let errorMessage = 'Failed to access microphone. ';
+      
+      if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+        errorMessage = 'Microphone permission denied. ';
+        errorMessage += 'To enable microphone access:\n';
+        errorMessage += '1. Click the lock or microphone icon in your browser\'s address bar\n';
+        errorMessage += '2. Select "Allow" for microphone access\n';
+        errorMessage += '3. Refresh the page and try again\n\n';
+        errorMessage += 'Alternatively, go to your browser settings:\n';
+        errorMessage += '- Chrome: Settings > Privacy and security > Site settings > Microphone\n';
+        errorMessage += '- Firefox: Settings > Privacy & Security > Permissions > Microphone\n';
+        errorMessage += '- Safari: Safari > Settings > Websites > Microphone';
+      } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+        errorMessage = 'No microphone found. Please connect a microphone device and try again.';
+      } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
+        errorMessage = 'Microphone is being used by another application. Please close other applications using the microphone and try again.';
+      } else if (error.name === 'OverconstrainedError') {
+        errorMessage = 'Microphone constraints could not be satisfied. Please check your microphone settings.';
+      } else {
+        errorMessage += `Error: ${error.message || error.name}`;
+      }
+      
+      throw new Error(errorMessage);
     }
   }
 
@@ -389,7 +471,27 @@ class VoiceActionsSDK {
       // Request microphone permission first
       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
-          // Request permission
+          // Check permission status first
+          const permissionStatus = await this.checkMicrophonePermission();
+          
+          // If permission is denied, provide detailed instructions
+          if (!permissionStatus.granted && permissionStatus.state === 'denied') {
+            const errorMessage = 'Microphone permission is denied. ' +
+              'To enable microphone access:\n' +
+              '1. Click the lock or microphone icon (🔒 or 🎤) in your browser\'s address bar\n' +
+              '2. Select "Allow" for microphone access\n' +
+              '3. Refresh the page and try again\n\n' +
+              'Or go to browser settings:\n' +
+              '- Chrome/Edge: Settings > Privacy and security > Site settings > Microphone\n' +
+              '- Firefox: Settings > Privacy & Security > Permissions > Microphone\n' +
+              '- Safari: Safari > Settings > Websites > Microphone';
+            
+            this.handleError(new Error(errorMessage));
+            this.isListening = false;
+            return;
+          }
+          
+          // Request permission (will prompt if needed)
           const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
           
           // Permission granted, stop the test stream and start recognition
@@ -404,17 +506,27 @@ class VoiceActionsSDK {
             console.log('🎤 Started listening');
           }
         } catch (error) {
-          // Handle specific permission errors
-          let errorMessage = 'Microphone permission denied. ';
+          // Handle specific permission errors with detailed messages
+          let errorMessage = '';
           
           if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
-            errorMessage += 'Please click the microphone icon in your browser\'s address bar and allow microphone access, or go to your browser settings and allow microphone access for this site.';
+            errorMessage = 'Microphone permission denied.\n\n' +
+              'To enable microphone access:\n' +
+              '1. Look for the lock (🔒) or microphone (🎤) icon in your browser\'s address bar\n' +
+              '2. Click it and select "Allow" for microphone access\n' +
+              '3. Refresh this page and try again\n\n' +
+              'Browser Settings:\n' +
+              '• Chrome/Edge: Settings > Privacy and security > Site settings > Microphone\n' +
+              '• Firefox: Settings > Privacy & Security > Permissions > Microphone\n' +
+              '• Safari: Safari > Settings > Websites > Microphone';
           } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
-            errorMessage = 'No microphone found. Please connect a microphone and try again.';
+            errorMessage = 'No microphone found. Please connect a microphone device and try again.';
           } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
             errorMessage = 'Microphone is being used by another application. Please close other applications using the microphone and try again.';
+          } else if (error.name === 'OverconstrainedError') {
+            errorMessage = 'Microphone constraints could not be satisfied. Please check your microphone settings.';
           } else {
-            errorMessage += `Error: ${error.message || error.name}`;
+            errorMessage = `Microphone access error: ${error.message || error.name}`;
           }
           
           this.handleError(new Error(errorMessage));
@@ -423,12 +535,26 @@ class VoiceActionsSDK {
       } else {
         // Fallback for browsers without getUserMedia - try to start recognition directly
         // This will trigger browser's permission prompt
-        this.recognition.start();
-        this.isListening = true;
-        this.trackUsage('listening_started');
-        
-        if (this.debug) {
-          console.log('🎤 Started listening (fallback mode)');
+        try {
+          this.recognition.start();
+          this.isListening = true;
+          this.trackUsage('listening_started');
+          
+          if (this.debug) {
+            console.log('🎤 Started listening (fallback mode)');
+          }
+        } catch (error) {
+          // Handle recognition start errors
+          if (error.name === 'InvalidStateError') {
+            // Recognition might already be running
+            this.isListening = true;
+            if (this.debug) {
+              console.log('ℹ️ Recognition already running');
+            }
+          } else {
+            this.handleError(new Error(`Failed to start speech recognition: ${error.message || error.name}`));
+            this.isListening = false;
+          }
         }
       }
     } catch (error) {

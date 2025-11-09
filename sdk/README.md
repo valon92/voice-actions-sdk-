@@ -131,6 +131,21 @@ if (permission.granted) {
   await sdk.start();
 } else {
   console.error('Permission denied:', permission.error);
+  // permission.state can be: 'granted', 'denied', 'prompt'
+  // permission.canRetry indicates if user can retry
+}
+```
+
+#### `requestMicrophonePermission()`
+Explicitly request microphone permission with detailed error messages.
+
+```javascript
+try {
+  await sdk.requestMicrophonePermission();
+  await sdk.start();
+} catch (error) {
+  // Error message includes step-by-step instructions
+  console.error(error.message);
 }
 ```
 

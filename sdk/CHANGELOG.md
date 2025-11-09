@@ -39,6 +39,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Development (GitHub, GitLab, Vercel, Netlify)
 - AI Platforms (ChatGPT, Gemini, Claude, Midjourney)
 
+## [1.1.0] - 2025-01-29
+
+### Added
+- Added 40+ Stargate.ci platform-specific commands
+- Navigation commands: navigate-home, navigate-about, navigate-events, navigate-news, navigate-faq, navigate-contact, navigate-subscribe, navigate-search, navigate-disclaimer, navigate-signin, navigate-signup
+- Enhanced scroll commands: scroll-to-top, scroll-to-bottom
+- Video interactions: like-video, comment-video, share-video, play-video, pause-video
+- News interactions: like-article, read-article, share-article
+- Event interactions: register-event, view-event-details
+- Search commands: open-search, clear-search
+- UI controls: close-modal, open-menu, close-menu, toggle-theme
+- Subscription: subscribe, unsubscribe
+- Account management: logout, view-profile
+- Browser navigation: go-back, go-forward, refresh-page
+- Content actions: expand-content, collapse-content
+- Filter & sort: filter-events, sort-content
+- Form actions: submit-form, clear-form
+- Multi-language support for all Stargate.ci commands (English, Albanian, Spanish, French)
+
+### Improved
+- SDK now handles browser navigation actions (back, forward, refresh) directly
+- Enhanced scroll functionality with scroll-to-top and scroll-to-bottom
+
+## [1.0.2] - 2025-01-08
+
+### Improved
+- Enhanced microphone permission handling with detailed error messages
+- Added `requestMicrophonePermission()` method for explicit permission requests
+- Improved `checkMicrophonePermission()` to return more detailed status information
+- Better error messages with step-by-step instructions for enabling microphone access
+- Added browser-specific instructions (Chrome, Firefox, Safari, Edge)
+- Improved permission state detection (granted, denied, prompt)
+- Better handling of permission denied state with clear user guidance
+
+### Fixed
+- Permission errors now provide actionable instructions instead of generic messages
+- Fixed permission check to detect denied state before attempting to start recognition
+
 ## [1.0.1] - 2025-01-08
 
 ### Fixed

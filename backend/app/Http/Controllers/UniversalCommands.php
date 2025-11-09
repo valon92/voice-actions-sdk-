@@ -4035,6 +4035,330 @@ class UniversalCommands
                 'description' => 'Explore new models in public hub',
                 'category' => 'ai-learning'
             ],
+
+            // ============================================
+            // STARGATE.CI - PLATFORM SPECIFIC COMMANDS
+            // ============================================
+            
+            // Navigation Commands
+            [
+                'id' => 'navigate-home',
+                'phrases' => $getPhrases('navigate-home'),
+                'action' => 'navigate-home',
+                'description' => 'Navigate to home page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-about',
+                'phrases' => $getPhrases('navigate-about'),
+                'action' => 'navigate-about',
+                'description' => 'Navigate to about page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-events',
+                'phrases' => $getPhrases('navigate-events'),
+                'action' => 'navigate-events',
+                'description' => 'Navigate to events page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-news',
+                'phrases' => $getPhrases('navigate-news'),
+                'action' => 'navigate-news',
+                'description' => 'Navigate to news page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-faq',
+                'phrases' => $getPhrases('navigate-faq'),
+                'action' => 'navigate-faq',
+                'description' => 'Navigate to FAQ page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-contact',
+                'phrases' => $getPhrases('navigate-contact'),
+                'action' => 'navigate-contact',
+                'description' => 'Navigate to contact page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-subscribe',
+                'phrases' => $getPhrases('navigate-subscribe'),
+                'action' => 'navigate-subscribe',
+                'description' => 'Navigate to subscribe page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-search',
+                'phrases' => $getPhrases('navigate-search'),
+                'action' => 'navigate-search',
+                'description' => 'Navigate to search page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-disclaimer',
+                'phrases' => $getPhrases('navigate-disclaimer'),
+                'action' => 'navigate-disclaimer',
+                'description' => 'Navigate to disclaimer page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-signin',
+                'phrases' => $getPhrases('navigate-signin'),
+                'action' => 'navigate-signin',
+                'description' => 'Navigate to sign in page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-signup',
+                'phrases' => $getPhrases('navigate-signup'),
+                'action' => 'navigate-signup',
+                'description' => 'Navigate to sign up page',
+                'category' => 'stargate-navigation'
+            ],
+
+            // Scroll Commands (Enhanced)
+            [
+                'id' => 'scroll-to-top',
+                'phrases' => $getPhrases('scroll-to-top'),
+                'action' => 'scroll-to-top',
+                'description' => 'Scroll to top of page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'scroll-to-bottom',
+                'phrases' => $getPhrases('scroll-to-bottom'),
+                'action' => 'scroll-to-bottom',
+                'description' => 'Scroll to bottom of page',
+                'category' => 'stargate-navigation'
+            ],
+
+            // Video Interactions
+            [
+                'id' => 'like-video',
+                'phrases' => $getPhrases('like-video'),
+                'action' => 'like-video',
+                'description' => 'Like current video',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'comment-video',
+                'phrases' => $getPhrases('comment-video'),
+                'action' => 'comment-video',
+                'description' => 'Add comment to video',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'share-video',
+                'phrases' => $getPhrases('share-video'),
+                'action' => 'share-video',
+                'description' => 'Share current video',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'play-video',
+                'phrases' => $getPhrases('play-video'),
+                'action' => 'play-video',
+                'description' => 'Play video',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'pause-video',
+                'phrases' => $getPhrases('pause-video'),
+                'action' => 'pause-video',
+                'description' => 'Pause video',
+                'category' => 'stargate-video'
+            ],
+
+            // News Interactions
+            [
+                'id' => 'like-article',
+                'phrases' => $getPhrases('like-article'),
+                'action' => 'like-article',
+                'description' => 'Like current article',
+                'category' => 'stargate-news'
+            ],
+            [
+                'id' => 'read-article',
+                'phrases' => $getPhrases('read-article'),
+                'action' => 'read-article',
+                'description' => 'Read full article',
+                'category' => 'stargate-news'
+            ],
+            [
+                'id' => 'share-article',
+                'phrases' => $getPhrases('share-article'),
+                'action' => 'share-article',
+                'description' => 'Share current article',
+                'category' => 'stargate-news'
+            ],
+
+            // Event Interactions
+            [
+                'id' => 'register-event',
+                'phrases' => $getPhrases('register-event'),
+                'action' => 'register-event',
+                'description' => 'Register for event',
+                'category' => 'stargate-events'
+            ],
+            [
+                'id' => 'view-event-details',
+                'phrases' => $getPhrases('view-event-details'),
+                'action' => 'view-event-details',
+                'description' => 'View event details',
+                'category' => 'stargate-events'
+            ],
+
+            // Search Commands
+            [
+                'id' => 'open-search',
+                'phrases' => $getPhrases('open-search'),
+                'action' => 'open-search',
+                'description' => 'Open search box',
+                'category' => 'stargate-search'
+            ],
+            [
+                'id' => 'clear-search',
+                'phrases' => $getPhrases('clear-search'),
+                'action' => 'clear-search',
+                'description' => 'Clear search box',
+                'category' => 'stargate-search'
+            ],
+
+            // UI Controls
+            [
+                'id' => 'close-modal',
+                'phrases' => $getPhrases('close-modal'),
+                'action' => 'close-modal',
+                'description' => 'Close modal or dialog',
+                'category' => 'stargate-ui'
+            ],
+            [
+                'id' => 'open-menu',
+                'phrases' => $getPhrases('open-menu'),
+                'action' => 'open-menu',
+                'description' => 'Open mobile menu',
+                'category' => 'stargate-ui'
+            ],
+            [
+                'id' => 'close-menu',
+                'phrases' => $getPhrases('close-menu'),
+                'action' => 'close-menu',
+                'description' => 'Close mobile menu',
+                'category' => 'stargate-ui'
+            ],
+            [
+                'id' => 'toggle-theme',
+                'phrases' => $getPhrases('toggle-theme'),
+                'action' => 'toggle-theme',
+                'description' => 'Toggle dark/light theme',
+                'category' => 'stargate-ui'
+            ],
+
+            // Subscription
+            [
+                'id' => 'subscribe',
+                'phrases' => $getPhrases('subscribe'),
+                'action' => 'subscribe',
+                'description' => 'Subscribe to updates',
+                'category' => 'stargate-subscription'
+            ],
+            [
+                'id' => 'unsubscribe',
+                'phrases' => $getPhrases('unsubscribe'),
+                'action' => 'unsubscribe',
+                'description' => 'Unsubscribe from updates',
+                'category' => 'stargate-subscription'
+            ],
+
+            // Account Management
+            [
+                'id' => 'logout',
+                'phrases' => $getPhrases('logout'),
+                'action' => 'logout',
+                'description' => 'Logout from account',
+                'category' => 'stargate-account'
+            ],
+            [
+                'id' => 'view-profile',
+                'phrases' => $getPhrases('view-profile'),
+                'action' => 'view-profile',
+                'description' => 'View user profile',
+                'category' => 'stargate-account'
+            ],
+
+            // Browser Navigation
+            [
+                'id' => 'go-back',
+                'phrases' => $getPhrases('go-back'),
+                'action' => 'go-back',
+                'description' => 'Go back in browser history',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'go-forward',
+                'phrases' => $getPhrases('go-forward'),
+                'action' => 'go-forward',
+                'description' => 'Go forward in browser history',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'refresh-page',
+                'phrases' => $getPhrases('refresh-page'),
+                'action' => 'refresh-page',
+                'description' => 'Refresh current page',
+                'category' => 'stargate-navigation'
+            ],
+
+            // Content Actions
+            [
+                'id' => 'expand-content',
+                'phrases' => $getPhrases('expand-content'),
+                'action' => 'expand-content',
+                'description' => 'Expand collapsed content',
+                'category' => 'stargate-content'
+            ],
+            [
+                'id' => 'collapse-content',
+                'phrases' => $getPhrases('collapse-content'),
+                'action' => 'collapse-content',
+                'description' => 'Collapse expanded content',
+                'category' => 'stargate-content'
+            ],
+
+            // Filter & Sort
+            [
+                'id' => 'filter-events',
+                'phrases' => $getPhrases('filter-events'),
+                'action' => 'filter-events',
+                'description' => 'Filter events by category',
+                'category' => 'stargate-filter'
+            ],
+            [
+                'id' => 'sort-content',
+                'phrases' => $getPhrases('sort-content'),
+                'action' => 'sort-content',
+                'description' => 'Sort content',
+                'category' => 'stargate-filter'
+            ],
+
+            // Form Actions
+            [
+                'id' => 'submit-form',
+                'phrases' => $getPhrases('submit-form'),
+                'action' => 'submit-form',
+                'description' => 'Submit current form',
+                'category' => 'stargate-form'
+            ],
+            [
+                'id' => 'clear-form',
+                'phrases' => $getPhrases('clear-form'),
+                'action' => 'clear-form',
+                'description' => 'Clear form fields',
+                'category' => 'stargate-form'
+            ],
         ];
     }
 
@@ -4373,6 +4697,72 @@ class UniversalCommands
                 'connect-vr' => ['connect vr', 'vr headset', 'virtual reality', 'oculus'],
                 'enable-cross-platform' => ['enable cross-platform', 'cross-platform', 'cross play', 'multi-platform'],
                 'connect-controller' => ['connect controller', 'controller', 'gamepad', 'wireless controller'],
+
+                // Stargate.ci - Navigation
+                'navigate-home' => ['go home', 'home', 'home page', 'main page', 'go to home', 'take me home'],
+                'navigate-about' => ['go to about', 'about', 'about page', 'about us', 'show about', 'tell me about'],
+                'navigate-events' => ['go to events', 'events', 'events page', 'show events', 'view events', 'upcoming events'],
+                'navigate-news' => ['go to news', 'news', 'news page', 'show news', 'latest news', 'read news'],
+                'navigate-faq' => ['go to faq', 'faq', 'faq page', 'frequently asked questions', 'show faq', 'help'],
+                'navigate-contact' => ['go to contact', 'contact', 'contact page', 'contact us', 'get in touch'],
+                'navigate-subscribe' => ['go to subscribe', 'subscribe', 'subscribe page', 'sign up for updates'],
+                'navigate-search' => ['go to search', 'search', 'search page', 'open search', 'show search'],
+                'navigate-disclaimer' => ['go to disclaimer', 'disclaimer', 'legal disclaimer', 'show disclaimer'],
+                'navigate-signin' => ['go to sign in', 'sign in', 'sign in page', 'login', 'log in', 'sign in to account'],
+                'navigate-signup' => ['go to sign up', 'sign up', 'sign up page', 'register', 'create account', 'new account'],
+                'scroll-to-top' => ['scroll to top', 'go to top', 'top of page', 'beginning', 'top'],
+                'scroll-to-bottom' => ['scroll to bottom', 'go to bottom', 'end of page', 'bottom'],
+
+                // Stargate.ci - Video Interactions
+                'like-video' => ['like this video', 'like video', 'thumbs up', 'i like this'],
+                'comment-video' => ['add comment', 'comment', 'write comment', 'post comment'],
+                'share-video' => ['share video', 'share this', 'share', 'share content'],
+                'play-video' => ['play video', 'play', 'start video'],
+                'pause-video' => ['pause video', 'pause', 'stop video', 'resume video'],
+
+                // Stargate.ci - News Interactions
+                'like-article' => ['like article', 'like this article', 'thumbs up article'],
+                'read-article' => ['read article', 'open article', 'view article', 'show article'],
+                'share-article' => ['share article', 'share this article'],
+
+                // Stargate.ci - Event Interactions
+                'register-event' => ['register for event', 'sign up for event', 'join event', 'register'],
+                'view-event-details' => ['show event details', 'event details', 'more info', 'event info'],
+
+                // Stargate.ci - Search
+                'open-search' => ['search', 'open search', 'focus search', 'show search box'],
+                'clear-search' => ['clear search', 'reset search', 'clear'],
+
+                // Stargate.ci - UI Controls
+                'close-modal' => ['close', 'close modal', 'dismiss', 'cancel'],
+                'open-menu' => ['open menu', 'show menu', 'menu'],
+                'close-menu' => ['close menu', 'hide menu'],
+                'toggle-theme' => ['toggle theme', 'dark mode', 'light mode', 'switch theme'],
+
+                // Stargate.ci - Subscription
+                'subscribe' => ['subscribe', 'sign up', 'subscribe to updates', 'get notifications'],
+                'unsubscribe' => ['unsubscribe', 'stop notifications', 'cancel subscription'],
+
+                // Stargate.ci - Account
+                'logout' => ['logout', 'log out', 'sign out', 'exit account'],
+                'view-profile' => ['view profile', 'my profile', 'profile', 'account'],
+
+                // Stargate.ci - Browser Navigation
+                'go-back' => ['go back', 'back', 'previous page', 'return'],
+                'go-forward' => ['go forward', 'forward', 'next page'],
+                'refresh-page' => ['refresh', 'reload', 'refresh page', 'reload page'],
+
+                // Stargate.ci - Content Actions
+                'expand-content' => ['expand', 'show more', 'read more', 'see more'],
+                'collapse-content' => ['collapse', 'show less', 'hide', 'minimize'],
+
+                // Stargate.ci - Filter & Sort
+                'filter-events' => ['filter events', 'show filters', 'filter by category'],
+                'sort-content' => ['sort by date', 'sort by popularity', 'sort by name'],
+
+                // Stargate.ci - Form Actions
+                'submit-form' => ['submit', 'send', 'submit form', 'send form'],
+                'clear-form' => ['clear form', 'reset form', 'clear all'],
 
                 // Basic
                 'click' => ['click', 'tap', 'press', 'select'],
@@ -5048,6 +5438,72 @@ class UniversalCommands
                 'enable-cross-platform' => ['aktivizo cross-platform', 'cross-platform', 'cross play'],
                 'connect-controller' => ['lidh kontrollues', 'kontrollues', 'gamepad'],
 
+                // Stargate.ci - Navigation
+                'navigate-home' => ['shko ne shtepi', 'shtepi', 'faqja kryesore', 'shko ne faqen kryesore', 'merr me ne shtepi'],
+                'navigate-about' => ['shko ne about', 'about', 'rreth nesh', 'rreth projektit', 'trego about'],
+                'navigate-events' => ['shko ne events', 'events', 'eventet', 'shfaq eventet', 'shiko eventet'],
+                'navigate-news' => ['shko ne news', 'news', 'lajmet', 'shfaq lajmet', 'lajmet e fundit'],
+                'navigate-faq' => ['shko ne faq', 'faq', 'pyetjet e shpeshta', 'shfaq faq', 'ndihme'],
+                'navigate-contact' => ['shko ne contact', 'contact', 'kontakti', 'na kontakto', 'kontakt'],
+                'navigate-subscribe' => ['shko ne subscribe', 'subscribe', 'abonohu', 'regjistrohu per njoftime'],
+                'navigate-search' => ['shko ne search', 'search', 'kerko', 'hape search', 'shfaq search'],
+                'navigate-disclaimer' => ['shko ne disclaimer', 'disclaimer', 'shenim ligjor', 'shfaq disclaimer'],
+                'navigate-signin' => ['shko ne sign in', 'sign in', 'hyr', 'login', 'hyr ne llogari'],
+                'navigate-signup' => ['shko ne sign up', 'sign up', 'regjistrohu', 'krijo llogari', 'llogari e re'],
+                'scroll-to-top' => ['shko ne krye', 'krye', 'fillimi i faqes', 'ne krye'],
+                'scroll-to-bottom' => ['shko ne fund', 'fund', 'fundi i faqes', 'ne fund'],
+
+                // Stargate.ci - Video Interactions
+                'like-video' => ['pelqej kete video', 'pelqej video', 'thumbs up', 'me pelqen'],
+                'comment-video' => ['shto koment', 'koment', 'shkruaj koment', 'posto koment'],
+                'share-video' => ['ndaj video', 'ndaj kete', 'ndaj', 'ndaj permbajtje'],
+                'play-video' => ['luaj video', 'luaj', 'nis video'],
+                'pause-video' => ['pauzo video', 'pauzo', 'ndal video', 'rifillo video'],
+
+                // Stargate.ci - News Interactions
+                'like-article' => ['pelqej artikull', 'pelqej kete artikull', 'thumbs up artikull'],
+                'read-article' => ['lexo artikull', 'hape artikull', 'shiko artikull', 'shfaq artikull'],
+                'share-article' => ['ndaj artikull', 'ndaj kete artikull'],
+
+                // Stargate.ci - Event Interactions
+                'register-event' => ['regjistrohu per event', 'regjistrohu per eventin', 'bashkohu ne event', 'regjistrohu'],
+                'view-event-details' => ['shfaq detajet e eventit', 'detajet e eventit', 'me shume info', 'info event'],
+
+                // Stargate.ci - Search
+                'open-search' => ['kerko', 'hape search', 'fokus search', 'shfaq search box'],
+                'clear-search' => ['pastro search', 'reseto search', 'pastro'],
+
+                // Stargate.ci - UI Controls
+                'close-modal' => ['mbyll', 'mbyll modal', 'anulo', 'cancel'],
+                'open-menu' => ['hape menu', 'shfaq menu', 'menu'],
+                'close-menu' => ['mbyll menu', 'fsheh menu'],
+                'toggle-theme' => ['ndrysho teme', 'dark mode', 'light mode', 'kaloni teme'],
+
+                // Stargate.ci - Subscription
+                'subscribe' => ['abonohu', 'regjistrohu', 'abonohu per njoftime', 'merr njoftime'],
+                'unsubscribe' => ['cabo', 'ndal njoftimet', 'anulo abonimin'],
+
+                // Stargate.ci - Account
+                'logout' => ['dil', 'dil nga llogaria', 'sign out', 'dil'],
+                'view-profile' => ['shiko profile', 'profili im', 'profile', 'llogaria'],
+
+                // Stargate.ci - Browser Navigation
+                'go-back' => ['kthehu', 'mbrapa', 'faqja e kaluar', 'kthehu'],
+                'go-forward' => ['shko perpara', 'perpara', 'faqja e ardhshme'],
+                'refresh-page' => ['rifresko', 'ringarko', 'rifresko faqen', 'ringarko faqen'],
+
+                // Stargate.ci - Content Actions
+                'expand-content' => ['zgjero', 'shfaq me shume', 'lexo me shume', 'shiko me shume'],
+                'collapse-content' => ['mbyll', 'shfaq me pak', 'fsheh', 'minimizo'],
+
+                // Stargate.ci - Filter & Sort
+                'filter-events' => ['filtro eventet', 'shfaq filter', 'filtro sipas kategorise'],
+                'sort-content' => ['rendit sipas dates', 'rendit sipas popullaritetit', 'rendit sipas emrit'],
+
+                // Stargate.ci - Form Actions
+                'submit-form' => ['dergo', 'submit', 'dergo formular', 'submit form'],
+                'clear-form' => ['pastro formular', 'reseto formular', 'pastro te gjitha'],
+
                 // Basic
                 'click' => ['kliko', 'prek', 'shtyp', 'zgjedh'],
 
@@ -5722,6 +6178,72 @@ class UniversalCommands
                 'enable-cross-platform' => ['activar cross-platform', 'cross-platform', 'cross play'],
                 'connect-controller' => ['conectar controlador', 'controlador', 'gamepad'],
 
+                // Stargate.ci - Navigation
+                'navigate-home' => ['ir a inicio', 'inicio', 'página principal', 'ir a home', 'llevame a inicio'],
+                'navigate-about' => ['ir a about', 'about', 'sobre nosotros', 'acerca de', 'muestra about'],
+                'navigate-events' => ['ir a eventos', 'eventos', 'página de eventos', 'muestra eventos', 'ver eventos'],
+                'navigate-news' => ['ir a noticias', 'noticias', 'página de noticias', 'muestra noticias', 'últimas noticias'],
+                'navigate-faq' => ['ir a faq', 'faq', 'preguntas frecuentes', 'muestra faq', 'ayuda'],
+                'navigate-contact' => ['ir a contacto', 'contacto', 'página de contacto', 'contáctanos', 'contacto'],
+                'navigate-subscribe' => ['ir a suscribirse', 'suscribirse', 'página de suscripción', 'regístrate para actualizaciones'],
+                'navigate-search' => ['ir a buscar', 'buscar', 'página de búsqueda', 'abre búsqueda', 'muestra búsqueda'],
+                'navigate-disclaimer' => ['ir a disclaimer', 'disclaimer', 'aviso legal', 'muestra disclaimer'],
+                'navigate-signin' => ['ir a iniciar sesión', 'iniciar sesión', 'login', 'entrar', 'iniciar sesión en cuenta'],
+                'navigate-signup' => ['ir a registrarse', 'registrarse', 'página de registro', 'crear cuenta', 'nueva cuenta'],
+                'scroll-to-top' => ['ir arriba', 'arriba', 'inicio de página', 'principio', 'top'],
+                'scroll-to-bottom' => ['ir abajo', 'abajo', 'final de página', 'fondo'],
+
+                // Stargate.ci - Video Interactions
+                'like-video' => ['me gusta este video', 'me gusta video', 'thumbs up', 'me gusta'],
+                'comment-video' => ['agregar comentario', 'comentar', 'escribir comentario', 'publicar comentario'],
+                'share-video' => ['compartir video', 'compartir esto', 'compartir', 'compartir contenido'],
+                'play-video' => ['reproducir video', 'reproducir', 'iniciar video'],
+                'pause-video' => ['pausar video', 'pausar', 'detener video', 'reanudar video'],
+
+                // Stargate.ci - News Interactions
+                'like-article' => ['me gusta artículo', 'me gusta este artículo', 'thumbs up artículo'],
+                'read-article' => ['leer artículo', 'abrir artículo', 'ver artículo', 'mostrar artículo'],
+                'share-article' => ['compartir artículo', 'compartir este artículo'],
+
+                // Stargate.ci - Event Interactions
+                'register-event' => ['registrarse para evento', 'inscribirse en evento', 'unirse a evento', 'registrarse'],
+                'view-event-details' => ['mostrar detalles del evento', 'detalles del evento', 'más información', 'info evento'],
+
+                // Stargate.ci - Search
+                'open-search' => ['buscar', 'abrir búsqueda', 'enfoque búsqueda', 'mostrar búsqueda'],
+                'clear-search' => ['limpiar búsqueda', 'resetear búsqueda', 'limpiar'],
+
+                // Stargate.ci - UI Controls
+                'close-modal' => ['cerrar', 'cerrar modal', 'descartar', 'cancelar'],
+                'open-menu' => ['abrir menú', 'mostrar menú', 'menú'],
+                'close-menu' => ['cerrar menú', 'ocultar menú'],
+                'toggle-theme' => ['cambiar tema', 'modo oscuro', 'modo claro', 'alternar tema'],
+
+                // Stargate.ci - Subscription
+                'subscribe' => ['suscribirse', 'registrarse', 'suscribirse a actualizaciones', 'obtener notificaciones'],
+                'unsubscribe' => ['cancelar suscripción', 'detener notificaciones', 'cancelar suscripción'],
+
+                // Stargate.ci - Account
+                'logout' => ['cerrar sesión', 'salir', 'sign out', 'salir de cuenta'],
+                'view-profile' => ['ver perfil', 'mi perfil', 'perfil', 'cuenta'],
+
+                // Stargate.ci - Browser Navigation
+                'go-back' => ['ir atrás', 'atrás', 'página anterior', 'volver'],
+                'go-forward' => ['ir adelante', 'adelante', 'siguiente página'],
+                'refresh-page' => ['actualizar', 'recargar', 'actualizar página', 'recargar página'],
+
+                // Stargate.ci - Content Actions
+                'expand-content' => ['expandir', 'mostrar más', 'leer más', 'ver más'],
+                'collapse-content' => ['colapsar', 'mostrar menos', 'ocultar', 'minimizar'],
+
+                // Stargate.ci - Filter & Sort
+                'filter-events' => ['filtrar eventos', 'mostrar filtros', 'filtrar por categoría'],
+                'sort-content' => ['ordenar por fecha', 'ordenar por popularidad', 'ordenar por nombre'],
+
+                // Stargate.ci - Form Actions
+                'submit-form' => ['enviar', 'enviar formulario', 'submit', 'enviar form'],
+                'clear-form' => ['limpiar formulario', 'resetear formulario', 'limpiar todo'],
+
                 // Basic
                 'click' => ['clic', 'tocar', 'presionar', 'seleccionar'],
 
@@ -6395,6 +6917,72 @@ class UniversalCommands
                 'connect-vr' => ['connecter vr', 'vr headset', 'réalité virtuelle', 'oculus'],
                 'enable-cross-platform' => ['activer cross-platform', 'cross-platform', 'cross play'],
                 'connect-controller' => ['connecter contrôleur', 'contrôleur', 'gamepad'],
+
+                // Stargate.ci - Navigation
+                'navigate-home' => ['aller à l\'accueil', 'accueil', 'page d\'accueil', 'page principale', 'emmène-moi à l\'accueil'],
+                'navigate-about' => ['aller à propos', 'à propos', 'à propos de nous', 'à propos du projet', 'montre à propos'],
+                'navigate-events' => ['aller aux événements', 'événements', 'page des événements', 'montre événements', 'voir événements'],
+                'navigate-news' => ['aller aux actualités', 'actualités', 'page des actualités', 'montre actualités', 'dernières actualités'],
+                'navigate-faq' => ['aller à faq', 'faq', 'questions fréquentes', 'montre faq', 'aide'],
+                'navigate-contact' => ['aller au contact', 'contact', 'page de contact', 'contactez-nous', 'contact'],
+                'navigate-subscribe' => ['aller à s\'abonner', 's\'abonner', 'page d\'abonnement', 'inscrivez-vous pour les mises à jour'],
+                'navigate-search' => ['aller à recherche', 'recherche', 'page de recherche', 'ouvrir recherche', 'montre recherche'],
+                'navigate-disclaimer' => ['aller à disclaimer', 'disclaimer', 'avis légal', 'montre disclaimer'],
+                'navigate-signin' => ['aller à connexion', 'connexion', 'se connecter', 'login', 'se connecter au compte'],
+                'navigate-signup' => ['aller à inscription', 'inscription', 'page d\'inscription', 'créer un compte', 'nouveau compte'],
+                'scroll-to-top' => ['aller en haut', 'haut', 'début de page', 'commencement', 'top'],
+                'scroll-to-bottom' => ['aller en bas', 'bas', 'fin de page', 'fond'],
+
+                // Stargate.ci - Video Interactions
+                'like-video' => ['aimer cette vidéo', 'aimer vidéo', 'thumbs up', 'j\'aime'],
+                'comment-video' => ['ajouter commentaire', 'commenter', 'écrire commentaire', 'publier commentaire'],
+                'share-video' => ['partager vidéo', 'partager ceci', 'partager', 'partager contenu'],
+                'play-video' => ['lire vidéo', 'lire', 'démarrer vidéo'],
+                'pause-video' => ['mettre en pause vidéo', 'pause', 'arrêter vidéo', 'reprendre vidéo'],
+
+                // Stargate.ci - News Interactions
+                'like-article' => ['aimer article', 'aimer cet article', 'thumbs up article'],
+                'read-article' => ['lire article', 'ouvrir article', 'voir article', 'montrer article'],
+                'share-article' => ['partager article', 'partager cet article'],
+
+                // Stargate.ci - Event Interactions
+                'register-event' => ['s\'inscrire à l\'événement', 's\'inscrire pour événement', 'rejoindre événement', 's\'inscrire'],
+                'view-event-details' => ['montrer détails événement', 'détails événement', 'plus d\'info', 'info événement'],
+
+                // Stargate.ci - Search
+                'open-search' => ['rechercher', 'ouvrir recherche', 'focus recherche', 'montrer recherche'],
+                'clear-search' => ['effacer recherche', 'réinitialiser recherche', 'effacer'],
+
+                // Stargate.ci - UI Controls
+                'close-modal' => ['fermer', 'fermer modal', 'rejeter', 'annuler'],
+                'open-menu' => ['ouvrir menu', 'montrer menu', 'menu'],
+                'close-menu' => ['fermer menu', 'cacher menu'],
+                'toggle-theme' => ['changer thème', 'mode sombre', 'mode clair', 'basculer thème'],
+
+                // Stargate.ci - Subscription
+                'subscribe' => ['s\'abonner', 's\'inscrire', 's\'abonner aux mises à jour', 'obtenir notifications'],
+                'unsubscribe' => ['se désabonner', 'arrêter notifications', 'annuler abonnement'],
+
+                // Stargate.ci - Account
+                'logout' => ['déconnexion', 'se déconnecter', 'sign out', 'quitter compte'],
+                'view-profile' => ['voir profil', 'mon profil', 'profil', 'compte'],
+
+                // Stargate.ci - Browser Navigation
+                'go-back' => ['retour', 'retourner', 'page précédente', 'revenir'],
+                'go-forward' => ['aller en avant', 'avant', 'page suivante'],
+                'refresh-page' => ['actualiser', 'recharger', 'actualiser page', 'recharger page'],
+
+                // Stargate.ci - Content Actions
+                'expand-content' => ['développer', 'montrer plus', 'lire plus', 'voir plus'],
+                'collapse-content' => ['réduire', 'montrer moins', 'cacher', 'minimiser'],
+
+                // Stargate.ci - Filter & Sort
+                'filter-events' => ['filtrer événements', 'montrer filtres', 'filtrer par catégorie'],
+                'sort-content' => ['trier par date', 'trier par popularité', 'trier par nom'],
+
+                // Stargate.ci - Form Actions
+                'submit-form' => ['envoyer', 'soumettre', 'envoyer formulaire', 'submit form'],
+                'clear-form' => ['effacer formulaire', 'réinitialiser formulaire', 'effacer tout'],
 
                 // Basic
                 'click' => ['cliquer', 'toucher', 'appuyer', 'sélectionner'],
