@@ -1,0 +1,23 @@
+# .htaccess protection for cpanel-webhook.php
+# Rename this file to .htaccess and place it in the same directory as cpanel-webhook.php
+
+# Require authentication (optional but recommended)
+# AuthType Basic
+# AuthName "Webhook Access"
+# AuthUserFile /home/username/.htpasswd
+# Require valid-user
+
+# Or restrict by IP (recommended)
+# <RequireAll>
+#     Require ip YOUR_IP_ADDRESS
+#     Require ip YOUR_OFFICE_IP
+# </RequireAll>
+
+# Deny direct access from browser (only allow POST requests)
+<Files "cpanel-webhook.php">
+    <RequireAll>
+        Require all denied
+        Require env REDIRECT_github_webhook
+    </RequireAll>
+</Files>
+

@@ -1,0 +1,28 @@
+---
+# cPanel Deployment Configuration
+# This file is used by cPanel's Git Version Control for auto-deployment
+
+deployment:
+  tasks:
+    # Build Frontend
+    - /bin/cd $HOME/git/voiceactions-frontend/frontend
+    - /usr/local/bin/npm install
+    - /usr/local/bin/npm run build
+    
+    # Copy Frontend to public_html
+    - /bin/cp -R $HOME/git/voiceactions-frontend/frontend/dist/* $HOME/public_html/
+    
+    # Build Backend
+    - /bin/cd $HOME/git/voiceactions-backend/backend
+    - /usr/local/bin/php /usr/local/bin/composer install --no-dev --optimize-autoloader
+    - /usr/local/bin/php artisan config:cache
+    - /usr/local/bin/php artisan route:cache
+    - /usr/local/bin/php artisan view:cache
+    
+    # Copy Backend to api subdomain
+    - /bin/cp -R $HOME/git/voiceactions-backend/backend/* $HOME/api.voiceactions.dev/
+    
+    # Set permissions
+    - /bin/chmod -R 755 $HOME/api.voiceactions.dev/storage
+    - /bin/chmod -R 755 $HOME/api.voiceactions.dev/bootstrap/cache
+
