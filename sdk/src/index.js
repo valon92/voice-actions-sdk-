@@ -19,7 +19,7 @@ class VoiceActionsSDK {
     // Default to localhost for development, production URL for production
     this.apiUrl = options.apiUrl || (typeof window !== 'undefined' && window.location.hostname === 'localhost' 
       ? 'http://localhost:8000/api' 
-      : 'https://api.voiceactions.io');
+      : 'https://api.voiceactions.dev/api');
     this.platform = options.platform || 'custom';
     this.locale = options.locale || 'en-US';
     this.debug = options.debug || false;

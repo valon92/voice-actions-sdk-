@@ -1,6 +1,6 @@
 {
   "name": "@valon92/voice-actions-sdk",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Global Voice Control SDK for Web Applications - Multi-language voice recognition and command processing",
   "type": "module",
   "main": "dist/voice-actions-sdk.js",
