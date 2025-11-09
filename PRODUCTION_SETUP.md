@@ -167,8 +167,25 @@ sudo logrotate -f /etc/logrotate.d/laravel
 
 ### Error Tracking
 
-Konsidero integrim me:
-- **Sentry** - Error tracking
+✅ **Sentry** është integruar për error tracking dhe monitoring.
+
+**Setup:**
+1. Krijoni Sentry account në [sentry.io](https://sentry.io)
+2. Shtoni DSN në `.env`:
+   ```env
+   SENTRY_LARAVEL_DSN=https://your-dsn@sentry.io/project-id
+   SENTRY_ENVIRONMENT=production
+   ```
+3. Shiko `SENTRY_SETUP.md` për guide të plotë
+
+**Features:**
+- Real-time error tracking
+- Performance monitoring
+- Session replay
+- Release tracking
+- Custom alerts
+
+Konsidero edhe:
 - **New Relic** - Performance monitoring
 - **Datadog** - Full-stack monitoring
 

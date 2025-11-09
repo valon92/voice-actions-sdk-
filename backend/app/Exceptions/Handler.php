@@ -9,6 +9,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Sentry\Laravel\Integration;
 
 class Handler extends ExceptionHandler
 {
@@ -20,8 +21,14 @@ class Handler extends ExceptionHandler
 
     public function register(): void
     {
+        // Integrate Sentry for error tracking
         $this->reportable(function (Throwable $e) {
-            // Log all exceptions for monitoring
+            // Send to Sentry if DSN is configured
+            if (config('sentry.dsn')) {
+                Integration::captureUnhandledException($e);
+            }
+            
+            // Also log to Laravel logs
             if (app()->bound('log')) {
                 \Log::error('Exception occurred', [
                     'message' => $e->getMessage(),
@@ -30,6 +37,9 @@ class Handler extends ExceptionHandler
                     'trace' => $e->getTraceAsString(),
                     'url' => request()->fullUrl(),
                     'method' => request()->method(),
+                    'platform_id' => request()->input('api_platform_id'),
+                    'user_agent' => request()->userAgent(),
+                    'ip' => request()->ip(),
                 ]);
             }
         });

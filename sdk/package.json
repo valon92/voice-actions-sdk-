@@ -1,13 +1,15 @@
 {
-  "name": "@voice-actions/sdk",
-  "version": "1.0.0",
+  "name": "@valon92/voice-actions-sdk",
+  "version": "1.0.1",
   "description": "Global Voice Control SDK for Web Applications - Multi-language voice recognition and command processing",
   "type": "module",
   "main": "dist/voice-actions-sdk.js",
   "module": "dist/voice-actions-sdk.esm.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -30,13 +32,20 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/voice-actions/sdk.git"
+    "url": "https://github.com/valon92/voice-actions-sdk-.git",
+    "directory": "sdk"
+  },
+  "homepage": "https://github.com/valon92/voice-actions-sdk-",
+  "bugs": {
+    "url": "https://github.com/valon92/voice-actions-sdk-/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^2.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "jsdom": "^23.0.0",
     "rollup": "^4.0.0",
     "vitest": "^1.0.0"
   }
 }
-

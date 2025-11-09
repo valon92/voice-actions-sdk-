@@ -1,0 +1,33 @@
+# Development files
+node_modules/
+tests/
+vitest.config.js
+*.test.js
+*.spec.js
+
+# Build config
+rollup.config.js
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
+use Sentry\State\Scope;
 
 class RateLimitMiddleware
 {
@@ -46,6 +47,19 @@ class RateLimitMiddleware
         $minuteCount = Cache::get($minuteKey, 0);
         
         if ($minuteCount >= $rateLimits->requests_per_minute) {
+            // Log rate limit exceeded to Sentry
+            if (config('sentry.dsn')) {
+                \Sentry\configureScope(function (Scope $scope) use ($platformId, $rateLimits): void {
+                    $scope->setTag('rate_limit_type', 'minute');
+                    $scope->setTag('platform_id', (string) $platformId);
+                    $scope->setContext('rate_limit', [
+                        'limit' => $rateLimits->requests_per_minute,
+                        'current' => $minuteCount,
+                    ]);
+                });
+                \Sentry\captureMessage('Rate limit exceeded (per minute)', 'warning');
+            }
+            
             return response()->json([
                 'success' => false,
                 'error' => 'Rate limit exceeded. Too many requests per minute.',
@@ -59,6 +73,19 @@ class RateLimitMiddleware
         $hourCount = Cache::get($hourKey, 0);
         
         if ($hourCount >= $rateLimits->requests_per_hour) {
+            // Log rate limit exceeded to Sentry
+            if (config('sentry.dsn')) {
+                \Sentry\configureScope(function (Scope $scope) use ($platformId, $rateLimits): void {
+                    $scope->setTag('rate_limit_type', 'hour');
+                    $scope->setTag('platform_id', (string) $platformId);
+                    $scope->setContext('rate_limit', [
+                        'limit' => $rateLimits->requests_per_hour,
+                        'current' => $hourCount,
+                    ]);
+                });
+                \Sentry\captureMessage('Rate limit exceeded (per hour)', 'warning');
+            }
+            
             return response()->json([
                 'success' => false,
                 'error' => 'Rate limit exceeded. Too many requests per hour.',
@@ -72,6 +99,19 @@ class RateLimitMiddleware
         $dayCount = Cache::get($dayKey, 0);
         
         if ($dayCount >= $rateLimits->requests_per_day) {
+            // Log rate limit exceeded to Sentry
+            if (config('sentry.dsn')) {
+                \Sentry\configureScope(function (Scope $scope) use ($platformId, $rateLimits): void {
+                    $scope->setTag('rate_limit_type', 'day');
+                    $scope->setTag('platform_id', (string) $platformId);
+                    $scope->setContext('rate_limit', [
+                        'limit' => $rateLimits->requests_per_day,
+                        'current' => $dayCount,
+                    ]);
+                });
+                \Sentry\captureMessage('Rate limit exceeded (per day)', 'warning');
+            }
+            
             return response()->json([
                 'success' => false,
                 'error' => 'Rate limit exceeded. Too many requests per day.',
