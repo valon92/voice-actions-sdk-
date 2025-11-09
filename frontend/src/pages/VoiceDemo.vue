@@ -18,12 +18,12 @@
             Voice Actions SDK Demo
           </h1>
           <p class="text-lg sm:text-xl text-purple-200 max-w-3xl mx-auto leading-relaxed mb-6">
-            Experience <strong class="text-white">550+ universal voice commands</strong> covering all social media, e-commerce, gaming, technology, education, communication, AND development platform features. Works with Facebook, Instagram, TikTok, X, Amazon, eBay, Steam, Windows, macOS, Android, iOS, AWS, GitHub, Coursera, Udemy, Slack, Discord, Teams, Zoom, Vercel, Netlify, and more!
+            Experience <strong class="text-white">600+ universal voice commands</strong> covering all social media, e-commerce, gaming, technology, education, communication, development, AND AI platform features. Works with Facebook, Instagram, TikTok, X, Amazon, eBay, Steam, Windows, macOS, Android, iOS, AWS, GitHub, Coursera, Udemy, Slack, Discord, Teams, Zoom, Vercel, Netlify, ChatGPT, Gemini, Claude, and more!
           </p>
           <!-- Benefits Badge -->
           <div class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 rounded-full">
             <span class="text-2xl">✨</span>
-            <span class="text-green-200 font-semibold">550+ Universal Commands</span>
+            <span class="text-green-200 font-semibold">600+ Universal Commands</span>
             <span class="text-green-300 text-sm">|</span>
             <span class="text-green-200 font-semibold">4 Languages</span>
             <span class="text-green-300 text-sm">|</span>
@@ -41,7 +41,7 @@
             <div class="p-6 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl border border-blue-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌐</div>
               <h3 class="text-xl font-bold text-white mb-2">Universal Commands</h3>
-              <p class="text-blue-200 text-sm">550+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X), E-Commerce (Amazon, eBay, Shopify), Gaming (Steam, Epic, Xbox, PlayStation), Technology (Windows, macOS, Android, iOS, AWS, GitHub), Education (Coursera, Udemy, Khan Academy), Communication (Slack, Discord, Teams, Zoom), AND Development (GitHub, GitLab, Vercel, Netlify)!</p>
+              <p class="text-blue-200 text-sm">600+ commands that work across all platforms - Social Media (Facebook, Instagram, TikTok, X), E-Commerce (Amazon, eBay, Shopify), Gaming (Steam, Epic, Xbox, PlayStation), Technology (Windows, macOS, Android, iOS, AWS, GitHub), Education (Coursera, Udemy, Khan Academy), Communication (Slack, Discord, Teams, Zoom), Development (GitHub, GitLab, Vercel, Netlify), AND AI Platforms (ChatGPT, Gemini, Claude, Midjourney, Runway ML)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌍</div>
@@ -56,7 +56,7 @@
             <div class="p-6 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🎯</div>
               <h3 class="text-xl font-bold text-white mb-2">Comprehensive Coverage</h3>
-              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging), E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller), Gaming (Account, Discovery, Download, Gameplay, Library, Social, Achievements, Purchases, Security, Refunds, UX, Devices), Technology (OS, Mobile, Cloud, Developer, Common Features), Education (Student Actions, Instructor Actions, Common Features), Communication (Chat, Calls, Groups, Files, Notifications, Collaboration, Integrations, Security, Admin, Common Features), AND Development (Project, Collaboration, Deploy, Integration, Version Control, Testing, Security, Package, Environment, Admin, Common Features)!</p>
+              <p class="text-orange-200 text-sm">Covers ALL features: Social Media (Profile, Content, Interactions, Messaging), E-Commerce (Account, Search, Orders, Payments, Shipping, Reviews, Loyalty, Returns, Seller), Gaming (Account, Discovery, Download, Gameplay, Library, Social, Achievements, Purchases, Security, Refunds, UX, Devices), Technology (OS, Mobile, Cloud, Developer, Common Features), Education (Student Actions, Instructor Actions, Common Features), Communication (Chat, Calls, Groups, Files, Notifications, Collaboration, Integrations, Security, Admin, Common Features), Development (Project, Collaboration, Deploy, Integration, Version Control, Testing, Security, Package, Environment, Admin, Common Features), AND AI Platforms (Interaction, Multimodal Generation, Personalization, Integration, Data Analysis, Security, Payment, Development, Analytics, Learning)!</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🔒</div>
@@ -226,7 +226,7 @@
         <div class="mb-8">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
             <span class="text-4xl">🎯</span>
-            <span>All Voice Commands (550+)</span>
+            <span>All Voice Commands (600+)</span>
           </h2>
           <p class="text-purple-200 mb-6 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
           
@@ -1223,6 +1223,185 @@
           </div>
         </div>
 
+        <!-- AI Platform Commands -->
+        <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
+            <span class="text-4xl">🤖</span>
+            <span>AI Platform Commands</span>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            <!-- AI: Interaction & Content Creation -->
+            <div class="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl border border-cyan-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>💬</span>
+                  <span>Interaction</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiInteractionCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiInteractionCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-cyan-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-cyan-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Multimodal Generation -->
+            <div class="bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-2xl border border-pink-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🎨</span>
+                  <span>Multimodal</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiMultimodalCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiMultimodalCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-pink-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-pink-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Personalization & Training -->
+            <div class="bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-2xl border border-purple-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🧠</span>
+                  <span>Personalization</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiPersonalizationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiPersonalizationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-purple-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-purple-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Integration & Collaboration -->
+            <div class="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl border border-green-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🔗</span>
+                  <span>Integration</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiIntegrationCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiIntegrationCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-green-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-green-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Data Analysis & Understanding -->
+            <div class="bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl border border-orange-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>📊</span>
+                  <span>Analysis</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiAnalysisCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiAnalysisCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-orange-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-orange-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Security & Account Management -->
+            <div class="bg-gradient-to-br from-red-500/20 to-rose-500/20 rounded-2xl border border-red-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🔐</span>
+                  <span>Security</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiSecurityCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiSecurityCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-red-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-red-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Payment & Subscription -->
+            <div class="bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-2xl border border-yellow-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>💵</span>
+                  <span>Payment</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiPaymentCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiPaymentCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-yellow-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-yellow-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Development & Testing -->
+            <div class="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-2xl border border-teal-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>⚙️</span>
+                  <span>Development</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiDevelopmentCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiDevelopmentCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-teal-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-teal-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Analytics & Monitoring -->
+            <div class="bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-2xl border border-indigo-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>📈</span>
+                  <span>Analytics</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiAnalyticsCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiAnalyticsCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-indigo-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-indigo-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- AI: Learning & Exploration -->
+            <div class="bg-gradient-to-br from-blue-500/20 to-sky-500/20 rounded-2xl border border-blue-400/30 p-4 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <span>🧭</span>
+                  <span>Learning</span>
+                </h3>
+                <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full">{{ aiLearningCommands.length }}</span>
+              </div>
+              <div class="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
+                <button v-for="cmd in aiLearningCommands" :key="cmd.id" @click="simulateCommand(cmd)" class="w-full text-left px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-200 border border-white/10 hover:border-white/20 group/btn text-sm">
+                  <span class="font-semibold text-white block mb-1 group-hover/btn:text-blue-300 transition-colors">{{ cmd.name || cmd.id }}</span>
+                  <span class="text-xs text-blue-300/70 line-clamp-1">{{ (cmd.phrases || []).slice(0, 2).join(', ') }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Demo Area -->
         <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 mb-8">
           <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-green-500 flex items-center gap-3">
@@ -1605,6 +1784,47 @@ const developmentAdminCommands = computed(() => {
 
 const developmentCommonCommands = computed(() => {
   return allCommands.value.filter(cmd => cmd.category === 'development-common')
+})
+
+// AI Commands
+const aiInteractionCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-interaction')
+})
+
+const aiMultimodalCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-multimodal')
+})
+
+const aiPersonalizationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-personalization')
+})
+
+const aiIntegrationCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-integration')
+})
+
+const aiAnalysisCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-analysis')
+})
+
+const aiSecurityCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-security')
+})
+
+const aiPaymentCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-payment')
+})
+
+const aiDevelopmentCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-development')
+})
+
+const aiAnalyticsCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-analytics')
+})
+
+const aiLearningCommands = computed(() => {
+  return allCommands.value.filter(cmd => cmd.category === 'ai-learning')
 })
 
 // Initialize SDK

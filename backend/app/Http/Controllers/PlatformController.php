@@ -33,12 +33,15 @@ class PlatformController extends Controller
             'updated_at' => now(),
         ]);
 
-        // Create rate limits
+        // Create rate limits based on plan
+        $plan = $this->determinePlan($request->expected_usage ?? 0);
+        $rateLimits = $this->getRateLimitsForPlan($plan);
+        
         DB::table('api_rate_limits')->insert([
             'platform_id' => $platform,
-            'requests_per_minute' => 1000,
-            'requests_per_hour' => 10000,
-            'requests_per_day' => 100000,
+            'requests_per_minute' => $rateLimits['per_minute'],
+            'requests_per_hour' => $rateLimits['per_hour'],
+            'requests_per_day' => $rateLimits['per_day'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -148,6 +151,33 @@ class PlatformController extends Controller
         }
 
         return null;
+    }
+
+    /**
+     * Get rate limits based on plan
+     * 
+     * @param string $plan
+     * @return array
+     */
+    private function getRateLimitsForPlan($plan)
+    {
+        return match($plan) {
+            'enterprise' => [
+                'per_minute' => 10000,  // 10K requests per minute
+                'per_hour' => 500000,    // 500K requests per hour
+                'per_day' => 10000000,   // 10M requests per day
+            ],
+            'pro' => [
+                'per_minute' => 1000,    // 1K requests per minute
+                'per_hour' => 50000,     // 50K requests per hour
+                'per_day' => 1000000,    // 1M requests per day
+            ],
+            default => [ // free
+                'per_minute' => 60,      // 60 requests per minute
+                'per_hour' => 1000,      // 1K requests per hour
+                'per_day' => 10000,      // 10K requests per day
+            ],
+        };
     }
 }
 

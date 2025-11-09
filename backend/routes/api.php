@@ -28,8 +28,8 @@ Route::get('/platforms/{id}', [PlatformController::class, 'show'])->middleware('
 // Demo route (no API key required)
 Route::get('/commands/demo', [CommandController::class, 'demo']);
 
-// Usage routes (require API key)
-Route::middleware('api.key')->group(function () {
+// Usage routes (require API key and rate limiting)
+Route::middleware(['api.key', 'rate.limit'])->group(function () {
     Route::get('/usage/stats', [UsageController::class, 'getStats']);
     Route::post('/usage/track', [UsageController::class, 'track']);
     Route::get('/commands', [CommandController::class, 'index']);

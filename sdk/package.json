@@ -12,7 +12,10 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [
     "voice",
@@ -31,7 +34,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^2.0.0",
-    "rollup": "^4.0.0"
+    "jsdom": "^23.0.0",
+    "rollup": "^4.0.0",
+    "vitest": "^1.0.0"
   }
 }
 

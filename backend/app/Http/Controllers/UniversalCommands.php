@@ -3575,6 +3575,466 @@ class UniversalCommands
                 'description' => 'View project development history',
                 'category' => 'development-common'
             ],
+
+            // ============================================
+            // AI PLATFORMS: INTERACTION & CONTENT CREATION
+            // ============================================
+            [
+                'id' => 'chat-with-ai',
+                'phrases' => $getPhrases('chat-with-ai'),
+                'action' => 'chat-with-ai',
+                'description' => 'Start chat conversation with AI',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'ask-question',
+                'phrases' => $getPhrases('ask-question'),
+                'action' => 'ask-question',
+                'description' => 'Ask question to AI',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'create-content',
+                'phrases' => $getPhrases('create-content'),
+                'action' => 'create-content',
+                'description' => 'Create content (article, essay, email, etc.)',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'translate-text',
+                'phrases' => $getPhrases('translate-text'),
+                'action' => 'translate-text',
+                'description' => 'Translate text to different language',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'summarize-document',
+                'phrases' => $getPhrases('summarize-document'),
+                'action' => 'summarize-document',
+                'description' => 'Summarize long document',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'correct-grammar',
+                'phrases' => $getPhrases('correct-grammar'),
+                'action' => 'correct-grammar',
+                'description' => 'Correct grammar and spelling errors',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'generate-ideas',
+                'phrases' => $getPhrases('generate-ideas'),
+                'action' => 'generate-ideas',
+                'description' => 'Generate ideas and suggestions',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'generate-code',
+                'phrases' => $getPhrases('generate-code'),
+                'action' => 'generate-code',
+                'description' => 'Generate code in programming language',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'optimize-code',
+                'phrases' => $getPhrases('optimize-code'),
+                'action' => 'optimize-code',
+                'description' => 'Optimize existing code',
+                'category' => 'ai-interaction'
+            ],
+            [
+                'id' => 'convert-code',
+                'phrases' => $getPhrases('convert-code'),
+                'action' => 'convert-code',
+                'description' => 'Convert code between programming languages',
+                'category' => 'ai-interaction'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: MULTIMODAL GENERATION
+            // ============================================
+            [
+                'id' => 'generate-image',
+                'phrases' => $getPhrases('generate-image'),
+                'action' => 'generate-image',
+                'description' => 'Generate image from text description',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'edit-image',
+                'phrases' => $getPhrases('edit-image'),
+                'action' => 'edit-image',
+                'description' => 'Edit existing image',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'remove-background',
+                'phrases' => $getPhrases('remove-background'),
+                'action' => 'remove-background',
+                'description' => 'Remove background from image',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'generate-video',
+                'phrases' => $getPhrases('generate-video'),
+                'action' => 'generate-video',
+                'description' => 'Generate video from text',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'text-to-speech',
+                'phrases' => $getPhrases('text-to-speech'),
+                'action' => 'text-to-speech',
+                'description' => 'Convert text to speech',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'speech-to-text',
+                'phrases' => $getPhrases('speech-to-text'),
+                'action' => 'speech-to-text',
+                'description' => 'Convert speech to text',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'generate-music',
+                'phrases' => $getPhrases('generate-music'),
+                'action' => 'generate-music',
+                'description' => 'Generate music with AI',
+                'category' => 'ai-multimodal'
+            ],
+            [
+                'id' => 'create-design',
+                'phrases' => $getPhrases('create-design'),
+                'action' => 'create-design',
+                'description' => 'Create graphic design, logo, or presentation',
+                'category' => 'ai-multimodal'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: PERSONALIZATION & TRAINING
+            // ============================================
+            [
+                'id' => 'create-assistant',
+                'phrases' => $getPhrases('create-assistant'),
+                'action' => 'create-assistant',
+                'description' => 'Create custom AI assistant',
+                'category' => 'ai-personalization'
+            ],
+            [
+                'id' => 'save-conversation',
+                'phrases' => $getPhrases('save-conversation'),
+                'action' => 'save-conversation',
+                'description' => 'Save conversation history',
+                'category' => 'ai-personalization'
+            ],
+            [
+                'id' => 'set-tone',
+                'phrases' => $getPhrases('set-tone'),
+                'action' => 'set-tone',
+                'description' => 'Set communication tone and style',
+                'category' => 'ai-personalization'
+            ],
+            [
+                'id' => 'train-model',
+                'phrases' => $getPhrases('train-model'),
+                'action' => 'train-model',
+                'description' => 'Train custom AI model with dataset',
+                'category' => 'ai-personalization'
+            ],
+            [
+                'id' => 'use-advanced-prompt',
+                'phrases' => $getPhrases('use-advanced-prompt'),
+                'action' => 'use-advanced-prompt',
+                'description' => 'Use advanced prompt for better results',
+                'category' => 'ai-personalization'
+            ],
+            [
+                'id' => 'access-api',
+                'phrases' => $getPhrases('access-api'),
+                'action' => 'access-api',
+                'description' => 'Access AI API for application development',
+                'category' => 'ai-personalization'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: INTEGRATION & COLLABORATION
+            // ============================================
+            [
+                'id' => 'connect-app',
+                'phrases' => $getPhrases('connect-app'),
+                'action' => 'connect-app',
+                'description' => 'Connect AI with other applications',
+                'category' => 'ai-integration'
+            ],
+            [
+                'id' => 'install-plugin',
+                'phrases' => $getPhrases('install-plugin'),
+                'action' => 'install-plugin',
+                'description' => 'Install plugin for additional features',
+                'category' => 'ai-integration'
+            ],
+            [
+                'id' => 'import-document',
+                'phrases' => $getPhrases('import-document'),
+                'action' => 'import-document',
+                'description' => 'Import and analyze document (PDF, Excel, CSV, etc.)',
+                'category' => 'ai-integration'
+            ],
+            [
+                'id' => 'create-automation',
+                'phrases' => $getPhrases('create-automation'),
+                'action' => 'create-automation',
+                'description' => 'Create automation workflow',
+                'category' => 'ai-integration'
+            ],
+            [
+                'id' => 'connect-database',
+                'phrases' => $getPhrases('connect-database'),
+                'action' => 'connect-database',
+                'description' => 'Connect AI with database for queries',
+                'category' => 'ai-integration'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: DATA ANALYSIS & UNDERSTANDING
+            // ============================================
+            [
+                'id' => 'analyze-data',
+                'phrases' => $getPhrases('analyze-data'),
+                'action' => 'analyze-data',
+                'description' => 'Analyze data (Excel, CSV, JSON, etc.)',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'create-chart',
+                'phrases' => $getPhrases('create-chart'),
+                'action' => 'create-chart',
+                'description' => 'Create charts and visualizations',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'find-trends',
+                'phrases' => $getPhrases('find-trends'),
+                'action' => 'find-trends',
+                'description' => 'Find trends and insights from data',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'analyze-sentiment',
+                'phrases' => $getPhrases('analyze-sentiment'),
+                'action' => 'analyze-sentiment',
+                'description' => 'Analyze sentiment of text',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'categorize-text',
+                'phrases' => $getPhrases('categorize-text'),
+                'action' => 'categorize-text',
+                'description' => 'Categorize and classify text',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'classify-image',
+                'phrases' => $getPhrases('classify-image'),
+                'action' => 'classify-image',
+                'description' => 'Classify and categorize images',
+                'category' => 'ai-analysis'
+            ],
+            [
+                'id' => 'generate-report',
+                'phrases' => $getPhrases('generate-report'),
+                'action' => 'generate-report',
+                'description' => 'Generate automated report from data',
+                'category' => 'ai-analysis'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: SECURITY & ACCOUNT MANAGEMENT
+            // ============================================
+            [
+                'id' => 'manage-account',
+                'phrases' => $getPhrases('manage-account'),
+                'action' => 'manage-account',
+                'description' => 'Manage account and access settings',
+                'category' => 'ai-security'
+            ],
+            [
+                'id' => 'view-history',
+                'phrases' => $getPhrases('view-history'),
+                'action' => 'view-history',
+                'description' => 'View conversation history',
+                'category' => 'ai-security'
+            ],
+            [
+                'id' => 'delete-history',
+                'phrases' => $getPhrases('delete-history'),
+                'action' => 'delete-history',
+                'description' => 'Delete conversation history',
+                'category' => 'ai-security'
+            ],
+            [
+                'id' => 'set-privacy',
+                'phrases' => $getPhrases('set-privacy'),
+                'action' => 'set-privacy',
+                'description' => 'Set data privacy settings',
+                'category' => 'ai-security'
+            ],
+            [
+                'id' => 'manage-api-keys',
+                'phrases' => $getPhrases('manage-api-keys'),
+                'action' => 'manage-api-keys',
+                'description' => 'Manage API keys and usage limits',
+                'category' => 'ai-security'
+            ],
+            [
+                'id' => 'enable-2fa',
+                'phrases' => $getPhrases('enable-2fa'),
+                'action' => 'enable-2fa',
+                'description' => 'Enable two-factor authentication',
+                'category' => 'ai-security'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: PAYMENT & SUBSCRIPTION
+            // ============================================
+            [
+                'id' => 'upgrade-plan',
+                'phrases' => $getPhrases('upgrade-plan'),
+                'action' => 'upgrade-plan',
+                'description' => 'Upgrade to premium plan',
+                'category' => 'ai-payment'
+            ],
+            [
+                'id' => 'view-usage',
+                'phrases' => $getPhrases('view-usage'),
+                'action' => 'view-usage',
+                'description' => 'View API usage and consumption',
+                'category' => 'ai-payment'
+            ],
+            [
+                'id' => 'monitor-costs',
+                'phrases' => $getPhrases('monitor-costs'),
+                'action' => 'monitor-costs',
+                'description' => 'Monitor monthly costs and spending',
+                'category' => 'ai-payment'
+            ],
+            [
+                'id' => 'view-billing',
+                'phrases' => $getPhrases('view-billing'),
+                'action' => 'view-billing',
+                'description' => 'View billing and invoices',
+                'category' => 'ai-payment'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: DEVELOPMENT & TESTING
+            // ============================================
+            [
+                'id' => 'test-model',
+                'phrases' => $getPhrases('test-model'),
+                'action' => 'test-model',
+                'description' => 'Test different AI models in sandbox',
+                'category' => 'ai-development'
+            ],
+            [
+                'id' => 'build-app',
+                'phrases' => $getPhrases('build-app'),
+                'action' => 'build-app',
+                'description' => 'Build application with AI API',
+                'category' => 'ai-development'
+            ],
+            [
+                'id' => 'publish-model',
+                'phrases' => $getPhrases('publish-model'),
+                'action' => 'publish-model',
+                'description' => 'Publish or share model on platform',
+                'category' => 'ai-development'
+            ],
+            [
+                'id' => 'integrate-models',
+                'phrases' => $getPhrases('integrate-models'),
+                'action' => 'integrate-models',
+                'description' => 'Integrate multiple AI models',
+                'category' => 'ai-development'
+            ],
+            [
+                'id' => 'debug-response',
+                'phrases' => $getPhrases('debug-response'),
+                'action' => 'debug-response',
+                'description' => 'Debug AI responses and outputs',
+                'category' => 'ai-development'
+            ],
+            [
+                'id' => 'implement-ai',
+                'phrases' => $getPhrases('implement-ai'),
+                'action' => 'implement-ai',
+                'description' => 'Implement AI in web, mobile, or desktop app',
+                'category' => 'ai-development'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: ANALYTICS & MONITORING
+            // ============================================
+            [
+                'id' => 'view-usage-report',
+                'phrases' => $getPhrases('view-usage-report'),
+                'action' => 'view-usage-report',
+                'description' => 'View model usage reports',
+                'category' => 'ai-analytics'
+            ],
+            [
+                'id' => 'analyze-quality',
+                'phrases' => $getPhrases('analyze-quality'),
+                'action' => 'analyze-quality',
+                'description' => 'Analyze quality of AI responses',
+                'category' => 'ai-analytics'
+            ],
+            [
+                'id' => 'view-api-consumption',
+                'phrases' => $getPhrases('view-api-consumption'),
+                'action' => 'view-api-consumption',
+                'description' => 'View API consumption statistics',
+                'category' => 'ai-analytics'
+            ],
+            [
+                'id' => 'view-logs',
+                'phrases' => $getPhrases('view-logs'),
+                'action' => 'view-logs',
+                'description' => 'View logs for debugging and monitoring',
+                'category' => 'ai-analytics'
+            ],
+
+            // ============================================
+            // AI PLATFORMS: LEARNING & EXPLORATION
+            // ============================================
+            [
+                'id' => 'view-documentation',
+                'phrases' => $getPhrases('view-documentation'),
+                'action' => 'view-documentation',
+                'description' => 'View AI and API documentation',
+                'category' => 'ai-learning'
+            ],
+            [
+                'id' => 'test-feature',
+                'phrases' => $getPhrases('test-feature'),
+                'action' => 'test-feature',
+                'description' => 'Test new experimental features',
+                'category' => 'ai-learning'
+            ],
+            [
+                'id' => 'open-playground',
+                'phrases' => $getPhrases('open-playground'),
+                'action' => 'open-playground',
+                'description' => 'Open AI playground for experimentation',
+                'category' => 'ai-learning'
+            ],
+            [
+                'id' => 'explore-models',
+                'phrases' => $getPhrases('explore-models'),
+                'action' => 'explore-models',
+                'description' => 'Explore new models in public hub',
+                'category' => 'ai-learning'
+            ],
         ];
     }
 
@@ -4177,6 +4637,86 @@ class UniversalCommands
 
                 // Development: Common Features
                 'view-project-history' => ['view project history', 'project history', 'development history', 'history'],
+
+                // AI: Interaction & Content Creation
+                'chat-with-ai' => ['chat with ai', 'talk to ai', 'start chat', 'ai conversation'],
+                'ask-question' => ['ask question', 'question', 'ask ai', 'query'],
+                'create-content' => ['create content', 'write content', 'generate content', 'create article'],
+                'translate-text' => ['translate text', 'translate', 'translate to', 'language translation'],
+                'summarize-document' => ['summarize document', 'summarize', 'create summary', 'document summary'],
+                'correct-grammar' => ['correct grammar', 'fix grammar', 'grammar check', 'spell check'],
+                'generate-ideas' => ['generate ideas', 'get ideas', 'brainstorm', 'suggestions'],
+                'generate-code' => ['generate code', 'write code', 'create code', 'code generation'],
+                'optimize-code' => ['optimize code', 'improve code', 'refactor code', 'code optimization'],
+                'convert-code' => ['convert code', 'translate code', 'code conversion', 'convert programming language'],
+
+                // AI: Multimodal Generation
+                'generate-image' => ['generate image', 'create image', 'make image', 'image generation'],
+                'edit-image' => ['edit image', 'modify image', 'change image', 'image editing'],
+                'remove-background' => ['remove background', 'background removal', 'transparent background', 'remove bg'],
+                'generate-video' => ['generate video', 'create video', 'make video', 'video generation'],
+                'text-to-speech' => ['text to speech', 'convert to speech', 'speak text', 'tts'],
+                'speech-to-text' => ['speech to text', 'transcribe', 'voice to text', 'stt'],
+                'generate-music' => ['generate music', 'create music', 'make music', 'music generation'],
+                'create-design' => ['create design', 'make design', 'generate design', 'design logo'],
+
+                // AI: Personalization & Training
+                'create-assistant' => ['create assistant', 'make assistant', 'custom assistant', 'ai assistant'],
+                'save-conversation' => ['save conversation', 'save chat', 'export conversation', 'download chat'],
+                'set-tone' => ['set tone', 'change tone', 'communication style', 'writing style'],
+                'train-model' => ['train model', 'custom model', 'train ai', 'fine tune model'],
+                'use-advanced-prompt' => ['use advanced prompt', 'advanced prompt', 'better prompt', 'prompt engineering'],
+                'access-api' => ['access api', 'use api', 'api access', 'developer api'],
+
+                // AI: Integration & Collaboration
+                'connect-app' => ['connect app', 'link app', 'integrate app', 'connect application'],
+                'install-plugin' => ['install plugin', 'add plugin', 'plugin', 'extension'],
+                'import-document' => ['import document', 'upload document', 'analyze document', 'load document'],
+                'create-automation' => ['create automation', 'automation', 'workflow', 'automate'],
+                'connect-database' => ['connect database', 'link database', 'database connection', 'db connection'],
+
+                // AI: Data Analysis & Understanding
+                'analyze-data' => ['analyze data', 'data analysis', 'analyze', 'process data'],
+                'create-chart' => ['create chart', 'make chart', 'visualize data', 'generate chart'],
+                'find-trends' => ['find trends', 'trends', 'data trends', 'insights'],
+                'analyze-sentiment' => ['analyze sentiment', 'sentiment analysis', 'check sentiment', 'emotion analysis'],
+                'categorize-text' => ['categorize text', 'classify text', 'text classification', 'categorize'],
+                'classify-image' => ['classify image', 'image classification', 'identify image', 'image recognition'],
+                'generate-report' => ['generate report', 'create report', 'automated report', 'data report'],
+
+                // AI: Security & Account Management
+                'manage-account' => ['manage account', 'account settings', 'account management', 'settings'],
+                'view-history' => ['view history', 'conversation history', 'chat history', 'history'],
+                'delete-history' => ['delete history', 'clear history', 'remove history', 'erase history'],
+                'set-privacy' => ['set privacy', 'privacy settings', 'data privacy', 'privacy'],
+                'manage-api-keys' => ['manage api keys', 'api keys', 'manage keys', 'api key settings'],
+                'enable-2fa' => ['enable 2fa', 'two factor authentication', '2fa', 'security'],
+
+                // AI: Payment & Subscription
+                'upgrade-plan' => ['upgrade plan', 'upgrade', 'premium plan', 'subscription'],
+                'view-usage' => ['view usage', 'usage', 'api usage', 'consumption'],
+                'monitor-costs' => ['monitor costs', 'view costs', 'spending', 'monthly costs'],
+                'view-billing' => ['view billing', 'billing', 'invoices', 'payment history'],
+
+                // AI: Development & Testing
+                'test-model' => ['test model', 'try model', 'sandbox', 'test ai'],
+                'build-app' => ['build app', 'create app', 'develop app', 'application development'],
+                'publish-model' => ['publish model', 'share model', 'upload model', 'deploy model'],
+                'integrate-models' => ['integrate models', 'combine models', 'multi model', 'model integration'],
+                'debug-response' => ['debug response', 'debug ai', 'fix response', 'troubleshoot'],
+                'implement-ai' => ['implement ai', 'add ai', 'integrate ai', 'use ai in app'],
+
+                // AI: Analytics & Monitoring
+                'view-usage-report' => ['view usage report', 'usage report', 'model usage', 'usage statistics'],
+                'analyze-quality' => ['analyze quality', 'quality analysis', 'response quality', 'check quality'],
+                'view-api-consumption' => ['view api consumption', 'api consumption', 'api stats', 'consumption stats'],
+                'view-logs' => ['view logs', 'logs', 'debug logs', 'monitoring logs'],
+
+                // AI: Learning & Exploration
+                'view-documentation' => ['view documentation', 'documentation', 'docs', 'api docs'],
+                'test-feature' => ['test feature', 'try feature', 'experimental feature', 'beta feature'],
+                'open-playground' => ['open playground', 'playground', 'ai playground', 'test playground'],
+                'explore-models' => ['explore models', 'browse models', 'find models', 'model hub'],
             ],
             'sq' => [
                 // Navigation
@@ -4771,6 +5311,86 @@ class UniversalCommands
 
                 // Development: Common Features
                 'view-project-history' => ['shiko historik projekt', 'historik projekt', 'historik zhvillimi', 'historik'],
+
+                // AI: Interaction & Content Creation
+                'chat-with-ai' => ['bisedo me ai', 'fol me ai', 'fillo bisedë', 'konversacion ai'],
+                'ask-question' => ['bëj pyetje', 'pyetje', 'pyet ai', 'kërkesë'],
+                'create-content' => ['krijo përmbajtje', 'shkruaj përmbajtje', 'gjenero përmbajtje', 'krijo artikull'],
+                'translate-text' => ['përkthe tekst', 'përkthe', 'përkthe në', 'përkthim gjuhësor'],
+                'summarize-document' => ['përmbledh dokument', 'përmbledh', 'krijo përmbledhje', 'përmbledhje dokumenti'],
+                'correct-grammar' => ['korrigjo gramatikë', 'rregullo gramatikë', 'kontrollo gramatikë', 'kontrollo drejtshkrim'],
+                'generate-ideas' => ['gjenero ide', 'merr ide', 'brainstorm', 'sugjerime'],
+                'generate-code' => ['gjenero kod', 'shkruaj kod', 'krijo kod', 'gjenerim kodi'],
+                'optimize-code' => ['optimizo kod', 'përmirëso kod', 'refaktorizo kod', 'optimizim kodi'],
+                'convert-code' => ['konverto kod', 'përkthe kod', 'konvertim kodi', 'konverto gjuhë programimi'],
+
+                // AI: Multimodal Generation
+                'generate-image' => ['gjenero imazh', 'krijo imazh', 'bëj imazh', 'gjenerim imazhi'],
+                'edit-image' => ['ndrysho imazh', 'modifiko imazh', 'ndrysho imazhin', 'redakto imazh'],
+                'remove-background' => ['hiq sfond', 'heq sfond', 'sfond transparent', 'hiq bg'],
+                'generate-video' => ['gjenero video', 'krijo video', 'bëj video', 'gjenerim video'],
+                'text-to-speech' => ['tekst në zë', 'konverto në zë', 'lexo tekst', 'tts'],
+                'speech-to-text' => ['zë në tekst', 'transkribo', 'zë në tekst', 'stt'],
+                'generate-music' => ['gjenero muzikë', 'krijo muzikë', 'bëj muzikë', 'gjenerim muzike'],
+                'create-design' => ['krijo dizajn', 'bëj dizajn', 'gjenero dizajn', 'dizajn logo'],
+
+                // AI: Personalization & Training
+                'create-assistant' => ['krijo asistent', 'bëj asistent', 'asistent personalizuar', 'asistent ai'],
+                'save-conversation' => ['ruaj bisedë', 'ruaj chat', 'eksporto bisedë', 'shkarko chat'],
+                'set-tone' => ['vendos ton', 'ndrysho ton', 'stil komunikimi', 'stil shkrimi'],
+                'train-model' => ['trajno model', 'model personalizuar', 'trajno ai', 'fine tune model'],
+                'use-advanced-prompt' => ['përdor prompt të avancuar', 'prompt i avancuar', 'prompt më i mirë', 'prompt engineering'],
+                'access-api' => ['qasje api', 'përdor api', 'api access', 'api zhvilluesi'],
+
+                // AI: Integration & Collaboration
+                'connect-app' => ['lidh app', 'link app', 'integro app', 'lidh aplikacion'],
+                'install-plugin' => ['instalo plugin', 'shto plugin', 'plugin', 'extension'],
+                'import-document' => ['importo dokument', 'ngarko dokument', 'analizo dokument', 'hape dokument'],
+                'create-automation' => ['krijo automatizim', 'automatizim', 'workflow', 'automatizo'],
+                'connect-database' => ['lidh databazë', 'link databazë', 'lidhje databaze', 'lidhje db'],
+
+                // AI: Data Analysis & Understanding
+                'analyze-data' => ['analizo të dhëna', 'analizë të dhënash', 'analizo', 'proceso të dhëna'],
+                'create-chart' => ['krijo grafik', 'bëj grafik', 'vizualizo të dhëna', 'gjenero grafik'],
+                'find-trends' => ['gjej trende', 'trende', 'trende të dhënash', 'insights'],
+                'analyze-sentiment' => ['analizo sentiment', 'analizë sentimenti', 'kontrollo sentiment', 'analizë emocioni'],
+                'categorize-text' => ['kategorizo tekst', 'klasifiko tekst', 'klasifikim teksti', 'kategorizo'],
+                'classify-image' => ['klasifiko imazh', 'klasifikim imazhi', 'identifiko imazh', 'njohje imazhi'],
+                'generate-report' => ['gjenero raport', 'krijo raport', 'raport i automatizuar', 'raport të dhënash'],
+
+                // AI: Security & Account Management
+                'manage-account' => ['menaxho llogari', 'settings llogarie', 'menaxhim llogarie', 'settings'],
+                'view-history' => ['shiko historik', 'historik bisedash', 'historik chat', 'historik'],
+                'delete-history' => ['fshi historik', 'pastro historik', 'hiq historik', 'fshi historik'],
+                'set-privacy' => ['vendos privatësi', 'settings privatësie', 'privatësi të dhënash', 'privatësi'],
+                'manage-api-keys' => ['menaxho api keys', 'api keys', 'menaxho çelësa', 'settings api key'],
+                'enable-2fa' => ['aktivizo 2fa', 'autentifikim dy faktorësh', '2fa', 'siguri'],
+
+                // AI: Payment & Subscription
+                'upgrade-plan' => ['upgrade plan', 'upgrade', 'plan premium', 'abonim'],
+                'view-usage' => ['shiko përdorim', 'përdorim', 'përdorim api', 'konsumim'],
+                'monitor-costs' => ['monitoro kosto', 'shiko kosto', 'shpenzime', 'kosto mujore'],
+                'view-billing' => ['shiko faturim', 'faturim', 'fatura', 'historik pagesash'],
+
+                // AI: Development & Testing
+                'test-model' => ['testo model', 'provo model', 'sandbox', 'testo ai'],
+                'build-app' => ['ndërto app', 'krijo app', 'zhvillo app', 'zhvillim aplikacioni'],
+                'publish-model' => ['publiko model', 'ndaj model', 'ngarko model', 'deploy model'],
+                'integrate-models' => ['integro modele', 'kombino modele', 'multi model', 'integrim modele'],
+                'debug-response' => ['debug përgjigje', 'debug ai', 'rregullo përgjigje', 'troubleshoot'],
+                'implement-ai' => ['implemento ai', 'shto ai', 'integro ai', 'përdor ai në app'],
+
+                // AI: Analytics & Monitoring
+                'view-usage-report' => ['shiko raport përdorimi', 'raport përdorimi', 'përdorim modeli', 'statistika përdorimi'],
+                'analyze-quality' => ['analizo cilësi', 'analizë cilësie', 'cilësi përgjigje', 'kontrollo cilësi'],
+                'view-api-consumption' => ['shiko konsumim api', 'konsumim api', 'statistika api', 'statistika konsumimi'],
+                'view-logs' => ['shiko logs', 'logs', 'debug logs', 'monitoring logs'],
+
+                // AI: Learning & Exploration
+                'view-documentation' => ['shiko dokumentacion', 'dokumentacion', 'docs', 'api docs'],
+                'test-feature' => ['testo veçori', 'provo veçori', 'veçori eksperimentale', 'beta feature'],
+                'open-playground' => ['hape playground', 'playground', 'ai playground', 'testo playground'],
+                'explore-models' => ['eksploro modele', 'shfleto modele', 'gjej modele', 'model hub'],
             ],
             'es' => [
                 // Navigation
@@ -5365,6 +5985,86 @@ class UniversalCommands
 
                 // Development: Common Features
                 'view-project-history' => ['ver historial proyecto', 'historial proyecto', 'historial desarrollo', 'historial'],
+
+                // AI: Interaction & Content Creation
+                'chat-with-ai' => ['chatear con ai', 'hablar con ai', 'iniciar chat', 'conversación ai'],
+                'ask-question' => ['hacer pregunta', 'pregunta', 'preguntar ai', 'consulta'],
+                'create-content' => ['crear contenido', 'escribir contenido', 'generar contenido', 'crear artículo'],
+                'translate-text' => ['traducir texto', 'traducir', 'traducir a', 'traducción idioma'],
+                'summarize-document' => ['resumir documento', 'resumir', 'crear resumen', 'resumen documento'],
+                'correct-grammar' => ['corregir gramática', 'arreglar gramática', 'revisar gramática', 'corrector ortográfico'],
+                'generate-ideas' => ['generar ideas', 'obtener ideas', 'lluvia ideas', 'sugerencias'],
+                'generate-code' => ['generar código', 'escribir código', 'crear código', 'generación código'],
+                'optimize-code' => ['optimizar código', 'mejorar código', 'refactorizar código', 'optimización código'],
+                'convert-code' => ['convertir código', 'traducir código', 'conversión código', 'convertir lenguaje programación'],
+
+                // AI: Multimodal Generation
+                'generate-image' => ['generar imagen', 'crear imagen', 'hacer imagen', 'generación imagen'],
+                'edit-image' => ['editar imagen', 'modificar imagen', 'cambiar imagen', 'edición imagen'],
+                'remove-background' => ['quitar fondo', 'eliminar fondo', 'fondo transparente', 'quitar bg'],
+                'generate-video' => ['generar video', 'crear video', 'hacer video', 'generación video'],
+                'text-to-speech' => ['texto a voz', 'convertir a voz', 'leer texto', 'tts'],
+                'speech-to-text' => ['voz a texto', 'transcribir', 'voz a texto', 'stt'],
+                'generate-music' => ['generar música', 'crear música', 'hacer música', 'generación música'],
+                'create-design' => ['crear diseño', 'hacer diseño', 'generar diseño', 'diseño logo'],
+
+                // AI: Personalization & Training
+                'create-assistant' => ['crear asistente', 'hacer asistente', 'asistente personalizado', 'asistente ai'],
+                'save-conversation' => ['guardar conversación', 'guardar chat', 'exportar conversación', 'descargar chat'],
+                'set-tone' => ['establecer tono', 'cambiar tono', 'estilo comunicación', 'estilo escritura'],
+                'train-model' => ['entrenar modelo', 'modelo personalizado', 'entrenar ai', 'fine tune modelo'],
+                'use-advanced-prompt' => ['usar prompt avanzado', 'prompt avanzado', 'mejor prompt', 'ingeniería prompt'],
+                'access-api' => ['acceder api', 'usar api', 'acceso api', 'api desarrollador'],
+
+                // AI: Integration & Collaboration
+                'connect-app' => ['conectar app', 'vincular app', 'integrar app', 'conectar aplicación'],
+                'install-plugin' => ['instalar plugin', 'agregar plugin', 'plugin', 'extensión'],
+                'import-document' => ['importar documento', 'subir documento', 'analizar documento', 'cargar documento'],
+                'create-automation' => ['crear automatización', 'automatización', 'flujo trabajo', 'automatizar'],
+                'connect-database' => ['conectar base datos', 'vincular base datos', 'conexión base datos', 'conexión db'],
+
+                // AI: Data Analysis & Understanding
+                'analyze-data' => ['analizar datos', 'análisis datos', 'analizar', 'procesar datos'],
+                'create-chart' => ['crear gráfico', 'hacer gráfico', 'visualizar datos', 'generar gráfico'],
+                'find-trends' => ['encontrar tendencias', 'tendencias', 'tendencias datos', 'insights'],
+                'analyze-sentiment' => ['analizar sentimiento', 'análisis sentimiento', 'verificar sentimiento', 'análisis emoción'],
+                'categorize-text' => ['categorizar texto', 'clasificar texto', 'clasificación texto', 'categorizar'],
+                'classify-image' => ['clasificar imagen', 'clasificación imagen', 'identificar imagen', 'reconocimiento imagen'],
+                'generate-report' => ['generar reporte', 'crear reporte', 'reporte automatizado', 'reporte datos'],
+
+                // AI: Security & Account Management
+                'manage-account' => ['gestionar cuenta', 'configuración cuenta', 'gestión cuenta', 'configuración'],
+                'view-history' => ['ver historial', 'historial conversación', 'historial chat', 'historial'],
+                'delete-history' => ['eliminar historial', 'limpiar historial', 'quitar historial', 'borrar historial'],
+                'set-privacy' => ['establecer privacidad', 'configuración privacidad', 'privacidad datos', 'privacidad'],
+                'manage-api-keys' => ['gestionar api keys', 'api keys', 'gestionar claves', 'configuración api key'],
+                'enable-2fa' => ['activar 2fa', 'autenticación dos factores', '2fa', 'seguridad'],
+
+                // AI: Payment & Subscription
+                'upgrade-plan' => ['actualizar plan', 'upgrade', 'plan premium', 'suscripción'],
+                'view-usage' => ['ver uso', 'uso', 'uso api', 'consumo'],
+                'monitor-costs' => ['monitorear costos', 'ver costos', 'gastos', 'costos mensuales'],
+                'view-billing' => ['ver facturación', 'facturación', 'facturas', 'historial pagos'],
+
+                // AI: Development & Testing
+                'test-model' => ['probar modelo', 'probar modelo', 'sandbox', 'probar ai'],
+                'build-app' => ['construir app', 'crear app', 'desarrollar app', 'desarrollo aplicación'],
+                'publish-model' => ['publicar modelo', 'compartir modelo', 'subir modelo', 'desplegar modelo'],
+                'integrate-models' => ['integrar modelos', 'combinar modelos', 'multi modelo', 'integración modelos'],
+                'debug-response' => ['depurar respuesta', 'depurar ai', 'arreglar respuesta', 'solucionar problemas'],
+                'implement-ai' => ['implementar ai', 'agregar ai', 'integrar ai', 'usar ai en app'],
+
+                // AI: Analytics & Monitoring
+                'view-usage-report' => ['ver reporte uso', 'reporte uso', 'uso modelo', 'estadísticas uso'],
+                'analyze-quality' => ['analizar calidad', 'análisis calidad', 'calidad respuesta', 'verificar calidad'],
+                'view-api-consumption' => ['ver consumo api', 'consumo api', 'estadísticas api', 'estadísticas consumo'],
+                'view-logs' => ['ver logs', 'logs', 'debug logs', 'monitoring logs'],
+
+                // AI: Learning & Exploration
+                'view-documentation' => ['ver documentación', 'documentación', 'docs', 'api docs'],
+                'test-feature' => ['probar función', 'probar función', 'función experimental', 'beta feature'],
+                'open-playground' => ['abrir playground', 'playground', 'ai playground', 'probar playground'],
+                'explore-models' => ['explorar modelos', 'navegar modelos', 'encontrar modelos', 'model hub'],
             ],
             'fr' => [
                 // Navigation
@@ -5959,6 +6659,86 @@ class UniversalCommands
 
                 // Development: Common Features
                 'view-project-history' => ['voir historique projet', 'historique projet', 'historique développement', 'historique'],
+
+                // AI: Interaction & Content Creation
+                'chat-with-ai' => ['discuter avec ai', 'parler avec ai', 'démarrer chat', 'conversation ai'],
+                'ask-question' => ['poser question', 'question', 'demander ai', 'requête'],
+                'create-content' => ['créer contenu', 'écrire contenu', 'générer contenu', 'créer article'],
+                'translate-text' => ['traduire texte', 'traduire', 'traduire en', 'traduction langue'],
+                'summarize-document' => ['résumer document', 'résumer', 'créer résumé', 'résumé document'],
+                'correct-grammar' => ['corriger grammaire', 'réparer grammaire', 'vérifier grammaire', 'correcteur orthographe'],
+                'generate-ideas' => ['générer idées', 'obtenir idées', 'brainstorm', 'suggestions'],
+                'generate-code' => ['générer code', 'écrire code', 'créer code', 'génération code'],
+                'optimize-code' => ['optimiser code', 'améliorer code', 'refactoriser code', 'optimisation code'],
+                'convert-code' => ['convertir code', 'traduire code', 'conversion code', 'convertir langage programmation'],
+
+                // AI: Multimodal Generation
+                'generate-image' => ['générer image', 'créer image', 'faire image', 'génération image'],
+                'edit-image' => ['modifier image', 'éditer image', 'changer image', 'édition image'],
+                'remove-background' => ['enlever fond', 'supprimer fond', 'fond transparent', 'enlever bg'],
+                'generate-video' => ['générer vidéo', 'créer vidéo', 'faire vidéo', 'génération vidéo'],
+                'text-to-speech' => ['texte à voix', 'convertir en voix', 'lire texte', 'tts'],
+                'speech-to-text' => ['voix à texte', 'transcrire', 'voix à texte', 'stt'],
+                'generate-music' => ['générer musique', 'créer musique', 'faire musique', 'génération musique'],
+                'create-design' => ['créer design', 'faire design', 'générer design', 'design logo'],
+
+                // AI: Personalization & Training
+                'create-assistant' => ['créer assistant', 'faire assistant', 'assistant personnalisé', 'assistant ai'],
+                'save-conversation' => ['enregistrer conversation', 'enregistrer chat', 'exporter conversation', 'télécharger chat'],
+                'set-tone' => ['définir ton', 'changer ton', 'style communication', 'style écriture'],
+                'train-model' => ['entraîner modèle', 'modèle personnalisé', 'entraîner ai', 'fine tune modèle'],
+                'use-advanced-prompt' => ['utiliser prompt avancé', 'prompt avancé', 'meilleur prompt', 'ingénierie prompt'],
+                'access-api' => ['accéder api', 'utiliser api', 'accès api', 'api développeur'],
+
+                // AI: Integration & Collaboration
+                'connect-app' => ['connecter app', 'lier app', 'intégrer app', 'connecter application'],
+                'install-plugin' => ['installer plugin', 'ajouter plugin', 'plugin', 'extension'],
+                'import-document' => ['importer document', 'télécharger document', 'analyser document', 'charger document'],
+                'create-automation' => ['créer automatisation', 'automatisation', 'flux travail', 'automatiser'],
+                'connect-database' => ['connecter base données', 'lier base données', 'connexion base données', 'connexion db'],
+
+                // AI: Data Analysis & Understanding
+                'analyze-data' => ['analyser données', 'analyse données', 'analyser', 'traiter données'],
+                'create-chart' => ['créer graphique', 'faire graphique', 'visualiser données', 'générer graphique'],
+                'find-trends' => ['trouver tendances', 'tendances', 'tendances données', 'insights'],
+                'analyze-sentiment' => ['analyser sentiment', 'analyse sentiment', 'vérifier sentiment', 'analyse émotion'],
+                'categorize-text' => ['catégoriser texte', 'classifier texte', 'classification texte', 'catégoriser'],
+                'classify-image' => ['classifier image', 'classification image', 'identifier image', 'reconnaissance image'],
+                'generate-report' => ['générer rapport', 'créer rapport', 'rapport automatisé', 'rapport données'],
+
+                // AI: Security & Account Management
+                'manage-account' => ['gérer compte', 'paramètres compte', 'gestion compte', 'paramètres'],
+                'view-history' => ['voir historique', 'historique conversation', 'historique chat', 'historique'],
+                'delete-history' => ['supprimer historique', 'effacer historique', 'retirer historique', 'effacer historique'],
+                'set-privacy' => ['définir confidentialité', 'paramètres confidentialité', 'confidentialité données', 'confidentialité'],
+                'manage-api-keys' => ['gérer api keys', 'api keys', 'gérer clés', 'paramètres api key'],
+                'enable-2fa' => ['activer 2fa', 'authentification deux facteurs', '2fa', 'sécurité'],
+
+                // AI: Payment & Subscription
+                'upgrade-plan' => ['mettre à jour plan', 'upgrade', 'plan premium', 'abonnement'],
+                'view-usage' => ['voir utilisation', 'utilisation', 'utilisation api', 'consommation'],
+                'monitor-costs' => ['surveiller coûts', 'voir coûts', 'dépenses', 'coûts mensuels'],
+                'view-billing' => ['voir facturation', 'facturation', 'factures', 'historique paiements'],
+
+                // AI: Development & Testing
+                'test-model' => ['tester modèle', 'essayer modèle', 'sandbox', 'tester ai'],
+                'build-app' => ['construire app', 'créer app', 'développer app', 'développement application'],
+                'publish-model' => ['publier modèle', 'partager modèle', 'télécharger modèle', 'déployer modèle'],
+                'integrate-models' => ['intégrer modèles', 'combiner modèles', 'multi modèle', 'intégration modèles'],
+                'debug-response' => ['déboguer réponse', 'déboguer ai', 'réparer réponse', 'dépanner'],
+                'implement-ai' => ['implémenter ai', 'ajouter ai', 'intégrer ai', 'utiliser ai dans app'],
+
+                // AI: Analytics & Monitoring
+                'view-usage-report' => ['voir rapport utilisation', 'rapport utilisation', 'utilisation modèle', 'statistiques utilisation'],
+                'analyze-quality' => ['analyser qualité', 'analyse qualité', 'qualité réponse', 'vérifier qualité'],
+                'view-api-consumption' => ['voir consommation api', 'consommation api', 'statistiques api', 'statistiques consommation'],
+                'view-logs' => ['voir logs', 'logs', 'debug logs', 'monitoring logs'],
+
+                // AI: Learning & Exploration
+                'view-documentation' => ['voir documentation', 'documentation', 'docs', 'api docs'],
+                'test-feature' => ['tester fonctionnalité', 'essayer fonctionnalité', 'fonctionnalité expérimentale', 'beta feature'],
+                'open-playground' => ['ouvrir playground', 'playground', 'ai playground', 'tester playground'],
+                'explore-models' => ['explorer modèles', 'naviguer modèles', 'trouver modèles', 'model hub'],
             ],
         ];
 
