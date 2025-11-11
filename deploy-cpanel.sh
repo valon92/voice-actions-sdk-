@@ -124,3 +124,4 @@ echo "   - Backend: https://api.voiceactions.dev/api/v1/commands/demo"
 echo ""
 echo -e "${BLUE}📚 See CPANEL_DEPLOYMENT.md for detailed instructions${NC}"
 
+
