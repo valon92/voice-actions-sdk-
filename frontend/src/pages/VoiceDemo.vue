@@ -1505,7 +1505,8 @@ const allCommands = ref([])
 async function loadCommands() {
   try {
     const baseLocale = selectedLocale.value.split('-')[0]
-    const response = await fetch(`http://localhost:8000/api/commands/demo?locale=${selectedLocale.value}&platform_name=demo`)
+    const apiUrl = import.meta.env.VITE_API_URL || 'https://api.voiceactions.dev/api'
+    const response = await fetch(`${apiUrl}/commands/demo?locale=${selectedLocale.value}&platform_name=demo`)
     if (response.ok) {
       const data = await response.json()
       allCommands.value = data.commands || []

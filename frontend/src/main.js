@@ -30,7 +30,7 @@ const router = createRouter({
 
 // Axios configuration
 import axios from 'axios'
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'https://api.voiceactions.dev/api'
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('auth_token')
   const apiKey = localStorage.getItem('platform_api_key')

@@ -1,0 +1,5 @@
+# Ignore everything - this is a production package
+*
+!.gitignore
+!README.md
+!deploy-to-public-html.sh
