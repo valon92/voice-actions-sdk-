@@ -12,15 +12,25 @@ import PlatformLogin from './pages/PlatformLogin.vue'
 import IntegrationGuide from './pages/docs/IntegrationGuide.vue'
 import Pricing from './pages/Pricing.vue'
 import VoiceDemo from './pages/VoiceDemo.vue'
+import ContactSupport from './pages/ContactSupport.vue'
+import SalesInquiry from './pages/SalesInquiry.vue'
+import PrivacyPolicy from './pages/PrivacyPolicy.vue'
+import TermsOfService from './pages/TermsOfService.vue'
+import PlatformSettings from './pages/PlatformSettings.vue'
 
 const routes = [
   { path: '/', component: Home },
   { path: '/register-platform', component: PlatformRegister },
   { path: '/platform/login', component: PlatformLogin },
   { path: '/platform/dashboard', component: PlatformDashboard },
+  { path: '/platform/settings', component: PlatformSettings },
   { path: '/docs/integration', component: IntegrationGuide },
   { path: '/pricing', component: Pricing },
   { path: '/demo', component: VoiceDemo },
+  { path: '/contact', component: ContactSupport },
+  { path: '/sales', component: SalesInquiry },
+  { path: '/privacy', component: PrivacyPolicy },
+  { path: '/terms', component: TermsOfService },
 ]
 
 const router = createRouter({
@@ -30,7 +40,8 @@ const router = createRouter({
 
 // Axios configuration
 import axios from 'axios'
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'https://api.voiceactions.dev/api'
+// Use relative path in development (Vite proxy) or full URL in production
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'https://api.voiceactions.dev/api')
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('auth_token')
   const apiKey = localStorage.getItem('platform_api_key')

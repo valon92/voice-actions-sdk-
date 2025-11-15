@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@voice-actions-sdk': fileURLToPath(new URL('../sdk/src', import.meta.url)),
     },
   },
   server: {

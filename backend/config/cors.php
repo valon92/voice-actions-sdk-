@@ -6,7 +6,10 @@ return [
     'allowed_origins' => array_filter([
         env('FRONTEND_URL', 'http://localhost:5173'),
         env('APP_URL', 'http://localhost:8000'),
-        // Add production domains here
+        // Production domains
+        'https://voiceactions.dev',
+        'https://www.voiceactions.dev',
+        // Allow all origins in local environment only
         env('APP_ENV') === 'local' ? '*' : null,
     ]),
     'allowed_origins_patterns' => [],

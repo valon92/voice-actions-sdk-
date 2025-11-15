@@ -17,6 +17,15 @@
           
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center gap-2 lg:gap-3">
+            <router-link to="/" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+              🏠 Home
+            </router-link>
+            <router-link to="/pricing" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+              💰 Pricing
+            </router-link>
+            <router-link to="/demo" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+              🎤 Demo
+            </router-link>
             <template v-if="isAuthenticated">
               <router-link to="/platform/dashboard" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 📊 Dashboard
@@ -26,15 +35,6 @@
               </button>
             </template>
             <template v-else>
-              <router-link to="/" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                🏠 Home
-              </router-link>
-              <router-link to="/pricing" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                💰 Pricing
-              </router-link>
-              <router-link to="/demo" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
-                🎤 Demo
-              </router-link>
               <router-link to="/platform/login" class="px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                 🔑 Login
               </router-link>
@@ -65,43 +65,43 @@
           v-show="mobileMenuOpen"
           class="md:hidden border-t border-gray-200 py-3 space-y-2"
         >
-            <template v-if="isAuthenticated">
-              <router-link
-                to="/platform/dashboard"
-                @click="mobileMenuOpen = false"
-                class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-              >
-                📊 Dashboard
-              </router-link>
-              <button
-                @click="handleLogout(); mobileMenuOpen = false"
-                class="block w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-base font-medium transition-all shadow-md text-left"
-              >
-                🚪 Logout
-              </button>
-            </template>
+          <router-link
+            to="/"
+            @click="mobileMenuOpen = false"
+            class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+          >
+            🏠 Home
+          </router-link>
+          <router-link
+            to="/pricing"
+            @click="mobileMenuOpen = false"
+            class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+          >
+            💰 Pricing
+          </router-link>
+          <router-link
+            to="/demo"
+            @click="mobileMenuOpen = false"
+            class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+          >
+            🎤 Demo
+          </router-link>
+          <template v-if="isAuthenticated">
+            <router-link
+              to="/platform/dashboard"
+              @click="mobileMenuOpen = false"
+              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+            >
+              📊 Dashboard
+            </router-link>
+            <button
+              @click="handleLogout(); mobileMenuOpen = false"
+              class="block w-full px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-base font-medium transition-all shadow-md text-left"
+            >
+              🚪 Logout
+            </button>
+          </template>
           <template v-else>
-            <router-link
-              to="/"
-              @click="mobileMenuOpen = false"
-              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-            >
-              🏠 Home
-            </router-link>
-            <router-link
-              to="/pricing"
-              @click="mobileMenuOpen = false"
-              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-            >
-              💰 Pricing
-            </router-link>
-            <router-link
-              to="/demo"
-              @click="mobileMenuOpen = false"
-              class="block px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-            >
-              🎤 Demo
-            </router-link>
             <router-link
               to="/platform/login"
               @click="mobileMenuOpen = false"
@@ -197,24 +197,24 @@
             <h4 class="text-sm sm:text-base font-semibold mb-3 sm:mb-4">Support</h4>
             <ul class="space-y-2 sm:space-y-3">
               <li>
-                <a href="mailto:support@voiceactions.io" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
+                <router-link to="/contact" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
                   Contact Support
-                </a>
+                </router-link>
               </li>
               <li>
-                <a href="mailto:sales@voiceactions.io" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
+                <router-link to="/sales" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
                   Sales Inquiry
-                </a>
+                </router-link>
               </li>
               <li>
-                <a href="#" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
+                <router-link to="/privacy" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
                   Privacy Policy
-                </a>
+                </router-link>
               </li>
               <li>
-                <a href="#" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
+                <router-link to="/terms" class="text-sm sm:text-base text-gray-400 hover:text-white transition">
                   Terms of Service
-                </a>
+                </router-link>
               </li>
             </ul>
           </div>
@@ -226,8 +226,8 @@
               © {{ new Date().getFullYear() }} Voice Actions SDK. All rights reserved.
             </p>
             <div class="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
-              <a href="#" class="hover:text-white transition">Privacy</a>
-              <a href="#" class="hover:text-white transition">Terms</a>
+              <router-link to="/privacy" class="hover:text-white transition">Privacy</router-link>
+              <router-link to="/terms" class="hover:text-white transition">Terms</router-link>
               <a href="#" class="hover:text-white transition">Cookies</a>
             </div>
           </div>

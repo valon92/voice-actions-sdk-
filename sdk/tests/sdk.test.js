@@ -50,7 +50,7 @@ describe('Voice Actions SDK', () => {
     })
 
     expect(sdk).toBeDefined()
-    expect(sdk.apiKey).toBeNull()
+    expect(sdk.apiKey).toBeUndefined()
   })
 
   it('should match commands correctly', async () => {

@@ -29,6 +29,7 @@ class PlatformController extends Controller
             'website' => $request->website,
             'plan' => $this->determinePlan($request->expected_usage ?? 0),
             'status' => 'active',
+            'voice_actions_enabled' => true, // Default to enabled
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -85,6 +86,77 @@ class PlatformController extends Controller
                 'name' => $platformData->name,
                 'plan' => $platformData->plan,
                 'status' => $platformData->status,
+                'voice_actions_enabled' => $platformData->voice_actions_enabled ?? true,
+            ]
+        ]);
+    }
+
+    public function updateSettings(Request $request)
+    {
+        $request->validate([
+            'voice_actions_enabled' => 'required|boolean',
+        ]);
+
+        $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
+        if (!$apiKey) {
+            return response()->json([
+                'success' => false,
+                'error' => 'API key required'
+            ], 401);
+        }
+
+        $platform = $this->verifyApiKey($apiKey);
+        if (!$platform) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Invalid API key'
+            ], 401);
+        }
+
+        DB::table('platforms')
+            ->where('id', $platform['id'])
+            ->update([
+                'voice_actions_enabled' => $request->voice_actions_enabled,
+                'updated_at' => now(),
+            ]);
+
+        $updatedPlatform = DB::table('platforms')->where('id', $platform['id'])->first();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Settings updated successfully',
+            'platform' => [
+                'id' => $updatedPlatform->id,
+                'name' => $updatedPlatform->name,
+                'voice_actions_enabled' => (bool) $updatedPlatform->voice_actions_enabled,
+            ]
+        ]);
+    }
+
+    public function getSettings(Request $request)
+    {
+        $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
+        if (!$apiKey) {
+            return response()->json([
+                'success' => false,
+                'error' => 'API key required'
+            ], 401);
+        }
+
+        $platform = $this->verifyApiKey($apiKey);
+        if (!$platform) {
+            return response()->json([
+                'success' => false,
+                'error' => 'Invalid API key'
+            ], 401);
+        }
+
+        $platformData = DB::table('platforms')->where('id', $platform['id'])->first();
+
+        return response()->json([
+            'success' => true,
+            'settings' => [
+                'voice_actions_enabled' => (bool) ($platformData->voice_actions_enabled ?? true),
             ]
         ]);
     }

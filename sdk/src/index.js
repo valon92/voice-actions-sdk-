@@ -25,12 +25,14 @@ class VoiceActionsSDK {
     this.debug = options.debug || false;
     this.onCommand = options.onCommand || null;
     this.onError = options.onError || null;
+    this.userIdentifier = options.userIdentifier || null; // User ID for user-level settings
     
     this.commands = [];
     this.isListening = false;
     this.recognition = null;
     this.usageCount = 0;
     this.sessionId = null;
+    this.isInitialized = false;
     
     this.init();
   }
@@ -44,6 +46,19 @@ class VoiceActionsSDK {
       return;
     }
 
+    // Check if voice actions is enabled for this user (if userIdentifier is provided)
+    if (this.userIdentifier) {
+      const isEnabled = await this.checkUserEnabled();
+      if (!isEnabled) {
+        if (this.debug) {
+          console.log('⚠️ Voice Actions is disabled for this user. SDK will not initialize.');
+        }
+        // Don't initialize if user has disabled
+        this.isInitialized = false;
+        return;
+      }
+    }
+
     // Initialize speech recognition
     this.initRecognition();
     
@@ -53,12 +68,132 @@ class VoiceActionsSDK {
     // Start usage tracking
     this.startSession();
     
+    this.isInitialized = true;
+    
     if (this.debug) {
       console.log('✅ Voice Actions SDK initialized', {
         platform: this.platform,
         locale: this.locale,
-        commands: this.commands.length
+        commands: this.commands.length,
+        userIdentifier: this.userIdentifier
       });
+    }
+  }
+
+  /**
+   * Check if voice actions is enabled for a specific user
+   * @param {string} userIdentifier - Optional user identifier (if not provided, uses this.userIdentifier)
+   * @returns {Promise<boolean>}
+   */
+  async checkUserEnabled(userIdentifier = null) {
+    const userId = userIdentifier || this.userIdentifier;
+    
+    if (!userId) {
+      // If no user identifier, assume enabled
+      return true;
+    }
+
+    try {
+      const response = await fetch(
+        `${this.apiUrl}/user-voice-settings/check?user_identifier=${encodeURIComponent(userId)}`,
+        {
+          headers: {
+            'X-API-Key': this.apiKey
+          }
+        }
+      );
+
+      if (!response.ok) {
+        // If API fails, default to enabled
+        return true;
+      }
+
+      const data = await response.json();
+      return data.enabled === true;
+    } catch (error) {
+      this.log('Error checking user settings:', error);
+      // Default to enabled on error
+      return true;
+    }
+  }
+
+  /**
+   * Get user voice settings
+   * @param {string} userIdentifier - Optional user identifier
+   * @returns {Promise<Object>}
+   */
+  async getUserSettings(userIdentifier = null) {
+    const userId = userIdentifier || this.userIdentifier;
+    
+    if (!userId) {
+      throw new Error('User identifier is required');
+    }
+
+    try {
+      const response = await fetch(
+        `${this.apiUrl}/user-voice-settings?user_identifier=${encodeURIComponent(userId)}`,
+        {
+          headers: {
+            'X-API-Key': this.apiKey
+          }
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user settings');
+      }
+
+      const data = await response.json();
+      return data.settings;
+    } catch (error) {
+      this.log('Error fetching user settings:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Update user voice settings
+   * @param {Object} settings - Settings to update
+   * @param {boolean} settings.voice_actions_enabled - Enable/disable voice actions
+   * @param {string} settings.locale - Optional locale
+   * @param {string} userIdentifier - Optional user identifier
+   * @returns {Promise<Object>}
+   */
+  async updateUserSettings(settings, userIdentifier = null) {
+    const userId = userIdentifier || this.userIdentifier;
+    
+    if (!userId) {
+      throw new Error('User identifier is required');
+    }
+
+    try {
+      const response = await fetch(`${this.apiUrl}/user-voice-settings`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-Key': this.apiKey
+        },
+        body: JSON.stringify({
+          user_identifier: userId,
+          ...settings
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update user settings');
+      }
+
+      const data = await response.json();
+      
+      // Update locale if changed
+      if (settings.locale && settings.locale !== this.locale) {
+        this.setLocale(settings.locale);
+      }
+
+      return data.settings;
+    } catch (error) {
+      this.log('Error updating user settings:', error);
+      throw error;
     }
   }
 
@@ -449,6 +584,23 @@ class VoiceActionsSDK {
    * Start listening
    */
   async start() {
+    // Check if SDK is initialized
+    if (!this.isInitialized) {
+      // Try to re-initialize if user enabled it
+      if (this.userIdentifier) {
+        const isEnabled = await this.checkUserEnabled();
+        if (isEnabled) {
+          await this.init();
+        } else {
+          this.handleError(new Error('Voice Actions is disabled for this user. Please enable it in settings.'));
+          return;
+        }
+      } else {
+        this.handleError(new Error('SDK not initialized'));
+        return;
+      }
+    }
+
     if (!this.recognition) {
       this.handleError(new Error('Recognition not initialized'));
       return;
@@ -706,7 +858,15 @@ class VoiceActionsSDK {
 // Export for different module systems
 export default VoiceActionsSDK;
 
+// Export Widget class (dynamic import to avoid circular dependencies)
+export { default as VoiceActionsWidget } from './widget.js';
+
 if (typeof window !== 'undefined') {
   window.VoiceActionsSDK = VoiceActionsSDK;
+  
+  // Load widget dynamically for browser
+  import('./widget.js').then(module => {
+    window.VoiceActionsWidget = module.default;
+  });
 }
 

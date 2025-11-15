@@ -75,6 +75,7 @@ sdk.destroy();
   apiUrl?: string;           // Custom API URL (defaults to production or localhost)
   platform?: string;        // Platform name (e.g., 'youtube', 'instagram', 'custom')
   locale?: string;          // Language locale (e.g., 'en-US', 'sq-AL', 'es-ES')
+  userIdentifier?: string;  // User ID for user-level settings (optional)
   onCommand?: Function;     // Callback when command is detected
   onError?: Function;       // Callback for errors
   debug?: boolean;          // Enable debug logging
@@ -149,11 +150,135 @@ try {
 }
 ```
 
+#### `checkUserEnabled(userIdentifier?: string)`
+Check if voice actions is enabled for a specific user.
+
+```javascript
+const isEnabled = await sdk.checkUserEnabled('user123');
+if (isEnabled) {
+  await sdk.start();
+} else {
+  console.log('Voice Actions is disabled for this user');
+}
+```
+
+#### `getUserSettings(userIdentifier?: string)`
+Get user voice settings.
+
+```javascript
+const settings = await sdk.getUserSettings('user123');
+console.log(settings.voice_actions_enabled); // true or false
+console.log(settings.locale); // 'en-US'
+```
+
+#### `updateUserSettings(settings, userIdentifier?: string)`
+Update user voice settings.
+
+```javascript
+await sdk.updateUserSettings({
+  voice_actions_enabled: true,
+  locale: 'en-US'
+}, 'user123');
+```
+
 #### `destroy()`
 Destroy the SDK instance and clean up resources.
 
 ```javascript
 sdk.destroy();
+```
+
+## 🎨 Widget Component
+
+The SDK includes an automatic microphone icon widget that shows/hides based on user settings.
+
+### Basic Usage
+
+```javascript
+import VoiceActionsSDK, { VoiceActionsWidget } from '@valon92/voice-actions-sdk';
+
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'stargate',
+  userIdentifier: 'user123'
+});
+
+const widget = new VoiceActionsWidget({
+  sdk: sdk,
+  position: 'bottom-right', // 'bottom-right', 'bottom-left', 'top-right', 'top-left'
+  size: 'medium', // 'small', 'medium', 'large'
+  theme: 'default', // 'default', 'dark', 'light'
+  autoCheck: true, // Automatically check user settings
+  checkInterval: 30000 // Check every 30 seconds
+});
+```
+
+### Widget Options
+
+```javascript
+{
+  sdk: VoiceActionsSDK,      // Required: SDK instance
+  container?: HTMLElement,   // Container element (default: document.body)
+  position?: string,         // Widget position (default: 'bottom-right')
+  size?: string,            // Widget size (default: 'medium')
+  theme?: string,           // Widget theme (default: 'default')
+  autoCheck?: boolean,       // Auto-check user settings (default: true)
+  checkInterval?: number    // Check interval in ms (default: 30000)
+}
+```
+
+### Widget Methods
+
+```javascript
+// Show widget
+widget.show();
+
+// Hide widget
+widget.hide();
+
+// Check user settings manually
+await widget.checkUserSettings();
+
+// Destroy widget
+widget.destroy();
+```
+
+### Automatic Show/Hide
+
+The widget automatically shows/hides based on user settings:
+
+- **User enables Voice Actions** → Widget appears automatically
+- **User disables Voice Actions** → Widget disappears automatically
+- **Platform disables Voice Actions** → Widget disappears automatically
+
+### Integration Example (stargate.ci)
+
+```javascript
+// In stargate.ci settings page
+const userId = getCurrentUserId();
+const apiKey = 'stargate-api-key';
+
+const sdk = new VoiceActionsSDK({
+  apiKey: apiKey,
+  platform: 'stargate',
+  userIdentifier: userId
+});
+
+const widget = new VoiceActionsWidget({
+  sdk: sdk,
+  position: 'bottom-right',
+  autoCheck: true // Automatically show/hide based on user settings
+});
+
+// When user toggles ON/OFF in settings
+async function handleToggle(enabled) {
+  await sdk.updateUserSettings({
+    voice_actions_enabled: enabled
+  }, userId);
+  
+  // Widget will automatically show/hide
+  // No need to manually call widget.show() or widget.hide()
+}
 ```
 
 ## 🌍 Supported Languages
@@ -173,6 +298,7 @@ sdk.destroy();
 - ✅ **Usage Tracking** - Automatic usage statistics
 - ✅ **Error Handling** - Comprehensive error messages
 - ✅ **Microphone Permission** - Built-in permission handling
+- ✅ **Automatic Widget** - Microphone icon that shows/hides based on user settings
 - ✅ **TypeScript Support** - Full type definitions (coming soon)
 
 ## 📋 Command Structure

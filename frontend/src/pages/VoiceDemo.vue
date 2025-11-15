@@ -1505,11 +1505,15 @@ const allCommands = ref([])
 async function loadCommands() {
   try {
     const baseLocale = selectedLocale.value.split('-')[0]
-    const apiUrl = import.meta.env.VITE_API_URL || 'https://api.voiceactions.dev/api'
+    // Use relative path to leverage Vite proxy in development, or full URL in production
+    const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '/api' : 'https://api.voiceactions.dev/api')
     const response = await fetch(`${apiUrl}/commands/demo?locale=${selectedLocale.value}&platform_name=demo`)
     if (response.ok) {
       const data = await response.json()
       allCommands.value = data.commands || []
+      console.log(`Loaded ${allCommands.value.length} commands from API`)
+    } else {
+      console.error('Failed to load commands: HTTP', response.status, response.statusText)
     }
   } catch (error) {
     console.error('Failed to load commands:', error)

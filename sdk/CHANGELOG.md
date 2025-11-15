@@ -5,7 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-01-08
+## [1.2.0] - 2025-12-15
+
+### Added
+- **User-level Voice Settings** - Users can now enable/disable Voice Actions in their platform settings
+- **Automatic Widget Component** - Microphone icon widget that automatically shows/hides based on user settings
+- **User Settings API** - New methods: `checkUserEnabled()`, `getUserSettings()`, `updateUserSettings()`
+- **Widget Auto-Check** - Widget automatically checks user settings every 30 seconds
+- **Platform Integration Guide** - Complete documentation for integrating user settings in platforms
+
+### Features
+- `VoiceActionsWidget` class for automatic microphone icon widget
+- Widget automatically appears when user enables Voice Actions
+- Widget automatically disappears when user disables Voice Actions
+- Customizable widget position, size, and theme
+- Click widget to start/stop voice recognition
+- Real-time settings synchronization
+
+### API Changes
+- Added `userIdentifier` option to SDK constructor
+- Added `checkUserEnabled(userIdentifier)` method
+- Added `getUserSettings(userIdentifier)` method
+- Added `updateUserSettings(settings, userIdentifier)` method
+- SDK automatically checks user settings during initialization if `userIdentifier` is provided
+
+### Documentation
+- Added `USER_VOICE_SETTINGS_GUIDE.md` - Complete guide for user-level settings
+- Added `WIDGET_INTEGRATION_GUIDE.md` - Widget integration examples
+- Updated README with widget documentation
+- Added widget example HTML file
+
+## [1.1.0] - 2025-01-08
 
 ### Added
 - Initial release of Voice Actions SDK

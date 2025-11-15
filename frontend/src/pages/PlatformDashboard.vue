@@ -98,6 +98,12 @@
           <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Quick Actions</h2>
           <div class="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
             <router-link
+              to="/platform/settings"
+              class="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-xs sm:text-sm md:text-base whitespace-nowrap"
+            >
+              ⚙️ Settings
+            </router-link>
+            <router-link
               to="/docs/integration"
               class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition text-xs sm:text-sm md:text-base whitespace-nowrap"
             >

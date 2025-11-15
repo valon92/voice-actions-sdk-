@@ -7,19 +7,22 @@ export default {
       file: 'dist/voice-actions-sdk.js',
       format: 'umd',
       name: 'VoiceActionsSDK',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'named'
     },
     {
       file: 'dist/voice-actions-sdk.esm.js',
       format: 'es',
-      sourcemap: true
+      sourcemap: true,
+      exports: 'named'
     },
     {
       file: 'dist/voice-actions-sdk.min.js',
       format: 'umd',
       name: 'VoiceActionsSDK',
       plugins: [terser()],
-      sourcemap: true
+      sourcemap: true,
+      exports: 'named'
     }
   ]
 };

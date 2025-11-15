@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\UsageController;
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\UserVoiceSettingsController;
 
 Route::get('/platforms', function () {
     return response()->json([
@@ -24,6 +25,17 @@ Route::get('/platforms', function () {
 Route::post('/platforms/register', [PlatformController::class, 'register']);
 Route::post('/platforms/login', [PlatformController::class, 'login']);
 Route::get('/platforms/{id}', [PlatformController::class, 'show'])->middleware('api.key');
+
+// Settings routes (require API key)
+Route::middleware(['api.key'])->group(function () {
+    Route::get('/platforms/settings', [PlatformController::class, 'getSettings']);
+    Route::put('/platforms/settings', [PlatformController::class, 'updateSettings']);
+    
+    // User-level voice settings
+    Route::get('/user-voice-settings', [UserVoiceSettingsController::class, 'getUserSettings']);
+    Route::put('/user-voice-settings', [UserVoiceSettingsController::class, 'updateUserSettings']);
+    Route::get('/user-voice-settings/check', [UserVoiceSettingsController::class, 'checkUserEnabled']);
+});
 
 // Demo route (no API key required)
 Route::get('/commands/demo', [CommandController::class, 'demo']);
