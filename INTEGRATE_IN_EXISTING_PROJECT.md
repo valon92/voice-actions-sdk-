@@ -1,0 +1,350 @@
+# Integrimi i Voice Actions SDK në Projekt Ekzistues (Localhost)
+
+Ky dokument shpjegon si të integrohet Voice Actions SDK në një projekt ekzistues që tashmë ke në localhost.
+
+## 🚀 Quick Integration Steps
+
+### 1. Instalo SDK në projektin tënd
+
+```bash
+# Në root directory të projektit tënd
+cd /path/to/your-existing-project
+
+# Metoda 1: Nga GitHub (Rekomanduar)
+npm install git+https://github.com/valon92/voice-actions-sdk-.git#main:./sdk --save
+
+# Ose Metoda 2: Nga NPM (nëse është publikuar)
+npm install @valon92/voice-actions-sdk --save
+```
+
+### 2. Sigurohu që Backend është running
+
+```bash
+# Në terminal tjetër, start Voice Actions Backend
+cd /Users/valonsylejmani/Projekte/VoiceActionsSDK/backend
+php artisan serve
+# Backend në http://localhost:8000
+```
+
+### 3. Integro SDK në projektin tënd
+
+#### Për JavaScript/Vanilla JS:
+
+```javascript
+// Në main.js ose app.js të projektit tënd
+import VoiceActionsSDK, { VoiceActionsWidget } from '@valon92/voice-actions-sdk';
+
+// Konfigurim
+const userId = 'your-user-id'; // ID e user-it në projektin tënd
+const apiKey = 'your-api-key'; // API key nga Voice Actions Dashboard
+const apiUrl = 'http://localhost:8000/api'; // Për testime lokale
+
+let sdk = null;
+let widget = null;
+
+// Initialize Voice Actions
+function initVoiceActions() {
+  sdk = new VoiceActionsSDK({
+    apiKey: apiKey,
+    apiUrl: apiUrl,
+    platform: 'your-platform-name', // Emri i platformës suaj
+    userIdentifier: userId,
+    locale: 'en-US',
+    debug: true, // Enable për testime
+    onCommand: handleVoiceCommand,
+    onError: (error) => {
+      console.error('Voice Actions Error:', error);
+    }
+  });
+
+  widget = new VoiceActionsWidget({
+    sdk: sdk,
+    position: 'bottom-right',
+    size: 'medium',
+    theme: 'default',
+    autoCheck: true,
+    checkInterval: 30000
+  });
+}
+
+// Handle voice commands
+function handleVoiceCommand(command) {
+  console.log('Voice command received:', command);
+  
+  // Implemento logjikën e projektit tënd bazuar në command
+  switch (command.action) {
+    case 'navigate-home':
+      window.location.href = '/';
+      break;
+    case 'search':
+      // Fokus në search input
+      document.getElementById('search')?.focus();
+      break;
+    case 'go-back':
+      window.history.back();
+      break;
+    // ... shto më shumë commands bazuar në nevojat e projektit tënd
+  }
+}
+
+// Initialize kur faqja ngarkohet
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initVoiceActions);
+} else {
+  initVoiceActions();
+}
+```
+
+#### Për React:
+
+```jsx
+// VoiceActions.jsx
+import { useEffect, useRef } from 'react';
+import VoiceActionsSDK, { VoiceActionsWidget } from '@valon92/voice-actions-sdk';
+
+export default function VoiceActions({ userId, apiKey }) {
+  const sdkRef = useRef(null);
+  const widgetRef = useRef(null);
+
+  useEffect(() => {
+    const apiUrl = 'http://localhost:8000/api';
+
+    // Initialize SDK
+    sdkRef.current = new VoiceActionsSDK({
+      apiKey: apiKey,
+      apiUrl: apiUrl,
+      platform: 'your-platform',
+      userIdentifier: userId,
+      locale: 'en-US',
+      debug: true,
+      onCommand: (command) => {
+        console.log('Command:', command);
+        // Handle command
+      },
+      onError: (error) => {
+        console.error('SDK Error:', error);
+      }
+    });
+
+    // Initialize Widget
+    widgetRef.current = new VoiceActionsWidget({
+      sdk: sdkRef.current,
+      position: 'bottom-right',
+      autoCheck: true
+    });
+
+    return () => {
+      widgetRef.current?.destroy();
+      sdkRef.current?.destroy();
+    };
+  }, [userId, apiKey]);
+
+  return null; // Widget shfaqet automatikisht
+}
+```
+
+#### Për Vue.js:
+
+```vue
+<!-- VoiceActions.vue -->
+<template>
+  <div></div>
+</template>
+
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+import VoiceActionsSDK, { VoiceActionsWidget } from '@valon92/voice-actions-sdk';
+
+const props = defineProps({
+  userId: String,
+  apiKey: String
+});
+
+let sdk = null;
+let widget = null;
+
+onMounted(() => {
+  const apiUrl = 'http://localhost:8000/api';
+
+  sdk = new VoiceActionsSDK({
+    apiKey: props.apiKey,
+    apiUrl: apiUrl,
+    platform: 'your-platform',
+    userIdentifier: props.userId,
+    locale: 'en-US',
+    debug: true,
+    onCommand: (command) => {
+      console.log('Command:', command);
+    }
+  });
+
+  widget = new VoiceActionsWidget({
+    sdk: sdk,
+    position: 'bottom-right',
+    autoCheck: true
+  });
+});
+
+onUnmounted(() => {
+  widget?.destroy();
+  sdk?.destroy();
+});
+</script>
+```
+
+### 4. Shto Settings Toggle (Opsionale)
+
+Nëse dëshiron të shtosh toggle për Voice Control në settings page të projektit tënd:
+
+```javascript
+// Në settings component/page
+async function handleVoiceControlToggle(enabled) {
+  const userId = getCurrentUserId(); // Funksioni i projektit tënd
+  const apiKey = 'your-api-key';
+  const apiUrl = 'http://localhost:8000/api';
+
+  try {
+    const response = await fetch(`${apiUrl}/user-voice-settings`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': apiKey
+      },
+      body: JSON.stringify({
+        user_identifier: userId,
+        voice_actions_enabled: enabled
+      })
+    });
+
+    const data = await response.json();
+    
+    if (data.success || response.ok) {
+      if (enabled) {
+        alert('Voice Control enabled! Microphone icon will appear.');
+      } else {
+        alert('Voice Control disabled. Microphone icon will disappear.');
+      }
+    }
+  } catch (error) {
+    console.error('Failed to update settings:', error);
+    alert('Failed to update Voice Control settings');
+  }
+}
+```
+
+## 🧪 Testimi
+
+### 1. Verifikoni që SDK është instaluar
+
+```bash
+# Në projektin tënd
+npm list @valon92/voice-actions-sdk
+```
+
+### 2. Kontrolloni Console
+
+Hap browser console dhe kontrolloni për:
+- ✅ "✅ Voice Actions SDK initialized"
+- ✅ "Widget initialized"
+- ✅ Nuk ka errors
+
+### 3. Testoni Features
+
+1. **Widget shfaqet:**
+   - Duhet të shohësh ikonë të mikrofonit në këndin e faqes
+   - Nëse nuk shfaqet, kontrollo që user-i ka aktivizuar Voice Actions
+
+2. **Voice Recognition:**
+   - Kliko ikonën e mikrofonit
+   - Thuaj një command (p.sh. "go home", "search")
+   - Kontrollo console për command received
+
+3. **Settings Toggle:**
+   - Toggle OFF → Widget fshihet
+   - Toggle ON → Widget shfaqet
+
+## 🔧 Troubleshooting
+
+### SDK nuk inicializohet
+
+1. **Kontrollo import:**
+   ```javascript
+   // Verifikoni që import është i saktë
+   import VoiceActionsSDK from '@valon92/voice-actions-sdk';
+   ```
+
+2. **Kontrollo backend:**
+   ```bash
+   # Verifikoni që backend është running
+   curl http://localhost:8000/api/commands/demo
+   ```
+
+3. **Kontrollo console për errors**
+
+### Widget nuk shfaqet
+
+1. **Kontrollo user settings:**
+   ```javascript
+   // Në console
+   await sdk.checkUserEnabled()
+   // Duhet të kthejë true
+   ```
+
+2. **Kontrollo që userIdentifier është vendosur:**
+   ```javascript
+   console.log(sdk.userIdentifier);
+   ```
+
+### CORS Errors
+
+1. **Kontrollo backend CORS:**
+   ```php
+   // backend/config/cors.php
+   'allowed_origins' => ['http://localhost:5173', 'http://localhost:3000', ...]
+   ```
+
+2. **Shto origin-i i projektit tënd në CORS**
+
+## 📝 Checklist
+
+- [ ] SDK instaluar në projekt
+- [ ] Backend running në localhost:8000
+- [ ] SDK inicializohet pa errors
+- [ ] Widget shfaqet (nëse user-i ka aktivizuar)
+- [ ] Voice recognition funksionon
+- [ ] Commands ekzekutohen
+- [ ] Settings toggle funksionon (nëse e ke shtuar)
+
+## 🎯 Next Steps
+
+Pas testimeve të suksesshme:
+
+1. **Update API URL për production:**
+   ```javascript
+   const apiUrl = 'https://api.voiceactions.dev/api';
+   ```
+
+2. **Remove debug mode:**
+   ```javascript
+   debug: false
+   ```
+
+3. **Test në production environment**
+
+4. **Deploy në production**
+
+## 💡 Tips
+
+- Përdor `debug: true` për testime lokale
+- Kontrollo console logs për debugging
+- Testoni me user të ndryshëm për të verifikuar user-level settings
+- Kontrollo network tab për API requests
+
+## 📞 Support
+
+Për probleme:
+- Kontrolloni `TEST_LIBRARY_LOCALHOST.md`
+- Kontrolloni console logs
+- Kontrolloni network requests
+- Kontrolloni backend logs
+
