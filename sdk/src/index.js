@@ -46,6 +46,16 @@ class VoiceActionsSDK {
       return;
     }
 
+    // Always check platform-level setting first (even without userIdentifier)
+    const platformEnabled = await this.checkPlatformEnabled();
+    if (!platformEnabled) {
+      if (this.debug) {
+        console.log('⚠️ Voice Actions is disabled at platform level. SDK will not initialize.');
+      }
+      this.isInitialized = false;
+      return;
+    }
+
     // Check if voice actions is enabled for this user (if userIdentifier is provided)
     if (this.userIdentifier) {
       const isEnabled = await this.checkUserEnabled();
@@ -81,7 +91,42 @@ class VoiceActionsSDK {
   }
 
   /**
+   * Check if voice actions is enabled at platform level
+   * @returns {Promise<boolean>}
+   */
+  async checkPlatformEnabled() {
+    if (!this.apiKey) {
+      // If no API key, assume enabled (for demo mode)
+      return true;
+    }
+
+    try {
+      const response = await fetch(
+        `${this.apiUrl}/platforms/settings`,
+        {
+          headers: {
+            'X-API-Key': this.apiKey
+          }
+        }
+      );
+
+      if (!response.ok) {
+        // If API fails, default to enabled
+        return true;
+      }
+
+      const data = await response.json();
+      return data.settings?.voice_actions_enabled === true;
+    } catch (error) {
+      this.log('Error checking platform settings:', error);
+      // Default to enabled on error
+      return true;
+    }
+  }
+
+  /**
    * Check if voice actions is enabled for a specific user
+   * This checks both platform-level and user-level settings
    * @param {string} userIdentifier - Optional user identifier (if not provided, uses this.userIdentifier)
    * @returns {Promise<boolean>}
    */
@@ -89,8 +134,8 @@ class VoiceActionsSDK {
     const userId = userIdentifier || this.userIdentifier;
     
     if (!userId) {
-      // If no user identifier, assume enabled
-      return true;
+      // If no user identifier, check only platform-level setting
+      return await this.checkPlatformEnabled();
     }
 
     try {

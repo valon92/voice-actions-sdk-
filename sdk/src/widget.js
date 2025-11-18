@@ -21,7 +21,20 @@ class VoiceActionsWidget {
   }
 
   async init() {
-    // Always check user settings first
+    // Always check platform-level setting first
+    if (this.sdk) {
+      const platformEnabled = await this.sdk.checkPlatformEnabled();
+      if (!platformEnabled) {
+        // Platform has disabled, don't show widget
+        if (this.sdk.debug) {
+          console.log('⚠️ Voice Actions disabled at platform level. Widget will not be shown.');
+        }
+        this.isVisible = false;
+        return;
+      }
+    }
+
+    // Check user settings if userIdentifier is provided
     if (this.sdk && this.sdk.userIdentifier) {
       const isEnabled = await this.sdk.checkUserEnabled();
       if (!isEnabled) {
@@ -247,7 +260,7 @@ class VoiceActionsWidget {
   }
 
   async startAutoCheck() {
-    if (!this.sdk || !this.sdk.userIdentifier) return;
+    if (!this.sdk) return;
 
     // Check immediately
     await this.checkUserSettings();
@@ -259,48 +272,83 @@ class VoiceActionsWidget {
   }
 
   async checkUserSettings() {
-    if (!this.sdk || !this.sdk.userIdentifier) return;
+    if (!this.sdk) return;
 
     try {
-      const isEnabled = await this.sdk.checkUserEnabled();
-      
-      if (isEnabled) {
-        // User enabled
-        if (!this.sdk.isInitialized) {
-          // Re-initialize SDK if it wasn't initialized
-          await this.sdk.init();
-        }
-        
-        if (this.sdk.isInitialized && !this.isVisible) {
-          // Show widget if SDK is initialized
-          this.show();
-        }
-      } else {
-        // User disabled
+      // First check platform-level setting
+      const platformEnabled = await this.sdk.checkPlatformEnabled();
+      if (!platformEnabled) {
+        // Platform disabled - hide widget
         if (this.isVisible) {
-          // Hide widget
           this.hide();
         }
-        
         // Stop SDK if it's listening
         if (this.sdk && this.sdk.isListening) {
           this.sdk.stop();
         }
+        return;
+      }
+
+      // Then check user-level setting if userIdentifier is provided
+      if (this.sdk.userIdentifier) {
+        const isEnabled = await this.sdk.checkUserEnabled();
+        
+        if (isEnabled) {
+          // User enabled
+          if (!this.sdk.isInitialized) {
+            // Re-initialize SDK if it wasn't initialized
+            await this.sdk.init();
+          }
+          
+          if (this.sdk.isInitialized && !this.isVisible) {
+            // Show widget if SDK is initialized
+            this.show();
+          }
+        } else {
+          // User disabled
+          if (this.isVisible) {
+            // Hide widget
+            this.hide();
+          }
+          
+          // Stop SDK if it's listening
+          if (this.sdk && this.sdk.isListening) {
+            this.sdk.stop();
+          }
+        }
+      } else {
+        // No userIdentifier - just check platform setting
+        if (!this.sdk.isInitialized) {
+          await this.sdk.init();
+        }
+        
+        if (this.sdk.isInitialized && !this.isVisible) {
+          this.show();
+        }
       }
     } catch (error) {
-      console.error('Error checking user settings:', error);
+      console.error('Error checking settings:', error);
     }
   }
 
   async show() {
     if (this.isVisible) return;
     
-    // Check if SDK is initialized before showing widget
-    if (this.sdk && this.sdk.userIdentifier) {
-      const isEnabled = await this.sdk.checkUserEnabled();
-      if (!isEnabled) {
-        // Don't show if user has disabled
+    // Check platform-level setting first
+    if (this.sdk) {
+      const platformEnabled = await this.sdk.checkPlatformEnabled();
+      if (!platformEnabled) {
+        // Don't show if platform has disabled
         return;
+      }
+      
+      // Check user-level setting if userIdentifier is provided
+      if (this.sdk.userIdentifier) {
+        const isEnabled = await this.sdk.checkUserEnabled();
+        if (!isEnabled) {
+          // Don't show if user has disabled
+          return;
+        }
       }
       
       // Ensure SDK is initialized
