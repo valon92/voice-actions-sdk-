@@ -5,7 +5,7 @@
       <div class="text-center mb-12">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Pricing Plans</h1>
         <p class="text-lg sm:text-xl text-gray-600 mb-2">Choose the plan that fits your platform's needs</p>
-        <p class="text-sm sm:text-base text-gray-500 mb-4">All plans include <strong>550+ universal voice commands</strong> and <strong>4 languages</strong></p>
+        <p class="text-sm sm:text-base text-gray-500 mb-4">All plans include <strong>550+ universal voice commands</strong> and <strong>English language</strong></p>
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
           <span>✨</span>
           <span>Free plan available - No credit card required</span>
@@ -35,7 +35,7 @@
             </li>
             <li class="flex items-start">
               <span class="text-green-500 mr-3 text-lg">✓</span>
-              <span class="text-gray-700 text-sm sm:text-base"><strong>4 languages:</strong> English, Albanian, Spanish, French</span>
+              <span class="text-gray-700 text-sm sm:text-base"><strong>Language:</strong> English</span>
             </li>
             <li class="flex items-start">
               <span class="text-green-500 mr-3 text-lg">✓</span>
@@ -84,7 +84,7 @@
             </li>
             <li class="flex items-start">
               <span class="text-green-500 mr-3 text-lg">✓</span>
-              <span class="text-gray-700 text-sm sm:text-base"><strong>4 languages:</strong> English, Albanian, Spanish, French</span>
+              <span class="text-gray-700 text-sm sm:text-base"><strong>Language:</strong> English</span>
             </li>
             <li class="flex items-start">
               <span class="text-green-500 mr-3 text-lg">✓</span>
@@ -192,8 +192,8 @@
                 </tr>
                 <tr>
                   <td class="px-6 py-4 text-sm text-gray-700 font-medium">Languages</td>
-                  <td class="px-6 py-4 text-center text-sm text-gray-600">4 Languages</td>
-                  <td class="px-6 py-4 text-center text-sm text-gray-600">4 Languages</td>
+                  <td class="px-6 py-4 text-center text-sm text-gray-600">English</td>
+                  <td class="px-6 py-4 text-center text-sm text-gray-600">English</td>
                   <td class="px-6 py-4 text-center text-sm text-gray-600">4+ Custom</td>
                 </tr>
                 <tr class="bg-gray-50">
@@ -248,7 +248,7 @@
           </div>
           <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
             <h3 class="text-lg font-semibold text-gray-900 mb-2">Which languages are supported?</h3>
-            <p class="text-gray-600 text-sm sm:text-base">Currently, we support 4 languages: English (en-US), Albanian (sq), Spanish (es), and French (fr). All 550+ commands are available in all supported languages. Enterprise customers can request custom language support.</p>
+            <p class="text-gray-600 text-sm sm:text-base">Currently, we support English (en-US). All 550+ commands are available in English. More languages will be added gradually. Enterprise customers can request custom language support.</p>
           </div>
           <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
             <h3 class="text-lg font-semibold text-gray-900 mb-2">Do you offer refunds?</h3>
@@ -266,7 +266,7 @@
         <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl p-8 sm:p-12 text-white shadow-2xl">
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Ready to get started?</h2>
           <p class="text-gray-300 mb-2 text-sm sm:text-base">Join thousands of platforms using Voice Actions SDK</p>
-          <p class="text-gray-400 mb-8 text-xs sm:text-sm">550+ commands • 4 languages • Easy integration</p>
+          <p class="text-gray-400 mb-8 text-xs sm:text-sm">550+ commands • English • Easy integration</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <router-link
               to="/register-platform"

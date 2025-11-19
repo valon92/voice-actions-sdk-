@@ -46,7 +46,7 @@
             </div>
             <div class="border-l-4 border-purple-500 pl-4">
               <h3 class="font-semibold text-gray-900 mb-2">What languages are supported?</h3>
-              <p class="text-gray-600">We support English, Albanian, Spanish, and French with more languages coming soon.</p>
+              <p class="text-gray-600">We support English. More languages will be added gradually.</p>
             </div>
             <div class="border-l-4 border-green-500 pl-4">
               <h3 class="font-semibold text-gray-900 mb-2">How do I upgrade my plan?</h3>

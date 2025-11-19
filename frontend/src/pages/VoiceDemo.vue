@@ -25,7 +25,7 @@
             <span class="text-2xl">✨</span>
             <span class="text-green-200 font-semibold">600+ Universal Commands</span>
             <span class="text-green-300 text-sm">|</span>
-            <span class="text-green-200 font-semibold">4 Languages</span>
+            <span class="text-green-200 font-semibold">English</span>
             <span class="text-green-300 text-sm">|</span>
             <span class="text-green-200 font-semibold">Any Platform</span>
           </div>
@@ -46,7 +46,7 @@
             <div class="p-6 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-purple-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">🌍</div>
               <h3 class="text-xl font-bold text-white mb-2">Multi-Language</h3>
-              <p class="text-purple-200 text-sm">Supports English, Albanian, Spanish, French, and easily extensible to more languages.</p>
+              <p class="text-purple-200 text-sm">Supports English. More languages will be added gradually.</p>
             </div>
             <div class="p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl border border-green-400/30 backdrop-blur-sm">
               <div class="text-4xl mb-3">⚡</div>
@@ -150,9 +150,6 @@
                 class="appearance-none px-6 py-3 pr-10 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all cursor-pointer hover:bg-white/20"
               >
                 <option value="en-US" class="bg-slate-900">🇺🇸 English</option>
-                <option value="sq-AL" class="bg-slate-900">🇦🇱 Shqip</option>
-                <option value="es-ES" class="bg-slate-900">🇪🇸 Español</option>
-                <option value="fr-FR" class="bg-slate-900">🇫🇷 Français</option>
               </select>
               <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -6,7 +6,7 @@
         <p class="text-sm sm:text-base text-gray-600 mb-4">Learn how to integrate Voice Actions SDK into your platform</p>
         <div class="flex flex-wrap gap-2 mb-6 sm:mb-8">
           <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">550+ Commands</span>
-          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">4 Languages</span>
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">English</span>
           <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">Universal SDK</span>
           <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold">Easy Integration</span>
         </div>
@@ -162,7 +162,7 @@ sdk.start()</code></pre>
               </div>
             </div>
             <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
-              All commands are available in <strong>4 languages</strong>: English, Albanian, Spanish, and French. Check out our <router-link to="/demo" class="text-gray-900 font-semibold hover:underline">Voice Demo</router-link> to see all commands in action.
+              All commands are available in <strong>English</strong>. More languages will be added gradually. Check out our <router-link to="/demo" class="text-gray-900 font-semibold hover:underline">Voice Demo</router-link> to see all commands in action.
             </p>
           </section>
 
@@ -201,20 +201,13 @@ const sdk = new VoiceActionsSDK({
           <section>
             <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">7. Multi-language Support</h2>
             <p class="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4">
-              The SDK supports <strong>4 languages</strong> with all 550+ commands available in each language. Change the locale dynamically:
+              The SDK supports <strong>English</strong> with all 550+ commands available. More languages will be added gradually. Change the locale dynamically:
             </p>
             <div class="bg-gray-50 p-3 sm:p-4 rounded-lg mb-3 sm:mb-4">
               <pre class="text-xs sm:text-sm overflow-x-auto m-0"><code>// English (default)
 sdk.setLocale('en-US')
 
-// Albanian
-sdk.setLocale('sq-AL')
-
-// Spanish
-sdk.setLocale('es-ES')
-
-// French
-sdk.setLocale('fr-FR')</code></pre>
+// More languages will be added gradually</code></pre>
             </div>
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
               <p class="text-xs sm:text-sm text-blue-800">

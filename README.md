@@ -61,8 +61,7 @@ sdk.start()
 - **E zgjidhshme** - mbështet çdo lloj komande
 
 ### 🌐 Multi-Language Support
-- Mbështet **50+ gjuhë** automatikisht
-- English, Albanian, Spanish, French, German, Italian, Portuguese, Arabic, Chinese, Japanese, dhe më shumë
+- Mbështet **English** (gjuhë të tjera do të shtohen gradualisht)
 - Ndrysho gjuhën dinamikisht
 
 ### 🎯 Custom Commands
