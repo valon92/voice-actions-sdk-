@@ -1,0 +1,53 @@
+{
+  "name": "@valon92/voice-actions-sdk",
+  "version": "1.2.0",
+  "description": "Global Voice Control SDK for Web Applications - Multi-language voice recognition and command processing",
+  "type": "module",
+  "main": "sdk/dist/voice-actions-sdk.js",
+  "module": "sdk/dist/voice-actions-sdk.esm.js",
+  "exports": {
+    ".": {
+      "import": "./sdk/dist/voice-actions-sdk.esm.js",
+      "require": "./sdk/dist/voice-actions-sdk.js",
+      "default": "./sdk/dist/voice-actions-sdk.js"
+    },
+    "./widget": "./sdk/src/widget.js",
+    "./dist/*": "./sdk/dist/*",
+    "./src/*": "./sdk/src/*"
+  },
+  "files": [
+    "sdk/dist",
+    "sdk/src",
+    "sdk/README.md",
+    "sdk/CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "cd sdk && npm run build",
+    "test": "cd sdk && npm test"
+  },
+  "keywords": [
+    "voice",
+    "speech",
+    "recognition",
+    "sdk",
+    "voice-control",
+    "accessibility",
+    "multilingual"
+  ],
+  "author": "Voice Actions SDK Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valon92/voice-actions-sdk-.git"
+  },
+  "homepage": "https://github.com/valon92/voice-actions-sdk-",
+  "bugs": {
+    "url": "https://github.com/valon92/voice-actions-sdk-/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
+
