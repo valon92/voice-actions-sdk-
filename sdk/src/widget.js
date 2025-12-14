@@ -9,7 +9,7 @@ class VoiceActionsWidget {
     this.container = options.container || document.body;
     this.position = options.position || 'bottom-right'; // 'bottom-right', 'bottom-left', 'top-right', 'top-left'
     this.size = options.size || 'medium'; // 'small', 'medium', 'large'
-    this.theme = options.theme || 'default'; // 'default', 'dark', 'light'
+    this.theme = options.theme || 'platform'; // 'platform', 'default', 'dark', 'light' - 'platform' uses platform-specific colors
     this.autoCheck = options.autoCheck !== false; // Auto-check user settings
     this.checkInterval = options.checkInterval || 30000; // Check every 30 seconds
     
@@ -90,7 +90,7 @@ class VoiceActionsWidget {
       borderRadius: '50%',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
       background: this.getBackgroundColor(),
-      border: 'none',
+      border: `2px solid ${this.getBorderColor()}`,
       outline: 'none',
     };
 
@@ -118,15 +118,22 @@ class VoiceActionsWidget {
     this.container.appendChild(this.widget);
     this.isVisible = true;
 
-    // Add hover effect
+    // Add hover effect with platform-specific hover color
     this.widget.addEventListener('mouseenter', () => {
       this.widget.style.transform = 'scale(1.1)';
       this.widget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.2)';
+      if (this.theme === 'platform' && this.sdk && this.sdk.getPlatformTheme) {
+        const platformTheme = this.sdk.getPlatformTheme();
+        this.widget.style.background = platformTheme.colors.hover;
+      }
     });
 
     this.widget.addEventListener('mouseleave', () => {
       this.widget.style.transform = 'scale(1)';
       this.widget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      if (!this.isListening) {
+        this.widget.style.background = this.getBackgroundColor();
+      }
     });
   }
 
@@ -173,6 +180,12 @@ class VoiceActionsWidget {
   }
 
   getBackgroundColor() {
+    // Use platform-specific colors if theme is 'platform' and SDK is available
+    if (this.theme === 'platform' && this.sdk && this.sdk.getPlatformTheme) {
+      const platformTheme = this.sdk.getPlatformTheme();
+      return platformTheme.colors.gradient;
+    }
+    
     switch (this.theme) {
       case 'dark':
         return 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
@@ -181,6 +194,26 @@ class VoiceActionsWidget {
       default:
         return 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
     }
+  }
+
+  getActiveBackgroundColor() {
+    // Use platform-specific active colors if theme is 'platform'
+    if (this.theme === 'platform' && this.sdk && this.sdk.getPlatformTheme) {
+      const platformTheme = this.sdk.getPlatformTheme();
+      return platformTheme.colors.activeGradient;
+    }
+    
+    return 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+  }
+
+  getBorderColor() {
+    // Use platform-specific border color if theme is 'platform'
+    if (this.theme === 'platform' && this.sdk && this.sdk.getPlatformTheme) {
+      const platformTheme = this.sdk.getPlatformTheme();
+      return platformTheme.colors.border;
+    }
+    
+    return '#764ba2';
   }
 
   attachEventListeners() {
@@ -238,8 +271,17 @@ class VoiceActionsWidget {
     this.isListening = isListening;
     
     if (isListening) {
-      this.widget.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+      // Use platform-specific active color
+      this.widget.style.background = this.getActiveBackgroundColor();
       this.widget.style.animation = 'pulse 2s infinite';
+      
+      // Update border color for active state
+      if (this.theme === 'platform' && this.sdk && this.sdk.getPlatformTheme) {
+        const platformTheme = this.sdk.getPlatformTheme();
+        this.widget.style.borderColor = platformTheme.colors.active;
+      } else {
+        this.widget.style.borderColor = '#ef4444';
+      }
       
       // Add pulse animation if not exists
       if (!document.getElementById('voice-actions-widget-styles')) {
@@ -255,6 +297,7 @@ class VoiceActionsWidget {
       }
     } else {
       this.widget.style.background = this.getBackgroundColor();
+      this.widget.style.borderColor = this.getBorderColor();
       this.widget.style.animation = 'none';
     }
   }

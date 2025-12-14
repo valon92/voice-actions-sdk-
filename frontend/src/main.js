@@ -16,6 +16,7 @@ import ContactSupport from './pages/ContactSupport.vue'
 import SalesInquiry from './pages/SalesInquiry.vue'
 import PrivacyPolicy from './pages/PrivacyPolicy.vue'
 import TermsOfService from './pages/TermsOfService.vue'
+import CookiesPolicy from './pages/CookiesPolicy.vue'
 import PlatformSettings from './pages/PlatformSettings.vue'
 
 const routes = [
@@ -31,11 +32,20 @@ const routes = [
   { path: '/sales', component: SalesInquiry },
   { path: '/privacy', component: PrivacyPolicy },
   { path: '/terms', component: TermsOfService },
+  { path: '/cookies', component: CookiesPolicy },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    // If there's a saved position (e.g., browser back/forward), use it
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Otherwise, scroll to top
+    return { top: 0, behavior: 'smooth' }
+  },
 })
 
 // Axios configuration

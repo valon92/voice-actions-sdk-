@@ -228,18 +228,22 @@
             <div class="flex gap-4 sm:gap-6 text-xs sm:text-sm text-gray-400">
               <router-link to="/privacy" class="hover:text-white transition">Privacy</router-link>
               <router-link to="/terms" class="hover:text-white transition">Terms</router-link>
-              <a href="#" class="hover:text-white transition">Cookies</a>
+              <router-link to="/cookies" class="hover:text-white transition">Cookies</router-link>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <ScrollToTop />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import ScrollToTop from './components/ScrollToTop.vue'
 
 const route = useRoute()
 const isAuthenticated = ref(false)

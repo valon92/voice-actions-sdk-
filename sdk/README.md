@@ -72,12 +72,17 @@ sdk.destroy();
 ```javascript
 {
   apiKey?: string;           // API key from platform registration (optional for demo)
-  apiUrl?: string;           // Custom API URL (defaults to production or localhost)
+  apiUrl?: string;           // Custom API URL (defaults to auto-detected URL)
+  apiVersion?: string;       // API version prefix (e.g., 'v1' for /v1/commands, null for no prefix)
   platform?: string;        // Platform name (e.g., 'youtube', 'instagram', 'custom')
   locale?: string;          // Language locale (e.g., 'en-US', 'sq-AL', 'es-ES')
   userIdentifier?: string;  // User ID for user-level settings (optional)
-  onCommand?: Function;     // Callback when command is detected
-  onError?: Function;       // Callback for errors
+  wakeWords?: string[];     // Wake words for voice activation (e.g., ['hey stargate', 'hello stargate'])
+  wakeWordEnabled?: boolean; // Enable wake word detection (default: true if wakeWords provided)
+  onCommand?: Function;      // Callback when command is detected
+  onError?: Function;        // Callback for errors (receives error with metadata)
+  onListeningStateChange?: Function; // Callback when listening state changes (isListening: boolean)
+  onPermissionError?: Function;      // Callback for permission errors (receives error details)
   debug?: boolean;          // Enable debug logging
 }
 ```
@@ -207,7 +212,7 @@ const widget = new VoiceActionsWidget({
   sdk: sdk,
   position: 'bottom-right', // 'bottom-right', 'bottom-left', 'top-right', 'top-left'
   size: 'medium', // 'small', 'medium', 'large'
-  theme: 'default', // 'default', 'dark', 'light'
+  theme: 'platform', // 'platform' (uses platform colors), 'default', 'dark', 'light'
   autoCheck: true, // Automatically check user settings
   checkInterval: 30000 // Check every 30 seconds
 });
@@ -221,11 +226,27 @@ const widget = new VoiceActionsWidget({
   container?: HTMLElement,   // Container element (default: document.body)
   position?: string,         // Widget position (default: 'bottom-right')
   size?: string,            // Widget size (default: 'medium')
-  theme?: string,           // Widget theme (default: 'default')
+  theme?: string,           // Widget theme (default: 'platform')
+                            // - 'platform': Uses platform-specific colors (Stargate, Instagram, Facebook, etc.)
+                            // - 'default': Default purple gradient
+                            // - 'dark': Dark theme
+                            // - 'light': Light theme
   autoCheck?: boolean,       // Auto-check user settings (default: true)
   checkInterval?: number    // Check interval in ms (default: 30000)
 }
 ```
+
+### Platform-Specific Styling
+
+The widget automatically adapts to your platform's brand colors when `theme: 'platform'` is used:
+
+- **Stargate**: Indigo/Purple gradient (`#6366f1` to `#8b5cf6`)
+- **Instagram**: Instagram gradient (purple to pink to orange)
+- **Facebook**: Blue gradient (`#1877F2` to `#42A5F5`)
+- **Amazon**: Orange gradient (`#FF9900` to `#FFB84D`)
+- **YouTube**: Red gradient (`#FF0000` to `#FF4444`)
+
+When listening is active, the widget uses a red gradient to indicate active state.
 
 ### Widget Methods
 
@@ -352,6 +373,127 @@ const sdk = new VoiceActionsSDK({
   onCommand: (command) => {
     console.log('Demo command:', command);
   }
+});
+```
+
+## 🔧 Advanced Configuration
+
+### API Version Support
+
+If your backend uses versioned API endpoints (e.g., `/api/v1/commands`), you can specify the version:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  apiVersion: 'v1', // Will use /api/v1/commands
+  platform: 'your-platform',
+  locale: 'en-US'
+});
+```
+
+If your backend doesn't use version prefixes, omit `apiVersion` or set it to `null`:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  apiVersion: null, // Will use /api/commands (no version prefix)
+  platform: 'your-platform',
+  locale: 'en-US'
+});
+```
+
+### Error Handling with Metadata
+
+The SDK now provides detailed error information:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'your-platform',
+  onError: (error) => {
+    console.error('Error:', error.message);
+    console.error('Error type:', error.type); // e.g., 'PERMISSION_DENIED', 'SPEECH_SERVICE_ERROR'
+    console.error('Retryable:', error.retryable); // true/false
+    console.error('Metadata:', error.metadata); // Additional error details
+  }
+});
+```
+
+### Permission Error Handling
+
+Handle permission errors with browser-specific instructions:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'your-platform',
+  onPermissionError: (errorDetails) => {
+    console.error('Permission error:', errorDetails.error);
+    console.error('Browser:', errorDetails.browser); // { name: 'chrome', version: '120' }
+    console.error('Instructions:', errorDetails.instructions); // Browser-specific instructions
+    console.error('Type:', errorDetails.type); // 'PERMISSION_DENIED' or 'SERVICE_NOT_ALLOWED'
+    
+    // Show custom UI with instructions
+    showPermissionDialog(errorDetails.instructions);
+  }
+});
+```
+
+### Wake Word Detection
+
+Enable wake word detection for hands-free activation:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'stargate',
+  wakeWords: ['hey stargate', 'hello stargate', 'hi stargate'],
+  wakeWordEnabled: true, // Enable wake word detection
+  onCommand: (command) => {
+    // Handle commands
+  }
+});
+
+// Wake word detection starts automatically after initialization
+// Users can say "Hey Stargate" to activate voice control
+```
+
+### Listening State Changes
+
+Track when listening state changes (useful for UI updates):
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  platform: 'your-platform',
+  onListeningStateChange: (isListening) => {
+    if (isListening) {
+      console.log('Voice control activated');
+      // Update UI to show listening state
+      updateMicrophoneButton(true);
+    } else {
+      console.log('Voice control deactivated');
+      // Update UI to show inactive state
+      updateMicrophoneButton(false);
+    }
+  }
+});
+```
+
+### Auto-detected API URL
+
+The SDK automatically detects the API URL based on your environment:
+
+- **Localhost**: `http://localhost:8000/api` (or custom port if specified)
+- **Production**: Uses same origin as your website (e.g., `https://yourdomain.com/api`)
+
+You can override this by providing a custom `apiUrl`:
+
+```javascript
+const sdk = new VoiceActionsSDK({
+  apiKey: 'your-api-key',
+  apiUrl: 'https://api.yourdomain.com/api', // Custom API URL
+  platform: 'your-platform'
 });
 ```
 

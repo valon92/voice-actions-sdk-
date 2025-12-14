@@ -1,29 +1,32 @@
 ---
 # cPanel Deployment Configuration
-# This file is used by cPanel's Git Version Control for auto-deployment
+# Kjo file përdoret nga cPanel Git Version Control për auto-deployment
 
 deployment:
   tasks:
-    # Build Frontend
-    - /bin/cd $HOME/git/voiceactions-frontend/frontend
-    - /usr/local/bin/npm install
-    - /usr/local/bin/npm run build
+    # Pull latest changes
+    - export DEPLOYPATH=/home/username/public_html
+    - export APIPATH=/home/username/api.voiceactions.dev
     
-    # Copy Frontend to public_html
-    - /bin/cp -R $HOME/git/voiceactions-frontend/frontend/dist/* $HOME/public_html/
+    # Frontend deployment
+    - echo "Building frontend..."
+    - cd frontend && npm install && npm run build
+    - /bin/cp -R frontend/dist/* $DEPLOYPATH/
     
-    # Build Backend
-    - /bin/cd $HOME/git/voiceactions-backend/backend
+    # Backend deployment
+    - echo "Preparing backend..."
+    - cd backend
     - /usr/local/bin/php /usr/local/bin/composer install --no-dev --optimize-autoloader
+    - /bin/cp -R backend/* $APIPATH/ --exclude=node_modules --exclude=.git --exclude=tests
+    
+    # Laravel optimization
+    - cd $APIPATH
     - /usr/local/bin/php artisan config:cache
     - /usr/local/bin/php artisan route:cache
     - /usr/local/bin/php artisan view:cache
     
-    # Copy Backend to api subdomain
-    - /bin/cp -R $HOME/git/voiceactions-backend/backend/* $HOME/api.voiceactions.dev/
-    
     # Set permissions
-    - /bin/chmod -R 755 $HOME/api.voiceactions.dev/storage
-    - /bin/chmod -R 755 $HOME/api.voiceactions.dev/bootstrap/cache
-
-
+    - chmod -R 755 $APIPATH/storage
+    - chmod -R 755 $APIPATH/bootstrap/cache
+    
+    - echo "Deployment completed successfully!"

@@ -4105,6 +4105,34 @@ class UniversalCommands
                 'category' => 'stargate-navigation'
             ],
             [
+                'id' => 'navigate-privacy',
+                'phrases' => $getPhrases('navigate-privacy'),
+                'action' => 'navigate-privacy',
+                'description' => 'Navigate to privacy policy page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-terms',
+                'phrases' => $getPhrases('navigate-terms'),
+                'action' => 'navigate-terms',
+                'description' => 'Navigate to terms of service page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-cookies',
+                'phrases' => $getPhrases('navigate-cookies'),
+                'action' => 'navigate-cookies',
+                'description' => 'Navigate to cookies policy page',
+                'category' => 'stargate-navigation'
+            ],
+            [
+                'id' => 'navigate-settings',
+                'phrases' => $getPhrases('navigate-settings'),
+                'action' => 'navigate-settings',
+                'description' => 'Navigate to settings page',
+                'category' => 'stargate-navigation'
+            ],
+            [
                 'id' => 'navigate-signin',
                 'phrases' => $getPhrases('navigate-signin'),
                 'action' => 'navigate-signin',
@@ -4170,6 +4198,55 @@ class UniversalCommands
                 'action' => 'pause-video',
                 'description' => 'Pause video',
                 'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'open-video',
+                'phrases' => $getPhrases('open-video'),
+                'action' => 'open-video',
+                'description' => 'Open/view video',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'post-comment',
+                'phrases' => $getPhrases('post-comment'),
+                'action' => 'post-comment',
+                'description' => 'Post/submit comment',
+                'category' => 'stargate-video'
+            ],
+            [
+                'id' => 'share-to-facebook',
+                'phrases' => $getPhrases('share-to-facebook'),
+                'action' => 'share-to-facebook',
+                'description' => 'Share to Facebook',
+                'category' => 'stargate-share'
+            ],
+            [
+                'id' => 'share-to-x',
+                'phrases' => $getPhrases('share-to-x'),
+                'action' => 'share-to-x',
+                'description' => 'Share to X (Twitter)',
+                'category' => 'stargate-share'
+            ],
+            [
+                'id' => 'share-to-whatsapp',
+                'phrases' => $getPhrases('share-to-whatsapp'),
+                'action' => 'share-to-whatsapp',
+                'description' => 'Share to WhatsApp',
+                'category' => 'stargate-share'
+            ],
+            [
+                'id' => 'share-to-messenger',
+                'phrases' => $getPhrases('share-to-messenger'),
+                'action' => 'share-to-messenger',
+                'description' => 'Share to Messenger',
+                'category' => 'stargate-share'
+            ],
+            [
+                'id' => 'copy-link',
+                'phrases' => $getPhrases('copy-link'),
+                'action' => 'copy-link',
+                'description' => 'Copy link to clipboard',
+                'category' => 'stargate-share'
             ],
 
             // News Interactions
@@ -4358,6 +4435,29 @@ class UniversalCommands
                 'action' => 'clear-form',
                 'description' => 'Clear form fields',
                 'category' => 'stargate-form'
+            ],
+
+            // Voice Control Settings
+            [
+                'id' => 'enable-voice-control',
+                'phrases' => $getPhrases('enable-voice-control'),
+                'action' => 'enable-voice-control',
+                'description' => 'Enable voice control',
+                'category' => 'stargate-settings'
+            ],
+            [
+                'id' => 'disable-voice-control',
+                'phrases' => $getPhrases('disable-voice-control'),
+                'action' => 'disable-voice-control',
+                'description' => 'Disable voice control',
+                'category' => 'stargate-settings'
+            ],
+            [
+                'id' => 'toggle-voice-control',
+                'phrases' => $getPhrases('toggle-voice-control'),
+                'action' => 'toggle-voice-control',
+                'description' => 'Toggle voice control on/off',
+                'category' => 'stargate-settings'
             ],
         ];
     }
@@ -4708,17 +4808,28 @@ class UniversalCommands
                 'navigate-subscribe' => ['go to subscribe', 'subscribe', 'subscribe page', 'sign up for updates'],
                 'navigate-search' => ['go to search', 'search', 'search page', 'open search', 'show search'],
                 'navigate-disclaimer' => ['go to disclaimer', 'disclaimer', 'legal disclaimer', 'show disclaimer'],
+                'navigate-privacy' => ['go to privacy', 'privacy', 'privacy policy', 'show privacy', 'open privacy', 'view privacy'],
+                'navigate-terms' => ['go to terms', 'terms', 'terms of service', 'show terms', 'open terms', 'view terms'],
+                'navigate-cookies' => ['go to cookies', 'cookies', 'cookie policy', 'show cookies', 'open cookies', 'view cookies'],
+                'navigate-settings' => ['go to settings', 'settings', 'settings page', 'show settings', 'open settings', 'view settings'],
                 'navigate-signin' => ['go to sign in', 'sign in', 'sign in page', 'login', 'log in', 'sign in to account'],
                 'navigate-signup' => ['go to sign up', 'sign up', 'sign up page', 'register', 'create account', 'new account'],
                 'scroll-to-top' => ['scroll to top', 'go to top', 'top of page', 'beginning', 'top'],
                 'scroll-to-bottom' => ['scroll to bottom', 'go to bottom', 'end of page', 'bottom'],
 
                 // Stargate.ci - Video Interactions
-                'like-video' => ['like this video', 'like video', 'thumbs up', 'i like this'],
-                'comment-video' => ['add comment', 'comment', 'write comment', 'post comment'],
-                'share-video' => ['share video', 'share this', 'share', 'share content'],
-                'play-video' => ['play video', 'play', 'start video'],
-                'pause-video' => ['pause video', 'pause', 'stop video', 'resume video'],
+                'like-video' => ['like this video', 'like video', 'thumbs up', 'i like this', 'like', 'like it'],
+                'comment-video' => ['add comment', 'comment', 'write comment', 'post comment', 'comment video', 'comment on video', 'add a comment'],
+                'share-video' => ['share video', 'share this', 'share', 'share content', 'share the video', 'share this video'],
+                'play-video' => ['play video', 'play', 'start video', 'play the video', 'start the video'],
+                'pause-video' => ['pause video', 'pause', 'stop video', 'resume video', 'pause the video', 'stop the video'],
+                'open-video' => ['open video', 'view video', 'watch video', 'show video', 'go to video', 'open this video'],
+                'post-comment' => ['post comment', 'submit comment', 'add comment', 'send comment', 'post', 'submit'],
+                'share-to-facebook' => ['share to facebook', 'facebook', 'share on facebook', 'post to facebook', 'share video for facebook', 'share for facebook', 'send to facebook'],
+                'share-to-x' => ['share to x', 'share to twitter', 'twitter', 'share on twitter', 'tweet', 'post to twitter', 'share video for x', 'share video for twitter', 'share for x', 'share for twitter'],
+                'share-to-whatsapp' => ['share to whatsapp', 'whatsapp', 'share on whatsapp', 'send to whatsapp', 'share video for whatsapp', 'share for whatsapp', 'send video to whatsapp'],
+                'share-to-messenger' => ['share to messenger', 'messenger', 'share on messenger', 'send to messenger', 'share video for messenger', 'share for messenger', 'send video to messenger'],
+                'copy-link' => ['copy link', 'copy url', 'copy the link', 'copy address'],
 
                 // Stargate.ci - News Interactions
                 'like-article' => ['like article', 'like this article', 'thumbs up article'],
@@ -4759,6 +4870,11 @@ class UniversalCommands
                 // Stargate.ci - Filter & Sort
                 'filter-events' => ['filter events', 'show filters', 'filter by category'],
                 'sort-content' => ['sort by date', 'sort by popularity', 'sort by name'],
+
+                // Stargate.ci - Voice Control Settings
+                'enable-voice-control' => ['enable voice control', 'turn on voice control', 'voice control on', 'enable voice', 'turn on voice', 'voice on', 'on voice control'],
+                'disable-voice-control' => ['disable voice control', 'turn off voice control', 'voice control off', 'disable voice', 'turn off voice', 'voice off', 'off voice control'],
+                'toggle-voice-control' => ['toggle voice control', 'switch voice control', 'change voice control'],
 
                 // Stargate.ci - Form Actions
                 'submit-form' => ['submit', 'send', 'submit form', 'send form'],

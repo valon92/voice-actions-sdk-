@@ -32,6 +32,13 @@ Voice Actions SDK është **100% universale** dhe e përshtatshme për **çdo pl
 npm install @voice-actions/sdk
 ```
 
+### Deployment në cPanel
+
+Për deployment në cPanel hosting, shiko:
+- **[DEPLOY_CPANEL.md](DEPLOY_CPANEL.md)** - Udhëzime të detajuara
+- **[CPANEL_QUICK_START.md](CPANEL_QUICK_START.md)** - Quick start guide
+- **`deploy-cpanel-full.sh`** - Automated deployment script
+
 ### Basic Usage
 
 ```javascript

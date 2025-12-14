@@ -197,11 +197,16 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 
 const router = useRouter()
+
+// Scroll to top when component mounts
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 const form = ref({
   name: '',
