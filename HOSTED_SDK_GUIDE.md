@@ -150,12 +150,80 @@ Route::get('/sdk/{file}', function ($file) {
 
 ---
 
+## ✅ User-Level Settings Support
+
+**Hosted SDK ka të njëjtin funksionalitet si npm package**, përfshirë user-level settings:
+
+```html
+<script src="https://voiceactions.dev/sdk/voice-actions-sdk.min.js"></script>
+<script>
+  // Initialize SDK me userIdentifier për user-level settings
+  const sdk = new VoiceActionsSDK({
+    apiKey: 'va_your-api-key-here',
+    platform: 'your-platform-name',
+    locale: 'en-US',
+    userIdentifier: 'user123', // ⚠️ IMPORTANT: Pass user ID për user settings!
+    onCommand: (command) => {
+      console.log('Command:', command);
+    }
+  });
+  
+  // SDK do të kontrollojë automatikisht nëse user ka enabled Voice Actions
+  // Nëse user ka disabled, SDK nuk do të inicializohet dhe widget nuk do të shfaqet
+  
+  // Initialize Widget (do të shfaqet vetëm nëse user ka enabled)
+  const widget = new VoiceActionsWidget({
+    sdk: sdk,
+    position: 'bottom-right',
+    autoCheck: true // Auto-check user settings çdo 30 sekonda
+  });
+</script>
+```
+
+### User Settings API (Funksionon njësoj)
+
+```javascript
+// Check nëse user ka enabled Voice Actions
+const response = await fetch(
+  'https://api.voiceactions.dev/api/user-voice-settings/check?user_identifier=user123',
+  {
+    headers: {
+      'X-API-Key': 'your-api-key'
+    }
+  }
+);
+
+const data = await response.json();
+console.log(data.enabled); // true ose false
+
+// Update user settings
+await fetch('https://api.voiceactions.dev/api/user-voice-settings', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-Key': 'your-api-key'
+  },
+  body: JSON.stringify({
+    user_identifier: 'user123',
+    voice_actions_enabled: true // ose false
+  })
+});
+```
+
 ## 📊 Comparison: NPM vs Hosted
 
-| Feature | NPM Installation | Hosted SDK |
-|---------|------------------|------------|
+| Feature | NPM Installation | Hosted SDK (CDN) |
+|---------|------------------|------------------|
 | **Setup** | `npm install` + build | Just `<script>` tag |
 | **File Size** | Optimized | Same (minified) |
+| **User-Level Settings** | ✅ Yes | ✅ Yes (njësoj) |
+| **Widget Component** | ✅ Yes | ✅ Yes (njësoj) |
+| **Wake Word Detection** | ✅ Yes | ✅ Yes (njësoj) |
+| **Notifications** | ✅ Yes | ✅ Yes (njësoj) |
+| **Usage Tracking** | ✅ Yes | ✅ Yes (njësoj) |
+| **All Features** | ✅ Yes | ✅ Yes (njësoj) |
+
+**Përfundim:** Hosted SDK nga CDN ka **100% të njëjtin funksionalitet** si npm package. Nuk ka ndonjë ndryshim në features ose funksionalitet!
 | **Updates** | Manual (`npm update`) | Automatic (latest version) |
 | **Caching** | Browser cache | CDN cache |
 | **Usage Tracking** | ✅ Same | ✅ Same |

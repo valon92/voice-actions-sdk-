@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UsageBillingController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/platforms', function () {
     return response()->json([
@@ -43,6 +44,17 @@ Route::middleware(['api.key'])->group(function () {
 
 // Demo route (no API key required)
 Route::get('/commands/demo', [CommandController::class, 'demo']);
+
+// Notification routes
+// Public route for SDK to fetch notifications (no API key required, but platform_name is required)
+Route::get('/notifications', [NotificationController::class, 'getActiveNotifications']);
+Route::post('/notifications/{id}/dismiss', [NotificationController::class, 'dismissNotification']);
+
+// Notification management routes (require API key)
+Route::middleware(['api.key'])->group(function () {
+    Route::post('/notifications/create', [NotificationController::class, 'createNotification']);
+    Route::get('/notifications/stats', [NotificationController::class, 'getStats']);
+});
 
 // Usage routes (require API key, rate limiting, and usage limits check)
 Route::middleware(['api.key', 'rate.limit', 'usage.limits'])->group(function () {

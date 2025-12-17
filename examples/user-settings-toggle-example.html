@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Voice Settings Toggle Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .settings-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-label {
+            flex: 1;
+        }
+        
+        .setting-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+        
+        .setting-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #667eea;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+        
+        input:disabled + .toggle-slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .status-message {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .status-enabled {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-disabled {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 8px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .info-box p {
+            color: #1976D2;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Settings</h1>
+        <p class="subtitle">Manage your Voice Actions preferences</p>
+        
+        <div class="settings-section">
+            <div class="setting-item">
+                <div class="setting-label">
+                    <div class="setting-title">🎤 Voice Actions</div>
+                    <div class="setting-description">
+                        Enable or disable voice commands to control this platform
+                    </div>
+                </div>
+                <label class="toggle-switch">
+                    <input 
+                        type="checkbox" 
+                        id="voiceActionsToggle"
+                        onchange="handleVoiceActionsToggle(this.checked)"
+                    />
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            
+            <div id="statusMessage" class="status-message" style="display: none;"></div>
+        </div>
+        
+        <div class="info-box">
+            <p>
+                <strong>How it works:</strong><br>
+                • When <strong>ON</strong>: The microphone button appears and you can use voice commands<br>
+                • When <strong>OFF</strong>: The microphone button disappears and voice commands are disabled<br>
+                • Changes take effect immediately
+            </p>
+        </div>
+    </div>
+
+    <!-- Load Voice Actions SDK -->
+    <script src="https://voiceactions.dev/sdk/voice-actions-sdk.min.js"></script>
+    
+    <script>
+        // Configuration - Replace with your actual values
+        const API_KEY = 'your-api-key-here'; // Get from voiceactions.dev dashboard
+        const PLATFORM_NAME = 'your-platform-name'; // Your platform name
+        const USER_ID = 'user123'; // Current user ID (from your auth system)
+        const API_URL = 'http://localhost:8000/api'; // Or 'https://api.voiceactions.dev/api' for production
+        
+        let sdk = null;
+        let widget = null;
+        
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            await loadUserSettings();
+        });
+        
+        /**
+         * Load user settings and initialize SDK if enabled
+         */
+        async function loadUserSettings() {
+            try {
+                const response = await fetch(
+                    `${API_URL}/user-voice-settings/check?user_identifier=${USER_ID}`,
+                    {
+                        headers: {
+                            'X-API-Key': API_KEY
+                        }
+                    }
+                );
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const isEnabled = data.enabled;
+                    
+                    // Update toggle UI
+                    document.getElementById('voiceActionsToggle').checked = isEnabled;
+                    
+                    // Show status message
+                    showStatusMessage(isEnabled);
+                    
+                    // Initialize SDK if enabled
+                    if (isEnabled) {
+                        await initializeSDK();
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load user settings:', error);
+                showStatusMessage(false, 'Failed to load settings');
+            }
+        }
+        
+        /**
+         * Handle toggle change
+         */
+        async function handleVoiceActionsToggle(enabled) {
+            const toggle = document.getElementById('voiceActionsToggle');
+            toggle.disabled = true;
+            
+            try {
+                // Update user settings via API
+                const response = await fetch(`${API_URL}/user-voice-settings`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        user_identifier: USER_ID,
+                        voice_actions_enabled: enabled
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success || response.ok) {
+                    // Show status message
+                    showStatusMessage(enabled);
+                    
+                    // Initialize or destroy SDK based on toggle
+                    if (enabled) {
+                        await initializeSDK();
+                    } else {
+                        destroySDK();
+                    }
+                } else {
+                    // Revert toggle on error
+                    toggle.checked = !enabled;
+                    showStatusMessage(!enabled, 'Failed to update settings');
+                }
+            } catch (error) {
+                console.error('Failed to update user settings:', error);
+                // Revert toggle on error
+                toggle.checked = !enabled;
+                showStatusMessage(!enabled, 'Failed to update settings');
+            } finally {
+                toggle.disabled = false;
+            }
+        }
+        
+        /**
+         * Initialize Voice Actions SDK
+         */
+        async function initializeSDK() {
+            // Destroy existing SDK if any
+            destroySDK();
+            
+            try {
+                // Initialize SDK
+                sdk = new VoiceActionsSDK({
+                    apiKey: API_KEY,
+                    platform: PLATFORM_NAME,
+                    locale: 'en-US',
+                    userIdentifier: USER_ID, // Important: Pass user ID
+                    apiUrl: API_URL,
+                    debug: true,
+                    onCommand: (command) => {
+                        console.log('🎤 Voice Command:', command);
+                        // Handle command in your platform
+                        handleVoiceCommand(command);
+                    },
+                    onError: (error) => {
+                        console.error('Voice Actions Error:', error);
+                    }
+                });
+                
+                // Initialize Widget (microphone button)
+                widget = new VoiceActionsWidget({
+                    sdk: sdk,
+                    position: 'bottom-right',
+                    size: 'medium',
+                    theme: 'platform',
+                    autoCheck: true, // Auto-check user settings every 30 seconds
+                    checkInterval: 30000
+                });
+                
+                console.log('✅ Voice Actions SDK initialized');
+            } catch (error) {
+                console.error('Failed to initialize SDK:', error);
+            }
+        }
+        
+        /**
+         * Destroy SDK and Widget
+         */
+        function destroySDK() {
+            if (widget) {
+                widget.destroy();
+                widget = null;
+            }
+            
+            if (sdk) {
+                sdk.destroy();
+                sdk = null;
+            }
+        }
+        
+        /**
+         * Show status message
+         */
+        function showStatusMessage(enabled, customMessage = null) {
+            const statusEl = document.getElementById('statusMessage');
+            
+            if (customMessage) {
+                statusEl.textContent = customMessage;
+                statusEl.className = 'status-message status-disabled';
+                statusEl.style.display = 'block';
+                return;
+            }
+            
+            if (enabled) {
+                statusEl.textContent = '✅ Voice Actions is enabled! The microphone button will appear and you can use voice commands.';
+                statusEl.className = 'status-message status-enabled';
+            } else {
+                statusEl.textContent = '❌ Voice Actions is disabled. The microphone button will not appear.';
+                statusEl.className = 'status-message status-disabled';
+            }
+            
+            statusEl.style.display = 'block';
+        }
+        
+        /**
+         * Handle voice commands (implement your platform logic here)
+         */
+        function handleVoiceCommand(command) {
+            console.log('Executing command:', command.action);
+            
+            // Example: Handle different command types
+            switch (command.action) {
+                case 'navigate-home':
+                    window.location.href = '/';
+                    break;
+                case 'navigate-settings':
+                    window.location.href = '/settings';
+                    break;
+                case 'scroll-up':
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    break;
+                case 'scroll-down':
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    break;
+                default:
+                    console.log('Command not handled:', command.action);
+            }
+        }
+    </script>
+</body>
+</html>
+

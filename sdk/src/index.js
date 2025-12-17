@@ -42,6 +42,20 @@ class VoiceActionsSDK {
     this.wakeWordMode = false; // Wake word detection mode
     this.wakeWordDetected = false; // Track if wake word was detected
     
+    // Notification system
+    this.notificationsEnabled = options.notificationsEnabled !== false; // Default true
+    this.notificationCheckInterval = options.notificationCheckInterval || 300000; // Check every 5 minutes
+    this.notificationCheckIntervalId = null;
+    this.notifications = [];
+    this.notificationContainer = null;
+    
+    // Notification system
+    this.notificationsEnabled = options.notificationsEnabled !== false; // Default true
+    this.notificationCheckInterval = options.notificationCheckInterval || 300000; // Check every 5 minutes
+    this.notificationCheckIntervalId = null;
+    this.notifications = [];
+    this.notificationContainer = null;
+    
     this.init();
   }
 
@@ -167,6 +181,12 @@ class VoiceActionsSDK {
     
     // Start usage tracking
     this.startSession();
+    
+    // Load and display notifications
+    if (this.notificationsEnabled) {
+      await this.loadNotifications();
+      this.startNotificationChecker();
+    }
     
     this.isInitialized = true;
     
@@ -1452,13 +1472,296 @@ class VoiceActionsSDK {
   }
 
   /**
+   * Load notifications from API
+   */
+  async loadNotifications() {
+    if (!this.apiKey || this.apiKey === 'demo-key' || this.platform === 'demo') {
+      return; // Skip notifications in demo mode
+    }
+
+    try {
+      const params = new URLSearchParams({
+        platform_name: this.platform,
+      });
+
+      if (this.userIdentifier) {
+        params.append('user_identifier', this.userIdentifier);
+      }
+
+      if (this.sessionId) {
+        params.append('session_id', this.sessionId);
+      }
+
+      const response = await fetch(`${this.apiUrl}/notifications?${params.toString()}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      if (data.success && data.notifications && data.notifications.length > 0) {
+        this.notifications = data.notifications;
+        this.displayNotifications();
+      }
+    } catch (error) {
+      // Silent fail for notifications
+      if (this.debug) {
+        console.warn('⚠️ Failed to load notifications:', error);
+      }
+    }
+  }
+
+  /**
+   * Display notifications to users
+   */
+  displayNotifications() {
+    if (!this.notifications || this.notifications.length === 0) {
+      return;
+    }
+
+    // Create notification container if it doesn't exist
+    if (!this.notificationContainer) {
+      this.notificationContainer = document.createElement('div');
+      this.notificationContainer.id = 'voice-actions-notifications';
+      this.notificationContainer.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 400px;
+        pointer-events: none;
+      `;
+      document.body.appendChild(this.notificationContainer);
+    }
+
+    // Clear existing notifications
+    this.notificationContainer.innerHTML = '';
+
+    // Display each notification
+    this.notifications.forEach((notification, index) => {
+      const notificationEl = this.createNotificationElement(notification);
+      notificationEl.style.animationDelay = `${index * 0.1}s`;
+      this.notificationContainer.appendChild(notificationEl);
+    });
+  }
+
+  /**
+   * Create notification element
+   */
+  createNotificationElement(notification) {
+    const notificationEl = document.createElement('div');
+    notificationEl.className = 'voice-actions-notification';
+    notificationEl.dataset.notificationId = notification.id;
+
+    const typeColors = {
+      info: { bg: '#3b82f6', icon: 'ℹ️' },
+      update: { bg: '#8b5cf6', icon: '🔄' },
+      feature: { bg: '#10b981', icon: '✨' },
+      warning: { bg: '#f59e0b', icon: '⚠️' },
+      success: { bg: '#10b981', icon: '✅' }
+    };
+
+    const colors = typeColors[notification.type] || typeColors.info;
+
+    notificationEl.style.cssText = `
+      background: ${colors.bg};
+      color: white;
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 12px;
+      pointer-events: auto;
+      animation: slideInRight 0.3s ease-out;
+      position: relative;
+      max-width: 100%;
+    `;
+
+    const titleEl = document.createElement('div');
+    titleEl.style.cssText = 'font-weight: 600; font-size: 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;';
+    titleEl.innerHTML = `<span>${colors.icon}</span><span>${this.escapeHtml(notification.title)}</span>`;
+
+    const messageEl = document.createElement('div');
+    messageEl.style.cssText = 'font-size: 14px; line-height: 1.5; margin-bottom: 12px; opacity: 0.95;';
+    messageEl.textContent = notification.message;
+
+    notificationEl.appendChild(titleEl);
+    notificationEl.appendChild(messageEl);
+
+    // Action button
+    if (notification.action_url && notification.action_text) {
+      const actionBtn = document.createElement('a');
+      actionBtn.href = notification.action_url;
+      actionBtn.target = '_blank';
+      actionBtn.rel = 'noopener noreferrer';
+      actionBtn.textContent = notification.action_text;
+      actionBtn.style.cssText = `
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        margin-right: 8px;
+        transition: background 0.2s;
+      `;
+      actionBtn.onmouseover = () => actionBtn.style.background = 'rgba(255,255,255,0.3)';
+      actionBtn.onmouseout = () => actionBtn.style.background = 'rgba(255,255,255,0.2)';
+      messageEl.appendChild(actionBtn);
+    }
+
+    // Dismiss button
+    if (notification.is_dismissible) {
+      const dismissBtn = document.createElement('button');
+      dismissBtn.innerHTML = '✕';
+      dismissBtn.style.cssText = `
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      `;
+      dismissBtn.onmouseover = () => dismissBtn.style.background = 'rgba(255,255,255,0.3)';
+      dismissBtn.onmouseout = () => dismissBtn.style.background = 'rgba(255,255,255,0.2)';
+      dismissBtn.onclick = () => this.dismissNotification(notification.id, notificationEl);
+      notificationEl.appendChild(dismissBtn);
+    }
+
+    // Add CSS animation if not already added
+    if (!document.getElementById('voice-actions-notification-styles')) {
+      const style = document.createElement('style');
+      style.id = 'voice-actions-notification-styles';
+      style.textContent = `
+        @keyframes slideInRight {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slideOutRight {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    return notificationEl;
+  }
+
+  /**
+   * Dismiss notification
+   */
+  async dismissNotification(notificationId, element) {
+    // Animate out
+    element.style.animation = 'slideOutRight 0.3s ease-out';
+    setTimeout(() => {
+      element.remove();
+      // Remove from notifications array
+      this.notifications = this.notifications.filter(n => n.id !== notificationId);
+    }, 300);
+
+    // Notify backend
+    if (!this.apiKey || this.apiKey === 'demo-key' || this.platform === 'demo') {
+      return;
+    }
+
+    try {
+      await fetch(`${this.apiUrl}/notifications/${notificationId}/dismiss`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          platform_name: this.platform,
+          user_identifier: this.userIdentifier,
+          session_id: this.sessionId
+        })
+      });
+    } catch (error) {
+      // Silent fail
+      if (this.debug) {
+        console.warn('⚠️ Failed to dismiss notification:', error);
+      }
+    }
+  }
+
+  /**
+   * Start periodic notification checker
+   */
+  startNotificationChecker() {
+    if (this.notificationCheckIntervalId) {
+      clearInterval(this.notificationCheckIntervalId);
+    }
+
+    this.notificationCheckIntervalId = setInterval(() => {
+      this.loadNotifications();
+    }, this.notificationCheckInterval);
+  }
+
+  /**
+   * Stop notification checker
+   */
+  stopNotificationChecker() {
+    if (this.notificationCheckIntervalId) {
+      clearInterval(this.notificationCheckIntervalId);
+      this.notificationCheckIntervalId = null;
+    }
+  }
+
+  /**
+   * Escape HTML to prevent XSS
+   */
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  /**
    * Destroy SDK instance
    */
   destroy() {
     this.stop();
+    this.stopNotificationChecker();
+    
+    // Remove notification container
+    if (this.notificationContainer) {
+      this.notificationContainer.remove();
+      this.notificationContainer = null;
+    }
+    
     this.recognition = null;
     this.commands = [];
     this.isListening = false;
+    this.notifications = [];
     
     if (this.apiKey) {
       this.trackUsage('session_ended', {

@@ -13,14 +13,35 @@ This directory contains the hosted version of Voice Actions SDK that can be used
     apiKey: 'va_your-api-key-here',
     platform: 'your-platform-name',
     locale: 'en-US',
+    userIdentifier: 'user123', // ⚠️ IMPORTANT: Pass user ID për user-level settings!
     onCommand: (command) => {
       console.log('Command:', command);
     }
   });
   
+  // Initialize Widget (do të shfaqet vetëm nëse user ka enabled Voice Actions)
+  const widget = new VoiceActionsWidget({
+    sdk: sdk,
+    position: 'bottom-right',
+    autoCheck: true // Auto-check user settings çdo 30 sekonda
+  });
+  
   sdk.start();
 </script>
 ```
+
+### User-Level Settings Support
+
+**✅ Hosted SDK ka të njëjtin funksionalitet si npm package!**
+
+- ✅ User-level settings (ON/OFF toggle)
+- ✅ Widget component (microphone button)
+- ✅ Wake word detection
+- ✅ Notifications system
+- ✅ Usage tracking
+- ✅ Të gjitha features të tjera
+
+**Nuk ka ndonjë ndryshim në funksionalitet!**
 
 ## Files
 
