@@ -55,7 +55,7 @@ npm install @valon92/voice-actions-sdk
 ### Deployment në cPanel
 
 Për deployment në cPanel hosting, shiko:
-- **[DEPLOY_CPANEL.md](DEPLOY_CPANEL.md)** - Udhëzime të detajuara
+- **[CPANEL_DEPLOYMENT.md](CPANEL_DEPLOYMENT.md)** - Udhëzime të detajuara
 - **[CPANEL_QUICK_START.md](CPANEL_QUICK_START.md)** - Quick start guide
 - **`deploy-cpanel-full.sh`** - Automated deployment script
 
