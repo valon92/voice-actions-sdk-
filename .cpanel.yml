@@ -1,17 +1,26 @@
 ---
 # cPanel Deployment Configuration
 # Kjo file përdoret nga cPanel Git Version Control për auto-deployment
+# Server: server705.web-hosting.com
+# Domain: voiceactions.dev
+# Username: voicdwgn
 
 deployment:
   tasks:
     # Pull latest changes
-    - export DEPLOYPATH=/home/username/public_html
-    - export APIPATH=/home/username/api.voiceactions.dev
+    - export DEPLOYPATH=/home/voicdwgn/public_html
+    - export APIPATH=/home/voicdwgn/public_html/api
     
     # Frontend deployment
     - echo "Building frontend..."
     - cd frontend && npm install && npm run build
     - /bin/cp -R frontend/dist/* $DEPLOYPATH/
+    
+    # Copy SDK files
+    - echo "Copying SDK files..."
+    - mkdir -p $DEPLOYPATH/sdk
+    - /bin/cp sdk/dist/voice-actions-sdk.min.js $DEPLOYPATH/sdk/
+    - /bin/cp sdk/dist/voice-actions-sdk.min.js.map $DEPLOYPATH/sdk/
     
     # Backend deployment
     - echo "Preparing backend..."
