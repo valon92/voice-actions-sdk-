@@ -18,6 +18,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.vue'
 import TermsOfService from './pages/TermsOfService.vue'
 import CookiesPolicy from './pages/CookiesPolicy.vue'
 import PlatformSettings from './pages/PlatformSettings.vue'
+import PaymentCheckout from './components/PaymentCheckout.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -33,6 +34,7 @@ const routes = [
   { path: '/privacy', component: PrivacyPolicy },
   { path: '/terms', component: TermsOfService },
   { path: '/cookies', component: CookiesPolicy },
+  { path: '/checkout', component: PaymentCheckout },
 ]
 
 const router = createRouter({

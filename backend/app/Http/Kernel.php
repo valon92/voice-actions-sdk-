@@ -44,6 +44,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'api.key' => \App\Http\Middleware\ApiKeyMiddleware::class,
         'rate.limit' => \App\Http\Middleware\RateLimitMiddleware::class,
+        'usage.limits' => \App\Http\Middleware\CheckUsageLimits::class,
     ];
 }
 

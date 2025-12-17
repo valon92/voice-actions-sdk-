@@ -221,11 +221,95 @@
 
         <!-- Commands Grid - All Categories -->
         <div class="mb-8">
-          <h2 class="text-3xl sm:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
-            <span class="text-4xl">🎯</span>
-            <span>All Voice Commands (600+)</span>
-          </h2>
-          <p class="text-purple-200 mb-6 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h2 class="text-3xl sm:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center gap-3">
+                <span class="text-4xl">🎯</span>
+                <span>All Voice Commands (600+)</span>
+              </h2>
+              <p class="text-purple-200 text-lg">Click any command to simulate it, or say it out loud when listening is active!</p>
+            </div>
+          </div>
+          
+          <!-- Search Bar -->
+          <div class="mb-6">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="Search commands... (e.g., 'E-Commerce: Support - open-chat', 'like', 'share')"
+                class="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl text-white placeholder-purple-300/70 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300 text-base sm:text-lg"
+              />
+              <button
+                v-if="searchQuery"
+                @click="searchQuery = ''"
+                class="absolute inset-y-0 right-0 pr-4 flex items-center"
+              >
+                <svg class="h-5 w-5 text-purple-300 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Search Results Count -->
+            <div v-if="searchQuery" class="mt-3 flex items-center gap-2 text-purple-200">
+              <span class="text-sm sm:text-base">
+                Found <strong class="text-white">{{ filteredSearchResults.length }}</strong> command{{ filteredSearchResults.length !== 1 ? 's' : '' }} for "<strong class="text-white">{{ searchQuery }}</strong>"
+              </span>
+            </div>
+          </div>
+          
+          <!-- Search Results (when searching) -->
+          <div v-if="searchQuery && filteredSearchResults.length > 0" class="mb-8">
+            <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-6">
+              <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span>🔍</span>
+                <span>Search Results</span>
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <button
+                  v-for="(cmd, index) in filteredSearchResults"
+                  :key="`${cmd.id}-${cmd.category || 'general'}-${index}`"
+                  @click="simulateCommand(cmd)"
+                  class="text-left p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all duration-200 border border-white/10 hover:border-white/20 hover:scale-105 group"
+                >
+                  <div class="flex items-start justify-between gap-2 mb-2">
+                    <span class="font-semibold text-white text-sm group-hover:text-cyan-300 transition-colors line-clamp-2">{{ cmd.name || cmd.id }}</span>
+                    <span class="text-xs text-purple-300/70 bg-purple-500/20 px-2 py-1 rounded-full whitespace-nowrap">{{ cmd.category || 'general' }}</span>
+                  </div>
+                  <div class="space-y-1">
+                    <p v-if="cmd.phrases && cmd.phrases.length > 0" class="text-xs text-purple-300/70 line-clamp-2">
+                      {{ cmd.phrases.slice(0, 3).join(', ') }}{{ cmd.phrases.length > 3 ? '...' : '' }}
+                    </p>
+                    <p v-if="cmd.action" class="text-xs text-cyan-300/70 font-mono">
+                      Action: {{ cmd.action }}
+                    </p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- No Results Message -->
+          <div v-if="searchQuery && filteredSearchResults.length === 0" class="mb-8">
+            <div class="backdrop-blur-xl bg-white/10 rounded-3xl shadow-2xl border border-white/20 p-8 text-center">
+              <div class="text-6xl mb-4">🔍</div>
+              <h3 class="text-2xl font-bold text-white mb-2">No commands found</h3>
+              <p class="text-purple-200 mb-4">Try searching for:</p>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-200 rounded-full text-sm">like</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-200 rounded-full text-sm">share</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-200 rounded-full text-sm">E-Commerce</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-200 rounded-full text-sm">Support</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-200 rounded-full text-sm">open-chat</span>
+              </div>
+            </div>
+          </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             <!-- Profile Management -->
@@ -1491,6 +1575,7 @@ const statusMessageType = ref('info')
 const commandHistory = ref([])
 const demoContent = ref(null)
 const isLiked = ref(false)
+const searchQuery = ref('')
 let sdk = null
 let isInitializing = false
 let isDestroyed = false
@@ -1827,6 +1912,36 @@ const aiAnalyticsCommands = computed(() => {
 
 const aiLearningCommands = computed(() => {
   return allCommands.value.filter(cmd => cmd.category === 'ai-learning')
+})
+
+// Search functionality
+const filteredSearchResults = computed(() => {
+  if (!searchQuery.value.trim()) {
+    return []
+  }
+  
+  const query = searchQuery.value.toLowerCase().trim()
+  
+  return allCommands.value.filter(cmd => {
+    // Search in command name/id
+    const nameMatch = (cmd.name || cmd.id || '').toLowerCase().includes(query)
+    
+    // Search in category
+    const categoryMatch = (cmd.category || '').toLowerCase().includes(query)
+    
+    // Search in phrases
+    const phrasesMatch = (cmd.phrases || []).some(phrase => 
+      phrase.toLowerCase().includes(query)
+    )
+    
+    // Search in action
+    const actionMatch = (cmd.action || '').toLowerCase().includes(query)
+    
+    // Search in description if available
+    const descriptionMatch = (cmd.description || '').toLowerCase().includes(query)
+    
+    return nameMatch || categoryMatch || phrasesMatch || actionMatch || descriptionMatch
+  })
 })
 
 // Initialize SDK

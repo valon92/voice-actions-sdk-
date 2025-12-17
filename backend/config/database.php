@@ -11,6 +11,10 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+            'options' => [
+                // SQLite-specific optimizations
+                PDO::ATTR_PERSISTENT => false, // Don't use persistent connections
+            ],
         ],
         'mysql' => [
             'driver' => 'mysql',

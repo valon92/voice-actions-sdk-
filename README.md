@@ -26,11 +26,31 @@ Voice Actions SDK është **100% universale** dhe e përshtatshme për **çdo pl
 
 ## 🚀 Quick Start
 
-### Installation
+### Option 1: NPM Installation
 
 ```bash
-npm install @voice-actions/sdk
+npm install @valon92/voice-actions-sdk
 ```
+
+### Option 2: Hosted SDK (No Installation Required)
+
+```html
+<!-- Load directly from voiceactions.dev -->
+<script src="https://voiceactions.dev/sdk/voice-actions-sdk.min.js"></script>
+<script>
+  const sdk = new VoiceActionsSDK({
+    apiKey: 'va_your-api-key-here',
+    platform: 'your-platform-name',
+    locale: 'en-US',
+    onCommand: (command) => {
+      console.log('Command:', command);
+    }
+  });
+  sdk.start();
+</script>
+```
+
+**Note:** Pagesa dhe usage tracking funksionojnë njësoj me të dyja metodat!
 
 ### Deployment në cPanel
 

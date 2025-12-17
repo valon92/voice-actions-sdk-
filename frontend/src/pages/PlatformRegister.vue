@@ -309,10 +309,18 @@ const handleRegister = async () => {
       localStorage.setItem('platform_api_key', apiKey.value)
       localStorage.setItem('platform_data', JSON.stringify(response.data.platform))
       
-      // Auto-login: Redirect to dashboard after 2 seconds
-      setTimeout(() => {
-        router.push('/platform/dashboard')
-      }, 2000)
+      // If Pro or Enterprise plan, redirect to checkout
+      const plan = response.data.platform.plan
+      if (plan === 'pro' || plan === 'enterprise') {
+        setTimeout(() => {
+          router.push(`/checkout?plan=${plan}`)
+        }, 2000)
+      } else {
+        // Free plan: Redirect to dashboard
+        setTimeout(() => {
+          router.push('/platform/dashboard')
+        }, 2000)
+      }
     }
   } catch (err) {
     error.value = err.response?.data?.error || 'Registration failed. Please try again.'

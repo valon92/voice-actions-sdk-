@@ -57,6 +57,15 @@
           </div>
         </div>
 
+        <!-- Usage Dashboard -->
+        <UsageDashboard />
+
+        <!-- Subscription Management -->
+        <SubscriptionManagement />
+
+        <!-- Billing Dashboard -->
+        <BillingDashboard />
+
         <!-- Plan Upgrade Section -->
         <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl shadow-lg p-4 sm:p-6 text-white">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
@@ -77,7 +86,7 @@
             <div class="flex flex-wrap gap-2 sm:gap-3">
               <router-link
                 v-if="platformData?.plan === 'free'"
-                to="/pricing"
+                to="/checkout?plan=pro"
                 class="px-4 sm:px-6 py-2 sm:py-3 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap"
               >
                 💰 Upgrade Plan
@@ -138,6 +147,9 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
+import SubscriptionManagement from '../components/SubscriptionManagement.vue'
+import BillingDashboard from '../components/BillingDashboard.vue'
+import UsageDashboard from '../components/UsageDashboard.vue'
 
 const router = useRouter()
 

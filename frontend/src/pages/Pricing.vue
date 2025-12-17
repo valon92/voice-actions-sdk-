@@ -104,7 +104,7 @@
             </li>
           </ul>
           <router-link
-            to="/register-platform"
+            to="/register-platform?plan=pro"
             class="block w-full px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition text-center text-sm sm:text-base"
           >
             Start Pro Trial

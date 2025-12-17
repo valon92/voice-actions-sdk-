@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@sentry/vue": "^7.120.4",
+    "@stripe/stripe-js": "^8.6.0",
     "axios": "^1.6.0",
     "vue": "^3.4.0",
     "vue-router": "^4.2.5"
