@@ -20,58 +20,107 @@ class UsageBillingController extends Controller
      */
     public function getCurrentUsage(Request $request)
     {
-        $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
-        $platform = $this->verifyApiKey($apiKey);
-        
-        if (!$platform) {
+        try {
+            $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
+            $platform = $this->verifyApiKey($apiKey);
+            
+            if (!$platform) {
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Invalid API key'
+                ], 401);
+            }
+
+            $platformData = DB::table('platforms')->where('id', $platform['id'])->first();
+            
+            if (!$platformData) {
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Platform not found'
+                ], 404);
+            }
+
+            $month = now()->format('Y-m');
+            
+            // Get current month usage (check if table exists first)
+            $currentUsage = 0;
+            try {
+                $currentUsage = DB::table('usage_counters')
+                    ->where('platform_id', $platform['id'])
+                    ->where('month', $month)
+                    ->value('count') ?? 0;
+            } catch (\Exception $e) {
+                // Table might not exist, use default 0
+                if (config('app.debug')) {
+                    \Log::warning('usage_counters table might not exist: ' . $e->getMessage());
+                }
+            }
+
+            $plan = $platformData->plan ?? 'free';
+            $limit = $this->getPlanLimit($plan);
+            $overage = max(0, $currentUsage - $limit);
+            
+            // Get overage_rate safely
+            $overageRate = 0.01; // Default
+            try {
+                if (DB::getSchemaBuilder()->hasColumn('platforms', 'overage_rate')) {
+                    $overageRate = $platformData->overage_rate ?? 0.01;
+                }
+            } catch (\Exception $e) {
+                // Column might not exist, use default
+            }
+            
+            $overageAmount = $overage * $overageRate * 100; // Convert to cents
+
+            // Get subscription info (check if table exists)
+            $subscription = null;
+            try {
+                $subscription = DB::table('subscriptions')
+                    ->where('platform_id', $platform['id'])
+                    ->where('status', 'active')
+                    ->first();
+            } catch (\Exception $e) {
+                // Table might not exist
+                if (config('app.debug')) {
+                    \Log::warning('subscriptions table might not exist: ' . $e->getMessage());
+                }
+            }
+
+            $baseSubscriptionAmount = 0;
+            if ($subscription) {
+                $baseSubscriptionAmount = ($subscription->plan ?? 'free') === 'pro' ? 9900 : 0; // $99 në cents
+            }
+
+            return response()->json([
+                'success' => true,
+                'usage' => [
+                    'current' => (int) $currentUsage,
+                    'limit' => (int) $limit,
+                    'overage' => (int) $overage,
+                    'percentage' => $limit > 0 ? round(($currentUsage / $limit) * 100, 2) : 0,
+                    'days_remaining' => now()->daysInMonth - now()->day,
+                ],
+                'billing' => [
+                    'base_subscription' => $baseSubscriptionAmount / 100,
+                    'overage_rate' => $overageRate,
+                    'overage_amount' => $overageAmount / 100,
+                    'total_estimate' => ($baseSubscriptionAmount + $overageAmount) / 100,
+                ],
+                'plan' => $plan,
+                'has_subscription' => $subscription !== null,
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('getCurrentUsage error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'api_key' => substr($apiKey ?? '', 0, 10) . '...',
+            ]);
+
             return response()->json([
                 'success' => false,
-                'error' => 'Invalid API key'
-            ], 401);
+                'error' => 'Failed to load usage information',
+                'message' => config('app.debug') ? $e->getMessage() : 'An error occurred while loading usage information',
+            ], 500);
         }
-
-        $platformData = DB::table('platforms')->where('id', $platform['id'])->first();
-        $month = now()->format('Y-m');
-        
-        // Get current month usage
-        $currentUsage = DB::table('usage_counters')
-            ->where('platform_id', $platform['id'])
-            ->where('month', $month)
-            ->value('count') ?? 0;
-
-        $limit = $this->getPlanLimit($platformData->plan);
-        $overage = max(0, $currentUsage - $limit);
-        $overageAmount = $overage * ($platformData->overage_rate ?? 0.01) * 100; // Convert to cents
-
-        // Get subscription info
-        $subscription = DB::table('subscriptions')
-            ->where('platform_id', $platform['id'])
-            ->where('status', 'active')
-            ->first();
-
-        $baseSubscriptionAmount = 0;
-        if ($subscription) {
-            $baseSubscriptionAmount = $subscription->plan === 'pro' ? 9900 : 0; // $99 në cents
-        }
-
-        return response()->json([
-            'success' => true,
-            'usage' => [
-                'current' => $currentUsage,
-                'limit' => $limit,
-                'overage' => $overage,
-                'percentage' => $limit > 0 ? round(($currentUsage / $limit) * 100, 2) : 0,
-                'days_remaining' => now()->daysInMonth - now()->day,
-            ],
-            'billing' => [
-                'base_subscription' => $baseSubscriptionAmount / 100,
-                'overage_rate' => $platformData->overage_rate ?? 0.01,
-                'overage_amount' => $overageAmount / 100,
-                'total_estimate' => ($baseSubscriptionAmount + $overageAmount) / 100,
-            ],
-            'plan' => $platformData->plan,
-            'has_subscription' => $subscription !== null,
-        ]);
     }
 
     /**
