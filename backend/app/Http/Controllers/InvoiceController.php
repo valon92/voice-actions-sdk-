@@ -12,38 +12,60 @@ class InvoiceController extends Controller
      */
     public function list(Request $request)
     {
-        $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
-        $platform = $this->verifyApiKey($apiKey);
-        
-        if (!$platform) {
+        try {
+            $apiKey = $request->bearerToken() ?? $request->header('X-API-Key');
+            $platform = $this->verifyApiKey($apiKey);
+            
+            if (!$platform) {
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Invalid API key'
+                ], 401);
+            }
+
+            // Check if invoices table exists
+            $invoices = collect([]);
+            try {
+                $invoices = DB::table('invoices')
+                    ->where('platform_id', $platform['id'])
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+            } catch (\Exception $e) {
+                // Table might not exist, return empty array
+                if (config('app.debug')) {
+                    \Log::warning('invoices table might not exist: ' . $e->getMessage());
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'invoices' => $invoices->map(function ($invoice) {
+                    return [
+                        'id' => $invoice->id,
+                        'amount' => ($invoice->amount ?? 0) / 100, // Convert from cents
+                        'currency' => strtoupper($invoice->currency ?? 'usd'),
+                        'status' => $invoice->status ?? 'draft',
+                        'invoice_pdf_url' => $invoice->invoice_pdf_url,
+                        'invoice_hosted_url' => $invoice->invoice_hosted_url,
+                        'period_start' => $invoice->period_start,
+                        'period_end' => $invoice->period_end,
+                        'paid_at' => $invoice->paid_at,
+                        'created_at' => $invoice->created_at,
+                    ];
+                })
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('list invoices error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'api_key' => substr($request->bearerToken() ?? $request->header('X-API-Key') ?? '', 0, 10) . '...',
+            ]);
+
             return response()->json([
                 'success' => false,
-                'error' => 'Invalid API key'
-            ], 401);
+                'error' => 'Failed to load invoices',
+                'message' => config('app.debug') ? $e->getMessage() : 'An error occurred while loading invoices',
+            ], 500);
         }
-
-        $invoices = DB::table('invoices')
-            ->where('platform_id', $platform['id'])
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        return response()->json([
-            'success' => true,
-            'invoices' => $invoices->map(function ($invoice) {
-                return [
-                    'id' => $invoice->id,
-                    'amount' => $invoice->amount / 100, // Convert from cents
-                    'currency' => strtoupper($invoice->currency),
-                    'status' => $invoice->status,
-                    'invoice_pdf_url' => $invoice->invoice_pdf_url,
-                    'invoice_hosted_url' => $invoice->invoice_hosted_url,
-                    'period_start' => $invoice->period_start,
-                    'period_end' => $invoice->period_end,
-                    'paid_at' => $invoice->paid_at,
-                    'created_at' => $invoice->created_at,
-                ];
-            })
-        ]);
     }
 
     /**

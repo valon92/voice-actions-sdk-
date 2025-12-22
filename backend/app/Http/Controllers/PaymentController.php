@@ -14,7 +14,18 @@ class PaymentController extends Controller
 {
     public function __construct()
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+        // Only set Stripe API key if it's configured
+        $stripeSecret = env('STRIPE_SECRET');
+        if ($stripeSecret) {
+            try {
+                Stripe::setApiKey($stripeSecret);
+            } catch (\Exception $e) {
+                // Silently fail if Stripe is not configured
+                if (config('app.debug')) {
+                    \Log::warning('Stripe API key not configured: ' . $e->getMessage());
+                }
+            }
+        }
     }
 
     /**
