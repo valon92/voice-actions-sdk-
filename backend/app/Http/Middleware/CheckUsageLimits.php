@@ -35,12 +35,23 @@ class CheckUsageLimits
             ->value('count') ?? 0;
 
         // Get plan limits
-        $limit = $this->getPlanLimit($platform->plan);
+        $limit = $this->getPlanLimit($platform->plan ?? 'free');
         
-        // Update current usage në platform
-        DB::table('platforms')
-            ->where('id', $platformId)
-            ->update(['usage_current' => $currentUsage]);
+        // Update current usage në platform (nëse kolona ekziston)
+        // Use try-catch për të shmangur error nëse kolona nuk ekziston
+        try {
+            if (DB::getSchemaBuilder()->hasColumn('platforms', 'usage_current')) {
+                DB::table('platforms')
+                    ->where('id', $platformId)
+                    ->update(['usage_current' => $currentUsage]);
+            }
+        } catch (\Exception $e) {
+            // Silently fail - kolona mund të mos ekzistojë
+            // Log error në development
+            if (config('app.debug')) {
+                \Log::warning('Could not update usage_current: ' . $e->getMessage());
+            }
+        }
 
         // Check if limit exceeded
         if ($currentUsage >= $limit) {

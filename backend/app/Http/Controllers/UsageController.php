@@ -10,39 +10,72 @@ class UsageController extends Controller
 {
     public function getStats(Request $request)
     {
-        $platformId = $request->input('api_platform_id'); // Set by ApiKeyMiddleware
+        try {
+            $platformId = $request->input('api_platform_id'); // Set by ApiKeyMiddleware
 
-        if (!$platformId) {
+            if (!$platformId) {
+                return response()->json([
+                    'success' => false,
+                    'error' => 'Platform ID not found in request context.'
+                ], 400);
+            }
+
+            // Check if tables exist
+            $tablesExist = true;
+            try {
+                DB::table('usage_counters')->limit(1)->get();
+                DB::table('usage_tracking')->limit(1)->get();
+            } catch (\Exception $e) {
+                $tablesExist = false;
+            }
+
+            if (!$tablesExist) {
+                return response()->json([
+                    'success' => true,
+                    'stats' => [
+                        'total_commands' => 0,
+                        'monthly_commands' => 0,
+                        'last_30_days_commands' => 0,
+                    ],
+                ]);
+            }
+
+            $totalCommands = DB::table('usage_counters')
+                ->where('platform_id', $platformId)
+                ->sum('count') ?? 0;
+
+            $monthlyCommands = DB::table('usage_counters')
+                ->where('platform_id', $platformId)
+                ->where('month', now()->format('Y-m'))
+                ->value('count') ?? 0;
+
+            // Optimized query për SQLite - use index-friendly date comparison
+            $last30Days = DB::table('usage_tracking')
+                ->where('platform_id', $platformId)
+                ->where('event', 'command_executed')
+                ->where('timestamp', '>=', now()->subDays(30)->toDateTimeString())
+                ->count();
+
+            return response()->json([
+                'success' => true,
+                'stats' => [
+                    'total_commands' => (int) $totalCommands,
+                    'monthly_commands' => (int) $monthlyCommands,
+                    'last_30_days_commands' => (int) $last30Days,
+                ],
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Usage stats error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'platform_id' => $request->input('api_platform_id'),
+            ]);
+
             return response()->json([
                 'success' => false,
-                'error' => 'Platform ID not found in request context.'
-            ], 400);
+                'error' => 'Failed to load usage statistics',
+                'message' => config('app.debug') ? $e->getMessage() : 'An error occurred while loading statistics',
+            ], 500);
         }
-
-        $totalCommands = DB::table('usage_counters')
-            ->where('platform_id', $platformId)
-            ->sum('count');
-
-        $monthlyCommands = DB::table('usage_counters')
-            ->where('platform_id', $platformId)
-            ->where('month', now()->format('Y-m'))
-            ->value('count') ?? 0;
-
-        // Optimized query për SQLite - use index-friendly date comparison
-        $last30Days = DB::table('usage_tracking')
-            ->where('platform_id', $platformId)
-            ->where('event', 'command_executed')
-            ->where('timestamp', '>=', now()->subDays(30)->toDateTimeString())
-            ->count();
-
-        return response()->json([
-            'success' => true,
-            'stats' => [
-                'total_commands' => $totalCommands,
-                'monthly_commands' => $monthlyCommands,
-                'last_30_days_commands' => $last30Days,
-            ],
-        ]);
     }
 
     public function track(Request $request)
