@@ -104,7 +104,7 @@ const createCheckoutSession = async () => {
   error.value = null
 
   try {
-    const response = await axios.post('/api/payment/checkout', {
+    const response = await axios.post('/payment/checkout', {
       plan: selectedPlan.value,
       platform_id: platformId.value,
       success_url: `${window.location.origin}/platform/dashboard?session_id={CHECKOUT_SESSION_ID}`,

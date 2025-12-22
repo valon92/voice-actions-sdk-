@@ -93,7 +93,7 @@ const loadInvoices = async () => {
       return
     }
 
-    const response = await axios.get('/api/invoices', {
+    const response = await axios.get('/invoices', {
       headers: {
         'X-API-Key': apiKey,
       },

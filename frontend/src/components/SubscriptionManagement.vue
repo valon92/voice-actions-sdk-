@@ -113,7 +113,7 @@ const loadSubscription = async () => {
       return
     }
 
-    const response = await axios.get('/api/subscription/current', {
+    const response = await axios.get('/subscription/current', {
       headers: {
         'X-API-Key': apiKey,
       },
@@ -140,7 +140,7 @@ const cancelSubscription = async () => {
 
   try {
     const apiKey = getApiKey()
-    const response = await axios.post('/api/subscription/cancel', {}, {
+    const response = await axios.post('/subscription/cancel', {}, {
       headers: {
         'X-API-Key': apiKey,
       },
@@ -163,7 +163,7 @@ const resumeSubscription = async () => {
 
   try {
     const apiKey = getApiKey()
-    const response = await axios.post('/api/subscription/resume', {}, {
+    const response = await axios.post('/subscription/resume', {}, {
       headers: {
         'X-API-Key': apiKey,
       },

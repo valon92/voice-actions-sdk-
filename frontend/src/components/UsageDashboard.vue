@@ -141,7 +141,7 @@ const loadUsage = async () => {
       return
     }
 
-    const response = await axios.get('/api/usage/current', {
+    const response = await axios.get('/usage/current', {
       headers: {
         'X-API-Key': apiKey,
       },
