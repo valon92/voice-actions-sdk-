@@ -5,9 +5,11 @@
   "type": "module",
   "main": "dist/voice-actions-sdk.js",
   "module": "dist/voice-actions-sdk.esm.js",
+  "types": "index.d.ts",
   "files": [
     "dist",
     "src",
+    "index.d.ts",
     "README.md",
     "CHANGELOG.md"
   ],
